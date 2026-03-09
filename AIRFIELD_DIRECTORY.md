@@ -1405,6 +1405,161 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 
 ---
 
+### 64. PORTERVILLE AIRFIELD
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | None assigned |
+| **Coordinates** | S33°01'37" E18°59'55" |
+| **Elevation** | ~560 ft AMSL |
+| **Frequencies** | 124.8 MHz (area freq) ❓ |
+| **Access** | ✈️ Public — but within FAR45 restricted airspace |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 17/35 | 800 m | 15 m ❓ | Gravel | ❓ |
+
+**Notes:**
+- ⚠️ Within FAR45 restricted area — military clearance required for entry
+- Used by agricultural aircraft (Dromaders, Cessna 206, Turbo Thrush) and helicopter operations
+- Paragliding winch launching also occurs — watch for cables and gliders
+- AvCom reports suggest strip may have been widened to 45 m — verify locally
+- Beautiful Groot Winterhoek mountain backdrop
+- ~52 nm north-northeast of Morningstar
+
+---
+
+### 65. GROENBERG AIRFIELD (near Wellington)
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | None assigned |
+| **Coordinates** | S33°33'07" E19°03'46" ❓ |
+| **Elevation** | ❓ |
+| **Frequencies** | ❓ |
+| **Access** | 🔒 Private — contact owner for PPR |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | Grass ❓ | ❓ |
+
+**Notes:**
+- Private grass strip in the Wellington area
+- Mentioned on AvCom forum discussions — minimal public data available
+- ~35 nm east-northeast of Morningstar
+
+---
+
+### 66. ELGIN / GRABOUW AIRFIELD (FAEG)
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | FAEG ❓ (code may be contested — some databases associate with Egnep, Limpopo) |
+| **Coordinates** | S34°10'17" E19°03'10" ❓ |
+| **Elevation** | ~1,050 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | 🔒 Private / PPR |
+| **Night Ops** | 🚫 No |
+| **Fuel** | ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 14/32 ❓ | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Located on agricultural land in the Elgin Valley fruit-growing region
+- Over Sir Lowry's Pass from Somerset West
+- Cool climate area — watch for low cloud and mist, especially in winter
+- Verify ICAO code against current SACAA records before use
+- ~45 nm south-southeast of Morningstar
+
+---
+
+### 67. KERSEFONTEIN AIRFIELD (near Velddrif)
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | None assigned |
+| **Coordinates** | S32°53' E18°21' ❓ |
+| **Elevation** | ❓ (low-lying, near Berg River floodplain) |
+| **Frequencies** | ❓ |
+| **Access** | 🔒 Private / PPR |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Private airfield on historic Kersefontein farm, Bergrivier Municipality near Velddrif
+- Mentioned in SkyDemon / AvCom Western Cape discussions
+- Historical Cape Dutch farmstead
+- ~50 nm north of Morningstar
+
+---
+
+### 68. GROOTBOS AIRFIELD (near Gansbaai)
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | None assigned |
+| **Coordinates** | S34°32'13" E19°24'49" ❓ |
+| **Elevation** | ❓ |
+| **Frequencies** | ❓ |
+| **Access** | 🔒 Private — lodge guests only, PPR essential |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | Gravel/Dirt ❓ | ❓ |
+
+**Notes:**
+- Private airstrip at Grootbos Private Nature Reserve between Gansbaai and Stanford
+- ~13 km south of Stanford
+- Scenic flights offered to lodge guests
+- Listed on WC Government fire pre-attack plans
+- Contact the lodge for permission and strip condition: [grootbos.com](https://www.grootbos.com/)
+- ~67 nm south-southeast of Morningstar
+
+---
+
+### 69. TANKWA INTERNATIONAL (ZA-0218)
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | ZA-0218 |
+| **Coordinates** | S32°20'03" E19°45'13" |
+| **Elevation** | 1,036 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ❓ |
+| **Night Ops** | 🚫 No ❓ |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- ⚠️ Technically in Northern Cape province, but Tankwa Karoo straddles the provincial boundary
+- Very remote location in the Tankwa Karoo
+- Popular bush flying destination mentioned in AvCom discussions
+- Extreme heat in summer — high density altitude considerations
+- ~115 nm north-northeast of Morningstar
+
+---
+
 ---
 
 ## KEY RESOURCES

@@ -22,6 +22,7 @@ from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
     PageBreak, Image, KeepTogether, Flowable
 )
+from reportlab.platypus.flowables import AnchorFlowable
 from reportlab.pdfgen import canvas
 from reportlab.platypus.doctemplate import PageTemplate, BaseDocTemplate, Frame
 from reportlab.lib.utils import ImageReader
@@ -118,6 +119,32 @@ def get_styles():
         'RunwayCell', parent=styles['Normal'],
         fontSize=6, leading=7, textColor=black,
         fontName='Helvetica', alignment=TA_CENTER,
+    ))
+    styles.add(ParagraphStyle(
+        'TOCTitle', parent=styles['Normal'],
+        fontSize=11, leading=14, textColor=COLOR_HEADER_BG,
+        fontName='Helvetica-Bold', alignment=TA_CENTER,
+        spaceBefore=2, spaceAfter=4,
+    ))
+    styles.add(ParagraphStyle(
+        'TOCGroupHeader', parent=styles['Normal'],
+        fontSize=7, leading=9, textColor=COLOR_ACCENT,
+        fontName='Helvetica-Bold', spaceBefore=3, spaceAfter=1,
+    ))
+    styles.add(ParagraphStyle(
+        'TOCEntry', parent=styles['Normal'],
+        fontSize=6.5, leading=8.5, textColor=black,
+        fontName='Helvetica',
+    ))
+    styles.add(ParagraphStyle(
+        'TOCEntryCode', parent=styles['Normal'],
+        fontSize=5.5, leading=8.5, textColor=HexColor('#718096'),
+        fontName='Helvetica',
+    ))
+    styles.add(ParagraphStyle(
+        'TOCPageNum', parent=styles['Normal'],
+        fontSize=6.5, leading=8.5, textColor=COLOR_ACCENT,
+        fontName='Helvetica-Bold', alignment=TA_RIGHT,
     ))
 
     return styles
@@ -578,7 +605,7 @@ def find_diagram(airfield):
     return None
 
 
-def build_cover_page(styles):
+def build_cover_page(styles, airfield_count=69):
     """Build the cover page."""
     elements = []
     elements.append(Spacer(1, 20 * mm))
@@ -611,7 +638,7 @@ def build_cover_page(styles):
         fontSize=7, leading=9, textColor=HexColor('#718096'),
         fontName='Helvetica', alignment=TA_CENTER,
     )
-    elements.append(Paragraph("63 Airfields | 8 Geographic Groups", info_style))
+    elements.append(Paragraph(f"{airfield_count} Airfields | 8 Geographic Groups", info_style))
     elements.append(Paragraph("One page per airfield for quick reference", info_style))
     elements.append(Spacer(1, 15 * mm))
 
@@ -706,25 +733,115 @@ def build_freq_reference_page(styles):
     return elements
 
 
-def generate_pdf(airfields, output_path):
-    """Generate the complete A5 PDF."""
-    styles = get_styles()
+class PageTracker(Flowable):
+    """Invisible flowable that records which page it lands on."""
+    def __init__(self, key, tracker_dict):
+        Flowable.__init__(self)
+        self.key = key
+        self.tracker_dict = tracker_dict
+        self.width = 0
+        self.height = 0
 
-    doc = SimpleDocTemplate(
-        output_path,
-        pagesize=A5,
-        leftMargin=MARGIN,
-        rightMargin=MARGIN,
-        topMargin=MARGIN,
-        bottomMargin=10 * mm,  # Extra for page number
-        title="Western Cape Airfield Directory",
-        author="Compiled from SACAA AIP & public sources",
-    )
+    def draw(self):
+        page = self.canv.getPageNumber()
+        self.tracker_dict[self.key] = page
 
+
+def build_toc_pages(airfields, page_map, styles):
+    """Build clickable table of contents pages."""
+    elements = []
+
+    # Header
+    header_data = [[Paragraph("<b>AIRFIELD INDEX</b>", styles['FieldName'])]]
+    header_table = Table(header_data, colWidths=[CONTENT_WIDTH])
+    header_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, -1), COLOR_HEADER_BG),
+        ('TOPPADDING', (0, 0), (-1, -1), 3),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 4),
+    ]))
+    elements.append(header_table)
+    elements.append(Spacer(1, 2 * mm))
+
+    current_group = ''
+    toc_rows = []
+
+    for airfield in airfields:
+        group = airfield.get('group', '')
+        if group and group != current_group:
+            current_group = group
+            # Flush current rows as a table
+            if toc_rows:
+                elements.append(_make_toc_table(toc_rows, styles))
+                toc_rows = []
+            # Group header
+            group_clean = clean_text(group)
+            elements.append(Paragraph(f"<b>{group_clean}</b>", styles['TOCGroupHeader']))
+
+        num = airfield['number']
+        name_clean = clean_text(airfield['name'])
+        if len(name_clean) > 38:
+            name_clean = name_clean[:35] + '...'
+
+        f = airfield['fields']
+        code = f.get('ICAO', f.get('ICAO / Code', f.get('Code', '')))
+        code_clean = clean_text(code).split('(')[0].split(';')[0].strip()[:12]
+
+        anchor_name = f"airfield_{num}"
+        page_num = page_map.get(anchor_name, '?')
+
+        # Clickable link to the airfield page
+        link_text = f'<a href="#{anchor_name}" color="#1a365d">{name_clean}</a>'
+        page_text = f'<a href="#{anchor_name}" color="#2b6cb0"><b>{page_num}</b></a>'
+
+        toc_rows.append((link_text, code_clean, page_text))
+
+    # Flush remaining rows
+    if toc_rows:
+        elements.append(_make_toc_table(toc_rows, styles))
+
+    elements.append(PageBreak())
+    return elements
+
+
+def _make_toc_table(rows, styles):
+    """Create a table of TOC entries."""
+    table_data = []
+    for link_text, code, page_text in rows:
+        table_data.append([
+            Paragraph(link_text, styles['TOCEntry']),
+            Paragraph(code, styles['TOCEntryCode']),
+            Paragraph(page_text, styles['TOCPageNum']),
+        ])
+
+    toc_table = Table(table_data,
+                      colWidths=[CONTENT_WIDTH * 0.68, CONTENT_WIDTH * 0.18, CONTENT_WIDTH * 0.14])
+    style_cmds = [
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('TOPPADDING', (0, 0), (-1, -1), 0.8),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 0.8),
+        ('LEFTPADDING', (0, 0), (0, -1), 2),
+        ('LEFTPADDING', (1, 0), (1, -1), 2),
+        ('RIGHTPADDING', (-1, 0), (-1, -1), 2),
+        ('LINEBELOW', (0, 0), (-1, -1), 0.15, COLOR_BORDER),
+    ]
+    for i in range(len(table_data)):
+        if i % 2 == 1:
+            style_cmds.append(('BACKGROUND', (0, i), (-1, i), COLOR_ROW_ALT))
+    toc_table.setStyle(TableStyle(style_cmds))
+    return toc_table
+
+
+def build_story(airfields, styles, page_map, include_toc=False):
+    """Build the full story (list of flowables) for the PDF."""
     story = []
 
     # Cover page
-    story.extend(build_cover_page(styles))
+    story.extend(build_cover_page(styles, airfield_count=len(airfields)))
+
+    # TOC pages (only on second pass when we have page numbers)
+    if include_toc:
+        story.extend(build_toc_pages(airfields, page_map, styles))
 
     # Frequency reference page
     story.extend(build_freq_reference_page(styles))
@@ -739,13 +856,81 @@ def generate_pdf(airfields, output_path):
             story.append(Paragraph(clean_text(group), styles['GroupTitle']))
             story.append(Spacer(1, 1 * mm))
 
+        # Anchor for this airfield (for TOC linking)
+        anchor_name = f"airfield_{airfield['number']}"
+        story.append(AnchorFlowable(anchor_name))
+        story.append(PageTracker(anchor_name, page_map))
+
         # Build airfield page
         page_elements = build_airfield_page(airfield, styles)
         story.extend(page_elements)
         story.append(PageBreak())
 
-    # Build the PDF
-    doc.build(story, onFirstPage=draw_page_background, onLaterPages=draw_page_background)
+    return story
+
+
+def generate_pdf(airfields, output_path):
+    """Generate the complete A5 PDF with clickable TOC (two-pass build)."""
+    styles = get_styles()
+    page_map = {}
+
+    # ── Pass 1: Build without TOC to capture page numbers ──
+    print("  Pass 1: Calculating page numbers...")
+    tmp_path = output_path + '.tmp'
+    doc1 = SimpleDocTemplate(
+        tmp_path, pagesize=A5,
+        leftMargin=MARGIN, rightMargin=MARGIN,
+        topMargin=MARGIN, bottomMargin=10 * mm,
+    )
+    story1 = build_story(airfields, styles, page_map, include_toc=False)
+    doc1.build(story1, onFirstPage=draw_page_background, onLaterPages=draw_page_background)
+
+    # Estimate TOC page count (affects page offsets)
+    n_airfields = len(airfields)
+    # ~30 entries per TOC page at current font size
+    toc_pages = max(1, (n_airfields + 29) // 30)
+    # Adjust page numbers by the TOC pages being inserted
+    adjusted_map = {k: v + toc_pages for k, v in page_map.items()}
+
+    # ── Pass 2: Build with TOC using adjusted page numbers ──
+    print(f"  Pass 2: Building PDF with {toc_pages}-page TOC...")
+    page_map2 = {}
+    doc2 = SimpleDocTemplate(
+        output_path, pagesize=A5,
+        leftMargin=MARGIN, rightMargin=MARGIN,
+        topMargin=MARGIN, bottomMargin=10 * mm,
+        title="Western Cape Airfield Directory",
+        author="Compiled from SACAA AIP & public sources",
+    )
+    story2 = build_story(airfields, styles, page_map2, include_toc=False)
+
+    # Now build with TOC using adjusted page numbers
+    story_final = []
+    story_final.extend(build_cover_page(styles, airfield_count=len(airfields)))
+    story_final.extend(build_toc_pages(airfields, adjusted_map, styles))
+    story_final.extend(build_freq_reference_page(styles))
+
+    current_group = ''
+    for airfield in airfields:
+        group = airfield.get('group', '')
+        if group and group != current_group:
+            current_group = group
+            story_final.append(Paragraph(clean_text(group), styles['GroupTitle']))
+            story_final.append(Spacer(1, 1 * mm))
+
+        anchor_name = f"airfield_{airfield['number']}"
+        story_final.append(AnchorFlowable(anchor_name))
+
+        page_elements = build_airfield_page(airfield, styles)
+        story_final.extend(page_elements)
+        story_final.append(PageBreak())
+
+    doc2.build(story_final, onFirstPage=draw_page_background, onLaterPages=draw_page_background)
+
+    # Clean up temp file
+    if os.path.exists(tmp_path):
+        os.remove(tmp_path)
+
     print(f"PDF generated: {output_path}")
     print(f"Total airfields: {len(airfields)}")
 
