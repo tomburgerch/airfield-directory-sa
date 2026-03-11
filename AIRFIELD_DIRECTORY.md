@@ -33,7 +33,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | **Coordinates** | S33°45'44" E18°32'55" |
 | **Elevation** | 200 ft AMSL |
 | **Frequencies** | **126.8 MHz** (changed Oct 2020 from 124.8) |
-| **Joining Alt** | ~1200 ft AMSL |
+| **Joining Alt** | ~1500 ft AMSL |
 | **Circuit Alt** | ~1000 ft AMSL |
 | **Access** | 🔒 Club members & visitors (contact MSFA) |
 | **Night Ops** | 🚫 No |
