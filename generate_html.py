@@ -97,101 +97,132 @@ body {
 }
 .container { max-width: 900px; margin: 0 auto; padding: 16px; }
 
-/* ── Header / Nav ── */
+/* ── Unified Header ── */
 .site-header {
     background: var(--navy);
     color: white;
-    padding: 12px 0;
+    padding: 10px 0 8px;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-.site-header .container { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-.site-header h1 { font-size: 18px; flex-shrink: 0; color: #FFD700; }
-.site-header h1 span { font-weight: 400; font-size: 13px; color: rgba(255,255,255,0.7); display: block; }
+.header-top {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    max-width: 900px; margin: 0 auto; padding: 0 16px;
+}
+.site-header h1 { font-size: 16px; flex-shrink: 0; color: #FFD700; line-height: 1.2; }
+.site-header h1 span { font-weight: 400; font-size: 11px; color: rgba(255,255,255,0.6); display: block; }
 .search-wrapper {
-    flex: 1; min-width: 200px; position: relative;
+    flex: 1; min-width: 180px; position: relative;
 }
 #search-box {
     width: 100%;
-    padding: 9px 36px 9px 14px; border: none; border-radius: 6px;
-    font-size: 14px; background: rgba(255,255,255,0.15);
+    padding: 7px 32px 7px 12px; border: none; border-radius: 5px;
+    font-size: 13px; background: rgba(255,255,255,0.13);
     color: white;
     transition: background 0.2s;
 }
-#search-box::placeholder { color: rgba(255,255,255,0.6); }
-#search-box:focus { outline: none; background: rgba(255,255,255,0.25); }
+#search-box::placeholder { color: rgba(255,255,255,0.5); }
+#search-box:focus { outline: none; background: rgba(255,255,255,0.22); }
 #clear-search {
-    position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
     background: none; border: none; color: rgba(255,255,255,0.5);
-    font-size: 18px; cursor: pointer; display: none; padding: 4px;
+    font-size: 16px; cursor: pointer; display: none; padding: 2px;
 }
 #clear-search:hover { color: white; }
-#search-count {
-    font-size: 11px; color: rgba(255,255,255,0.7);
-    margin-top: 2px; min-height: 16px;
+.header-actions {
+    display: flex; gap: 5px; flex-wrap: wrap; align-items: center;
 }
-
-/* ── Toolbar ── */
-.toolbar {
-    background: #2d2d2d;
-    padding: 6px 0;
-}
-.toolbar .container {
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 6px;
-}
-.toolbar-links { display: flex; gap: 6px; flex-wrap: wrap; }
-.toolbar a, .toolbar button {
+.header-actions a, .header-actions button {
     color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
-    padding: 5px 14px;
+    padding: 4px 10px;
     border-radius: 4px;
-    background: rgba(255,255,255,0.15);
-    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.12);
+    display: inline-flex; align-items: center; gap: 4px;
     border: none; cursor: pointer;
     transition: background 0.2s;
+    white-space: nowrap;
 }
-.toolbar a:hover, .toolbar button:hover { background: rgba(255,255,255,0.3); }
-.toolbar .updated {
-    font-size: 11px; color: rgba(255,255,255,0.75);
-    font-weight: 400;
-}
+.header-actions a:hover, .header-actions button:hover { background: rgba(255,255,255,0.25); }
 .contact-tip {
     color: white;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
-    padding: 5px 14px;
+    padding: 4px 10px;
     border-radius: 4px;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
     cursor: help;
-    position: relative;
 }
-.contact-tip:hover { background: rgba(255,255,255,0.3); }
+.contact-tip:hover { background: rgba(255,255,255,0.25); }
 .contact-tooltip {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%; transform: translateX(-50%);
-    padding-top: 8px;
-    z-index: 100;
+    position: fixed;
+    z-index: 9999;
 }
 .contact-tooltip-inner {
-    background: var(--navy);
+    background: #333;
     color: white;
     padding: 10px 14px;
     border-radius: 6px;
     font-size: 12px;
     font-weight: 400;
     white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     line-height: 1.6;
 }
 .contact-tooltip-inner a { color: #FFD700; text-decoration: underline; }
 .contact-tip:hover .contact-tooltip { display: block; }
+.header-bottom {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    max-width: 900px; margin: 6px auto 0; padding: 0 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 7px;
+}
+.header-bottom .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    margin-right: 2px;
+}
+.header-bottom .filter-btn {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.header-bottom .filter-btn:hover { border-color: #FFD700; color: #FFD700; }
+.header-bottom .filter-btn.active {
+    background: #FFD700;
+    color: var(--navy);
+    border-color: #FFD700;
+    font-weight: 700;
+}
+.header-bottom .filter-sep {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.15);
+}
+#search-count {
+    font-size: 10px; color: rgba(255,255,255,0.6);
+    margin-left: auto;
+}
+#filter-count {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+}
+.header-bottom .updated {
+    font-size: 10px; color: rgba(255,255,255,0.45);
+    margin-left: auto;
+}
 
 /* ── Nearby panel ── */
 #nearby-panel {
@@ -432,52 +463,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-radius: 6px;
 }
 
-/* ── Filters ── */
-.filter-bar {
-    background: white;
-    border-radius: 8px;
-    padding: 10px 16px;
-    margin: 12px 0 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-}
-.filter-bar .filter-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-muted);
-    margin-right: 4px;
-}
-.filter-btn {
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 14px;
-    border: 1.5px solid var(--border);
-    background: white;
-    color: var(--text);
-    cursor: pointer;
-    transition: all 0.15s;
-    font-weight: 500;
-}
-.filter-btn:hover { border-color: var(--blue); color: var(--blue); }
-.filter-btn.active {
-    background: var(--blue);
-    color: white;
-    border-color: var(--blue);
-}
-.filter-sep {
-    width: 1px;
-    height: 20px;
-    background: var(--border);
-    margin: 0 2px;
-}
-#filter-count {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-left: auto;
-}
+/* (filters are in the unified header) */
 
 /* ── No results ── */
 #no-results {
@@ -491,17 +477,20 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 /* ── Responsive ── */
 @media (max-width: 600px) {
     .info-grid { grid-template-columns: 100px 1fr; font-size: 12px; }
-    .site-header h1 { font-size: 15px; }
-    .site-header h1 span { font-size: 11px; }
+    .site-header h1 { font-size: 14px; }
+    .site-header h1 span { font-size: 10px; }
     .toc-grid { grid-template-columns: 1fr; }
-    .toolbar .container { justify-content: center; }
+    .header-top { gap: 8px; }
+    .header-actions { gap: 3px; }
+    .header-bottom { gap: 4px; }
+    .header-bottom .updated { display: none; }
 }
 @media print {
     .site-header { position: static; }
     .airfield-card { page-break-inside: avoid; }
     .back-to-top { display: none !important; }
     #search-box, #clear-search, #search-count { display: none; }
-    .toolbar { display: none; }
+    .header-actions, .header-bottom { display: none; }
     #nearby-panel { display: none !important; }
 }
 """
@@ -532,6 +521,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (key === 'surface-grass' && (card.dataset.surface || '').indexOf('grass') === -1) return false;
             if (key === 'access-public' && card.dataset.access !== 'public') return false;
             if (key === 'access-ppr' && card.dataset.access !== 'ppr') return false;
+            if (key === 'towered' && card.dataset.towered !== '1') return false;
         }
         return true;
     }
@@ -607,6 +597,18 @@ document.addEventListener('DOMContentLoaded', function() {
             searchBox.blur();
         }
     });
+
+    // --- Position contact tooltip with fixed positioning ---
+    var contactTip = document.querySelector('.contact-tip');
+    var contactTooltip = document.querySelector('.contact-tooltip');
+    if (contactTip && contactTooltip) {
+        contactTip.addEventListener('mouseenter', function() {
+            var rect = contactTip.getBoundingClientRect();
+            contactTooltip.style.top = (rect.bottom + 6) + 'px';
+            contactTooltip.style.left = (rect.left + rect.width / 2) + 'px';
+            contactTooltip.style.transform = 'translateX(-50%)';
+        });
+    }
 
     // --- Geolocation: find nearest airfields ---
     var nearbyBtn = document.getElementById('nearby-btn');
@@ -725,7 +727,18 @@ def build_airfield_card(airfield, embed_diagrams=False):
     else:
         access_type = 'other'
 
-    filter_attrs = f' data-fuel="{has_fuel}" data-night="{has_night}" data-surface="{surface_attr}" data-access="{access_type}"'
+    # Towered: check for TWR or Tower in frequencies
+    freq_val = clean_html(f.get('Frequencies', f.get('Frequency', ''))).upper()
+    has_tower = 'TWR' in freq_val or 'TOWER' in freq_val
+    if not has_tower:
+        for frow in airfield.get('frequencies_table', []):
+            row_text = ' '.join(clean_html(c) for c in frow).upper()
+            if 'TWR' in row_text or 'TOWER' in row_text:
+                has_tower = True
+                break
+    towered_attr = '1' if has_tower else '0'
+
+    filter_attrs = f' data-fuel="{has_fuel}" data-night="{has_night}" data-surface="{surface_attr}" data-access="{access_type}" data-towered="{towered_attr}"'
 
     html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}"{coord_attrs}{filter_attrs}>\n'
     html += f'  <div class="airfield-header {header_class}">\n'
@@ -851,29 +864,22 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
     html += '<title>Wagyu Wings — SA Airfield Directory</title>\n'
 
-    # Embed favicon as inline SVG data URI
-    favicon_link = ''
-    if os.path.exists(FAVICON_FILE):
-        with open(FAVICON_FILE, 'r', encoding='utf-8') as fav:
-            svg_data = fav.read().replace('\n', ' ').replace('"', "'")
-        favicon_link = f'<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,{svg_data}">\n'
-    html += favicon_link
+    # Favicon links
+    html += '<link rel="icon" type="image/png" href="favicon.png">\n'
+    html += '<link rel="icon" type="image/x-icon" href="favicon.ico">\n'
+    html += '<link rel="apple-touch-icon" href="apple-touch-icon.png">\n'
     html += f'<style>{CSS}</style>\n'
     html += '</head>\n<body>\n'
 
-    # Header with search
-    html += '<header class="site-header">\n<div class="container">\n'
+    # Unified header: logo + search + actions + filters
+    html += '<header class="site-header">\n'
+    html += '<div class="header-top">\n'
     html += '<h1>Wagyu Wings <span>SA Airfield Directory</span></h1>\n'
     html += '<div class="search-wrapper">\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
     html += '<button id="clear-search" title="Clear search">&times;</button>\n'
     html += '</div>\n'
-    html += '<div id="search-count"></div>\n'
-    html += '</div>\n</header>\n'
-
-    # Toolbar (downloads + nearby + updated date)
-    html += '<div class="toolbar">\n<div class="container">\n'
-    html += '<div class="toolbar-links">\n'
+    html += '<div class="header-actions">\n'
     if download_links:
         for link in download_links:
             dl_attr = f' download="{escape(link["href"].split("/")[-1])}"' if link.get('download', True) else ''
@@ -881,8 +887,25 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '  <button id="nearby-btn" style="display:none;">Find Nearest</button>\n'
     html += '  <span class="contact-tip">Contact<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
     html += '</div>\n'
+    html += '</div>\n'
+
+    # Second row: filters + counts + date
+    html += '<div class="header-bottom" id="filter-bar">\n'
+    html += '<span class="filter-label">Filter:</span>\n'
+    html += '<button class="filter-btn" data-filter="fuel">Fuel</button>\n'
+    html += '<button class="filter-btn" data-filter="night">Night Ops</button>\n'
+    html += '<button class="filter-btn" data-filter="towered">Towered</button>\n'
+    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" data-filter="surface-paved">Paved</button>\n'
+    html += '<button class="filter-btn" data-filter="surface-grass">Grass</button>\n'
+    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" data-filter="access-public">Public</button>\n'
+    html += '<button class="filter-btn" data-filter="access-ppr">PPR</button>\n'
+    html += '<span id="filter-count"></span>\n'
+    html += '<span id="search-count"></span>\n'
     html += f'<span class="updated">Updated {build_date}</span>\n'
-    html += '</div>\n</div>\n'
+    html += '</div>\n'
+    html += '</header>\n'
 
     html += '<div class="container">\n'
 
@@ -891,20 +914,6 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<h2>Nearest Airfields</h2>\n'
     html += '<div id="nearby-status" class="nearby-status"></div>\n'
     html += '<ul id="nearby-list" class="nearby-list"></ul>\n'
-    html += '</div>\n'
-
-    # Filter bar
-    html += '<div class="filter-bar" id="filter-bar">\n'
-    html += '<span class="filter-label">Filter:</span>\n'
-    html += '<button class="filter-btn" data-filter="fuel">Fuel</button>\n'
-    html += '<button class="filter-btn" data-filter="night">Night Ops</button>\n'
-    html += '<span class="filter-sep"></span>\n'
-    html += '<button class="filter-btn" data-filter="surface-paved">Paved</button>\n'
-    html += '<button class="filter-btn" data-filter="surface-grass">Grass</button>\n'
-    html += '<span class="filter-sep"></span>\n'
-    html += '<button class="filter-btn" data-filter="access-public">Public</button>\n'
-    html += '<button class="filter-btn" data-filter="access-ppr">PPR</button>\n'
-    html += '<span id="filter-count"></span>\n'
     html += '</div>\n'
 
     # Build per-province airfield lists for TOC

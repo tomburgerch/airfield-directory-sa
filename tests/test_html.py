@@ -170,7 +170,7 @@ class TestGenerateHtml:
             generate_html(airfields[:1], tmp, download_links=links)
             with open(tmp, 'r') as f:
                 html = f.read()
-            assert 'toolbar' in html
+            assert 'header-actions' in html
             assert 'Download PDF' in html
             assert 'Download MD' in html
             assert 'href="test.pdf"' in html
