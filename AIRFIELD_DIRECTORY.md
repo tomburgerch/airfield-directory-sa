@@ -5964,6 +5964,703 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 
 ---
 
+
+## GAUTENG
+
+---
+
+### 235. BRAKPAN AIRFIELD (FABB)
+| Field | Detail |
+|---|---|
+| **ICAO** | FABB |
+| **Coordinates** | S26°15'00" E28°22'00" |
+| **Elevation** | 5300 ft AMSL |
+| **Access** | PPR |
+| **Frequencies** | **122.7 MHz** |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 18/36 | 1440 m | — | Asphalt | 6000 ft (FAJS QNH) |
+
+**Notes:**
+- East Rand area GA airfield, 180 m stopways each end
+- Data sourced from aviation databases ❓
+
+---
+
+### 236. HEIDELBERG AIRFIELD (FAHG)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAHG |
+| **Coordinates** | S26°30'30" E28°23'30" |
+| **Elevation** | 5067 ft AMSL |
+| **Access** | PPR |
+| **Frequencies** | **125.9 MHz** |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 06/24 | 1194 m | 19 m | Asphalt | ⬅️ |
+
+**Notes:**
+- Active GA airfield south-east of Johannesburg
+- VOR: Heidelberg (HGV) 116.7 MHz
+
+---
+
+### 237. VEREENIGING / AEROVAAL AIRFIELD (FAVV)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAVV |
+| **Coordinates** | S26°34'12" E27°57'29" |
+| **Elevation** | 4846 ft AMSL |
+| **Access** | PPR |
+| **Frequencies** | **122.1 MHz** |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 03/21 | 1605 m | 22 m | Asphalt | ⬅️ |
+| 15/33 | 1135 m | 16 m | Asphalt | ⬅️ |
+
+**Notes:**
+- Active GA airfield south of Johannesburg
+- NDB: VV 460 KHz, lighting on 03/21 (not always functional)
+
+---
+
+### 238. PETIT AIRFIELD (FARA)
+| Field | Detail |
+|---|---|
+| **ICAO** | FARA |
+| **Coordinates** | S26°15'00" E28°25'00" |
+| **Elevation** | 5300 ft AMSL ❓ |
+| **Access** | PPR |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Near Daveyton/Springs, east of Johannesburg
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 239. CARLETONVILLE AIRFIELD (FACR)
+| Field | Detail |
+|---|---|
+| **ICAO** | FACR |
+| **Coordinates** | S26°21'00" E27°23'00" |
+| **Elevation** | 5200 ft AMSL ❓ |
+| **Access** | PPR |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- West Rand mining area
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 240. AFB SWARTKOP (FASK)
+| Field | Detail |
+|---|---|
+| **ICAO** | FASK |
+| **Coordinates** | S25°48'30" E28°09'45" |
+| **Elevation** | 4794 ft AMSL |
+| **Access** | 🪖 Military |
+| **Frequencies** | **TWR 123.2 MHz**, GND 121.75 MHz |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 02/20 | 1987 m | — | Asphalt | — |
+| 06/24 | 2008 m | — | Asphalt | — |
+
+**Notes:**
+- SA's oldest air force base, houses SAAF Museum, Centurion/Pretoria
+- ⚠️ Military airfield — civilian access restricted
+
+---
+
+### 241. WATERKLOOF AFB (FAWK)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAWK |
+| **Coordinates** | S25°49'48" E28°13'23" |
+| **Elevation** | 4940 ft AMSL |
+| **Access** | 🪖 Military |
+| **Frequencies** | **134.4 MHz**, APP 116.9 / 127.5, GND 121.85, 124.1 MHz |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 01/19 | 3353 m | 45 m | Asphalt | — |
+| 06/24 | 1920 m | 45 m | Asphalt | — |
+
+**Notes:**
+- Major military base, Pretoria, IATA: WKF
+- ⚠️ Military airfield — civilian access restricted, VIP flights
+
+## KWAZULU-NATAL
+
+---
+
+### 242. PHINDA / ZULU INYALA AIRFIELD (FADQ)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADQ |
+| **Coordinates** | S27°51'00" E32°19'00" |
+| **Elevation** | 200 ft AMSL ❓ |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | FedAir ops freq ❓ |
+
+**Notes:**
+- Bush strip in Phinda Private Game Reserve, IATA: PZL
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 243. DUKUDUKU / MTUBATUBA AIRFIELD (FADK)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADK |
+| **Coordinates** | S28°25'00" E32°10'00" |
+| **Elevation** | 200 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- 1223m concrete runway near iSimangaliso Wetland Park
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 244. DRAKENSBERG GARDENS AIRFIELD (FADZ)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADZ |
+| **Coordinates** | S29°44'00" E29°14'00" |
+| **Elevation** | 5500 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Southern Drakensberg area, popular fly-in destination
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 245. ESTCOURT AIRFIELD (FAEC)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAEC |
+| **Coordinates** | S29°01'00" E29°52'00" |
+| **Elevation** | 3800 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- 2 runways (01/19 and 14/32), KZN Midlands area
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 246. EMPANGENI AIRFIELD (FAEM)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAEM |
+| **Coordinates** | S28°44'00" E31°53'00" |
+| **Elevation** | 300 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Zululand area near Richards Bay, IATA: EMG
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 247. EL MIRADOR AIRFIELD (FALQ)
+| Field | Detail |
+|---|---|
+| **ICAO** | FALQ |
+| **Coordinates** | S29°04'00" E29°33'00" |
+| **Elevation** | 4500 ft AMSL ❓ |
+| **Access** | PPR |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Central Drakensberg, runway 06/24, near Winterton, popular fly-in
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+## EASTERN CAPE
+
+---
+
+### 248. CAPE ST FRANCIS AIRFIELD (FACS)
+| Field | Detail |
+|---|---|
+| **ICAO** | FACS |
+| **Coordinates** | S34°12'00" E24°50'00" |
+| **Elevation** | 100 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Coastal strip near Jeffreys Bay
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 249. DARLINGTON DAM AIRFIELD (FADP)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADP |
+| **Coordinates** | S32°32'00" E25°42'00" |
+| **Elevation** | 1600 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Near Graaff-Reinet/Adelaide area
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 250. SEAVIEW AIRFIELD (FAEW)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAEW |
+| **Coordinates** | S34°00'04" E25°21'07" |
+| **Elevation** | 200 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Runway 10/28, near Port Elizabeth
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 251. IDUTYWA AIRFIELD (FAID)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAID |
+| **Coordinates** | S32°05'00" E28°19'00" |
+| **Elevation** | 2300 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Rural Eastern Cape strip
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 252. PROGRESS AIRFIELD (FAPZ)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPZ |
+| **Coordinates** | S33°55'30" E25°22'19" |
+| **Elevation** | 200 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Near Port Elizabeth area
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 253. WAVECREST AIRFIELD (FAWR)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAWR |
+| **Coordinates** | S32°35'00" E28°32'00" |
+| **Elevation** | 200 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Wild Coast area, coastal strip
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+## FREE STATE
+
+---
+
+### 254. SENEKAL AIRFIELD (FASN)
+| Field | Detail |
+|---|---|
+| **ICAO** | FASN |
+| **Coordinates** | S28°19'00" E27°38'00" |
+| **Elevation** | 5200 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Small town airfield in the Free State
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+## NORTHERN CAPE
+
+---
+
+### 255. ASKHAM AIRFIELD (FAAK)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAAK |
+| **Coordinates** | S28°34'00" E20°46'00" |
+| **Elevation** | 2800 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Kalahari area, remote strip
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 256. ALKANTPAN AIRFIELD (FACO)
+| Field | Detail |
+|---|---|
+| **ICAO** | FACO |
+| **Coordinates** | S28°35'00" E23°44'00" |
+| **Elevation** | 3800 ft AMSL ❓ |
+| **Access** | 🪖 Military |
+| **Frequencies** | Restricted ❓ |
+
+**Notes:**
+- SA military weapons testing range
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 257. FLAMINGO VLEI AIRFIELD (FAFG)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAFG |
+| **Coordinates** | S28°45'00" E24°00'00" |
+| **Elevation** | 3500 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Near AFB Flamingo area
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 258. FRASERBURG AIRFIELD (FAFR)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAFR |
+| **Coordinates** | S31°55'00" E21°30'00" |
+| **Elevation** | 4800 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Karoo town airfield
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 259. LIME ACRES / FINSCH MINE AIRFIELD (FALC)
+| Field | Detail |
+|---|---|
+| **ICAO** | FALC |
+| **Coordinates** | S28°23'00" E23°26'00" |
+| **Elevation** | 5200 ft AMSL ❓ |
+| **Access** | 🔒 Private (mine) |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- De Beers diamond mine airfield
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 260. LOERIESFONTEIN AIRFIELD (FALF)
+| Field | Detail |
+|---|---|
+| **ICAO** | FALF |
+| **Coordinates** | S30°57'00" E19°27'00" |
+| **Elevation** | 3400 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Karoo area
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 261. TSWALU / WITBERG AIRFIELD (FATW)
+| Field | Detail |
+|---|---|
+| **ICAO** | FATW |
+| **Coordinates** | S27°12'11" E22°28'52" |
+| **Elevation** | 3500 ft AMSL ❓ |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Tswalu Kalahari Reserve — largest private reserve in SA, runway 18/36
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 262. ORANIA AIRFIELD (FAIH)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAIH |
+| **Coordinates** | S29°49'00" E24°25'00" |
+| **Elevation** | 3700 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Airstrip near Orania settlement
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+## NORTH WEST
+
+---
+
+### 263. MADIKWE EAST AIRFIELD (FAMK)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAMK |
+| **Coordinates** | S24°47'00" E26°29'00" |
+| **Elevation** | 3200 ft AMSL ❓ |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Madikwe Game Reserve, runway 11/29, malaria-free Big 5 reserve near Botswana border
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 264. DELAREYVILLE AIRFIELD (FADL)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADL |
+| **Coordinates** | S26°41'00" E25°28'00" |
+| **Elevation** | 4700 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Small town airfield
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 265. VENTERSDORP AIRFIELD (FAVE)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAVE |
+| **Coordinates** | S26°18'04" E26°48'47" |
+| **Elevation** | 4700 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Runway 12/30
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 266. WOLMARANSSTAD AIRFIELD (FAWD)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAWD |
+| **Coordinates** | S27°12'00" E25°58'00" |
+| **Elevation** | 4800 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Small town airfield
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+## LIMPOPO
+
+---
+
+### 267. LONDOLOZI AIRFIELD (FALD)
+| Field | Detail |
+|---|---|
+| **ICAO** | FALD |
+| **Coordinates** | S24°44'53" E31°28'26" |
+| **Elevation** | 1029 ft AMSL |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | Lowveld Info 119.0 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 18/36 | ~1000 m | — | Asphalt | — |
+
+**Notes:**
+- Sabi Sands game reserve, FedAir Cessna Caravan flights from JNB, IATA: LDZ
+
+---
+
+### 268. MALAMALA AIRFIELD (FAMD)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAMD |
+| **Coordinates** | S24°49'01" E31°32'38" |
+| **Elevation** | 1100 ft AMSL |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | Lowveld Info 119.0 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 16/34 | 1263 m | — | Asphalt | — |
+
+**Notes:**
+- Sabi Sands private game reserve, IATA: AAM
+
+---
+
+### 269. NGALA AIRFIELD (FANG)
+| Field | Detail |
+|---|---|
+| **ICAO** | FANG |
+| **Coordinates** | S24°23'00" E31°22'00" |
+| **Elevation** | 1100 ft AMSL ❓ |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | Lowveld Info 119.0 ❓ |
+
+**Notes:**
+- Timbavati/Greater Kruger, andBeyond private strip, IATA: NGL
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 270. SINGITA SABIE SAND AIRFIELD (FASP)
+| Field | Detail |
+|---|---|
+| **ICAO** | FASP |
+| **Coordinates** | S24°48'07" E31°25'19" |
+| **Elevation** | 1100 ft AMSL ❓ |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | Lowveld Info 119.0 ❓ |
+
+**Notes:**
+- Runway 01/19, Sabi Sands luxury lodge strip
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 271. ULUSABA AIRFIELD (FAUS)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAUS |
+| **Coordinates** | S24°46'59" E31°21'18" |
+| **Elevation** | 1420 ft AMSL |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | Lowveld Info 119.0 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 18/36 | 985 m | — | Grass ❓ | — |
+
+**Notes:**
+- Richard Branson's Sabi Sands reserve, IATA: ULX
+
+---
+
+### 272. ENTABENI AIRFIELD (FAEN)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAEN |
+| **Coordinates** | S24°11'35" E28°44'06" |
+| **Elevation** | 3500 ft AMSL ❓ |
+| **Access** | 🔒 Private (game reserve) |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Runway 08/26, Waterberg area
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 273. DWAALBOOM AIRFIELD (FADB)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADB |
+| **Coordinates** | S24°40'00" E26°48'00" |
+| **Elevation** | 3600 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Small Limpopo town airfield
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 274. ROCK FIG AIRFIELD (FATD)
+| Field | Detail |
+|---|---|
+| **ICAO** | FATD |
+| **Coordinates** | S24°18'00" E31°17'20" |
+| **Elevation** | 1400 ft AMSL ❓ |
+| **Access** | 🔒 Private |
+| **Frequencies** | Lowveld Info 119.0 ❓ |
+
+**Notes:**
+- Near Phalaborwa, runway 16/34
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
+### 275. DENDRON AIRFIELD (FADO)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADO |
+| **Coordinates** | S23°24'00" E29°20'00" |
+| **Elevation** | 3800 ft AMSL ❓ |
+| **Access** | PPR ❓ |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Small Limpopo town
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+## MPUMALANGA
+
+---
+
+### 276. ARNOT POWER STATION AIRFIELD (FAAP)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAAP |
+| **Coordinates** | S25°58'00" E29°44'00" |
+| **Elevation** | 5500 ft AMSL ❓ |
+| **Access** | 🔒 Private (Eskom) |
+| **Frequencies** | 124.8 MHz ❓ |
+
+**Notes:**
+- Near Middelburg, Eskom power station airstrip
+- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+
+---
+
 ## KEY RESOURCES
 
 | Resource | URL |
