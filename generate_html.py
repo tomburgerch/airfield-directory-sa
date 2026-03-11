@@ -603,6 +603,16 @@ def build_airfield_card(airfield, embed_diagrams=False):
             html += '      <tr>' + ''.join(f'<td>{escape(c)}</td>' for c in cleaned[:max_cols]) + '</tr>\n'
         html += '    </table>\n'
 
+    # Warnings
+    for w in airfield['warnings'][:5]:
+        html += f'    <div class="warning">[!] {escape(clean_html(w))}</div>\n'
+
+    # Notes
+    if airfield['notes']:
+        html += '    <div class="section-title">Notes</div>\n'
+        for note in airfield['notes'][:8]:
+            html += f'    <div class="note">- {escape(clean_html(note))}</div>\n'
+
     # Diagram
     diagram_path = find_diagram_path(airfield)
     if diagram_path and os.path.exists(diagram_path):
@@ -613,16 +623,6 @@ def build_airfield_card(airfield, embed_diagrams=False):
             img_tag = f'<img src="{rel_path}" style="max-width:600px; height:auto;" alt="Aerodrome diagram">'
         if img_tag:
             html += f'    <div class="diagram-container">{img_tag}<div class="diagram-caption">Aerodrome diagram — verify currency against official AIP</div></div>\n'
-
-    # Warnings
-    for w in airfield['warnings'][:5]:
-        html += f'    <div class="warning">[!] {escape(clean_html(w))}</div>\n'
-
-    # Notes
-    if airfield['notes']:
-        html += '    <div class="section-title">Notes</div>\n'
-        for note in airfield['notes'][:8]:
-            html += f'    <div class="note">- {escape(clean_html(note))}</div>\n'
 
     # Contact
     if airfield['contact']:
