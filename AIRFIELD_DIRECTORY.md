@@ -2475,10 +2475,10 @@ GA airfields in Gauteng beyond the major controlled airports.
 
 ---
 
-### 99. SPRINGS / SPITSKOP AIRFIELD (FASK)
+### 99. SPRINGS AIRFIELD (FASI)
 | Field | Detail |
 |---|---|
-| **ICAO** | FASK |
+| **ICAO** | FASI |
 | **Coordinates** | S26°14'47" E28°23'56" |
 | **Elevation** | 5,340 ft AMSL |
 | **Frequencies** | **120.2 MHz** ❓ |
@@ -2500,10 +2500,10 @@ GA airfields in Gauteng beyond the major controlled airports.
 
 ---
 
-### 100. TEDDERFIELD AIRPARK (FATE)
+### 100. TEDDERFIELD AIRPARK (FATA)
 | Field | Detail |
 |---|---|
-| **ICAO** | FATE |
+| **ICAO** | FATA |
 | **Coordinates** | S26°21'36" E27°53'16" ❓ |
 | **Elevation** | 5,400 ft AMSL ❓ |
 | **Frequencies** | **119.6 MHz** ❓ |
@@ -2525,10 +2525,10 @@ GA airfields in Gauteng beyond the major controlled airports.
 
 ---
 
-### 101. BARAGWANATH AERODROME
+### 101. BARAGWANATH / SYFERFONTEIN AERODROME (FASY)
 | Field | Detail |
 |---|---|
-| **ICAO / Code** | ❓ (FABAR or ZA-code) |
+| **ICAO** | FASY |
 | **Coordinates** | S26°21'16" E27°59'47" ❓ |
 | **Elevation** | 5,400 ft AMSL ❓ |
 | **Frequencies** | **119.0 MHz** ❓ |
@@ -2551,10 +2551,10 @@ GA airfields in Gauteng beyond the major controlled airports.
 
 ---
 
-### 102. KITTY HAWK AIRFIELD (FAKH)
+### 102. KITTY HAWK AIRFIELD (FAKT)
 | Field | Detail |
 |---|---|
-| **ICAO** | FAKH ❓ |
+| **ICAO** | FAKT |
 | **Coordinates** | S25°51'09" E28°04'50" ❓ |
 | **Elevation** | 4,900 ft AMSL ❓ |
 | **Frequencies** | **118.6 MHz** ❓ |
