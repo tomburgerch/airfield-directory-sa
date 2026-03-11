@@ -3027,24 +3027,26 @@ Airfields across the vast Northern Cape province.
 | Field | Detail |
 |---|---|
 | **ICAO** | FASB |
-| **Coordinates** | S29°40'12" E17°52'48" |
-| **Elevation** | 2,690 ft AMSL ❓ |
-| **Frequencies** | ❓ |
+| **IATA** | SBU |
+| **Coordinates** | S29°41'22" E17°56'20" |
+| **Elevation** | 2,690 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
 | **Access** | ✈️ Public |
-| **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ⛽ AVGAS ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | ⛽ AVGAS available |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 05/23 | 2,400 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 10/28 | 1,589 m | 20 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
-- Main airport for Namaqualand
+- Main airport for Namakwa / Namaqualand region
 - Flower season tourism traffic (Aug–Sep)
 - ~110 km south of Namibian border
 - Charter and occasional scheduled service
+- Single paved runway
 
 ---
 
@@ -3052,10 +3054,11 @@ Airfields across the vast Northern Cape province.
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAB |
-| **Coordinates** | S28°34'12" E16°31'48" |
+| **IATA** | ALJ |
+| **Coordinates** | S28°34'24" E16°32'04" |
 | **Elevation** | 98 ft AMSL |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public (may have restricted access — diamond mining area) |
+| **Frequencies** | **AFIS 118.7 MHz** |
+| **Access** | ✈️ Public (restricted access historically — diamond mining) |
 | **Night Ops** | ❓ |
 | **Fuel** | ❓ |
 
@@ -3063,12 +3066,14 @@ Airfields across the vast Northern Cape province.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 18/36 | 2,500 m ❓ | 46 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 01/19 | 1,848 m | 46 m | Asphalt | ⬅️ Left ❓ |
+| 07/25 | 1,676 m | 36 m | Gravel | ❓ |
+| 11/29 | 1,470 m | 35 m | Gravel | ❓ |
 
 **Notes:**
 - Near Namibian border at the Orange River mouth
 - De Beers / Alexkor diamond mining area
-- Historically restricted access due to diamond security
+- Three runways — one paved, two gravel
 - Coastal — minimal density altitude
 
 ---
@@ -3077,9 +3082,35 @@ Airfields across the vast Northern Cape province.
 | Field | Detail |
 |---|---|
 | **ICAO** | FACV |
-| **Coordinates** | S31°30'00" E19°43'48" ❓ |
-| **Elevation** | 3,280 ft AMSL ❓ |
-| **Frequencies** | ❓ |
+| **Coordinates** | S31°30'01" E19°43'33" |
+| **Elevation** | 3,250 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 09/27 | 1,250 m | 15 m | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Hantam Karoo region
+- Key waypoint for flights between Cape Town and Northern Cape
+- Flower season tourism
+- Semi-arid — generally good visibility
+- Single paved runway, sunrise to sunset operations
+
+---
+
+### 123. DE AAR AIRPORT (FADA)
+| Field | Detail |
+|---|---|
+| **ICAO** | FADA |
+| **Coordinates** | S30°41'31" E24°01'14" |
+| **Elevation** | 4,154 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🚫 No |
 | **Fuel** | Not available ❓ |
@@ -3088,59 +3119,40 @@ Airfields across the vast Northern Cape province.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,600 m ❓ | ❓ | Asphalt | ⬅️ Left ❓ |
-
-**Notes:**
-- Hantam Karoo region
-- Key waypoint for flights between Cape Town and Northern Cape
-- Flower season tourism
-- Semi-arid — generally good visibility
-
----
-
-### 123. DE AAR AIRPORT (FADA)
-| Field | Detail |
-|---|---|
-| **ICAO** | FADA |
-| **Coordinates** | S30°38'48" E24°01'12" ❓ |
-| **Elevation** | 3,990 ft AMSL ❓ |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public |
-| **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
-
-**Runways:**
-
-| RWY | Length | Width | Surface | Circuit |
-|-----|--------|-------|---------|---------|
-| ❓ | 1,500 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 03/21 | 1,576 m | ❓ | ❓ | ⬅️ Left ❓ |
+| 18/36 | 1,366 m | ❓ | ❓ | ❓ |
+| 11/29 | 1,231 m | ❓ | ❓ | ❓ |
+| 15/33 | 1,159 m | ❓ | ❓ | ❓ |
 
 **Notes:**
 - Central Karoo railway junction town
+- Four-runway layout — high elevation (4,154 ft)
 - Key cross-country waypoint
-- Solar energy development area
+- De Aar Military Airport (FADY) is 11 km away — separate facility
 
 ---
 
-### 124. KURUMAN AIRPORT (FAKU)
+### 124. KURUMAN / JOHAN PIENAAR AIRPORT (FAKU)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKU |
-| **Coordinates** | S27°27'36" E23°26'24" ❓ |
-| **Elevation** | 4,390 ft AMSL ❓ |
-| **Frequencies** | ❓ |
+| **IATA** | KMH |
+| **Coordinates** | S27°27'30" E23°24'43" |
+| **Elevation** | 4,382 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
 | **Access** | ✈️ Public |
-| **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | ⛽ AVGAS available |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,200 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 02/20 | 1,700 m | 15 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
 - "Oasis of the Kalahari" — Eye of Kuruman spring
+- Single paved runway — VFR only
 - Near Kalahari Game Reserve access
 
 ---
@@ -3149,80 +3161,10 @@ Airfields across the vast Northern Cape province.
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAG |
-| **Coordinates** | S29°17'00" E18°49'00" ❓ |
-| **Elevation** | 2,600 ft AMSL ❓ |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public (mining-related) |
-| **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
-
-**Runways:**
-
-| RWY | Length | Width | Surface | Circuit |
-|-----|--------|-------|---------|---------|
-| ❓ | 1,400 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
-
-**Notes:**
-- Black Mountain mining area (zinc, copper, lead)
-- Remote Northern Cape location
-- Mining charter operations
-
----
-
-### 126. SISHEN AIRPORT (FASS)
-| Field | Detail |
-|---|---|
-| **ICAO** | FASS |
-| **Coordinates** | S27°39'00" E22°59'00" ❓ |
-| **Elevation** | 3,750 ft AMSL ❓ |
-| **Frequencies** | ❓ |
-| **Access** | 🔒 Semi-private (mining) |
-| **Night Ops** | ❓ |
-| **Fuel** | ❓ |
-
-**Runways:**
-
-| RWY | Length | Width | Surface | Circuit |
-|-----|--------|-------|---------|---------|
-| ❓ | 2,000 m ❓ | ❓ | Asphalt ❓ | ❓ |
-
-**Notes:**
-- Near Sishen iron ore mine (Kumba / Anglo American)
-- One of the largest open-pit mines in the world
-- Access may be restricted — mining operations
-
----
-
-### 127. COLESBURG AIRPORT (FACS)
-| Field | Detail |
-|---|---|
-| **ICAO** | FACS |
-| **Coordinates** | S30°55'00" E25°04'00" ❓ |
-| **Elevation** | 4,350 ft AMSL ❓ |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public ❓ |
-| **Night Ops** | 🚫 No |
-| **Fuel** | Not available ❓ |
-
-**Runways:**
-
-| RWY | Length | Width | Surface | Circuit |
-|-----|--------|-------|---------|---------|
-| ❓ | 1,200 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
-
-**Notes:**
-- On the N1 highway (Cape Town–Johannesburg)
-- Cross-country waypoint
-
----
-
-### 128. PRIESKA AIRPORT (FAPK)
-| Field | Detail |
-|---|---|
-| **ICAO** | FAPK |
-| **Coordinates** | S29°40'00" E22°46'00" ❓ |
-| **Elevation** | 3,100 ft AMSL ❓ |
-| **Frequencies** | ❓ |
+| **IATA** | AGZ |
+| **Coordinates** | S29°16'54" E18°48'50" |
+| **Elevation** | 2,648 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🚫 No |
 | **Fuel** | Not available ❓ |
@@ -3231,12 +3173,263 @@ Airfields across the vast Northern Cape province.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,400 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 07/25 | 2,080 m | 20 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
-- On the Orange River in the central Northern Cape
-- Solar energy development area
-- Remote location
+- Black Mountain mining area (zinc, copper, lead)
+- Single long paved runway
+- Remote Northern Cape location — mining charter operations
+
+---
+
+### 126. SISHEN AIRPORT (FASS)
+| Field | Detail |
+|---|---|
+| **ICAO** | FASS |
+| **IATA** | SIS |
+| **Coordinates** | S27°38'55" E22°59'57" |
+| **Elevation** | 3,848 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public (primarily mining use) |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 17/35 | 1,740 m | ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Near Sishen iron ore mine (Kumba / Anglo American)
+- One of the largest open-pit mines in the world
+- Single paved runway — no fuel
+
+---
+
+### 127. COLESBURG AIRPORT (FACB)
+| Field | Detail |
+|---|---|
+| **ICAO** | FACB |
+| **Coordinates** | S30°44'02" E25°03'54" |
+| **Elevation** | 4,639 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 01/19 | ❓ | ❓ | ❓ | ❓ |
+| 11/29 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- On the N1/N9 highway junction (Cape Town–Johannesburg)
+- High elevation (4,639 ft) — density altitude
+- Cross-country waypoint — no nav aids
+
+---
+
+### 128. PRIESKA AIRPORT (FAPK)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPK |
+| **IATA** | PRK |
+| **Coordinates** | S29°41'00" E22°46'14" |
+| **Elevation** | 3,104 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 16/34 | 1,600 m | 20 m | Gravel | ⬅️ Left ❓ |
+| 13/31 | 850 m | 20 m | Gravel | ❓ |
+
+**Notes:**
+- Two gravel runways on the Orange River
+- Remote central Northern Cape
+- No METAR published
+
+---
+
+### 129. SUTHERLAND AIRPORT (FASL)
+| Field | Detail |
+|---|---|
+| **ICAO** | FASL |
+| **Coordinates** | S32°29'18" E20°41'50" |
+| **Elevation** | 5,247 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 07/25 | ❓ | ❓ | ❓ | ❓ |
+| 16/34 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Highest town in South Africa — very high density altitude
+- Serves SAAO / SALT astronomical observatory
+- Two runways — dimensions unconfirmed
+
+---
+
+### 130. CARNARVON AIRPORT (FACN)
+| Field | Detail |
+|---|---|
+| **ICAO** | FACN |
+| **Coordinates** | S30°59'30" E22°08'00" |
+| **Elevation** | 4,150 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 RWY 16/34 has edge lights |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 16/34 | ❓ | ❓ | ❓ (lit) | ❓ |
+| 12/30 | ❓ | ❓ | ❓ | ❓ |
+| 05/23 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Managed by Carnarvon Flying Club
+- Near the Square Kilometre Array (SKA) radio telescope
+- ⚠️ Radio frequency restrictions may apply in the area
+- Three runways — RWY 16/34 has edge lights
+
+---
+
+### 131. VICTORIA WEST AIRPORT (FAVW)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAVW |
+| **Coordinates** | S31°23'57" E23°09'23" |
+| **Elevation** | 4,122 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 08/26 | 1,761 m | ❓ | Asphalt | ⬅️ Left ❓ |
+| 18/36 | ❓ | ❓ | ❓ | ❓ |
+| 14/32 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Karoo town on N1/N12 route
+- Three-runway layout — one paved (08/26)
+- High elevation
+
+---
+
+### 132. KAKAMAS AIRPORT (FAKK)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAKK |
+| **Coordinates** | S28°48'31" E20°38'42" |
+| **Elevation** | 2,322 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 02/20 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Near the Orange River
+- ~40 km from Augrabies Falls
+- Dried fruit farming region
+
+---
+
+### 133. POFADDER AIRPORT (FAPD)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPD |
+| **Coordinates** | S29°08'30" E19°24'47" |
+| **Elevation** | 3,241 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 01/19 | ❓ | ❓ | ❓ | ❓ |
+| 06/24 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Remote N7 highway town
+- Two-runway layout
+- Between Springbok and Upington
+
+---
+
+### 134. KLEINZEE AIRPORT (FAKZ)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAKZ |
+| **IATA** | KLZ |
+| **Coordinates** | S29°41'18" E17°05'38" |
+| **Elevation** | 270 ft AMSL |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | 🔒 Private (De Beers diamond mining — historically restricted) |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 02/20 | 1,500 m | ❓ | Gravel | ❓ |
+
+**Notes:**
+- Diamond mining coast — access historically controlled
+- Landing permit may be required
+- Low elevation coastal airfield
+
+---
+
+### 135. POSTMASBURG AIRPORT (FAPT)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPT |
+| **Coordinates** | S28°20'00" E23°04'00" ❓ |
+| **Elevation** | 4,300 ft AMSL ❓ |
+| **Frequencies** | **124.8 MHz** (unmanned TIBA) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Northern Cape manganese mining belt
+- High elevation
 
 ---
 
@@ -3246,7 +3439,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 129. RUSTENBURG AIRPORT (FARG)
+### 136. RUSTENBURG AIRPORT (FARG)
 | Field | Detail |
 |---|---|
 | **ICAO** | FARG |
@@ -3270,7 +3463,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 130. KLERKSDORP AIRPORT (FAKD)
+### 137. KLERKSDORP AIRPORT (FAKD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKD |
@@ -3294,7 +3487,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 131. POTCHEFSTROOM AIRPORT (FAPC)
+### 138. POTCHEFSTROOM AIRPORT (FAPC)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPC |
@@ -3318,7 +3511,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 132. VRYBURG AIRPORT (FAVB)
+### 139. VRYBURG AIRPORT (FAVB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAVB |
@@ -3341,7 +3534,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 133. LICHTENBURG AIRPORT (FALI)
+### 140. LICHTENBURG AIRPORT (FALI)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALI |
@@ -3364,7 +3557,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 134. BRITS AIRPORT (FABS)
+### 141. BRITS AIRPORT (FABS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FABS |
@@ -3394,7 +3587,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 135. PHALABORWA / HENDRIK VAN ECK AIRPORT (FAPH)
+### 142. PHALABORWA / HENDRIK VAN ECK AIRPORT (FAPH)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPH |
@@ -3419,7 +3612,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 136. TZANEEN / LETABA AIRPORT (FATZ)
+### 143. TZANEEN / LETABA AIRPORT (FATZ)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATZ |
@@ -3444,7 +3637,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 137. THOHOYANDOU AIRPORT (FATH)
+### 144. THOHOYANDOU AIRPORT (FATH)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATH |
@@ -3468,7 +3661,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 138. MUSINA / MESSINA AIRPORT (FAMS)
+### 145. MUSINA / MESSINA AIRPORT (FAMS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMS |
@@ -3493,7 +3686,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 139. LOUIS TRICHARDT / MAKHADO AIRPORT (FALT)
+### 146. LOUIS TRICHARDT / MAKHADO AIRPORT (FALT)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALT ❓ |
@@ -3517,7 +3710,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 140. THABAZIMBI AIRPORT (FATB)
+### 147. THABAZIMBI AIRPORT (FATB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATB |
@@ -3541,7 +3734,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 141. LEPHALALE / ELLISRAS AIRPORT (FALR)
+### 148. LEPHALALE / ELLISRAS AIRPORT (FALR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALR ❓ |
@@ -3565,7 +3758,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 142. ALLDAYS AIRPORT (FAAD)
+### 149. ALLDAYS AIRPORT (FAAD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAD |
@@ -3590,7 +3783,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 143. MAKHADO AIR FORCE BASE (FAMA)
+### 150. MAKHADO AIR FORCE BASE (FAMA)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMA |
@@ -3620,7 +3813,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 144. MIDDELBURG AIRPORT (FAMB)
+### 151. MIDDELBURG AIRPORT (FAMB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMB |
@@ -3645,7 +3838,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 145. WITBANK / EMALAHLENI AIRPORT (FAWI)
+### 152. WITBANK / EMALAHLENI AIRPORT (FAWI)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAWI ❓ |
@@ -3669,7 +3862,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 146. BARBERTON AIRPORT (FABB)
+### 153. BARBERTON AIRPORT (FABB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FABB |
@@ -3693,7 +3886,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 147. PIET RETIEF AIRPORT (FAPR)
+### 154. PIET RETIEF AIRPORT (FAPR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPR ❓ |
