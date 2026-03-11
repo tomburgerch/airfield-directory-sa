@@ -18,9 +18,9 @@
 
 ---
 
-## GROUP 1: CLOSE TO MORNINGSTAR (within ~50 nm)
+## GROUP 1: WESTERN CAPE — CAPE TOWN SURROUNDS
 
-These airfields are within easy reach for local flights, touch-and-goes, and training.
+Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
@@ -1146,7 +1146,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 
 ---
 
-## GROUP 8: SMALLER STRIPS & PRIVATE FIELDS
+## GROUP 8: WESTERN CAPE — SMALLER STRIPS & PRIVATE FIELDS
 
 ---
 

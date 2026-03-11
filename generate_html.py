@@ -426,6 +426,53 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-radius: 6px;
 }
 
+/* ── Filters ── */
+.filter-bar {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 12px 0 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+.filter-bar .filter-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-right: 4px;
+}
+.filter-btn {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    background: white;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+}
+.filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+.filter-btn.active {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+.filter-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    margin: 0 2px;
+}
+#filter-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
 /* ── No results ── */
 #no-results {
     display: none;
@@ -463,33 +510,69 @@ document.addEventListener('DOMContentLoaded', function() {
     var tocItems = document.querySelectorAll('.toc-item');
     var backBtn = document.querySelector('.back-to-top');
     var noResults = document.getElementById('no-results');
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var filterCount = document.getElementById('filter-count');
+    var tocSection = document.querySelector('.toc');
+    var filterBar = document.getElementById('filter-bar');
     var totalCount = cards.length;
+    var activeFilters = {};
+
+    function passesFilters(card) {
+        for (var key in activeFilters) {
+            if (!activeFilters[key]) continue;
+            if (key === 'fuel' && card.dataset.fuel !== '1') return false;
+            if (key === 'night' && card.dataset.night !== '1') return false;
+            if (key === 'surface-paved' && (card.dataset.surface || '').indexOf('paved') === -1) return false;
+            if (key === 'surface-grass' && (card.dataset.surface || '').indexOf('grass') === -1) return false;
+            if (key === 'access-public' && card.dataset.access !== 'public') return false;
+            if (key === 'access-ppr' && card.dataset.access !== 'ppr') return false;
+        }
+        return true;
+    }
+
+    var hasActiveFilter = function() {
+        for (var k in activeFilters) { if (activeFilters[k]) return true; }
+        return false;
+    };
 
     function doSearch() {
         var q = searchBox.value.toLowerCase().trim();
         clearBtn.style.display = q ? 'block' : 'none';
+        var filtering = hasActiveFilter();
+        var active = q || filtering;
         var visible = 0;
         cards.forEach(function(card) {
             var text = card.dataset.search || card.textContent.toLowerCase();
-            var show = !q || text.indexOf(q) !== -1;
+            var matchSearch = !q || text.indexOf(q) !== -1;
+            var matchFilter = !filtering || passesFilters(card);
+            var show = matchSearch && matchFilter;
             card.style.display = show ? '' : 'none';
             if (show) visible++;
         });
         groups.forEach(function(g) {
-            g.style.display = q ? 'none' : '';
+            g.style.display = active ? 'none' : '';
         });
-        tocItems.forEach(function(item) {
-            var text = item.textContent.toLowerCase();
-            item.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
-        });
-        if (q) {
+        // Hide TOC when searching, show when browsing/filtering
+        if (tocSection) tocSection.style.display = q ? 'none' : '';
+        if (active) {
             searchCount.textContent = visible + ' of ' + totalCount + ' airfields';
+            filterCount.textContent = filtering ? visible + ' match' : '';
             noResults.style.display = visible === 0 ? 'block' : 'none';
         } else {
             searchCount.textContent = '';
+            filterCount.textContent = '';
             noResults.style.display = 'none';
         }
     }
+
+    filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var f = btn.dataset.filter;
+            activeFilters[f] = !activeFilters[f];
+            btn.classList.toggle('active', activeFilters[f]);
+            doSearch();
+        });
+    });
 
     searchBox.addEventListener('input', doSearch);
     clearBtn.addEventListener('click', function() {
@@ -603,7 +686,42 @@ def build_airfield_card(airfield, embed_diagrams=False):
     lat, lon = parse_dms_coord(coord_str)
     coord_attrs = f' data-lat="{lat}" data-lon="{lon}"' if lat is not None else ''
 
-    html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}"{coord_attrs}>\n'
+    # Filter data attributes
+    fuel_raw = clean_html(f.get('Fuel', '')).upper()
+    has_fuel = '1' if fuel_raw and 'NO' not in fuel_raw.split()[0:1] and 'NONE' not in fuel_raw and fuel_raw not in ('', '-', 'N/A', '?', '(?)') else '0'
+
+    night_raw = clean_html(f.get('Night Ops', '')).upper()
+    has_night = '1' if night_raw and 'NO' not in night_raw.split()[0:2] and night_raw not in ('', '-', 'N/A', 'NONE') else '0'
+
+    # Surface: extract from runways
+    surfaces = set()
+    for rwy in airfield.get('runways', []):
+        if len(rwy) >= 4:
+            s = clean_html(rwy[3]).upper()
+            if 'ASPHALT' in s or 'TAR' in s or 'PAVED' in s or 'TARMAC' in s or 'CONCRETE' in s:
+                surfaces.add('paved')
+            elif 'GRASS' in s or 'TURF' in s:
+                surfaces.add('grass')
+            else:
+                surfaces.add('other')
+    surface_attr = ','.join(sorted(surfaces)) if surfaces else 'unknown'
+
+    # Access type
+    access_upper = access.upper()
+    if is_closed:
+        access_type = 'closed'
+    elif is_military:
+        access_type = 'military'
+    elif 'PPR' in access_upper:
+        access_type = 'ppr'
+    elif 'PUBLIC' in access_upper or 'OPEN' in access_upper:
+        access_type = 'public'
+    else:
+        access_type = 'other'
+
+    filter_attrs = f' data-fuel="{has_fuel}" data-night="{has_night}" data-surface="{surface_attr}" data-access="{access_type}"'
+
+    html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}"{coord_attrs}{filter_attrs}>\n'
     html += f'  <div class="airfield-header {header_class}">\n'
     html += f'    <h3>{escape(name)}</h3>\n'
     html += f'    <span class="num">#{airfield["number"]}</span>\n'
@@ -767,6 +885,20 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<h2>Nearest Airfields</h2>\n'
     html += '<div id="nearby-status" class="nearby-status"></div>\n'
     html += '<ul id="nearby-list" class="nearby-list"></ul>\n'
+    html += '</div>\n'
+
+    # Filter bar
+    html += '<div class="filter-bar" id="filter-bar">\n'
+    html += '<span class="filter-label">Filter:</span>\n'
+    html += '<button class="filter-btn" data-filter="fuel">Fuel</button>\n'
+    html += '<button class="filter-btn" data-filter="night">Night Ops</button>\n'
+    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" data-filter="surface-paved">Paved</button>\n'
+    html += '<button class="filter-btn" data-filter="surface-grass">Grass</button>\n'
+    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" data-filter="access-public">Public</button>\n'
+    html += '<button class="filter-btn" data-filter="access-ppr">PPR</button>\n'
+    html += '<span id="filter-count"></span>\n'
     html += '</div>\n'
 
     # TOC
