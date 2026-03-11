@@ -5974,13 +5974,19 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 |---|---|
 | **ICAO** | FABB |
 | **Coordinates** | S26°15'00" E28°22'00" |
-| **Elevation** | 5200 ft AMSL |
+| **Elevation** | 5300 ft AMSL |
 | **Access** | PPR |
-| **Frequencies** | Grass |
+| **Frequencies** | **122.7 MHz** |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 18/36 | 1440 m | — | Asphalt | 6000 ft (FAJS QNH) |
 
 **Notes:**
-- East Rand area GA airfield
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- East Rand area GA airfield, 180 m stopways each end
+- Data sourced from aviation databases ❓
 
 ---
 
@@ -5991,11 +5997,17 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | **Coordinates** | S26°30'30" E28°23'30" |
 | **Elevation** | 5067 ft AMSL |
 | **Access** | PPR |
-| **Frequencies** | 125.9 MHz |
+| **Frequencies** | **125.9 MHz** |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 06/24 | 1194 m | 19 m | Asphalt | ⬅️ |
 
 **Notes:**
 - Active GA airfield south-east of Johannesburg
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- VOR: Heidelberg (HGV) 116.7 MHz
 
 ---
 
@@ -6006,11 +6018,18 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | **Coordinates** | S26°34'12" E27°57'29" |
 | **Elevation** | 4846 ft AMSL |
 | **Access** | PPR |
-| **Frequencies** | 124.8 MHz |
+| **Frequencies** | **122.1 MHz** |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 03/21 | 1605 m | 22 m | Asphalt | ⬅️ |
+| 15/33 | 1135 m | 16 m | Asphalt | ⬅️ |
 
 **Notes:**
-- Active GA airfield, 2 runways (03/21 and 15/33), grass
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- Active GA airfield south of Johannesburg
+- NDB: VV 460 KHz, lighting on 03/21 (not always functional)
 
 ---
 
@@ -6049,13 +6068,20 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 |---|---|
 | **ICAO** | FASK |
 | **Coordinates** | S25°48'30" E28°09'45" |
-| **Elevation** | 4780 ft AMSL |
+| **Elevation** | 4794 ft AMSL |
 | **Access** | 🪖 Military |
-| **Frequencies** | 124.1 MHz ❓ |
+| **Frequencies** | **TWR 123.2 MHz**, GND 121.75 MHz |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 02/20 | 1987 m | — | Asphalt | — |
+| 06/24 | 2008 m | — | Asphalt | — |
 
 **Notes:**
-- SA's oldest air force base, houses SAAF Museum, Pretoria
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- SA's oldest air force base, houses SAAF Museum, Centurion/Pretoria
+- ⚠️ Military airfield — civilian access restricted
 
 ---
 
@@ -6066,11 +6092,18 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | **Coordinates** | S25°49'48" E28°13'23" |
 | **Elevation** | 4940 ft AMSL |
 | **Access** | 🪖 Military |
-| **Frequencies** | 124.1 MHz ❓ |
+| **Frequencies** | **134.4 MHz**, APP 116.9 / 127.5, GND 121.85, 124.1 MHz |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 01/19 | 3353 m | 45 m | Asphalt | — |
+| 06/24 | 1920 m | 45 m | Asphalt | — |
 
 **Notes:**
-- Major military base, Pretoria, 2 runways, IATA: WKF
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- Major military base, Pretoria, IATA: WKF
+- ⚠️ Military airfield — civilian access restricted, VIP flights
 
 ## KWAZULU-NATAL
 
@@ -6466,13 +6499,18 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 |---|---|
 | **ICAO** | FALD |
 | **Coordinates** | S24°44'53" E31°28'26" |
-| **Elevation** | 1200 ft AMSL ❓ |
+| **Elevation** | 1029 ft AMSL |
 | **Access** | 🔒 Private (game reserve) |
 | **Frequencies** | Lowveld Info 119.0 ❓ |
 
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 18/36 | ~1000 m | — | Asphalt | — |
+
 **Notes:**
-- Sabi Sands game reserve, runway 18/36, FedAir flights from JNB, IATA: LDZ
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- Sabi Sands game reserve, FedAir Cessna Caravan flights from JNB, IATA: LDZ
 
 ---
 
@@ -6481,13 +6519,18 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 |---|---|
 | **ICAO** | FAMD |
 | **Coordinates** | S24°49'01" E31°32'38" |
-| **Elevation** | 1100 ft AMSL ❓ |
+| **Elevation** | 1100 ft AMSL |
 | **Access** | 🔒 Private (game reserve) |
 | **Frequencies** | Lowveld Info 119.0 ❓ |
 
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 16/34 | 1263 m | — | Asphalt | — |
+
 **Notes:**
-- Runway 16/34, Sabi Sands private game reserve, IATA: AAM
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- Sabi Sands private game reserve, IATA: AAM
 
 ---
 
@@ -6526,13 +6569,18 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 |---|---|
 | **ICAO** | FAUS |
 | **Coordinates** | S24°46'59" E31°21'18" |
-| **Elevation** | 1200 ft AMSL ❓ |
+| **Elevation** | 1420 ft AMSL |
 | **Access** | 🔒 Private (game reserve) |
 | **Frequencies** | Lowveld Info 119.0 ❓ |
 
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 18/36 | 985 m | — | Grass ❓ | — |
+
 **Notes:**
-- Runway 18/36, Richard Branson's Sabi Sands reserve, IATA: ULX
-- Data sourced from OurAirports, Wikipedia, and aviation databases ❓
+- Richard Branson's Sabi Sands reserve, IATA: ULX
 
 ---
 
