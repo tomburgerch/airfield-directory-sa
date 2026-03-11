@@ -73,23 +73,25 @@ def parse_dms_coord(coord_str):
 
 CSS = """
 :root {
-    --navy: #1a365d;
-    --blue: #2b6cb0;
+    --navy: #1a1a1a;
+    --blue: #b8860b;
     --red: #c53030;
     --dark-red: #9b2c2c;
-    --dark-gray: #2d3748;
-    --light-gray: #f7fafc;
-    --border: #e2e8f0;
-    --text: #2d3748;
-    --text-muted: #718096;
+    --dark-gray: #2d2d2d;
+    --light-gray: #faf9f6;
+    --border: #e5e0d5;
+    --text: #1a1a1a;
+    --text-muted: #6b6560;
     --green: #276749;
+    --gold: #d4a017;
+    --gold-light: #f5e6b8;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: var(--text);
-    background: #f0f4f8;
+    background: #f5f3ee;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
@@ -106,8 +108,8 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .site-header .container { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-.site-header h1 { font-size: 18px; flex-shrink: 0; }
-.site-header h1 span { font-weight: 400; font-size: 13px; opacity: 0.8; display: block; }
+.site-header h1 { font-size: 18px; flex-shrink: 0; color: #FFD700; }
+.site-header h1 span { font-weight: 400; font-size: 13px; color: rgba(255,255,255,0.7); display: block; }
 .search-wrapper {
     flex: 1; min-width: 200px; position: relative;
 }
@@ -133,7 +135,7 @@ body {
 
 /* ── Toolbar ── */
 .toolbar {
-    background: var(--blue);
+    background: #2d2d2d;
     padding: 6px 0;
 }
 .toolbar .container {
@@ -185,7 +187,7 @@ body {
     z-index: 100;
     line-height: 1.6;
 }
-.contact-tooltip a { color: #90cdf4; text-decoration: underline; }
+.contact-tooltip a { color: #FFD700; text-decoration: underline; }
 .contact-tip:hover .contact-tooltip { display: block; }
 
 /* ── Nearby panel ── */
@@ -723,7 +725,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
     html += '<meta charset="UTF-8">\n'
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-    html += '<title>South African Airfield Directory</title>\n'
+    html += '<title>Wagyu Wings — SA Airfield Directory</title>\n'
 
     # Embed favicon as inline SVG data URI
     favicon_link = ''
@@ -737,7 +739,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
 
     # Header with search
     html += '<header class="site-header">\n<div class="container">\n'
-    html += '<h1>SA Airfield Directory <span>VFR Reference</span></h1>\n'
+    html += '<h1>Wagyu Wings <span>SA Airfield Directory</span></h1>\n'
     html += '<div class="search-wrapper">\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
     html += '<button id="clear-search" title="Clear search">&times;</button>\n'

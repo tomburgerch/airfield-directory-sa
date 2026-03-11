@@ -121,7 +121,7 @@ class TestGenerateHtml:
                 html = f.read()
             assert html.startswith('<!DOCTYPE html>')
             assert '</html>' in html
-            assert '<title>South African Airfield Directory</title>' in html
+            assert '<title>' in html and 'Airfield Directory</title>' in html
         finally:
             os.unlink(tmp)
 
