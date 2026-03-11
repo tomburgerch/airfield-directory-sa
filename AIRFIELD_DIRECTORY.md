@@ -1630,7 +1630,7 @@ Major airports along the Eastern Cape coast and hinterland.
 | **Elevation** | 229 ft AMSL |
 | **Ref Temp** | 30°C |
 | **Mag Var** | 24°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 120.4 MHz, ATIS 112.9 MHz, GND 122.65 MHz, DEL 122.1 MHz |
+| **Frequencies** | **TWR 118.1 MHz**, APP 120.4 MHz, ATIS 126.8 MHz, GND 122.65 MHz, DEL 122.1 MHz |
 | **Access** | ✈️ Public — International airport |
 | **Night Ops** | 🌙 Yes — full lighting |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -1652,7 +1652,8 @@ Major airports along the Eastern Cape coast and hinterland.
 | PE Tower | 118.1 MHz |
 | PE Approach | 120.4 MHz |
 | PE Ground | 122.65 MHz |
-| PE ATIS | 112.9 MHz |
+| PE ATIS | 126.8 MHz |
+| PE VOR (D-ATIS) | 112.9 MHz |
 | PE Clearance | 122.1 MHz |
 
 **Notes:**
@@ -1665,14 +1666,14 @@ Major airports along the Eastern Cape coast and hinterland.
 
 ---
 
-### 73. GRAHAMSTOWN / MAKHANDA AIRPORT
+### 73. GRAHAMSTOWN / MAKHANDA AIRPORT (FAGT)
 | Field | Detail |
 |---|---|
-| **ICAO** | ❓ (verify via AIP — FAGM conflicts with Rand Airport) |
+| **ICAO** | FAGT |
 | **AIP Ref** | 688 |
 | **Coordinates** | S33°17'12" E26°29'47" |
 | **Elevation** | 2,135 ft AMSL |
-| **Frequencies** | **AFIS 131.0 MHz** ❓ |
+| **Frequencies** | **123.5 MHz** (RDO) |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🚫 No ❓ |
 | **Fuel** | ❓ |
@@ -1681,7 +1682,9 @@ Major airports along the Eastern Cape coast and hinterland.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 06/24 | 1,340 m | 18 m | Asphalt | ⬅️ Left ❓ |
+| 16/34 | 1,164 m | 13 m | Asphalt | ⬅️ Left ❓ |
+| 04/22 | 1,109 m | 31 m | Grass | ❓ |
+| 12/30 | 850 m | 27 m | Grass | ❓ |
 
 **Notes:**
 - Serves Makhanda (formerly Grahamstown) and Rhodes University
@@ -1876,9 +1879,9 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 | **ICAO** | FALE |
 | **AIP Ref** | 484 |
 | **Coordinates** | S29°36'43" E31°07'10" |
-| **Location** | 25 NM N of Durban city centre, La Mercy |
+| **Location** | ~16 NM NNE of Durban city centre, La Mercy |
 | **Elevation** | 304 ft AMSL |
-| **Ref Temp** | 33°C |
+| **Ref Temp** | 29°C |
 | **Mag Var** | 23°W |
 | **Frequencies** | **TWR 118.45 MHz**, ATIS 127.0 MHz, GND 121.65 MHz |
 | **Access** | ✈️ Public — International airport |
@@ -1899,7 +1902,7 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 | Service | Frequency |
 |---------|-----------|
 | Durban Tower | 118.45 MHz |
-| Durban Approach | ❓ (verify via AIP) |
+| Durban Approach | 125.75 MHz |
 | Durban Ground | 121.65 MHz |
 | Durban ATIS | 127.0 MHz |
 
@@ -2011,7 +2014,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | **Elevation** | 5,558 ft AMSL |
 | **Ref Temp** | 29°C |
 | **Mag Var** | 20°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 124.5 MHz, ATIS 127.3 MHz, GND 121.9 MHz |
+| **Frequencies** | **TWR 118.1 MHz**, APP 124.5 MHz, ATIS 126.2 MHz, GND 121.9 MHz |
 | **Access** | ✈️ Public — Major international hub |
 | **Night Ops** | 🌙 Yes — full lighting, CAT III ILS |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -2021,7 +2024,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
-| 03L/21R | 4,418 m | 60 m | Asphalt | PCN 80 | N/A |
+| 03L/21R | 4,418 m | 61 m | Asphalt | PCN 80 | N/A |
 | 03R/21L | 3,400 m | 60 m | Asphalt | PCN 80 | N/A |
 
 **Frequencies:**
@@ -2029,12 +2032,12 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | Service | Frequency |
 |---------|-----------|
 | JNB Tower | 118.1 MHz |
-| JNB Tower (South) | 124.3 MHz |
-| JNB Approach (North) | 124.5 MHz |
-| JNB Approach (South) | 125.0 MHz |
+| JNB Tower East | 118.6 MHz |
+| JNB Radar West | 123.7 MHz |
+| JNB Radar South/East | 124.5 MHz |
 | JNB Ground (North) | 121.9 MHz |
 | JNB Ground (South) | 121.65 MHz |
-| JNB ATIS | 127.3 MHz |
+| JNB ATIS | 126.2 MHz |
 | JNB Clearance | 121.7 MHz |
 
 **Notes:**
