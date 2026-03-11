@@ -84,7 +84,43 @@ def download_sacaa_diagrams():
 
 
 def extract_diagram_images():
-    """Extract aerodrome diagram pages from SACAA PDFs as images."""
+    """Extract aerodrome diagram pages from SACAA PDFs as high-res images.
+
+    Uses pymupdf (fitz) at ~288 DPI for sharp, readable diagrams.
+    Falls back to pdftoppm if pymupdf is not available.
+    """
+    try:
+        import fitz
+        has_fitz = True
+    except ImportError:
+        has_fitz = False
+
+    if has_fitz:
+        extracted = 0
+        for pdf_file in os.listdir(DIAGRAMS_DIR):
+            if not pdf_file.endswith('.pdf'):
+                continue
+            icao = pdf_file.replace('.pdf', '')
+            png_path = os.path.join(DIAGRAMS_DIR, f'{icao}.png')
+            if os.path.exists(png_path):
+                continue
+            pdf_path = os.path.join(DIAGRAMS_DIR, pdf_file)
+            try:
+                doc = fitz.open(pdf_path)
+                page = doc[-1]  # Last page (usually the diagram)
+                mat = fitz.Matrix(4.0, 4.0)  # ~288 DPI
+                pix = page.get_pixmap(matrix=mat)
+                pix.save(png_path)
+                doc.close()
+                extracted += 1
+                print(f"  Extracted diagram: {icao}.png ({pix.width}x{pix.height})")
+            except Exception:
+                pass
+        if extracted:
+            print(f"  Extracted {extracted} new diagram(s) via pymupdf")
+        return
+
+    # Fallback: pdftoppm
     try:
         import subprocess
         result = subprocess.run(['which', 'pdftoppm'], capture_output=True)
@@ -93,7 +129,7 @@ def extract_diagram_images():
         has_pdftoppm = False
 
     if not has_pdftoppm:
-        print("pdftoppm not available — skipping PDF-to-image extraction")
+        print("No PDF renderer available — skipping diagram extraction")
         return
 
     import subprocess
@@ -117,7 +153,7 @@ def extract_diagram_images():
                     pages = int(line.split(':')[1].strip())
 
             subprocess.run([
-                'pdftoppm', '-png', '-r', '200',
+                'pdftoppm', '-png', '-r', '300',
                 '-f', str(pages), '-l', str(pages),
                 '-singlefile',
                 pdf_path,

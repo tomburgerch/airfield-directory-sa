@@ -26,10 +26,12 @@ COLOR_ROW_ALT = HexColor('#f7fafc')     # Light gray alternating rows
 COLOR_BORDER = HexColor('#e2e8f0')      # Light border
 
 # ── Emoji replacements for PDF rendering ──
+# Tags [L]/[R] kept for circuit direction; [!]/[X] kept for warnings.
+# Status emojis stripped — field labels already provide context.
 EMOJI_MAP = {
-    '⬅️': '[L]', '➡️': '[R]', '🌙': '[NIGHT]', '🚫': '[NO]',
-    '🔒': '[PRIV]', '✈️': '[PUB]', '🪖': '[MIL]', '⛽': '[FUEL]',
-    '❓': '(?)', '📅': '[DATE]', '⚠️': '[!]', '⛔': '[X]',
+    '⬅️': '[L]', '➡️': '[R]',
+    '🌙': '', '🚫': '', '🔒': '', '✈️': '', '🪖': '', '⛽': '',
+    '❓': '(?)', '📅': '', '⚠️': '[!]', '⛔': '[X]',
     '🏠': '', '🛩️': '', '🔴': '', '🟢': '', '🟡': '',
 }
 
@@ -55,11 +57,11 @@ def get_styles():
         ('FieldValue', {'fontSize': 6.5, 'leading': 8, 'fontName': 'Helvetica'}),
         ('FieldLabel', {'fontSize': 6.5, 'leading': 8, 'textColor': HexColor('#4a5568'),
                         'fontName': 'Helvetica-Bold'}),
-        ('SmallNote', {'fontSize': 5.5, 'leading': 7, 'textColor': HexColor('#718096'),
+        ('SmallNote', {'fontSize': 6, 'leading': 7.5, 'textColor': HexColor('#4a5568'),
                        'fontName': 'Helvetica'}),
         ('FreqValue', {'fontSize': 7.5, 'leading': 9, 'textColor': COLOR_ACCENT,
                        'fontName': 'Helvetica-Bold'}),
-        ('Warning', {'fontSize': 6, 'leading': 7.5, 'textColor': COLOR_WARNING,
+        ('Warning', {'fontSize': 6.5, 'leading': 8, 'textColor': COLOR_WARNING,
                      'fontName': 'Helvetica-Bold'}),
         ('StatusClosed', {'fontSize': 8, 'leading': 10, 'textColor': white,
                           'fontName': 'Helvetica-Bold', 'alignment': TA_CENTER}),
