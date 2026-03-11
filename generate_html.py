@@ -73,23 +73,25 @@ def parse_dms_coord(coord_str):
 
 CSS = """
 :root {
-    --navy: #1a365d;
-    --blue: #2b6cb0;
+    --navy: #1a1a1a;
+    --blue: #b8860b;
     --red: #c53030;
     --dark-red: #9b2c2c;
-    --dark-gray: #2d3748;
-    --light-gray: #f7fafc;
-    --border: #e2e8f0;
-    --text: #2d3748;
-    --text-muted: #718096;
+    --dark-gray: #2d2d2d;
+    --light-gray: #faf9f6;
+    --border: #e5e0d5;
+    --text: #1a1a1a;
+    --text-muted: #6b6560;
     --green: #276749;
+    --gold: #d4a017;
+    --gold-light: #f5e6b8;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: var(--text);
-    background: #f0f4f8;
+    background: #f5f3ee;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
@@ -106,8 +108,8 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .site-header .container { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-.site-header h1 { font-size: 18px; flex-shrink: 0; }
-.site-header h1 span { font-weight: 400; font-size: 13px; opacity: 0.8; display: block; }
+.site-header h1 { font-size: 18px; flex-shrink: 0; color: #FFD700; }
+.site-header h1 span { font-weight: 400; font-size: 13px; color: rgba(255,255,255,0.7); display: block; }
 .search-wrapper {
     flex: 1; min-width: 200px; position: relative;
 }
@@ -133,7 +135,7 @@ body {
 
 /* ── Toolbar ── */
 .toolbar {
-    background: var(--blue);
+    background: #2d2d2d;
     padding: 6px 0;
 }
 .toolbar .container {
@@ -158,6 +160,35 @@ body {
     font-size: 11px; color: rgba(255,255,255,0.75);
     font-weight: 400;
 }
+.contact-tip {
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.15);
+    cursor: help;
+    position: relative;
+}
+.contact-tip:hover { background: rgba(255,255,255,0.3); }
+.contact-tooltip {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%; transform: translateX(-50%);
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 100;
+    line-height: 1.6;
+}
+.contact-tooltip a { color: #FFD700; text-decoration: underline; }
+.contact-tip:hover .contact-tooltip { display: block; }
 
 /* ── Nearby panel ── */
 #nearby-panel {
@@ -184,14 +215,33 @@ body {
 .disclaimer {
     background: var(--red);
     color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin: 24px 0 8px;
+    font-size: 12px;
+    text-align: center;
+    cursor: help;
+    position: relative;
+}
+.disclaimer .disc-label { font-weight: 700; }
+.disclaimer .disc-full {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%; transform: translateX(-50%);
+    width: min(500px, 90vw);
+    background: var(--red);
+    color: white;
     padding: 14px 18px;
     border-radius: 8px;
-    margin: 16px 0;
     font-size: 13px;
     line-height: 1.6;
+    text-align: left;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 100;
 }
-.disclaimer strong { font-size: 14px; }
-.disclaimer p { margin-top: 6px; }
+.disclaimer:hover .disc-full { display: block; }
+.disclaimer .disc-full p { margin-top: 6px; }
 
 /* ── TOC ── */
 .toc {
@@ -337,10 +387,8 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 }
 .web-links {
     font-size: 12px;
-    margin-top: 6px;
-    border-top: 1px solid var(--border);
-    padding-top: 6px;
-    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    margin-bottom: 8px;
+    display: flex; flex-wrap: wrap; gap: 4px 14px;
 }
 .web-links a {
     color: var(--blue);
@@ -348,18 +396,6 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     font-weight: 600;
 }
 .web-links a:hover { text-decoration: underline; }
-
-/* ── Footer ── */
-.site-footer {
-    text-align: center;
-    padding: 24px 16px;
-    font-size: 12px;
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
-    margin-top: 24px;
-}
-.site-footer a { color: var(--blue); text-decoration: none; }
-.site-footer a:hover { text-decoration: underline; }
 
 /* ── Back to top ── */
 .back-to-top {
@@ -607,6 +643,17 @@ def build_airfield_card(airfield, embed_diagrams=False):
     if grid_items:
         html += '    <div class="info-grid">\n' + ''.join(grid_items) + '    </div>\n'
 
+    # Website / flying club links
+    raw = airfield.get('fields_raw', {})
+    web_links = []
+    for key in ('Website', 'Websites', 'AIP Link', 'Operator AIP'):
+        web_links.extend(extract_links(raw.get(key, '')))
+    if web_links:
+        html += '    <div class="web-links">\n'
+        for label, url in web_links:
+            html += f'      <a href="{escape(url)}" target="_blank" rel="noopener">{escape(clean_html(label))}</a>\n'
+        html += '    </div>\n'
+
     # Frequencies table
     if airfield['frequencies_table']:
         html += '    <div class="section-title">Frequencies</div>\n'
@@ -660,17 +707,6 @@ def build_airfield_card(airfield, embed_diagrams=False):
     if airfield['contact']:
         html += f'    <div class="contact"><strong>Contact:</strong> {escape(clean_html(airfield["contact"]))}</div>\n'
 
-    # Website / flying club links
-    raw = airfield.get('fields_raw', {})
-    web_links = []
-    for key in ('Website', 'Websites', 'AIP Link', 'Operator AIP'):
-        web_links.extend(extract_links(raw.get(key, '')))
-    if web_links:
-        html += '    <div class="web-links">\n'
-        for label, url in web_links:
-            html += f'      <a href="{escape(url)}" target="_blank" rel="noopener">{escape(clean_html(label))}</a>\n'
-        html += '    </div>\n'
-
     html += '  </div>\n</div>\n'
     return html
 
@@ -689,7 +725,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
     html += '<meta charset="UTF-8">\n'
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-    html += '<title>South African Airfield Directory</title>\n'
+    html += '<title>Wagyu Wings — SA Airfield Directory</title>\n'
 
     # Embed favicon as inline SVG data URI
     favicon_link = ''
@@ -703,7 +739,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
 
     # Header with search
     html += '<header class="site-header">\n<div class="container">\n'
-    html += '<h1>SA Airfield Directory <span>VFR Reference</span></h1>\n'
+    html += '<h1>Wagyu Wings <span>SA Airfield Directory</span></h1>\n'
     html += '<div class="search-wrapper">\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
     html += '<button id="clear-search" title="Clear search">&times;</button>\n'
@@ -719,6 +755,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
             dl_attr = f' download="{escape(link["href"].split("/")[-1])}"' if link.get('download', True) else ''
             html += f'  <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
     html += '  <button id="nearby-btn" style="display:none;">Find Nearest</button>\n'
+    html += '  <span class="contact-tip">Contact<span class="contact-tooltip">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span>\n'
     html += '</div>\n'
     html += f'<span class="updated">Updated {build_date}</span>\n'
     html += '</div>\n</div>\n'
@@ -730,18 +767,6 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<h2>Nearest Airfields</h2>\n'
     html += '<div id="nearby-status" class="nearby-status"></div>\n'
     html += '<ul id="nearby-list" class="nearby-list"></ul>\n'
-    html += '</div>\n'
-
-    # Disclaimer
-    html += '<div class="disclaimer">\n'
-    html += '<strong>IMPORTANT DISCLAIMER</strong>\n'
-    html += '<p>This directory is a <strong>supplementary reference only</strong> and does '
-    html += '<strong>NOT replace</strong> official aviation publications. '
-    html += 'Pilots must always consult the current <strong>SACAA AIP</strong>, active '
-    html += '<strong>NOTAMs</strong>, and official aerodrome charts before flight. '
-    html += 'Contact airfield operators to verify access, fuel, hours, and runway status.</p>\n'
-    html += '<p>Data marked (?) is unverified. No warranty is given for accuracy or completeness. '
-    html += 'Use entirely at your own risk.</p>\n'
     html += '</div>\n'
 
     # TOC
@@ -773,10 +798,19 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<div id="no-results">No airfields match your search.</div>\n'
     html += '</div>\n'  # container
 
-    # Footer
-    html += '<footer class="site-footer">\n'
-    html += '<p>Found a bug or have feedback? Contact <a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></p>\n'
-    html += '</footer>\n'
+    # Disclaimer (collapsed, tooltip on hover)
+    html += '<div class="container"><div class="disclaimer">\n'
+    html += '<span class="disc-label">DISCLAIMER — Supplementary reference only. Hover for details.</span>\n'
+    html += '<div class="disc-full">\n'
+    html += '<strong>IMPORTANT DISCLAIMER</strong>\n'
+    html += '<p>This directory is a <strong>supplementary reference only</strong> and does '
+    html += '<strong>NOT replace</strong> official aviation publications. '
+    html += 'Pilots must always consult the current <strong>SACAA AIP</strong>, active '
+    html += '<strong>NOTAMs</strong>, and official aerodrome charts before flight. '
+    html += 'Contact airfield operators to verify access, fuel, hours, and runway status.</p>\n'
+    html += '<p>Data marked (?) is unverified. No warranty is given for accuracy or completeness. '
+    html += 'Use entirely at your own risk.</p>\n'
+    html += '</div>\n</div></div>\n'
 
     html += '<button class="back-to-top" title="Back to top">&#8593;</button>\n'
     html += f'<script>{JAVASCRIPT}</script>\n'

@@ -93,10 +93,10 @@ def parse_single_airfield(num, name, section):
             if '**Notes' in line or '**Contact' in line or line.startswith('---'):
                 rwy_section = False
 
-    # Extract frequencies table
+    # Extract frequencies table (standalone section, not inline field rows)
     freq_section = False
     for line in lines:
-        if '**Frequencies:**' in line or '**Frequencies**' in line:
+        if ('**Frequencies:**' in line or '**Frequencies**' in line) and not re.match(r'\|\s*\*\*', line):
             freq_section = True
             continue
         if freq_section and re.match(r'\|\s*Service\s*\|', line):

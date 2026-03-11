@@ -13,11 +13,11 @@ import shutil
 
 from parse_markdown import parse_airfields
 from generate_html import generate_html
+from generate_pdf import generate_pdf
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
 MD_FILE = os.path.join(BASE_DIR, 'AIRFIELD_DIRECTORY.md')
-PDF_FILE = os.path.join(BASE_DIR, 'Airfield_Directory_A5.pdf')
 
 
 def build():
@@ -34,16 +34,6 @@ def build():
     # Copy downloadable files
     download_links = []
 
-    if os.path.exists(PDF_FILE):
-        shutil.copy2(PDF_FILE, os.path.join(PUBLIC_DIR, 'Airfield_Directory_A5.pdf'))
-        download_links.append({
-            'label': 'Download PDF (A5 Print)',
-            'href': 'Airfield_Directory_A5.pdf',
-        })
-        print(f"  Copied PDF ({os.path.getsize(PDF_FILE) / 1024 / 1024:.1f} MB)")
-    else:
-        print("  WARNING: PDF file not found, skipping")
-
     if os.path.exists(MD_FILE):
         shutil.copy2(MD_FILE, os.path.join(PUBLIC_DIR, 'AIRFIELD_DIRECTORY.md'))
         download_links.append({
@@ -52,11 +42,23 @@ def build():
         })
         print(f"  Copied Markdown ({os.path.getsize(MD_FILE) / 1024:.0f} KB)")
 
-    # Parse and generate HTML with embedded diagrams
+    # Parse airfield data
     print("\nParsing airfield data...")
     airfields = parse_airfields(MD_FILE)
     print(f"  Found {len(airfields)} airfields")
 
+    # Generate compact PDF
+    pdf_path = os.path.join(PUBLIC_DIR, 'Airfield_Directory.pdf')
+    print("\nGenerating compact PDF...")
+    generate_pdf(airfields, pdf_path)
+    pdf_size = os.path.getsize(pdf_path) / 1024
+    print(f"  PDF: {pdf_size:.0f} KB")
+    download_links.insert(0, {
+        'label': 'Download PDF (Offline)',
+        'href': 'Airfield_Directory.pdf',
+    })
+
+    # Generate HTML with embedded diagrams
     output_html = os.path.join(PUBLIC_DIR, 'index.html')
     print("\nGenerating HTML with embedded diagrams...")
     generate_html(

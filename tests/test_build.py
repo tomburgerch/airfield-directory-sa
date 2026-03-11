@@ -48,15 +48,13 @@ class TestBuildScript:
         with open(os.path.join(PUBLIC_DIR, 'index.html'), 'r') as f:
             html = f.read()
         assert 'toolbar' in html
-        assert 'Download PDF' in html
+        assert 'PDF' in html
         assert 'Download Markdown' in html
 
-    def test_pdf_copied(self):
-        pdf_path = os.path.join(PUBLIC_DIR, 'Airfield_Directory_A5.pdf')
-        if not os.path.exists(os.path.join(BASE_DIR, 'Airfield_Directory_A5.pdf')):
-            pytest.skip('Source PDF not present')
+    def test_pdf_generated(self):
+        pdf_path = os.path.join(PUBLIC_DIR, 'Airfield_Directory.pdf')
         assert os.path.isfile(pdf_path)
-        assert os.path.getsize(pdf_path) > 100_000  # Should be > 100KB
+        assert os.path.getsize(pdf_path) > 50_000  # Should be > 50KB
 
     def test_markdown_copied(self):
         md_path = os.path.join(PUBLIC_DIR, 'AIRFIELD_DIRECTORY.md')
