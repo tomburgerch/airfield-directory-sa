@@ -3439,62 +3439,68 @@ Additional airfields in the North West province.
 
 ---
 
-### 136. RUSTENBURG AIRPORT (FARG)
+### 136. RUSTENBURG AIRFIELD (FARG)
 | Field | Detail |
 |---|---|
 | **ICAO** | FARG |
-| **Coordinates** | S25°38'44" E27°16'05" |
-| **Elevation** | 3,740 ft AMSL |
-| **Frequencies** | **126.2 MHz** ❓ |
-| **Access** | ✈️ Public |
+| **Coordinates** | S25°38'39" E27°16'16" |
+| **Elevation** | 3,700 ft AMSL |
+| **Frequencies** | **122.4 MHz** |
+| **Access** | ✈️ Public (no PPR required) |
 | **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ⛽ AVGAS 100LL ❓ |
+| **Fuel** | ⛽ AVGAS available |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 12/30 | 1,220 m | 18 m | Asphalt | ⬅️ Left ❓ |
+| 16/34 | 1,224 m | 15 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
-- Significant GA activity
+- VFR only — municipal airport
+- Home to Rustenburg SkyDiving Club (PASA licensed drop zone)
+- ⚠️ Parachute activity expected
 - Close to Sun City and Hartbeespoort Dam
-- Charter services
 
 ---
 
-### 137. KLERKSDORP AIRPORT (FAKD)
+### 137. KLERKSDORP / P.C. PELSER AIRPORT (FAKD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKD |
-| **Coordinates** | S26°53'00" E26°37'00" ❓ |
-| **Elevation** | 4,400 ft AMSL ❓ |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public |
+| **IATA** | KXE |
+| **Coordinates** | S26°52'00" E26°43'00" |
+| **Elevation** | 4,444 ft AMSL |
+| **Frequencies** | **123.5 MHz** (Information); NDB "KD" 280 kHz |
+| **Access** | ✈️ Public (not an AOE) |
 | **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
+| **Fuel** | ⛽ AVGAS (UL91) available |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,400 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 18/36 | 1,500 m | 18 m | Asphalt | ⬅️ Left ❓ |
+| 15/33 | 1,000 m | 25 m | Asphalt | ❓ |
+| 05/23 | 900 m | 25 m | Asphalt | ❓ |
 
 **Notes:**
+- Three runways
 - Serves Klerksdorp / Matlosana area
-- GA and charter operations
+- ⚠️ Slot coordinated — slots must be applied for prior to arrival
 - High elevation — density altitude
 
 ---
 
-### 138. POTCHEFSTROOM AIRPORT (FAPC)
+### 138. POTCHEFSTROOM AIRPORT (FAPS)
 | Field | Detail |
 |---|---|
-| **ICAO** | FAPC |
-| **Coordinates** | S26°40'12" E27°05'11" ❓ |
-| **Elevation** | 4,500 ft AMSL ❓ |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public |
+| **ICAO** | FAPS |
+| **IATA** | PCF |
+| **Coordinates** | S26°40'16" E27°04'55" |
+| **Elevation** | 4,520 ft AMSL |
+| **Frequencies** | ❓ (verify via AIP) |
+| **Access** | ✈️ Public (not an AOE) |
 | **Night Ops** | 🚫 No ❓ |
 | **Fuel** | ❓ |
 
@@ -3502,10 +3508,13 @@ Additional airfields in the North West province.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,200 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 03/21 | 1,481 m | 30 m | Asphalt | ⬅️ Left ❓ |
+| 15/33 | ❓ | ❓ | ❓ | ❓ |
 
 **Notes:**
-- GA and training operations
+- ⚠️ ICAO is FAPS (not FAPC)
+- Home to Jonker Sailplanes (JS glider factory) and gliding club
+- ⚠️ Expect significant glider activity
 - Near North-West University
 - High elevation
 
@@ -3515,22 +3524,24 @@ Additional airfields in the North West province.
 | Field | Detail |
 |---|---|
 | **ICAO** | FAVB |
-| **Coordinates** | S26°59'24" E24°43'48" |
-| **Elevation** | 3,950 ft AMSL ❓ |
-| **Frequencies** | ❓ |
+| **IATA** | VRU |
+| **Coordinates** | S26°58'57" E24°43'44" |
+| **Elevation** | 3,920 ft AMSL |
+| **Frequencies** | ❓ (verify via AIP) |
 | **Access** | ✈️ Public |
-| **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available ❓ |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 09/27 | 1,700 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 18/36 | 1,200 m | 20 m | ❓ | ⬅️ Left ❓ |
 
 **Notes:**
-- Southern North West Province
-- Cattle farming area
+- Southern North West Province — cattle farming area
+- Historic airfield (completed 1939, WWII military use)
+- No METAR published
 
 ---
 
@@ -3538,10 +3549,10 @@ Additional airfields in the North West province.
 | Field | Detail |
 |---|---|
 | **ICAO** | FALI |
-| **Coordinates** | S26°10'00" E26°10'00" ❓ |
-| **Elevation** | 4,800 ft AMSL ❓ |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public |
+| **Coordinates** | S26°10'32" E26°11'04" |
+| **Elevation** | 4,875 ft AMSL |
+| **Frequencies** | ❓ (verify via AIP) |
+| **Access** | ✈️ Public (not an AOE) |
 | **Night Ops** | 🚫 No |
 | **Fuel** | Not available ❓ |
 
@@ -3549,35 +3560,110 @@ Additional airfields in the North West province.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,300 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 18/36 | ❓ | ❓ | ❓ | ❓ |
+| 06/24 | ❓ | ❓ | ❓ | ❓ |
 
 **Notes:**
-- Small GA airfield serving Lichtenburg / Ditsobotla
-- High elevation
+- Two runways — dimensions unconfirmed
+- High elevation (4,875 ft) — density altitude in summer
+- No navaids in vicinity
 
 ---
 
-### 141. BRITS AIRPORT (FABS)
+### 141. BRITS AIRFIELD (FABS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FABS |
-| **Coordinates** | S25°32'06" E27°46'48" ❓ |
-| **Elevation** | 3,700 ft AMSL ❓ |
-| **Frequencies** | ❓ |
+| **Coordinates** | S25°31'57" E27°46'33" |
+| **Elevation** | 3,740 ft AMSL |
+| **Frequencies** | ❓ (124.8 MHz associated with FAD 129 training area) |
 | **Access** | ✈️ Public |
-| **Night Ops** | 🚫 No |
+| **Night Ops** | 🌙 Landing lights available but NOT automated — arrange in advance |
 | **Fuel** | Not available ❓ |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,000 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 02/20 | 850 m | 18 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
-- Near Hartbeespoort Dam
-- GA and recreational flying
+- Light aircraft, ultralights, and gliders
+- Brits Flying Club based here
+- ⚠️ Danger Area FAD 129 (Brits Flying Training Area) in vicinity
+- Within Johannesburg Special Rules area
 - ⚠️ Close to Wonderboom (FAWB) controlled airspace
+
+---
+
+### 142. ZEERUST AIRPORT (FAZR)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAZR |
+| **Coordinates** | S25°35'56" E26°02'32" |
+| **Elevation** | 4,258 ft AMSL |
+| **Frequencies** | ❓ (verify via AIP) |
+| **Access** | ✈️ Public (not an AOE) |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 04/22 | 1,963 m | ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Sunrise to sunset operations
+- Near Botswana border
+- No navaids in vicinity
+
+---
+
+### 143. HARTEBEESPOORTDAM AIRPORT (FAHB)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAHB |
+| **Coordinates** | S25°44'57" E27°53'10" ❓ |
+| **Elevation** | 3,900 ft AMSL ❓ |
+| **Frequencies** | ❓ (verify via AIP) |
+| **Access** | 🔒 Private / PPR ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Small airfield near Hartbeespoort Dam
+- ⚠️ Limited data available — verify via AIP or Airfields Directory
+- Several private strips in the area (Aviators Paradise, The Coves)
+
+---
+
+### 144. SCHWEIZER-RENEKE AIRPORT (FASG)
+| Field | Detail |
+|---|---|
+| **ICAO** | FASG |
+| **Coordinates** | S27°10'00" E25°18'00" ❓ |
+| **Elevation** | 4,367 ft AMSL |
+| **Frequencies** | ❓ (verify via AIP) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 17/35 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Small GA airfield — single runway
+- No navaids in vicinity
 
 ---
 
@@ -3587,7 +3673,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 142. PHALABORWA / HENDRIK VAN ECK AIRPORT (FAPH)
+### 145. PHALABORWA / HENDRIK VAN ECK AIRPORT (FAPH)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPH |
@@ -3612,7 +3698,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 143. TZANEEN / LETABA AIRPORT (FATZ)
+### 146. TZANEEN / LETABA AIRPORT (FATZ)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATZ |
@@ -3637,7 +3723,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 144. THOHOYANDOU AIRPORT (FATH)
+### 147. THOHOYANDOU AIRPORT (FATH)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATH |
@@ -3661,7 +3747,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 145. MUSINA / MESSINA AIRPORT (FAMS)
+### 148. MUSINA / MESSINA AIRPORT (FAMS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMS |
@@ -3686,7 +3772,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 146. LOUIS TRICHARDT / MAKHADO AIRPORT (FALT)
+### 149. LOUIS TRICHARDT / MAKHADO AIRPORT (FALT)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALT ❓ |
@@ -3710,7 +3796,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 147. THABAZIMBI AIRPORT (FATB)
+### 150. THABAZIMBI AIRPORT (FATB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATB |
@@ -3734,7 +3820,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 148. LEPHALALE / ELLISRAS AIRPORT (FALR)
+### 151. LEPHALALE / ELLISRAS AIRPORT (FALR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALR ❓ |
@@ -3758,7 +3844,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 149. ALLDAYS AIRPORT (FAAD)
+### 152. ALLDAYS AIRPORT (FAAD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAD |
@@ -3783,7 +3869,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 150. MAKHADO AIR FORCE BASE (FAMA)
+### 153. MAKHADO AIR FORCE BASE (FAMA)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMA |
@@ -3813,7 +3899,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 151. MIDDELBURG AIRPORT (FAMB)
+### 154. MIDDELBURG AIRPORT (FAMB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMB |
@@ -3838,7 +3924,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 152. WITBANK / EMALAHLENI AIRPORT (FAWI)
+### 155. WITBANK / EMALAHLENI AIRPORT (FAWI)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAWI ❓ |
@@ -3862,7 +3948,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 153. BARBERTON AIRPORT (FABB)
+### 156. BARBERTON AIRPORT (FABB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FABB |
@@ -3886,7 +3972,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 154. PIET RETIEF AIRPORT (FAPR)
+### 157. PIET RETIEF AIRPORT (FAPR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPR ❓ |
