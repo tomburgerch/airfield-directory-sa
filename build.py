@@ -31,6 +31,13 @@ def build():
         shutil.rmtree(PUBLIC_DIR)
     os.makedirs(PUBLIC_DIR)
 
+    # Copy favicon files
+    for favicon in ['favicon.ico', 'favicon.png', 'apple-touch-icon.png', 'favicon-192.png', 'favicon-512.png']:
+        src = os.path.join(BASE_DIR, favicon)
+        if os.path.exists(src):
+            shutil.copy2(src, os.path.join(PUBLIC_DIR, favicon))
+    print("  Copied favicons")
+
     # Copy downloadable files
     download_links = []
 
