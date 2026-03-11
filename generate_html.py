@@ -522,6 +522,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (key === 'access-public' && card.dataset.access !== 'public') return false;
             if (key === 'access-ppr' && card.dataset.access !== 'ppr') return false;
             if (key === 'towered' && card.dataset.towered !== '1') return false;
+            if (key === 'official' && card.dataset.official !== '1') return false;
         }
         return true;
     }
@@ -762,7 +763,12 @@ def build_airfield_card(airfield, embed_diagrams=False):
                 break
     towered_attr = '1' if has_tower else '0'
 
-    filter_attrs = f' data-fuel="{has_fuel}" data-night="{has_night}" data-surface="{surface_attr}" data-access="{access_type}" data-towered="{towered_attr}"'
+    # Official: has a proper FA?? ICAO code (not ZA-xxxx or blank)
+    import re as _re
+    has_icao = bool(_re.search(r'\bFA[A-Z]{2}\b', code_clean))
+    official_attr = '1' if has_icao else '0'
+
+    filter_attrs = f' data-fuel="{has_fuel}" data-night="{has_night}" data-surface="{surface_attr}" data-access="{access_type}" data-towered="{towered_attr}" data-official="{official_attr}"'
 
     html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}"{coord_attrs}{filter_attrs}>\n'
     html += f'  <div class="airfield-header {header_class}">\n'
@@ -932,6 +938,8 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<span class="filter-sep"></span>\n'
     html += '<button class="filter-btn" data-filter="access-public">Public</button>\n'
     html += '<button class="filter-btn" data-filter="access-ppr">PPR</button>\n'
+    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" data-filter="official">ICAO Listed</button>\n'
     html += '<span id="filter-count"></span>\n'
     html += '<span id="search-count"></span>\n'
     html += f'<span class="updated">Updated {build_date}</span>\n'
