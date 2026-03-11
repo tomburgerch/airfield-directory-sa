@@ -2643,9 +2643,9 @@ Eastern Cape airfields in the Karoo interior.
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAN |
-| **Coordinates** | S30°41'00" E26°43'00" ❓ |
-| **Elevation** | 4,389 ft AMSL ❓ |
-| **Frequencies** | ❓ |
+| **Coordinates** | S30°40'48" E26°43'48" |
+| **Elevation** | 4,410 ft AMSL |
+| **Frequencies** | ❓ (verify via AIP) |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🚫 No ❓ |
 | **Fuel** | ❓ |
@@ -2654,12 +2654,16 @@ Eastern Cape airfields in the Karoo interior.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,200 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 18/36 | ❓ | ❓ | ❓ | ⬅️ Left ❓ |
+| 12/30 | ❓ | ❓ | ❓ | ⬅️ Left ❓ |
+| 06/24 | ❓ | ❓ | ❓ | ⬅️ Left ❓ |
 
 **Notes:**
 - On the Orange River, near Lesotho border
-- High elevation — density altitude
+- High elevation (4,410 ft) — density altitude considerations
 - Hot springs nearby
+- Three runways reported — verify dimensions and surface via AIP
+- ⚠️ May be closed or require prior permission — verify before flight
 
 ---
 
