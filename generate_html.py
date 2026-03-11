@@ -148,6 +148,38 @@ body {
     white-space: nowrap;
 }
 .header-actions a:hover, .header-actions button:hover { background: rgba(255,255,255,0.25); }
+.dl-dropdown { position: relative; }
+.dl-trigger {
+    color: white; font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: 4px;
+    background: rgba(255,255,255,0.12);
+    border: none; cursor: pointer;
+    transition: background 0.2s;
+}
+.dl-trigger:hover { background: rgba(255,255,255,0.25); }
+.dl-menu {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    flex-direction: column;
+    background: #333;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    overflow: hidden;
+    min-width: 160px;
+}
+.dl-dropdown:hover .dl-menu { display: flex; }
+.dl-menu a {
+    color: white !important;
+    font-size: 12px;
+    padding: 8px 14px;
+    text-decoration: none;
+    font-weight: 500;
+    background: none !important;
+    border-radius: 0 !important;
+    transition: background 0.15s;
+}
+.dl-menu a:hover { background: rgba(255,255,255,0.1) !important; }
 .contact-tip {
     color: white;
     font-size: 11px;
@@ -599,6 +631,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // --- Position download dropdown with fixed positioning ---
+    var dlDropdown = document.querySelector('.dl-dropdown');
+    var dlMenu = document.querySelector('.dl-menu');
+    if (dlDropdown && dlMenu) {
+        dlDropdown.addEventListener('mouseenter', function() {
+            var rect = dlDropdown.getBoundingClientRect();
+            dlMenu.style.top = (rect.bottom + 4) + 'px';
+            dlMenu.style.left = rect.left + 'px';
+        });
+    }
+
     // --- Position contact tooltip with fixed positioning ---
     var contactTip = document.querySelector('.contact-tip');
     var contactTooltip = document.querySelector('.contact-tooltip');
@@ -911,16 +954,21 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     # Unified header: logo + search + actions + filters
     html += '<header class="site-header">\n'
     html += '<div class="header-top">\n'
-    html += '<h1>Wagyu Wings <span>SA Airfield Directory</span></h1>\n'
+    html += '<h1><a href="https://wagyuwings.com" style="color:#FFD700;text-decoration:none">Wagyu Wings</a> <span>SA Airfield Directory</span></h1>\n'
     html += '<div class="search-wrapper">\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
     html += '<button id="clear-search" title="Clear search">&times;</button>\n'
     html += '</div>\n'
     html += '<div class="header-actions">\n'
     if download_links:
+        html += '  <span class="dl-dropdown">\n'
+        html += '    <button class="dl-trigger">Download &#9662;</button>\n'
+        html += '    <span class="dl-menu">\n'
         for link in download_links:
-            dl_attr = f' download="{escape(link["href"].split("/")[-1])}"' if link.get('download', True) else ''
-            html += f'  <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
+            dl_attr = f' download="{escape(link["href"].split("/")[-1])}"'
+            html += f'      <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
+        html += '    </span>\n'
+        html += '  </span>\n'
     html += '  <button id="nearby-btn" style="display:none;">Find Nearest</button>\n'
     html += '  <span class="contact-tip">Contact<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
     html += '</div>\n'
