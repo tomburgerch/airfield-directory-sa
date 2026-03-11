@@ -1627,12 +1627,12 @@ Major airports along the Eastern Cape coast and hinterland.
 |---|---|
 | **ICAO** | FAPE |
 | **AIP Ref** | 1211 |
-| **Coordinates** | S33°59'00" E25°37'02" |
+| **Coordinates** | S33°59'24" E25°36'37" |
 | **Location** | 3 NM S of Port Elizabeth / Gqeberha city centre |
-| **Elevation** | 226 ft AMSL |
+| **Elevation** | 229 ft AMSL |
 | **Ref Temp** | 30°C |
 | **Mag Var** | 24°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 124.0 MHz, ATIS 127.9 MHz, GND 121.7 MHz |
+| **Frequencies** | **TWR 118.1 MHz**, APP 120.4 MHz, ATIS 112.9 MHz, GND 122.65 MHz, DEL 122.1 MHz |
 | **Access** | ✈️ Public — International airport |
 | **Night Ops** | 🌙 Yes — full lighting |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -1645,17 +1645,17 @@ Major airports along the Eastern Cape coast and hinterland.
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
 | 08/26 | 1,980 m | 46 m | Asphalt | PCN 45 | ⬅️ Left |
-| 10/28 | 1,372 m | 30 m | Asphalt | PCN 17 | ⬅️ Left |
+| 17/35 | 1,677 m | 46 m | Asphalt | ❓ | ⬅️ Left |
 
 **Frequencies:**
 
 | Service | Frequency |
 |---------|-----------|
 | PE Tower | 118.1 MHz |
-| PE Approach | 124.0 MHz |
-| PE Ground | 121.7 MHz |
-| PE ATIS | 127.9 MHz |
-| PE Clearance | 121.7 MHz |
+| PE Approach | 120.4 MHz |
+| PE Ground | 122.65 MHz |
+| PE ATIS | 112.9 MHz |
+| PE Clearance | 122.1 MHz |
 
 **Notes:**
 - ⚠️ Controlled airspace — contact Approach before entering CTR
@@ -1722,12 +1722,12 @@ Major airports along the Eastern Cape coast and hinterland.
 |---|---|
 | **ICAO** | FAEL |
 | **AIP Ref** | 520 |
-| **Coordinates** | S33°02'15" E27°49'33" |
+| **Coordinates** | S33°02'06" E27°49'17" |
 | **Location** | 6 NM W of East London city centre |
 | **Elevation** | 435 ft AMSL |
 | **Ref Temp** | 30°C |
 | **Mag Var** | 24°W |
-| **Frequencies** | **TWR 118.3 MHz**, APP 121.0 MHz, ATIS 124.3 MHz, GND 121.7 MHz |
+| **Frequencies** | **TWR 118.3 MHz**, APP 120.1 MHz, ATIS 126.65 MHz, Apron 122.65 MHz |
 | **Access** | ✈️ Public — Regional airport |
 | **Night Ops** | 🌙 Yes — full lighting |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -1739,16 +1739,17 @@ Major airports along the Eastern Cape coast and hinterland.
 
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
-| 10/28 | 1,800 m | 46 m | Asphalt | PCN 40 | ⬅️ Left |
+| 11/29 | 1,939 m | 46 m | Asphalt | PCN 40 | ⬅️ Left |
+| 06/24 | 1,585 m | 46 m | Asphalt | ❓ | ⬅️ Left ❓ |
 
 **Frequencies:**
 
 | Service | Frequency |
 |---------|-----------|
 | EL Tower | 118.3 MHz |
-| EL Approach | 121.0 MHz |
-| EL Ground | 121.7 MHz |
-| EL ATIS | 124.3 MHz |
+| EL Approach | 120.1 MHz |
+| EL Apron | 122.65 MHz |
+| EL ATIS | 126.65 MHz |
 
 **Notes:**
 - ⚠️ Controlled airspace — Class C CTR from surface to 5500 ft
@@ -1791,9 +1792,9 @@ Major airports along the Eastern Cape coast and hinterland.
 |---|---|
 | **ICAO** | FAUT |
 | **AIP Ref** | 1063 |
-| **Coordinates** | S31°32'48" E28°40'18" |
-| **Elevation** | 2,400 ft AMSL ❓ |
-| **Frequencies** | **AFIS 118.1 MHz** ❓ |
+| **Coordinates** | S31°32'47" E28°40'31" |
+| **Elevation** | 2,429 ft AMSL |
+| **Frequencies** | ❓ (verify via current AIP) |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1 ❓ |
@@ -1802,11 +1803,13 @@ Major airports along the Eastern Cape coast and hinterland.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 10/28 | 2,040 m | 30 m | Asphalt ❓ | ⬅️ Left ❓ |
+| 14/32 | 2,600 m | 45 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
 - Serves Mthatha (formerly Umtata) in the Eastern Cape
-- Scheduled airline services (SA Express / Airlink ❓)
+- Also known as K.D. Matanzima Airport
+- Runway expanded from 2,000 m to 2,600 m (2013)
+- Scheduled airline services (Airlink ❓)
 - ~130 nm northeast of East London
 - ⚠️ Terrain and weather can be challenging — mountainous area
 - Wild Coast region nearby
@@ -1824,9 +1827,9 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 |---|---|
 | **ICAO** | FAMG |
 | **AIP Ref** | 915 |
-| **Coordinates** | S30°51'24" E30°18'36" |
-| **Elevation** | 495 ft AMSL |
-| **Frequencies** | **AFIS 124.0 MHz** ❓ |
+| **Coordinates** | S30°51'26" E30°20'35" |
+| **Elevation** | 498 ft AMSL |
+| **Frequencies** | **124.8 MHz** ❓ |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
@@ -1835,12 +1838,12 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 03/21 | 1,400 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 05/23 | 1,370 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
-- Popular holiday destination on the South Coast
+- Popular holiday destination on the KZN South Coast
 - ~80 nm south of Durban
-- Within KZN lower south coast area
+- CemAir scheduled service to JNB
 - ⚠️ Sea fog can affect operations
 
 ---
@@ -1874,12 +1877,12 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 |---|---|
 | **ICAO** | FALE |
 | **AIP Ref** | 484 |
-| **Coordinates** | S29°36'52" E31°07'16" |
+| **Coordinates** | S29°36'43" E31°07'10" |
 | **Location** | 25 NM N of Durban city centre, La Mercy |
-| **Elevation** | 295 ft AMSL |
+| **Elevation** | 304 ft AMSL |
 | **Ref Temp** | 33°C |
 | **Mag Var** | 23°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 119.5 MHz, ATIS 128.6 MHz, GND 121.75 MHz |
+| **Frequencies** | **TWR 118.45 MHz**, ATIS 127.0 MHz, GND 121.65 MHz |
 | **Access** | ✈️ Public — International airport |
 | **Night Ops** | 🌙 Yes — full lighting, CAT II ILS |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -1897,11 +1900,10 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 
 | Service | Frequency |
 |---------|-----------|
-| Durban Tower | 118.1 MHz |
-| Durban Approach | 119.5 MHz |
-| Durban Ground | 121.75 MHz |
-| Durban ATIS | 128.6 MHz |
-| Durban Clearance | 121.75 MHz |
+| Durban Tower | 118.45 MHz |
+| Durban Approach | ❓ (verify via AIP) |
+| Durban Ground | 121.65 MHz |
+| Durban ATIS | 127.0 MHz |
 
 **Notes:**
 - ⚠️ Controlled airspace — Class B TMA, Class C CTR
@@ -1918,10 +1920,10 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 |---|---|
 | **ICAO** | FAVG |
 | **AIP Ref** | 1437 |
-| **Coordinates** | S29°46'12" E31°02'54" |
+| **Coordinates** | S29°46'15" E31°03'37" |
 | **Elevation** | 20 ft AMSL |
-| **Frequencies** | **118.1 MHz** ❓ |
-| **Access** | ✈️ Public |
+| **Frequencies** | **124.8 MHz** ❓ |
+| **Access** | ✈️ Public (ATNS-controlled) |
 | **Night Ops** | 🚫 No ❓ |
 | **Fuel** | ⛽ AVGAS 100LL ❓ |
 
@@ -1929,12 +1931,13 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 04/22 | 1,024 m | 18 m | Asphalt ❓ | ⬅️ Left ❓ |
+| 05/23 | 925 m | 22 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
 - Located on the Durban North Coast at Virginia Beach
-- Popular GA airport near Durban
+- Popular GA airport near Durban — home to Durban Wings Club
 - ⚠️ Within King Shaka CTR/TMA — coordinate with Durban Approach
+- Controlled airspace — ATNS provides ATC services
 - Close to sea level — minimal density altitude issues
 - ~15 nm south of King Shaka International
 
@@ -1945,9 +1948,9 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 |---|---|
 | **ICAO** | FAPM |
 | **AIP Ref** | 1215 |
-| **Coordinates** | S29°39'00" E30°23'48" |
-| **Elevation** | 2,425 ft AMSL |
-| **Frequencies** | **TWR 118.1 MHz**, AFIS when ATC not available ❓ |
+| **Coordinates** | S29°38'56" E30°23'55" |
+| **Elevation** | 2,423 ft AMSL |
+| **Frequencies** | **TWR 122.0 MHz**, SRA 124.2 MHz ❓ |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
@@ -1956,13 +1959,14 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 08/26 | 1,341 m | 30 m | Asphalt ❓ | ⬅️ Left ❓ |
+| 16/34 | 1,529 m | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
 - Serves Pietermaritzburg, capital of KwaZulu-Natal
 - ~50 nm inland from Durban
-- Controlled when ATC is active; AFIS otherwise
+- ATNS-controlled when ATC is active; pilot-controlled lighting
 - Valley airfield — terrain considerations on approach/departure
+- VOR PMV 117.9 MHz
 - 📅 Verify current ATC hours and status
 
 ---
@@ -2051,12 +2055,12 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 |---|---|
 | **ICAO** | FALA |
 | **AIP Ref** | 843 |
-| **Coordinates** | S25°56'14" E27°55'38" |
+| **Coordinates** | S25°56'24" E27°55'30" |
 | **Location** | 25 NM NW of Johannesburg CBD |
-| **Elevation** | 4,517 ft AMSL |
+| **Elevation** | 4,521 ft AMSL |
 | **Ref Temp** | 28°C |
 | **Mag Var** | 20°W |
-| **Frequencies** | **TWR 118.35 MHz**, APP 120.3 MHz, ATIS 127.55 MHz, GND 121.7 MHz |
+| **Frequencies** | **TWR 124.0 MHz**, ATIS 127.65 MHz, GND 121.65 MHz, Apron 122.85 MHz |
 | **Access** | ✈️ Public — Secondary Johannesburg airport |
 | **Night Ops** | 🌙 Yes — full lighting |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -2066,25 +2070,22 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
-| 06L/24R | 3,000 m | 45 m | Asphalt | PCN 50 | ⬅️ Left |
-| 06R/24L | 1,400 m | 15 m | Asphalt | PCN 17 | ⬅️ Left |
+| 07/25 | 2,996 m | 45 m | Asphalt | PCN 50 | ⬅️ Left |
 
 **Frequencies:**
 
 | Service | Frequency |
 |---------|-----------|
-| Lanseria Tower | 118.35 MHz |
-| Lanseria Approach | 120.3 MHz |
-| Lanseria Ground | 121.7 MHz |
-| Lanseria ATIS | 127.55 MHz |
+| Lanseria Tower | 124.0 MHz |
+| Lanseria Ground | 121.65 MHz |
+| Lanseria ATIS | 127.65 MHz |
+| Lanseria Apron | 122.85 MHz |
 
 **Notes:**
 - ⚠️ Controlled airspace — Class C CTR
 - Major GA and low-cost carrier hub (FlySafair, etc.)
-- Second runway (06R/24L) primarily for GA / light aircraft
 - High elevation — density altitude considerations in summer
 - Within Johannesburg TMA
-- ~12 nm from Pilanesberg game drive corridor
 
 ---
 
@@ -2093,12 +2094,12 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 |---|---|
 | **ICAO** | FAGC |
 | **AIP Ref** | 685 |
-| **Coordinates** | S25°59'09" E28°08'24" |
+| **Coordinates** | S25°59'13" E28°08'26" |
 | **Location** | Midrand, between Johannesburg and Pretoria |
-| **Elevation** | 5,325 ft AMSL |
+| **Elevation** | 5,327 ft AMSL |
 | **Ref Temp** | 28°C |
 | **Mag Var** | 20°W |
-| **Frequencies** | **TWR 118.4 MHz**, ATIS 124.0 MHz ❓ |
+| **Frequencies** | **TWR 120.8 MHz** |
 | **Access** | ✈️ Public — GA airport |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -2108,8 +2109,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
-| 17/35 | 1,280 m | 30 m | Asphalt | PCN 20 ❓ | ⬅️ Left ❓ |
-| 11/29 | 860 m | 15 m | Asphalt | ❓ | ⬅️ Left ❓ |
+| 17/35 | 1,828 m | 23 m | Asphalt | ❓ | ⬅️ Left ❓ |
 
 **Notes:**
 - Major GA hub — largest GA airport in Africa by movements ❓
@@ -2125,12 +2125,12 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 |---|---|
 | **ICAO** | FAWB |
 | **AIP Ref** | 1468 |
-| **Coordinates** | S25°39'12" E28°13'24" |
+| **Coordinates** | S25°39'14" E28°13'27" |
 | **Location** | 6 NM N of Pretoria CBD |
 | **Elevation** | 4,095 ft AMSL |
 | **Ref Temp** | 28°C |
 | **Mag Var** | 20°W |
-| **Frequencies** | **TWR 118.35 MHz**, APP 127.0 MHz ❓ |
+| **Frequencies** | **TWR 118.35 MHz**, GND 120.6 MHz |
 | **Access** | ✈️ Public — GA and charter |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -2139,8 +2139,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
-| 11/29 | 1,829 m | 30 m | Asphalt | PCN 30 ❓ | ⬅️ Left ❓ |
-| 06/24 | 914 m | 18 m | Asphalt | ❓ | ❓ |
+| 11/29 | 1,828 m | 30 m | Asphalt | PCN 30 ❓ | ⬅️ Left ❓ |
+| 06/24 | 1,267 m | 22 m | Asphalt | ❓ | ❓ |
 
 **Notes:**
 - ⚠️ Controlled airspace — Class C CTR within Pretoria Special Rules Area
@@ -2150,21 +2150,49 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
+### 88. RAND AIRPORT (FAGM)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAGM |
+| **Coordinates** | S26°14'31" E28°09'05" |
+| **Location** | Germiston, SE of Johannesburg CBD |
+| **Elevation** | 5,483 ft AMSL |
+| **Frequencies** | **TWR 118.7 MHz**, APP 124.5 MHz |
+| **Access** | ✈️ Public — GA airport |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ AVGAS 100LL, JET A-1 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 11/29 | 1,524 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 17/35 | 1,220 m ❓ | 23 m ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Historic GA airport — home to South African Airways Museum
+- ⚠️ Controlled airspace — within Johannesburg TMA
+- Very high elevation (5,483 ft) — significant density altitude
+- ATNS provides ATC services
+- Multiple GA operators and maintenance facilities
+
+---
+
 ## GROUP 13: CONTROLLED AERODROMES — FREE STATE, NORTHERN CAPE & NORTH WEST
 
 ---
 
-### 88. BRAM FISCHER INTERNATIONAL AIRPORT / BLOEMFONTEIN (FABM)
+### 89. BRAM FISCHER INTERNATIONAL AIRPORT / BLOEMFONTEIN (FABL)
 | Field | Detail |
 |---|---|
-| **ICAO** | FABM |
+| **ICAO** | FABL |
 | **AIP Ref** | 174 |
-| **Coordinates** | S29°05'38" E26°18'09" |
+| **Coordinates** | S29°05'38" E26°18'14" |
 | **Location** | 8 NM NE of Bloemfontein CBD |
-| **Elevation** | 4,458 ft AMSL |
+| **Elevation** | 4,457 ft AMSL |
 | **Ref Temp** | 31°C |
 | **Mag Var** | 21°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 119.1 MHz, ATIS 126.4 MHz ❓ |
+| **Frequencies** | **TWR 120.8 MHz**, APP 119.4 / 124.3 MHz, ATIS 126.45 MHz |
 | **Access** | ✈️ Public — Regional airport |
 | **Night Ops** | 🌙 Yes |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -2186,16 +2214,16 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-### 89. KIMBERLEY AIRPORT (FAKM)
+### 90. KIMBERLEY AIRPORT (FAKM)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKM |
 | **AIP Ref** | 824 |
-| **Coordinates** | S28°48'02" E24°45'44" |
+| **Coordinates** | S28°48'17" E24°45'50" |
 | **Elevation** | 3,950 ft AMSL |
 | **Ref Temp** | 33°C |
 | **Mag Var** | 21°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 119.7 MHz ❓ |
+| **Frequencies** | **TWR 118.2 MHz**, APP 119.4 MHz, Apron 122.65 MHz |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -2205,7 +2233,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
 | 02/20 | 3,000 m | 46 m | Asphalt | PCN 40 ❓ | ⬅️ Left ❓ |
-| 09/27 | 1,524 m | 30 m | Asphalt | ❓ | ⬅️ Left ❓ |
+| 10/28 | 2,439 m | 46 m | Asphalt | ❓ | ⬅️ Left ❓ |
 
 **Notes:**
 - Serves Kimberley, Northern Cape capital
@@ -2216,7 +2244,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-### 90. UPINGTON AIRPORT (FAUP)
+### 91. UPINGTON AIRPORT (FAUP)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAUP |
@@ -2247,14 +2275,14 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-### 91. PILANESBERG INTERNATIONAL AIRPORT (FAPS)
+### 92. PILANESBERG INTERNATIONAL AIRPORT (FAPN)
 | Field | Detail |
 |---|---|
-| **ICAO** | FAPS |
+| **ICAO** | FAPN |
 | **AIP Ref** | 1218 |
-| **Coordinates** | S25°20'07" E27°10'15" |
+| **Coordinates** | S25°20'02" E27°10'24" |
 | **Elevation** | 3,412 ft AMSL |
-| **Frequencies** | **TWR 118.1 MHz** ❓ |
+| **Frequencies** | **118.4 MHz** ❓ |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1 ❓ |
@@ -2263,12 +2291,12 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 01/19 | 2,300 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 05/23 | 2,750 m | 30 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
 - Serves Sun City and Pilanesberg Game Reserve
 - North West Province
-- Charter and scheduled services
+- ⚠️ Terminal building destroyed by fire (Aug 2023) — verify current operational status
 - ⚠️ Game reserve nearby — bird and wildlife hazards
 - Within Pilanesberg volcanic crater area
 
@@ -2278,17 +2306,17 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-### 92. KRUGER MPUMALANGA INTERNATIONAL AIRPORT (FAKN)
+### 93. KRUGER MPUMALANGA INTERNATIONAL AIRPORT (FAKN)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKN |
 | **AIP Ref** | 836 |
-| **Coordinates** | S25°23'10" E31°06'22" |
+| **Coordinates** | S25°23'29" E31°05'58" |
 | **Location** | Near Nelspruit / Mbombela |
 | **Elevation** | 2,829 ft AMSL |
 | **Ref Temp** | 30°C |
 | **Mag Var** | 19°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 119.3 MHz ❓ |
+| **Frequencies** | **TWR/APP 119.2 MHz**, Lowveld Info 129.4 MHz |
 | **Access** | ✈️ Public — Regional airport |
 | **Night Ops** | 🌙 Yes |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
@@ -2297,10 +2325,11 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
-| 05/23 | 3,100 m | 45 m | Asphalt | PCN 50 ❓ | ⬅️ Left ❓ |
+| 05/23 | 3,260 m | 46 m | Asphalt | PCN 50 ❓ | ⬅️ Left ❓ |
 
 **Notes:**
 - Gateway to Kruger National Park
+- ILS RWY 05
 - ⚠️ Controlled airspace — Class C CTR
 - Mountainous terrain in vicinity — careful flight planning required
 - Summer thunderstorms common
@@ -2308,14 +2337,14 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-### 93. POLOKWANE GATEWAY AIRPORT (FAPP)
+### 94. POLOKWANE GATEWAY AIRPORT (FAPP)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPP |
 | **AIP Ref** | 1222 |
-| **Coordinates** | S23°50'33" E29°27'34" |
+| **Coordinates** | S23°50'43" E29°27'31" |
 | **Elevation** | 4,076 ft AMSL |
-| **Frequencies** | **TWR 118.1 MHz** ❓ |
+| **Frequencies** | **TWR 124.3 MHz** |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
@@ -2324,18 +2353,19 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 01/19 | 3,000 m ❓ | 45 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 01/19 | 2,560 m | 45 m | Asphalt | ⬅️ Left ❓ |
+| 05/23 | 2,320 m | 45 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
 - Serves Polokwane (formerly Pietersburg), Limpopo capital
 - ⚠️ Controlled airspace — Class C CTR
-- New gateway airport (opened ~2017) replaced old Pietersburg airport (FAPI)
+- New gateway airport replaced old Pietersburg airport (FAPI)
 - Scheduled services by Airlink and others
 - ~900 nm northeast of Cape Town
 
 ---
 
-### 94. HOEDSPRUIT AIR FORCE BASE (FAHS)
+### 95. HOEDSPRUIT AIR FORCE BASE (FAHS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAHS |
@@ -2360,6 +2390,56 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 - Home to SAAF fighter squadrons
 - Civilian charter flights operate from Eastgate terminal
 - Low elevation in the Lowveld — can be very hot
+
+---
+
+### 96. BHISHO AIRPORT (FABE)
+| Field | Detail |
+|---|---|
+| **ICAO** | FABE |
+| **Coordinates** | S32°53'42" E27°17'06" |
+| **Elevation** | 1,950 ft AMSL |
+| **Frequencies** | ❓ (verify via AIP — ATNS provides ATC) |
+| **Access** | ✈️ Public |
+| **Night Ops** | ❓ |
+| **Fuel** | ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 08/26 | 2,500 m ❓ | ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Eastern Cape capital airport (Bhisho / Bisho)
+- ATNS provides ATC services
+- Recent R20M upgrade (2023 ❓)
+- ~40 nm west of East London
+
+---
+
+### 97. MAFIKENG / MMABATHO AIRPORT (FAMM)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAMM |
+| **Coordinates** | S25°48'27" E25°32'40" |
+| **Elevation** | 4,181 ft AMSL |
+| **Frequencies** | ❓ (ATNS-controlled — verify via AIP) |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 04/22 | 4,499 m | 45 m | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Very long runway (4.5 km) — built as alternate for Bophuthatswana
+- North West Province capital airport
+- ATNS provides ATC services
+- High elevation — density altitude in summer
 
 ---
 
@@ -2418,14 +2498,17 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | Service | Frequency |
 |---------|-----------|
 | Port Elizabeth TWR | 118.1 |
-| Port Elizabeth APP | 124.0 |
-| Port Elizabeth ATIS | 127.9 |
+| Port Elizabeth APP | 120.4 |
+| Port Elizabeth ATIS | 112.9 |
 | East London TWR | 118.3 |
-| East London APP | 121.0 |
-| East London ATIS | 124.3 |
-| Durban / King Shaka TWR | 118.1 |
-| Durban APP | 119.5 |
-| Durban ATIS | 128.6 |
+| East London APP | 120.1 |
+| East London ATIS | 126.65 |
+| Durban / King Shaka TWR | 118.45 |
+| Durban ATIS | 127.0 |
+| Virginia | 124.8 ❓ |
+| Margate | 124.8 ❓ |
+| Richards Bay TWR | 118.5 ❓ |
+| Pietermaritzburg TWR | 122.0 |
 
 ## GAUTENG & INLAND COMMON FREQUENCIES
 
@@ -2435,16 +2518,16 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | OR Tambo APP (North) | 124.5 |
 | OR Tambo APP (South) | 125.0 |
 | OR Tambo ATIS | 127.3 |
-| Lanseria TWR | 118.35 |
-| Lanseria APP | 120.3 |
-| Lanseria ATIS | 127.55 |
-| Grand Central TWR | 118.4 |
-| Wonderboom TWR | 118.35 ❓ |
-| Bloemfontein TWR | 118.1 |
-| Kimberley TWR | 118.1 |
-| Upington TWR | 118.1 |
-| KMIA (Nelspruit) TWR | 118.1 |
-| Polokwane TWR | 118.1 |
+| Lanseria TWR | 124.0 |
+| Lanseria ATIS | 127.65 |
+| Grand Central TWR | 120.8 |
+| Rand TWR | 118.7 |
+| Wonderboom TWR | 118.35 |
+| Bloemfontein TWR | 120.8 ❓ |
+| Kimberley TWR | 118.2 |
+| Upington TWR | 118.1 ❓ |
+| KMIA (Nelspruit) TWR/APP | 119.2 |
+| Polokwane TWR | 124.3 |
 
 ---
 
