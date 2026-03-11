@@ -47,7 +47,7 @@ class TestBuildScript:
     def test_index_has_download_bar(self):
         with open(os.path.join(PUBLIC_DIR, 'index.html'), 'r') as f:
             html = f.read()
-        assert 'download-bar' in html
+        assert 'toolbar' in html
         assert 'Download PDF' in html
         assert 'Download Markdown' in html
 

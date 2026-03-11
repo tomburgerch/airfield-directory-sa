@@ -51,6 +51,7 @@ def parse_single_airfield(num, name, section):
         'name': name,
         'group': '',
         'fields': {},
+        'fields_raw': {},
         'runways': [],
         'notes': [],
         'frequencies_table': [],
@@ -67,6 +68,7 @@ def parse_single_airfield(num, name, section):
         if m:
             key = m.group(1).strip()
             val = m.group(2).strip()
+            data['fields_raw'][key] = val
             val = re.sub(r'\*\*(.+?)\*\*', r'\1', val)
             val = re.sub(r'\[(.+?)\]\(.+?\)', r'\1', val)
             data['fields'][key] = val

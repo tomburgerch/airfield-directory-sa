@@ -6,6 +6,7 @@ Generate a searchable HTML version of the South African Airfield Directory.
 import os
 import re
 import base64
+from datetime import datetime, timezone
 from html import escape
 
 from parse_markdown import parse_airfields
@@ -14,6 +15,7 @@ from pdf_styles import EMOJI_MAP
 MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
 OUTPUT_HTML = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Airfield_Directory.html')
 DIAGRAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'diagrams')
+FAVICON_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'favicon.svg')
 
 
 def clean_html(text):
@@ -40,6 +42,35 @@ def embed_image(path, max_width=500):
     return f'<img src="data:{mime};base64,{data}" style="max-width:{max_width}px; height:auto;" alt="Aerodrome diagram">'
 
 
+def extract_links(raw_value):
+    """Extract markdown links from a raw field value, return list of (label, url)."""
+    if not raw_value:
+        return []
+    return re.findall(r'\[([^\]]+)\]\(([^)]+)\)', raw_value)
+
+
+def parse_dms_coord(coord_str):
+    """Parse DMS coordinate string like 'S33°45'44" E18°32'55"' to (lat, lon) decimal."""
+    if not coord_str:
+        return None, None
+    # Remove approximate markers and notes
+    coord_str = coord_str.replace('~', '').split('(')[0].strip()
+    # Match hemisphere + degrees + optional minutes + optional seconds
+    pattern = r'([NS])\s*(\d+)[°]\s*(\d+)?[\'′]?\s*(\d+(?:\.\d+)?)?[\"″]?\s*([EW])\s*(\d+)[°]\s*(\d+)?[\'′]?\s*(\d+(?:\.\d+)?)?[\"″]?'
+    m = re.search(pattern, coord_str)
+    if not m:
+        return None, None
+    lat_h, lat_d, lat_m, lat_s = m.group(1), float(m.group(2)), float(m.group(3) or 0), float(m.group(4) or 0)
+    lon_h, lon_d, lon_m, lon_s = m.group(5), float(m.group(6)), float(m.group(7) or 0), float(m.group(8) or 0)
+    lat = lat_d + lat_m / 60 + lat_s / 3600
+    lon = lon_d + lon_m / 60 + lon_s / 3600
+    if lat_h == 'S':
+        lat = -lat
+    if lon_h == 'W':
+        lon = -lon
+    return round(lat, 6), round(lon, 6)
+
+
 CSS = """
 :root {
     --navy: #1a365d;
@@ -51,13 +82,16 @@ CSS = """
     --border: #e2e8f0;
     --text: #2d3748;
     --text-muted: #718096;
+    --green: #276749;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: var(--text);
     background: #f0f4f8;
-    line-height: 1.5;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 .container { max-width: 900px; margin: 0 auto; padding: 16px; }
 
@@ -65,7 +99,7 @@ body {
 .site-header {
     background: var(--navy);
     color: white;
-    padding: 20px 0;
+    padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -73,34 +107,78 @@ body {
 }
 .site-header .container { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .site-header h1 { font-size: 18px; flex-shrink: 0; }
-.site-header h1 span { font-weight: 400; font-size: 13px; opacity: 0.8; }
+.site-header h1 span { font-weight: 400; font-size: 13px; opacity: 0.8; display: block; }
+.search-wrapper {
+    flex: 1; min-width: 200px; position: relative;
+}
 #search-box {
-    flex: 1; min-width: 200px;
-    padding: 8px 12px; border: none; border-radius: 6px;
+    width: 100%;
+    padding: 9px 36px 9px 14px; border: none; border-radius: 6px;
     font-size: 14px; background: rgba(255,255,255,0.15);
     color: white;
+    transition: background 0.2s;
 }
 #search-box::placeholder { color: rgba(255,255,255,0.6); }
 #search-box:focus { outline: none; background: rgba(255,255,255,0.25); }
+#clear-search {
+    position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; color: rgba(255,255,255,0.5);
+    font-size: 18px; cursor: pointer; display: none; padding: 4px;
+}
+#clear-search:hover { color: white; }
+#search-count {
+    font-size: 11px; color: rgba(255,255,255,0.7);
+    margin-top: 2px; min-height: 16px;
+}
 
-/* ── Download bar ── */
-.download-bar {
+/* ── Toolbar ── */
+.toolbar {
     background: var(--blue);
     padding: 6px 0;
-    text-align: center;
 }
-.download-bar a {
+.toolbar .container {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 6px;
+}
+.toolbar-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.toolbar a, .toolbar button {
     color: white;
     text-decoration: none;
     font-size: 13px;
     font-weight: 600;
-    padding: 4px 14px;
+    padding: 5px 14px;
     border-radius: 4px;
-    margin: 0 6px;
     background: rgba(255,255,255,0.15);
-    display: inline-block;
+    display: inline-flex; align-items: center; gap: 6px;
+    border: none; cursor: pointer;
+    transition: background 0.2s;
 }
-.download-bar a:hover { background: rgba(255,255,255,0.3); }
+.toolbar a:hover, .toolbar button:hover { background: rgba(255,255,255,0.3); }
+.toolbar .updated {
+    font-size: 11px; color: rgba(255,255,255,0.75);
+    font-weight: 400;
+}
+
+/* ── Nearby panel ── */
+#nearby-panel {
+    display: none;
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--green);
+}
+#nearby-panel h2 { font-size: 16px; color: var(--green); margin-bottom: 8px; }
+#nearby-panel .nearby-list { list-style: none; }
+#nearby-panel .nearby-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 8px; border-radius: 4px;
+}
+#nearby-panel .nearby-item:hover { background: var(--light-gray); }
+#nearby-panel .nearby-item a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; }
+#nearby-panel .nearby-dist { color: var(--text-muted); font-size: 13px; white-space: nowrap; }
+#nearby-panel .nearby-status { font-size: 13px; color: var(--text-muted); padding: 8px; }
 
 /* ── Disclaimer ── */
 .disclaimer {
@@ -123,7 +201,7 @@ body {
     margin: 16px 0;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
-.toc h2 { font-size: 16px; color: var(--navy); margin-bottom: 8px; cursor: pointer; }
+.toc h2 { font-size: 16px; color: var(--navy); margin-bottom: 8px; cursor: pointer; user-select: none; }
 .toc-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -136,6 +214,7 @@ body {
     display: block;
     padding: 3px 6px;
     border-radius: 4px;
+    transition: background 0.15s;
 }
 .toc-item a:hover { background: var(--light-gray); }
 .toc-item .code { color: var(--text-muted); font-size: 11px; margin-left: 4px; }
@@ -145,9 +224,13 @@ body {
 .airfield-card {
     background: white;
     border-radius: 8px;
-    margin: 12px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    margin: 14px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+.airfield-card:target {
+    box-shadow: 0 0 0 3px var(--blue), 0 2px 8px rgba(0,0,0,0.12);
 }
 .airfield-header {
     background: var(--navy);
@@ -180,7 +263,7 @@ body {
 .info-grid {
     display: grid;
     grid-template-columns: 120px 1fr;
-    gap: 2px 8px;
+    gap: 3px 10px;
     font-size: 13px;
     margin-bottom: 10px;
 }
@@ -252,6 +335,31 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-top: 1px solid var(--border);
     padding-top: 6px;
 }
+.web-links {
+    font-size: 12px;
+    margin-top: 6px;
+    border-top: 1px solid var(--border);
+    padding-top: 6px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+}
+.web-links a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+.web-links a:hover { text-decoration: underline; }
+
+/* ── Footer ── */
+.site-footer {
+    text-align: center;
+    padding: 24px 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+}
+.site-footer a { color: var(--blue); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
 
 /* ── Back to top ── */
 .back-to-top {
@@ -262,60 +370,96 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     color: white;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
     cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     display: none;
+    transition: opacity 0.2s;
 }
+.back-to-top:hover { opacity: 0.85; }
 .group-divider {
     font-size: 14px;
     font-weight: 700;
     color: var(--navy);
     text-align: center;
-    margin: 20px 0 8px 0;
-    padding: 6px;
+    margin: 24px 0 8px 0;
+    padding: 8px;
     background: var(--light-gray);
     border-radius: 6px;
+}
+
+/* ── No results ── */
+#no-results {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 16px;
 }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
     .info-grid { grid-template-columns: 100px 1fr; font-size: 12px; }
     .site-header h1 { font-size: 15px; }
+    .site-header h1 span { font-size: 11px; }
     .toc-grid { grid-template-columns: 1fr; }
+    .toolbar .container { justify-content: center; }
 }
 @media print {
     .site-header { position: static; }
     .airfield-card { page-break-inside: avoid; }
     .back-to-top { display: none !important; }
-    #search-box { display: none; }
+    #search-box, #clear-search, #search-count { display: none; }
+    .toolbar { display: none; }
+    #nearby-panel { display: none !important; }
 }
 """
 
 JAVASCRIPT = """
 document.addEventListener('DOMContentLoaded', function() {
-    const searchBox = document.getElementById('search-box');
-    const cards = document.querySelectorAll('.airfield-card');
-    const groups = document.querySelectorAll('.group-divider');
-    const tocItems = document.querySelectorAll('.toc-item');
-    const backBtn = document.querySelector('.back-to-top');
+    var searchBox = document.getElementById('search-box');
+    var clearBtn = document.getElementById('clear-search');
+    var searchCount = document.getElementById('search-count');
+    var cards = document.querySelectorAll('.airfield-card');
+    var groups = document.querySelectorAll('.group-divider');
+    var tocItems = document.querySelectorAll('.toc-item');
+    var backBtn = document.querySelector('.back-to-top');
+    var noResults = document.getElementById('no-results');
+    var totalCount = cards.length;
 
-    searchBox.addEventListener('input', function() {
-        const q = this.value.toLowerCase().trim();
-        cards.forEach(card => {
-            const text = card.dataset.search || card.textContent.toLowerCase();
-            card.style.display = text.includes(q) ? '' : 'none';
+    function doSearch() {
+        var q = searchBox.value.toLowerCase().trim();
+        clearBtn.style.display = q ? 'block' : 'none';
+        var visible = 0;
+        cards.forEach(function(card) {
+            var text = card.dataset.search || card.textContent.toLowerCase();
+            var show = !q || text.indexOf(q) !== -1;
+            card.style.display = show ? '' : 'none';
+            if (show) visible++;
         });
-        groups.forEach(g => {
-            if (q) g.style.display = 'none';
-            else g.style.display = '';
+        groups.forEach(function(g) {
+            g.style.display = q ? 'none' : '';
         });
-        tocItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            item.style.display = text.includes(q) ? '' : 'none';
+        tocItems.forEach(function(item) {
+            var text = item.textContent.toLowerCase();
+            item.style.display = (!q || text.indexOf(q) !== -1) ? '' : 'none';
         });
+        if (q) {
+            searchCount.textContent = visible + ' of ' + totalCount + ' airfields';
+            noResults.style.display = visible === 0 ? 'block' : 'none';
+        } else {
+            searchCount.textContent = '';
+            noResults.style.display = 'none';
+        }
+    }
+
+    searchBox.addEventListener('input', doSearch);
+    clearBtn.addEventListener('click', function() {
+        searchBox.value = '';
+        doSearch();
+        searchBox.focus();
     });
 
     window.addEventListener('scroll', function() {
@@ -324,6 +468,82 @@ document.addEventListener('DOMContentLoaded', function() {
     backBtn.addEventListener('click', function() {
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
+
+    // Keyboard shortcut: press / to focus search
+    document.addEventListener('keydown', function(e) {
+        if (e.key === '/' && document.activeElement !== searchBox) {
+            e.preventDefault();
+            searchBox.focus();
+            searchBox.select();
+        }
+        if (e.key === 'Escape' && document.activeElement === searchBox) {
+            searchBox.value = '';
+            doSearch();
+            searchBox.blur();
+        }
+    });
+
+    // --- Geolocation: find nearest airfields ---
+    var nearbyBtn = document.getElementById('nearby-btn');
+    var nearbyPanel = document.getElementById('nearby-panel');
+    var nearbyStatus = document.getElementById('nearby-status');
+    var nearbyList = document.getElementById('nearby-list');
+
+    if (nearbyBtn && navigator.geolocation) {
+        nearbyBtn.style.display = 'inline-flex';
+        nearbyBtn.addEventListener('click', function() {
+            nearbyPanel.style.display = 'block';
+            nearbyStatus.textContent = 'Getting your location...';
+            nearbyList.innerHTML = '';
+            navigator.geolocation.getCurrentPosition(function(pos) {
+                var userLat = pos.coords.latitude;
+                var userLon = pos.coords.longitude;
+                showNearest(userLat, userLon);
+            }, function(err) {
+                nearbyStatus.textContent = 'Location unavailable: ' + err.message;
+            }, {enableHighAccuracy: true, timeout: 10000});
+        });
+    }
+
+    function haversine(lat1, lon1, lat2, lon2) {
+        var R = 6371; // km
+        var dLat = (lat2 - lat1) * Math.PI / 180;
+        var dLon = (lon2 - lon1) * Math.PI / 180;
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function showNearest(userLat, userLon) {
+        var airfieldsWithDist = [];
+        cards.forEach(function(card) {
+            var lat = parseFloat(card.dataset.lat);
+            var lon = parseFloat(card.dataset.lon);
+            if (!isNaN(lat) && !isNaN(lon)) {
+                var dist = haversine(userLat, userLon, lat, lon);
+                var nm = dist * 0.539957; // km to NM
+                var name = card.querySelector('h3').textContent;
+                var id = card.id;
+                airfieldsWithDist.push({name: name, dist: dist, nm: nm, id: id});
+            }
+        });
+        airfieldsWithDist.sort(function(a, b) { return a.dist - b.dist; });
+        var top = airfieldsWithDist.slice(0, 10);
+        if (top.length === 0) {
+            nearbyStatus.textContent = 'No airfields with coordinates found.';
+            return;
+        }
+        nearbyStatus.textContent = '';
+        var html = '';
+        top.forEach(function(af) {
+            html += '<li class="nearby-item">';
+            html += '<a href="#' + af.id + '">' + af.name + '</a>';
+            html += '<span class="nearby-dist">' + af.nm.toFixed(0) + ' NM (' + af.dist.toFixed(0) + ' km)</span>';
+            html += '</li>';
+        });
+        nearbyList.innerHTML = html;
+    }
 });
 """
 
@@ -342,7 +562,12 @@ def build_airfield_card(airfield, embed_diagrams=False):
     header_class = 'closed' if is_closed else ('military' if is_military else '')
     search_text = f"{name} {code_clean} {access}".lower()
 
-    html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}">\n'
+    # Parse coordinates for geolocation
+    coord_str = f.get('Coordinates', '')
+    lat, lon = parse_dms_coord(coord_str)
+    coord_attrs = f' data-lat="{lat}" data-lon="{lon}"' if lat is not None else ''
+
+    html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}"{coord_attrs}>\n'
     html += f'  <div class="airfield-header {header_class}">\n'
     html += f'    <h3>{escape(name)}</h3>\n'
     html += f'    <span class="num">#{airfield["number"]}</span>\n'
@@ -410,6 +635,16 @@ def build_airfield_card(airfield, embed_diagrams=False):
             html += '      <tr>' + ''.join(f'<td>{escape(c)}</td>' for c in cleaned[:max_cols]) + '</tr>\n'
         html += '    </table>\n'
 
+    # Warnings
+    for w in airfield['warnings'][:5]:
+        html += f'    <div class="warning">[!] {escape(clean_html(w))}</div>\n'
+
+    # Notes
+    if airfield['notes']:
+        html += '    <div class="section-title">Notes</div>\n'
+        for note in airfield['notes'][:8]:
+            html += f'    <div class="note">- {escape(clean_html(note))}</div>\n'
+
     # Diagram
     diagram_path = find_diagram_path(airfield)
     if diagram_path and os.path.exists(diagram_path):
@@ -421,19 +656,20 @@ def build_airfield_card(airfield, embed_diagrams=False):
         if img_tag:
             html += f'    <div class="diagram-container">{img_tag}<div class="diagram-caption">Aerodrome diagram — verify currency against official AIP</div></div>\n'
 
-    # Warnings
-    for w in airfield['warnings'][:5]:
-        html += f'    <div class="warning">[!] {escape(clean_html(w))}</div>\n'
-
-    # Notes
-    if airfield['notes']:
-        html += '    <div class="section-title">Notes</div>\n'
-        for note in airfield['notes'][:8]:
-            html += f'    <div class="note">- {escape(clean_html(note))}</div>\n'
-
     # Contact
     if airfield['contact']:
         html += f'    <div class="contact"><strong>Contact:</strong> {escape(clean_html(airfield["contact"]))}</div>\n'
+
+    # Website / flying club links
+    raw = airfield.get('fields_raw', {})
+    web_links = []
+    for key in ('Website', 'Websites', 'AIP Link', 'Operator AIP'):
+        web_links.extend(extract_links(raw.get(key, '')))
+    if web_links:
+        html += '    <div class="web-links">\n'
+        for label, url in web_links:
+            html += f'      <a href="{escape(url)}" target="_blank" rel="noopener">{escape(clean_html(label))}</a>\n'
+        html += '    </div>\n'
 
     html += '  </div>\n</div>\n'
     return html
@@ -448,28 +684,53 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
         embed_diagrams: If True, base64-encode diagram images into the HTML.
         download_links: Optional list of dicts with 'label', 'href' keys for download bar.
     """
+    build_date = datetime.now(timezone.utc).strftime('%d %b %Y')
+
     html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
     html += '<meta charset="UTF-8">\n'
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
     html += '<title>South African Airfield Directory</title>\n'
+
+    # Embed favicon as inline SVG data URI
+    favicon_link = ''
+    if os.path.exists(FAVICON_FILE):
+        with open(FAVICON_FILE, 'r', encoding='utf-8') as fav:
+            svg_data = fav.read().replace('\n', ' ').replace('"', "'")
+        favicon_link = f'<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,{svg_data}">\n'
+    html += favicon_link
     html += f'<style>{CSS}</style>\n'
     html += '</head>\n<body>\n'
 
-    # Header
+    # Header with search
     html += '<header class="site-header">\n<div class="container">\n'
     html += '<h1>SA Airfield Directory <span>VFR Reference</span></h1>\n'
-    html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies...">\n'
+    html += '<div class="search-wrapper">\n'
+    html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
+    html += '<button id="clear-search" title="Clear search">&times;</button>\n'
+    html += '</div>\n'
+    html += '<div id="search-count"></div>\n'
     html += '</div>\n</header>\n'
 
-    # Download bar
+    # Toolbar (downloads + nearby + updated date)
+    html += '<div class="toolbar">\n<div class="container">\n'
+    html += '<div class="toolbar-links">\n'
     if download_links:
-        html += '<div class="download-bar">\n'
         for link in download_links:
             dl_attr = f' download="{escape(link["href"].split("/")[-1])}"' if link.get('download', True) else ''
             html += f'  <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
-        html += '</div>\n'
+    html += '  <button id="nearby-btn" style="display:none;">Find Nearest</button>\n'
+    html += '</div>\n'
+    html += f'<span class="updated">Updated {build_date}</span>\n'
+    html += '</div>\n</div>\n'
 
     html += '<div class="container">\n'
+
+    # Nearby airfields panel (hidden until activated)
+    html += '<div id="nearby-panel">\n'
+    html += '<h2>Nearest Airfields</h2>\n'
+    html += '<div id="nearby-status" class="nearby-status"></div>\n'
+    html += '<ul id="nearby-list" class="nearby-list"></ul>\n'
+    html += '</div>\n'
 
     # Disclaimer
     html += '<div class="disclaimer">\n'
@@ -509,7 +770,14 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
             html += f'<div class="group-divider">{escape(clean_html(group))}</div>\n'
         html += build_airfield_card(af, embed_diagrams=embed_diagrams)
 
+    html += '<div id="no-results">No airfields match your search.</div>\n'
     html += '</div>\n'  # container
+
+    # Footer
+    html += '<footer class="site-footer">\n'
+    html += '<p>Found a bug or have feedback? Contact <a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></p>\n'
+    html += '</footer>\n'
+
     html += '<button class="back-to-top" title="Back to top">&#8593;</button>\n'
     html += f'<script>{JAVASCRIPT}</script>\n'
     html += '</body>\n</html>\n'
