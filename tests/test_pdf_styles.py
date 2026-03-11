@@ -19,10 +19,13 @@ def test_get_styles_returns_stylesheet():
 
 
 def test_clean_text_removes_emoji():
-    """clean_text should replace emoji with text markers."""
+    """clean_text should replace emoji with text markers or strip them."""
     assert '[L]' in clean_text('⬅️ Left')
-    assert '[FUEL]' in clean_text('⛽ Available')
+    # Status emojis are stripped (field labels provide context)
+    assert clean_text('⛽ Available').strip() == 'Available'
     assert '(?)' in clean_text('❓ Unverified')
+    assert '[!]' in clean_text('⚠️ Warning')
+    assert '[X]' in clean_text('⛔ Closed')
 
 
 def test_clean_text_preserves_plain():

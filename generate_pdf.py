@@ -242,7 +242,7 @@ def build_airfield_page(airfield, styles):
             aspect = img_h / img_w
 
             max_w = CONTENT_WIDTH * 0.95
-            max_h = 50 * mm
+            max_h = 70 * mm
             display_w = max_w
             display_h = display_w * aspect
             if display_h > max_h:
@@ -260,7 +260,7 @@ def build_airfield_page(airfield, styles):
     if airfield['warnings']:
         elements.append(Spacer(1, 1 * mm))
         for w in airfield['warnings'][:3]:
-            w_clean = clean_text(w)[:120]
+            w_clean = clean_text(w)[:200]
             elements.append(Paragraph(f"[!] {w_clean}", styles['Warning']))
 
     # ── Notes ──
@@ -268,13 +268,13 @@ def build_airfield_page(airfield, styles):
         elements.append(Spacer(1, 1 * mm))
         elements.append(Paragraph("NOTES", styles['SectionTitle']))
         for note in airfield['notes'][:6]:
-            note_clean = clean_text(note)[:120]
+            note_clean = clean_text(note)[:200]
             elements.append(Paragraph(f"- {note_clean}", styles['SmallNote']))
 
     # ── Contact ──
     if airfield['contact']:
         elements.append(Spacer(1, 1 * mm))
-        contact_clean = clean_text(airfield['contact'])[:100]
+        contact_clean = clean_text(airfield['contact'])[:160]
         elements.append(Paragraph(f"<b>Contact:</b> {contact_clean}", styles['SmallNote']))
 
     return elements
@@ -282,28 +282,76 @@ def build_airfield_page(airfield, styles):
 
 # ── Cover Page ────────────────────────────────────────────────────────
 def build_cover_page(styles, airfield_count=69):
-    """Build the cover page."""
+    """Build the cover page with prominent disclaimer."""
     elements = []
-    elements.append(Spacer(1, 20 * mm))
+    elements.append(Spacer(1, 15 * mm))
 
     title_style = ParagraphStyle(
         'CoverTitle', parent=styles['Normal'],
-        fontSize=16, leading=20, textColor=COLOR_HEADER_BG,
+        fontSize=18, leading=22, textColor=COLOR_HEADER_BG,
         fontName='Helvetica-Bold', alignment=TA_CENTER,
     )
     elements.append(Paragraph("South African", title_style))
     elements.append(Paragraph("Airfield Directory", title_style))
-    elements.append(Spacer(1, 5 * mm))
+    elements.append(Spacer(1, 4 * mm))
 
     subtitle_style = ParagraphStyle(
         'CoverSubtitle', parent=styles['Normal'],
         fontSize=10, leading=14, textColor=HexColor('#4a5568'),
         fontName='Helvetica', alignment=TA_CENTER,
     )
-    elements.append(Paragraph("VFR Pilot Reference", subtitle_style))
-    elements.append(Paragraph("Western Cape, Southern Coast &amp; Controlled Fields",
-        ParagraphStyle('CoverField', parent=subtitle_style,
-                      fontName='Helvetica-Bold', fontSize=10)))
+    elements.append(Paragraph("VFR Pilot Quick Reference", subtitle_style))
+    elements.append(Spacer(1, 2 * mm))
+    elements.append(Paragraph(
+        f"<b>{airfield_count} Airfields</b> across all provinces",
+        ParagraphStyle('CoverStats', parent=subtitle_style,
+                      fontName='Helvetica', fontSize=9)))
+    elements.append(Paragraph("One page per airfield — coordinates, frequencies, runways, diagrams",
+        ParagraphStyle('CoverDesc', parent=subtitle_style, fontSize=7, textColor=HexColor('#718096'))))
+    elements.append(Spacer(1, 10 * mm))
+
+    # ── Prominent disclaimer box ──
+    disc_title = ParagraphStyle(
+        'DiscTitle', parent=styles['Normal'],
+        fontSize=9, leading=11, textColor=white,
+        fontName='Helvetica-Bold', alignment=TA_CENTER,
+    )
+    disc_body = ParagraphStyle(
+        'DiscBody', parent=styles['Normal'],
+        fontSize=7, leading=9.5, textColor=white,
+        fontName='Helvetica', alignment=TA_CENTER,
+    )
+    disc_rows = [
+        [Paragraph("<b>IMPORTANT DISCLAIMER</b>", disc_title)],
+        [Paragraph(
+            "This directory is a <b>supplementary reference only</b> and does "
+            "<b>NOT replace</b> official aviation publications.",
+            disc_body)],
+        [Paragraph(
+            "Pilots must always consult the current <b>SACAA AIP</b>, active "
+            "<b>NOTAMs</b>, and official aerodrome charts before flight. "
+            "Contact airfield operators to verify access, fuel, hours, and "
+            "runway status.",
+            disc_body)],
+        [Paragraph(
+            "Data marked (?) is unverified. No warranty is given for accuracy "
+            "or completeness. Use entirely at your own risk.",
+            disc_body)],
+    ]
+    disc_table = Table(disc_rows, colWidths=[CONTENT_WIDTH * 0.92])
+    disc_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, -1), COLOR_WARNING),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('TOPPADDING', (0, 0), (0, 0), 5),
+        ('TOPPADDING', (0, 1), (-1, -1), 2),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
+        ('BOTTOMPADDING', (0, -1), (0, -1), 5),
+        ('LEFTPADDING', (0, 0), (-1, -1), 6),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+        ('ROUNDEDCORNERS', [3, 3, 3, 3]),
+    ]))
+    elements.append(disc_table)
+
     elements.append(Spacer(1, 10 * mm))
 
     info_style = ParagraphStyle(
@@ -311,24 +359,97 @@ def build_cover_page(styles, airfield_count=69):
         fontSize=7, leading=9, textColor=HexColor('#718096'),
         fontName='Helvetica', alignment=TA_CENTER,
     )
-    elements.append(Paragraph(f"{airfield_count} Airfields | 14 Geographic Groups", info_style))
-    elements.append(Paragraph("One page per airfield for quick reference", info_style))
-    elements.append(Spacer(1, 15 * mm))
-
-    disc_style = ParagraphStyle(
-        'CoverDisclaimer', parent=styles['Normal'],
-        fontSize=5.5, leading=7, textColor=COLOR_WARNING,
-        fontName='Helvetica', alignment=TA_CENTER,
-    )
-    elements.append(Paragraph(
-        "[!] NOT FOR NAVIGATION - VERIFY ALL DATA AGAINST CURRENT SACAA AIP AND NOTAMs",
-        disc_style))
-    elements.append(Paragraph(
-        "Data marked (?) could not be independently verified. Always contact airfield operators.",
-        disc_style))
-    elements.append(Spacer(1, 10 * mm))
     elements.append(Paragraph("Last Updated: 2026-03-11", info_style))
-    elements.append(Paragraph("Compiled from SACAA AIP, OpenAIP, AirportGuide, AvCom forums", info_style))
+    elements.append(Paragraph("Sources: SACAA AIP (Jan 2026), OpenAIP, AirportGuide, AvCom forums", info_style))
+    elements.append(PageBreak())
+    return elements
+
+
+# ── How to Use / Legend Page ─────────────────────────────────────────
+def build_legend_page(styles):
+    """Build a How to Use page with legend and reading guide."""
+    elements = []
+
+    header_data = [[Paragraph("<b>HOW TO USE THIS DIRECTORY</b>", styles['FieldName'])]]
+    header_table = Table(header_data, colWidths=[CONTENT_WIDTH])
+    header_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, -1), COLOR_HEADER_BG),
+        ('TOPPADDING', (0, 0), (-1, -1), 3),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('LEFTPADDING', (0, 0), (-1, -1), 4),
+    ]))
+    elements.append(header_table)
+    elements.append(Spacer(1, 3 * mm))
+
+    body = ParagraphStyle('LegendBody', parent=styles['Normal'],
+                          fontSize=7, leading=9.5, fontName='Helvetica')
+    body_bold = ParagraphStyle('LegendBold', parent=body, fontName='Helvetica-Bold')
+    label = ParagraphStyle('LegendLabel', parent=body,
+                           fontName='Helvetica-Bold', textColor=HexColor('#4a5568'))
+    section = ParagraphStyle('LegendSection', parent=styles['SectionTitle'], fontSize=8)
+
+    elements.append(Paragraph("EACH AIRFIELD PAGE INCLUDES", section))
+    items = [
+        ("Header bar", "Airfield name and sequence number. Navy = public, dark gray = military, red = closed."),
+        ("Key info grid", "Coordinates, elevation, primary frequency (bold blue), joining/circuit altitudes, access, fuel, hours."),
+        ("Frequencies table", "All known frequencies for the airfield in blue."),
+        ("Runways table", "Designation, length, width, surface, PCN strength, and circuit direction."),
+        ("Diagram", "Aerodrome chart where available — always verify currency against official AIP."),
+        ("Warnings", "Critical safety information shown in red."),
+        ("Notes", "Operational notes, PPR requirements, noise-sensitive areas, etc."),
+    ]
+    for lbl, desc in items:
+        row = [[Paragraph(f"<b>{lbl}</b>", label), Paragraph(desc, body)]]
+        t = Table(row, colWidths=[CONTENT_WIDTH * 0.22, CONTENT_WIDTH * 0.78])
+        t.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+            ('TOPPADDING', (0, 0), (-1, -1), 1),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 1),
+            ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ]))
+        elements.append(t)
+
+    elements.append(Spacer(1, 3 * mm))
+    elements.append(Paragraph("SYMBOLS &amp; ABBREVIATIONS", section))
+    legend_items = [
+        ("(?)", "Data could not be independently verified"),
+        ("[!]", "Warning — safety-critical information"),
+        ("[X]", "Airfield is CLOSED — do not plan operations"),
+        ("[L] / [R]", "Left / Right circuit direction"),
+        ("PPR", "Prior Permission Required — contact before arriving"),
+        ("AFIS", "Aerodrome Flight Information Service"),
+        ("FAXXX", "ICAO code (SA civil aerodromes use FA prefix)"),
+        ("ZA-XXXX", "Unlicensed airfield identifier"),
+    ]
+    legend_data = []
+    for sym, meaning in legend_items:
+        legend_data.append([
+            Paragraph(f"<b>{sym}</b>", ParagraphStyle('Sym', parent=body,
+                      fontName='Helvetica-Bold', textColor=COLOR_ACCENT)),
+            Paragraph(meaning, body),
+        ])
+    legend_table = Table(legend_data, colWidths=[CONTENT_WIDTH * 0.18, CONTENT_WIDTH * 0.82])
+    legend_table.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+        ('TOPPADDING', (0, 0), (-1, -1), 1),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 1),
+        ('LEFTPADDING', (0, 0), (-1, -1), 2),
+        ('ROWBACKGROUNDS', (0, 0), (-1, -1), [white, COLOR_ROW_ALT]),
+    ]))
+    elements.append(legend_table)
+
+    elements.append(Spacer(1, 3 * mm))
+    elements.append(Paragraph("QUICK NAVIGATION", section))
+    elements.append(Paragraph(
+        "Use the <b>Airfield Index</b> (next pages) to jump directly to any airfield. "
+        "All entries are clickable in the PDF. Airfields are grouped by geographic region.",
+        body))
+    elements.append(Spacer(1, 2 * mm))
+    elements.append(Paragraph(
+        "The <b>Cape Town Area Frequencies</b> page provides a quick-reference "
+        "for the most commonly used frequencies in the Western Cape.",
+        body))
+
     elements.append(PageBreak())
     return elements
 
@@ -498,6 +619,7 @@ def generate_pdf(airfields, output_path):
 
     story1 = []
     story1.extend(build_cover_page(styles, airfield_count=len(airfields)))
+    story1.extend(build_legend_page(styles))
     story1.extend(build_freq_reference_page(styles))
     current_group = ''
     for airfield in airfields:
@@ -531,6 +653,7 @@ def generate_pdf(airfields, output_path):
 
     story_final = []
     story_final.extend(build_cover_page(styles, airfield_count=len(airfields)))
+    story_final.extend(build_legend_page(styles))
     story_final.extend(build_toc_pages(airfields, adjusted_map, styles))
     story_final.extend(build_freq_reference_page(styles))
 
