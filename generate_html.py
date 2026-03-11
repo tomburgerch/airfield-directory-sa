@@ -42,6 +42,13 @@ def embed_image(path, max_width=500):
     return f'<img src="data:{mime};base64,{data}" style="max-width:{max_width}px; height:auto;" alt="Aerodrome diagram">'
 
 
+def extract_links(raw_value):
+    """Extract markdown links from a raw field value, return list of (label, url)."""
+    if not raw_value:
+        return []
+    return re.findall(r'\[([^\]]+)\]\(([^)]+)\)', raw_value)
+
+
 def parse_dms_coord(coord_str):
     """Parse DMS coordinate string like 'S33°45'44" E18°32'55"' to (lat, lon) decimal."""
     if not coord_str:
@@ -328,6 +335,31 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-top: 1px solid var(--border);
     padding-top: 6px;
 }
+.web-links {
+    font-size: 12px;
+    margin-top: 6px;
+    border-top: 1px solid var(--border);
+    padding-top: 6px;
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+}
+.web-links a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+.web-links a:hover { text-decoration: underline; }
+
+/* ── Footer ── */
+.site-footer {
+    text-align: center;
+    padding: 24px 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+}
+.site-footer a { color: var(--blue); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
 
 /* ── Back to top ── */
 .back-to-top {
@@ -628,6 +660,17 @@ def build_airfield_card(airfield, embed_diagrams=False):
     if airfield['contact']:
         html += f'    <div class="contact"><strong>Contact:</strong> {escape(clean_html(airfield["contact"]))}</div>\n'
 
+    # Website / flying club links
+    raw = airfield.get('fields_raw', {})
+    web_links = []
+    for key in ('Website', 'Websites', 'AIP Link', 'Operator AIP'):
+        web_links.extend(extract_links(raw.get(key, '')))
+    if web_links:
+        html += '    <div class="web-links">\n'
+        for label, url in web_links:
+            html += f'      <a href="{escape(url)}" target="_blank" rel="noopener">{escape(clean_html(label))}</a>\n'
+        html += '    </div>\n'
+
     html += '  </div>\n</div>\n'
     return html
 
@@ -729,6 +772,12 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
 
     html += '<div id="no-results">No airfields match your search.</div>\n'
     html += '</div>\n'  # container
+
+    # Footer
+    html += '<footer class="site-footer">\n'
+    html += '<p>Found a bug or have feedback? Contact <a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></p>\n'
+    html += '</footer>\n'
+
     html += '<button class="back-to-top" title="Back to top">&#8593;</button>\n'
     html += f'<script>{JAVASCRIPT}</script>\n'
     html += '</body>\n</html>\n'
