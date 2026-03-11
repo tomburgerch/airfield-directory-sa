@@ -18,9 +18,8 @@
 
 ---
 
-## GROUP 1: WESTERN CAPE — CAPE TOWN SURROUNDS
+## WESTERN CAPE
 
-Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
@@ -410,7 +409,7 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 2: CAPE TOWN METRO / CONTROLLED
+## WESTERN CAPE
 
 ---
 
@@ -472,7 +471,7 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 3: WESTERN CAPE — WEST COAST & SWARTLAND
+## WESTERN CAPE
 
 ---
 
@@ -620,7 +619,7 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 4: WESTERN CAPE — BOLAND / WINELANDS / BREEDE RIVER
+## WESTERN CAPE
 
 ---
 
@@ -767,7 +766,7 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 5: WESTERN CAPE — OVERBERG & SOUTH COAST
+## WESTERN CAPE
 
 ---
 
@@ -897,7 +896,7 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 6: WESTERN CAPE — GARDEN ROUTE
+## WESTERN CAPE
 
 ---
 
@@ -1100,7 +1099,7 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 7: WESTERN CAPE — KAROO
+## WESTERN CAPE
 
 ---
 
@@ -1146,7 +1145,7 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 8: WESTERN CAPE — SMALLER STRIPS & PRIVATE FIELDS
+## WESTERN CAPE
 
 ---
 
@@ -1560,9 +1559,8 @@ Airfields within the greater Cape Town area and surrounds (~50 nm radius).
 
 ---
 
-## GROUP 9: EASTERN CAPE — GARDEN ROUTE EAST & TSITSIKAMMA
+## EASTERN CAPE
 
-Continuing east from Plettenberg Bay along the coast through the Eastern Cape.
 
 ---
 
@@ -1614,9 +1612,8 @@ Continuing east from Plettenberg Bay along the coast through the Eastern Cape.
 
 ---
 
-## GROUP 10: EASTERN CAPE — PORT ELIZABETH TO EAST LONDON
+## EASTERN CAPE
 
-Major airports along the Eastern Cape coast and hinterland.
 
 ---
 
@@ -1817,9 +1814,8 @@ Major airports along the Eastern Cape coast and hinterland.
 
 ---
 
-## GROUP 11: KWAZULU-NATAL COAST
+## KWAZULU-NATAL
 
-Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 
 ---
 
@@ -1998,9 +1994,8 @@ Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
 
 ---
 
-## GROUP 12: CONTROLLED AERODROMES — GAUTENG
+## GAUTENG
 
-Major controlled airports in the Gauteng province (Johannesburg / Pretoria area).
 
 ---
 
@@ -2179,7 +2174,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-## GROUP 13: CONTROLLED AERODROMES — FREE STATE, NORTHERN CAPE & NORTH WEST
+## FREE STATE
 
 ---
 
@@ -2214,6 +2209,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 - ~550 nm northeast of Cape Town
 
 ---
+
+## NORTHERN CAPE
 
 ### 90. KIMBERLEY AIRPORT (FAKM)
 | Field | Detail |
@@ -2277,6 +2274,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
+## NORTH WEST
+
 ### 92. PILANESBERG INTERNATIONAL AIRPORT (FAPN)
 | Field | Detail |
 |---|---|
@@ -2304,7 +2303,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-## GROUP 14: CONTROLLED AERODROMES — LIMPOPO, MPUMALANGA & KZN (INLAND)
+## MPUMALANGA
 
 ---
 
@@ -2338,6 +2337,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 - ~850 nm northeast of Cape Town
 
 ---
+
+## LIMPOPO
 
 ### 94. POLOKWANE GATEWAY AIRPORT (FAPP)
 | Field | Detail |
@@ -2396,6 +2397,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
+## EASTERN CAPE
+
 ### 96. BHISHO AIRPORT (FABE)
 | Field | Detail |
 |---|---|
@@ -2420,6 +2423,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 - ~40 nm west of East London
 
 ---
+
+## NORTH WEST
 
 ### 97. MAFIKENG / MMABATHO AIRPORT (FAMM)
 | Field | Detail |
@@ -2446,9 +2451,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 ---
 
-## GROUP 15: GAUTENG — GENERAL AVIATION AIRFIELDS
+## GAUTENG
 
-GA airfields in Gauteng beyond the major controlled airports.
 
 ---
 
@@ -2579,9 +2583,8 @@ GA airfields in Gauteng beyond the major controlled airports.
 
 ---
 
-## GROUP 16: EASTERN CAPE — KAROO & INLAND
+## EASTERN CAPE
 
-Eastern Cape airfields in the Karoo interior.
 
 ---
 
@@ -3368,9 +3371,8 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 
 ---
 
-## GROUP 17: KWAZULU-NATAL — INLAND & BATTLEFIELDS
+## KWAZULU-NATAL
 
-KZN airfields inland from the coast, including the historic Battlefields Route.
 
 ---
 
@@ -3689,11 +3691,9 @@ KZN airfields inland from the coast, including the historic Battlefields Route.
 
 ---
 
-## GROUP 18: FREE STATE
+## FREE STATE
 
-Airfields across the Free State province. Excludes FABL (Bram Fischer International / Bloemfontein) which is listed in Group 13.
 
-> **Note:** The Free State is highveld terrain with generally high elevations (4,000-5,600 ft AMSL). Density altitude is a significant factor, especially in summer. Many of these are small, uncontrolled airfields. Most uncontrolled airfields use area frequency **124.8 MHz** or a designated local frequency. Verify all frequencies against current AIP ENR 4.1.
 
 ---
 
@@ -4369,9 +4369,8 @@ Airfields across the Free State province. Excludes FABL (Bram Fischer Internatio
 ---
 
 
-## GROUP 19: NORTHERN CAPE — NAMAQUALAND, KAROO & KALAHARI
+## NORTHERN CAPE
 
-Airfields across the vast Northern Cape province.
 
 ---
 
@@ -4785,9 +4784,8 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-## GROUP 20: NORTH WEST — REGIONAL AIRFIELDS
+## NORTH WEST
 
-Additional airfields in the North West province.
 
 ---
 
@@ -5019,9 +5017,8 @@ Additional airfields in the North West province.
 
 ---
 
-## GROUP 21: LIMPOPO — REGIONAL AIRFIELDS
+## LIMPOPO
 
-Airfields across Limpopo province (excluding FAPP Polokwane and FAHS Hoedspruit AFB, listed in Group 14).
 
 ---
 
@@ -5466,9 +5463,8 @@ Airfields across Limpopo province (excluding FAPP Polokwane and FAHS Hoedspruit 
 
 ---
 
-## GROUP 22: MPUMALANGA — REGIONAL AIRFIELDS
+## MPUMALANGA
 
-Additional airfields in Mpumalanga (excluding FAKN Kruger Mpumalanga International, listed in Group 14).
 
 ---
 

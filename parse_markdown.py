@@ -21,9 +21,9 @@ def parse_airfields(md_path=MD_FILE):
 
     airfields = []
 
-    # Extract group headings
-    group_pattern = r'^## (GROUP \d+:.+?)$'
-    group_positions = [(m.start(), m.group(1)) for m in re.finditer(group_pattern, content, re.MULTILINE)]
+    # Extract group headings (## PROVINCE NAME)
+    group_pattern = r'^## ([A-Z][A-Z \-/&]+)$'
+    group_positions = [(m.start(), m.group(1).strip()) for m in re.finditer(group_pattern, content, re.MULTILINE)]
 
     for i, (num, name) in enumerate(headers):
         section = sections[i + 1] if i + 1 < len(sections) else ""
