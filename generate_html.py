@@ -609,18 +609,23 @@ document.addEventListener('DOMContentLoaded', function() {
     var nearbyList = document.getElementById('nearby-list');
 
     if (nearbyBtn && navigator.geolocation) {
-        nearbyBtn.style.display = 'inline-flex';
+        nearbyBtn.style.display = '';
         nearbyBtn.addEventListener('click', function() {
-            nearbyPanel.style.display = 'block';
-            nearbyStatus.textContent = 'Getting your location...';
-            nearbyList.innerHTML = '';
-            navigator.geolocation.getCurrentPosition(function(pos) {
-                var userLat = pos.coords.latitude;
-                var userLon = pos.coords.longitude;
-                showNearest(userLat, userLon);
-            }, function(err) {
-                nearbyStatus.textContent = 'Location unavailable: ' + err.message;
-            }, {enableHighAccuracy: true, timeout: 10000});
+            var isActive = nearbyBtn.classList.toggle('active');
+            if (isActive) {
+                nearbyPanel.style.display = 'block';
+                nearbyStatus.textContent = 'Getting your location...';
+                nearbyList.innerHTML = '';
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                    var userLat = pos.coords.latitude;
+                    var userLon = pos.coords.longitude;
+                    showNearest(userLat, userLon);
+                }, function(err) {
+                    nearbyStatus.textContent = 'Location unavailable: ' + err.message;
+                }, {enableHighAccuracy: true, timeout: 10000});
+            } else {
+                nearbyPanel.style.display = 'none';
+            }
         });
     }
 
@@ -872,7 +877,6 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
         for link in download_links:
             dl_attr = f' download="{escape(link["href"].split("/")[-1])}"' if link.get('download', True) else ''
             html += f'  <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
-    html += '  <button id="nearby-btn" style="display:none;">Find Nearest</button>\n'
     html += '  <span class="contact-tip">Contact<span class="contact-tooltip">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span>\n'
     html += '</div>\n'
     html += f'<span class="updated">Updated {build_date}</span>\n'
@@ -898,6 +902,8 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<span class="filter-sep"></span>\n'
     html += '<button class="filter-btn" data-filter="access-public">Public</button>\n'
     html += '<button class="filter-btn" data-filter="access-ppr">PPR</button>\n'
+    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" id="nearby-btn" style="display:none;">Nearest</button>\n'
     html += '<span id="filter-count"></span>\n'
     html += '</div>\n'
 
