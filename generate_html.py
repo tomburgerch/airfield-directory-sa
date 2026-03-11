@@ -174,8 +174,12 @@ body {
 .contact-tooltip {
     display: none;
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 50%; transform: translateX(-50%);
+    padding-top: 8px;
+    z-index: 100;
+}
+.contact-tooltip-inner {
     background: var(--navy);
     color: white;
     padding: 10px 14px;
@@ -184,10 +188,9 @@ body {
     font-weight: 400;
     white-space: nowrap;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    z-index: 100;
     line-height: 1.6;
 }
-.contact-tooltip a { color: #FFD700; text-decoration: underline; }
+.contact-tooltip-inner a { color: #FFD700; text-decoration: underline; }
 .contact-tip:hover .contact-tooltip { display: block; }
 
 /* ── Nearby panel ── */
@@ -227,9 +230,13 @@ body {
 .disclaimer .disc-full {
     display: none;
     position: absolute;
-    bottom: calc(100% + 8px);
+    bottom: 100%;
+    padding-bottom: 8px;
     left: 50%; transform: translateX(-50%);
     width: min(500px, 90vw);
+    z-index: 100;
+}
+.disclaimer .disc-full-inner {
     background: var(--red);
     color: white;
     padding: 14px 18px;
@@ -238,10 +245,9 @@ body {
     line-height: 1.6;
     text-align: left;
     box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    z-index: 100;
 }
 .disclaimer:hover .disc-full { display: block; }
-.disclaimer .disc-full p { margin-top: 6px; }
+.disclaimer .disc-full-inner p { margin-top: 6px; }
 
 /* ── TOC ── */
 .toc {
@@ -873,7 +879,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
             dl_attr = f' download="{escape(link["href"].split("/")[-1])}"' if link.get('download', True) else ''
             html += f'  <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
     html += '  <button id="nearby-btn" style="display:none;">Find Nearest</button>\n'
-    html += '  <span class="contact-tip">Contact<span class="contact-tooltip">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span>\n'
+    html += '  <span class="contact-tip">Contact<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
     html += '</div>\n'
     html += f'<span class="updated">Updated {build_date}</span>\n'
     html += '</div>\n</div>\n'
@@ -941,7 +947,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     # Disclaimer (collapsed, tooltip on hover)
     html += '<div class="container"><div class="disclaimer">\n'
     html += '<span class="disc-label">DISCLAIMER — Supplementary reference only. Hover for details.</span>\n'
-    html += '<div class="disc-full">\n'
+    html += '<div class="disc-full"><div class="disc-full-inner">\n'
     html += '<strong>IMPORTANT DISCLAIMER</strong>\n'
     html += '<p>This directory is a <strong>supplementary reference only</strong> and does '
     html += '<strong>NOT replace</strong> official aviation publications. '
@@ -950,7 +956,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += 'Contact airfield operators to verify access, fuel, hours, and runway status.</p>\n'
     html += '<p>Data marked (?) is unverified. No warranty is given for accuracy or completeness. '
     html += 'Use entirely at your own risk.</p>\n'
-    html += '</div>\n</div></div>\n'
+    html += '</div></div>\n</div></div>\n'
 
     html += '<button class="back-to-top" title="Back to top">&#8593;</button>\n'
     html += f'<script>{JAVASCRIPT}</script>\n'
