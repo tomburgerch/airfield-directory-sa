@@ -2701,24 +2701,24 @@ KZN airfields inland from the coast, including the historic Battlefields Route.
 | Field | Detail |
 |---|---|
 | **ICAO** | FANC |
-| **Coordinates** | S27°46'05" E29°58'39" |
+| **Coordinates** | S27°46'14" E29°58'35" |
 | **Elevation** | 4,074 ft AMSL |
-| **Frequencies** | ❓ |
+| **Frequencies** | **CTAF 124.8 MHz**; NDB NC 415 kHz |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ⛽ AVGAS 100LL ❓ |
+| **Fuel** | ❓ |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 02/20 | 1,829 m | 30 m | Asphalt | ⬅️ Left ❓ |
+| 11/29 | 1,497 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
+- ~5 nm SE of Newcastle — VFR operations
 - Northern KZN industrial town (ArcelorMittal steel)
 - Near Anglo-Boer and Anglo-Zulu Battlefields Route
-- High elevation — density altitude
-- Drakensberg weather influence
+- High elevation — density altitude — no METAR
 
 ---
 
@@ -2726,10 +2726,10 @@ KZN airfields inland from the coast, including the historic Battlefields Route.
 | Field | Detail |
 |---|---|
 | **ICAO** | FALY |
-| **Coordinates** | S28°35'03" E29°44'44" |
+| **Coordinates** | S28°34'48" E29°45'10" |
 | **Elevation** | 3,548 ft AMSL |
-| **Frequencies** | ❓ |
-| **Access** | ✈️ Public |
+| **Frequencies** | **CTAF 124.8 MHz**; NDB LY 398.0 kHz; VOR LYV 116.5 MHz |
+| **Access** | ✈️ Public (not an AOE) |
 | **Night Ops** | 🚫 No ❓ |
 | **Fuel** | ❓ |
 
@@ -2737,12 +2737,13 @@ KZN airfields inland from the coast, including the historic Battlefields Route.
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 03/21 | 1,609 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 11/29 | 1,200 m | 15 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
-- Historic Anglo-Boer War siege town
-- Central KZN on the N11 route
-- Near Spioenkop Dam
+- Managed by JetVision Airports
+- Well-served navaids (NDB + VOR) for its size
+- Recreational flying, pilot training, EMS
+- Historic Anglo-Boer War siege town — near Spioenkop Dam
 
 ---
 
@@ -2750,47 +2751,49 @@ KZN airfields inland from the coast, including the historic Battlefields Route.
 | Field | Detail |
 |---|---|
 | **ICAO** | FAVY |
-| **Coordinates** | S27°47'12" E30°47'48" |
-| **Elevation** | 3,060 ft AMSL |
-| **Frequencies** | ❓ |
+| **Coordinates** | S27°47'12" E30°47'47" |
+| **Elevation** | 3,799 ft AMSL |
+| **Frequencies** | ❓ (likely 124.8 MHz CTAF) |
 | **Access** | ✈️ Public |
-| **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available ❓ |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 01/19 | 1,524 m ❓ | 23 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 11/29 | 1,055 m ❓ | ❓ | ❓ | ⬅️ Left ❓ |
+| 01/19 | ❓ | ❓ | ❓ | ❓ |
 
 **Notes:**
+- Two runways reported — no scheduled flights
 - Northern KZN coal mining area
-- Near Blood River heritage site
-- Zululand region
+- Near Blood River heritage site — 81 km from Newcastle
 
 ---
 
-### 110. DUNDEE / TALANA AIRPORT (FADD)
+### 110. DUNDEE AIRPORT (FADD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FADD |
-| **Coordinates** | S28°11'00" E30°13'00" ❓ |
-| **Elevation** | 4,180 ft AMSL ❓ |
+| **Coordinates** | S28°10'59" E30°13'21" |
+| **Elevation** | 4,219 ft AMSL |
 | **Frequencies** | ❓ |
-| **Access** | ✈️ Public |
-| **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
+| **Access** | ✈️ Public ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available ❓ |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| ❓ | 1,300 m ❓ | ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+| 18/36 | ❓ | ❓ | ❓ | ❓ |
 
 **Notes:**
 - KZN Battlefields area — Talana Museum (Anglo-Boer War)
 - Near Rorke's Drift and Isandlwana
-- High elevation
+- ⚠️ OurAirports notes ICAO "no longer recognised for ATC flight planning" — verify status
+- High elevation (4,219 ft)
 
 ---
 
@@ -2798,23 +2801,24 @@ KZN airfields inland from the coast, including the historic Battlefields Route.
 | Field | Detail |
 |---|---|
 | **ICAO** | FAUL |
-| **Coordinates** | S28°19'09" E31°24'54" |
+| **Coordinates** | S28°19'14" E31°24'59" |
 | **Elevation** | 1,720 ft AMSL |
-| **Frequencies** | **AFIS 131.8 MHz** ❓ |
-| **Access** | ✈️ Public |
+| **Frequencies** | ❓ (verify via AIP — likely 124.8 MHz); NDB UL |
+| **Access** | ✈️ Public — scheduled Airlink service to JNB/DUR |
 | **Night Ops** | 🚫 No ❓ |
-| **Fuel** | ❓ |
+| **Fuel** | ⛽ Available (fuel depot) |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 16/34 | 1,600 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+| 05/23 | 1,829 m | 30 m | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
+- Full terminal, hangar space, Cat 4-5 fire/rescue
+- Hours 0700-1830 LT Mon-Fri, closed weekends
 - Former KZN capital and historic Zulu capital
-- Battle of Ulundi site nearby
-- Subtropical climate — good weather generally
+- 1 km SW of Ulundi CBD
 
 ---
 
@@ -2842,13 +2846,179 @@ KZN airfields inland from the coast, including the historic Battlefields Route.
 
 ---
 
+### 113. MKUZE AIRPORT (FAMU)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAMU |
+| **Coordinates** | S27°37'34" E32°02'39" |
+| **Elevation** | 400 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 17/35 | ❓ | ❓ | Grass | ❓ |
+
+**Notes:**
+- Wide grass strip — low elevation
+- Used for game reserve access (near Phinda)
+- No navaids
+
+---
+
+### 114. GREYTOWN AIRPORT (FAGY)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAGY |
+| **Coordinates** | S29°07'19" E30°35'12" |
+| **Elevation** | 3,531 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 06/24 | 1,462 m | 11 m | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Small KZN Midlands airport
+- 61 km from Pietermaritzburg
+
+---
+
+### 115. HLUHLUWE AIRPORT (FAHL)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAHL |
+| **Coordinates** | S28°00'50" E32°16'30" |
+| **Elevation** | 249 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | 🔒 Private — PPR required |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 03/21 | 1,208 m | 30 m | Grass | ❓ |
+
+**Notes:**
+- Grass strip in Zululand
+- Near Hluhluwe-iMfolozi Park
+- Low elevation
+
+---
+
+### 116. PONGOLA AIRPORT (FAPL)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPL |
+| **Coordinates** | S27°21'42" E31°36'20" |
+| **Elevation** | 942 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 16/34 | 698 m | 18 m | Asphalt | ❓ |
+
+**Notes:**
+- ⚠️ Short runway (698 m) — light aircraft only
+- Near Pongola town, northern KZN
+
+---
+
+### 117. HARDING AIRPORT (FAHJ)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAHJ |
+| **Coordinates** | S30°34'28" E29°54'20" |
+| **Elevation** | 2,885 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 08/26 | ❓ | ❓ | ❓ | ❓ |
+| 18/36 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Two runways — southern KZN
+- 33 km from Bizana, 55 km from Margate
+
+---
+
+### 118. UTRECHT AIRPORT (FAUR)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAUR |
+| **Coordinates** | S27°40'49" E30°19'00" |
+| **Elevation** | 4,101 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 07/25 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Small airport — 35 km from Newcastle, 49 km from Vryheid
+- High elevation
+
+---
+
+### 119. H.M.S. BASTARD MEMORIAL AIRPORT / KOKSTAD (FAHU)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAHU |
+| **Coordinates** | S30°32'32" E29°29'56" |
+| **Elevation** | 4,700 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ✈️ Public ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 09/27 | ❓ | ❓ | ❓ | ❓ |
+| 18/36 | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Two runways — ~8 km W of Kokstad
+- Replaces closed Kokstad Airport (FADM)
+- Very high elevation (4,700 ft) — density altitude
+
+---
+
 ## GROUP 18: FREE STATE
 
 Airfields across the Free State province.
 
 ---
 
-### 113. BETHLEHEM AIRPORT (FABM)
+### 120. BETHLEHEM AIRPORT (FABM)
 | Field | Detail |
 |---|---|
 | **ICAO** | FABM |
@@ -2872,7 +3042,7 @@ Airfields across the Free State province.
 
 ---
 
-### 114. WELKOM / PHAKISA AIRPORT (FAWK)
+### 121. WELKOM / PHAKISA AIRPORT (FAWK)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAWK |
@@ -2896,7 +3066,7 @@ Airfields across the Free State province.
 
 ---
 
-### 115. KROONSTAD AIRPORT (FAKS)
+### 122. KROONSTAD AIRPORT (FAKS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKS |
@@ -2920,7 +3090,7 @@ Airfields across the Free State province.
 
 ---
 
-### 116. HARRISMITH AIRPORT (FAHR)
+### 123. HARRISMITH AIRPORT (FAHR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAHR |
@@ -2945,7 +3115,7 @@ Airfields across the Free State province.
 
 ---
 
-### 117. NEW TEMPE AIRPORT (FATP)
+### 124. NEW TEMPE AIRPORT (FATP)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATP |
@@ -2969,7 +3139,7 @@ Airfields across the Free State province.
 
 ---
 
-### 118. PARYS AIRPORT (FAPY)
+### 125. PARYS AIRPORT (FAPY)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPY |
@@ -2993,7 +3163,7 @@ Airfields across the Free State province.
 
 ---
 
-### 119. FICKSBURG AIRPORT (FAFB)
+### 126. FICKSBURG AIRPORT (FAFB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAFB |
@@ -3023,7 +3193,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 120. SPRINGBOK AIRPORT (FASB)
+### 127. SPRINGBOK AIRPORT (FASB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FASB |
@@ -3050,7 +3220,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 121. ALEXANDER BAY AIRPORT (FAAB)
+### 128. ALEXANDER BAY AIRPORT (FAAB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAB |
@@ -3078,7 +3248,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 122. CALVINIA AIRPORT (FACV)
+### 129. CALVINIA AIRPORT (FACV)
 | Field | Detail |
 |---|---|
 | **ICAO** | FACV |
@@ -3104,7 +3274,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 123. DE AAR AIRPORT (FADA)
+### 130. DE AAR AIRPORT (FADA)
 | Field | Detail |
 |---|---|
 | **ICAO** | FADA |
@@ -3132,7 +3302,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 124. KURUMAN / JOHAN PIENAAR AIRPORT (FAKU)
+### 131. KURUMAN / JOHAN PIENAAR AIRPORT (FAKU)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKU |
@@ -3157,7 +3327,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 125. AGGENEYS / BLACK MOUNTAIN AIRPORT (FAAG)
+### 132. AGGENEYS / BLACK MOUNTAIN AIRPORT (FAAG)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAG |
@@ -3182,7 +3352,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 126. SISHEN AIRPORT (FASS)
+### 133. SISHEN AIRPORT (FASS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FASS |
@@ -3207,7 +3377,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 127. COLESBURG AIRPORT (FACB)
+### 134. COLESBURG AIRPORT (FACB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FACB |
@@ -3232,7 +3402,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 128. PRIESKA AIRPORT (FAPK)
+### 135. PRIESKA AIRPORT (FAPK)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPK |
@@ -3258,7 +3428,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 129. SUTHERLAND AIRPORT (FASL)
+### 136. SUTHERLAND AIRPORT (FASL)
 | Field | Detail |
 |---|---|
 | **ICAO** | FASL |
@@ -3283,7 +3453,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 130. CARNARVON AIRPORT (FACN)
+### 137. CARNARVON AIRPORT (FACN)
 | Field | Detail |
 |---|---|
 | **ICAO** | FACN |
@@ -3310,7 +3480,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 131. VICTORIA WEST AIRPORT (FAVW)
+### 138. VICTORIA WEST AIRPORT (FAVW)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAVW |
@@ -3336,7 +3506,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 132. KAKAMAS AIRPORT (FAKK)
+### 139. KAKAMAS AIRPORT (FAKK)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKK |
@@ -3360,7 +3530,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 133. POFADDER AIRPORT (FAPD)
+### 140. POFADDER AIRPORT (FAPD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPD |
@@ -3385,7 +3555,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 134. KLEINZEE AIRPORT (FAKZ)
+### 141. KLEINZEE AIRPORT (FAKZ)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKZ |
@@ -3410,7 +3580,7 @@ Airfields across the vast Northern Cape province.
 
 ---
 
-### 135. POSTMASBURG AIRPORT (FAPT)
+### 142. POSTMASBURG AIRPORT (FAPT)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPT |
@@ -3439,7 +3609,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 136. RUSTENBURG AIRFIELD (FARG)
+### 143. RUSTENBURG AIRFIELD (FARG)
 | Field | Detail |
 |---|---|
 | **ICAO** | FARG |
@@ -3464,7 +3634,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 137. KLERKSDORP / P.C. PELSER AIRPORT (FAKD)
+### 144. KLERKSDORP / P.C. PELSER AIRPORT (FAKD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAKD |
@@ -3492,7 +3662,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 138. POTCHEFSTROOM AIRPORT (FAPS)
+### 145. POTCHEFSTROOM AIRPORT (FAPS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPS |
@@ -3520,7 +3690,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 139. VRYBURG AIRPORT (FAVB)
+### 146. VRYBURG AIRPORT (FAVB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAVB |
@@ -3545,7 +3715,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 140. LICHTENBURG AIRPORT (FALI)
+### 147. LICHTENBURG AIRPORT (FALI)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALI |
@@ -3570,7 +3740,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 141. BRITS AIRFIELD (FABS)
+### 148. BRITS AIRFIELD (FABS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FABS |
@@ -3596,7 +3766,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 142. ZEERUST AIRPORT (FAZR)
+### 149. ZEERUST AIRPORT (FAZR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAZR |
@@ -3620,7 +3790,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 143. HARTEBEESPOORTDAM AIRPORT (FAHB)
+### 150. HARTEBEESPOORTDAM AIRPORT (FAHB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAHB |
@@ -3644,7 +3814,7 @@ Additional airfields in the North West province.
 
 ---
 
-### 144. SCHWEIZER-RENEKE AIRPORT (FASG)
+### 151. SCHWEIZER-RENEKE AIRPORT (FASG)
 | Field | Detail |
 |---|---|
 | **ICAO** | FASG |
@@ -3673,7 +3843,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 145. PHALABORWA / HENDRIK VAN ECK AIRPORT (FAPH)
+### 152. PHALABORWA / HENDRIK VAN ECK AIRPORT (FAPH)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPH |
@@ -3698,7 +3868,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 146. TZANEEN / LETABA AIRPORT (FATZ)
+### 153. TZANEEN / LETABA AIRPORT (FATZ)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATZ |
@@ -3723,7 +3893,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 147. THOHOYANDOU AIRPORT (FATH)
+### 154. THOHOYANDOU AIRPORT (FATH)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATH |
@@ -3747,7 +3917,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 148. MUSINA / MESSINA AIRPORT (FAMS)
+### 155. MUSINA / MESSINA AIRPORT (FAMS)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMS |
@@ -3772,7 +3942,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 149. LOUIS TRICHARDT / MAKHADO AIRPORT (FALT)
+### 156. LOUIS TRICHARDT / MAKHADO AIRPORT (FALT)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALT ❓ |
@@ -3796,7 +3966,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 150. THABAZIMBI AIRPORT (FATB)
+### 157. THABAZIMBI AIRPORT (FATB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FATB |
@@ -3820,7 +3990,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 151. LEPHALALE / ELLISRAS AIRPORT (FALR)
+### 158. LEPHALALE / ELLISRAS AIRPORT (FALR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FALR ❓ |
@@ -3844,7 +4014,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 152. ALLDAYS AIRPORT (FAAD)
+### 159. ALLDAYS AIRPORT (FAAD)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAAD |
@@ -3869,7 +4039,7 @@ Airfields across Limpopo province.
 
 ---
 
-### 153. MAKHADO AIR FORCE BASE (FAMA)
+### 160. MAKHADO AIR FORCE BASE (FAMA)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMA |
@@ -3899,7 +4069,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 154. MIDDELBURG AIRPORT (FAMB)
+### 161. MIDDELBURG AIRPORT (FAMB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAMB |
@@ -3924,7 +4094,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 155. WITBANK / EMALAHLENI AIRPORT (FAWI)
+### 162. WITBANK / EMALAHLENI AIRPORT (FAWI)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAWI ❓ |
@@ -3948,7 +4118,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 156. BARBERTON AIRPORT (FABB)
+### 163. BARBERTON AIRPORT (FABB)
 | Field | Detail |
 |---|---|
 | **ICAO** | FABB |
@@ -3972,7 +4142,7 @@ Additional airfields in Mpumalanga beyond KMIA and Hoedspruit.
 
 ---
 
-### 157. PIET RETIEF AIRPORT (FAPR)
+### 164. PIET RETIEF AIRPORT (FAPR)
 | Field | Detail |
 |---|---|
 | **ICAO** | FAPR ❓ |
