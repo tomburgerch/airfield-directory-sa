@@ -12,9 +12,9 @@ from datetime import datetime, timedelta
 MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
 DIAGRAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'diagrams')
 
-# Western Cape bounding box (generous)
-WC_LAT_MIN, WC_LAT_MAX = -35.0, -31.0  # S35 to S31
-WC_LON_MIN, WC_LON_MAX = 17.5, 27.0    # E17.5 to E27 (extended for eastern entries)
+# South Africa bounding box (generous)
+WC_LAT_MIN, WC_LAT_MAX = -35.0, -22.0  # S35 to S22
+WC_LON_MIN, WC_LON_MAX = 16.0, 33.0    # E16 to E33
 
 REQUIRED_FIELDS = ['Coordinates', 'Elevation']
 IMPORTANT_FIELDS = ['Frequencies', 'Access']

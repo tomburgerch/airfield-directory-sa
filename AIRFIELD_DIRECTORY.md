@@ -1,7 +1,7 @@
-# Western Cape Airfield Directory
-### For VFR Pilots Flying from Morningstar (ZA-0120)
+# South African Airfield Directory
+### VFR Pilot Reference — Western Cape, Southern Coast & Controlled Aerodromes
 
-> **Last Updated:** 2026-03-09
+> **Last Updated:** 2026-03-11
 > **Disclaimer:** ⚠️ Always verify information against the current SACAA AIP, NOTAMs, and airfield operators before flight. Data marked with ❓ could not be independently verified or may be outdated. Data marked with 📅 includes the date of last known verification.
 
 **Legend:**
@@ -1562,6 +1562,809 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 
 ---
 
+## GROUP 9: EASTERN CAPE — GARDEN ROUTE EAST & TSITSIKAMMA
+
+Continuing east from Plettenberg Bay along the coast through the Eastern Cape.
+
+---
+
+### 70. STORMS RIVER MOUTH AIRFIELD
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | ❓ (unlicensed strip) |
+| **Coordinates** | S33°58'30" E23°54'00" ❓ |
+| **Elevation** | ❓ ~100 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | 🔒 Private — SANParks / PPR |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ ~600 m | ❓ | Grass ❓ | ❓ |
+
+**Notes:**
+- Within Tsitsikamma section of Garden Route National Park
+- Very limited information available — verify existence and accessibility before planning
+- ⚠️ Status uncertain — may no longer be operational
+
+---
+
+### 71. JEFFREYS BAY / PARADISE BEACH AIRFIELD
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | ❓ (ZA-series) |
+| **Coordinates** | S33°57'00" E24°56'00" ❓ |
+| **Elevation** | ❓ ~50 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | 🔒 Private / PPR ❓ |
+| **Night Ops** | 🚫 No |
+| **Fuel** | Not available ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | Grass ❓ | ❓ |
+
+**Notes:**
+- Near Paradise Beach, Jeffreys Bay
+- Small private strip — limited information
+- ~30 nm west of Port Elizabeth
+
+---
+
+## GROUP 10: EASTERN CAPE — PORT ELIZABETH TO EAST LONDON
+
+Major airports along the Eastern Cape coast and hinterland.
+
+---
+
+### 72. PORT ELIZABETH / CHIEF DAWID STUURMAN INTERNATIONAL AIRPORT (FAPE)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPE |
+| **AIP Ref** | 1211 |
+| **Coordinates** | S33°59'00" E25°37'02" |
+| **Location** | 3 NM S of Port Elizabeth / Gqeberha city centre |
+| **Elevation** | 226 ft AMSL |
+| **Ref Temp** | 30°C |
+| **Mag Var** | 24°W |
+| **Frequencies** | **TWR 118.1 MHz**, APP 124.0 MHz, ATIS 127.9 MHz, GND 121.7 MHz |
+| **Access** | ✈️ Public — International airport |
+| **Night Ops** | 🌙 Yes — full lighting |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+| **Fire Cat** | Category 7 |
+
+**Contact:** Port Elizabeth ATC, Tel: +27 41 507 7319
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 08/26 | 1,980 m | 46 m | Asphalt | PCN 45 | ⬅️ Left |
+| 10/28 | 1,372 m | 30 m | Asphalt | PCN 17 | ⬅️ Left |
+
+**Frequencies:**
+
+| Service | Frequency |
+|---------|-----------|
+| PE Tower | 118.1 MHz |
+| PE Approach | 124.0 MHz |
+| PE Ground | 121.7 MHz |
+| PE ATIS | 127.9 MHz |
+| PE Clearance | 121.7 MHz |
+
+**Notes:**
+- ⚠️ Controlled airspace — contact Approach before entering CTR
+- Class C airspace; CTR extends from surface to 5500 ft
+- Major domestic hub — schedule airline traffic
+- VFR routes: coastal route or via Colleen Glen VRP
+- ~370 nm east of Cape Town along the coast
+- Renamed from Port Elizabeth Airport to Chief Dawid Stuurman International (2021)
+
+---
+
+### 73. GRAHAMSTOWN / MAKHANDA AIRPORT (FAGM)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAGM |
+| **AIP Ref** | 688 |
+| **Coordinates** | S33°17'12" E26°29'47" |
+| **Elevation** | 2,135 ft AMSL |
+| **Frequencies** | **AFIS 131.0 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No ❓ |
+| **Fuel** | ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 06/24 | 1,340 m | 18 m | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Serves Makhanda (formerly Grahamstown) and Rhodes University
+- ~70 nm northeast of Port Elizabeth
+- Limited commercial traffic
+- 📅 AIP data may be outdated — verify before flight
+
+---
+
+### 74. PORT ALFRED AIRPORT (FAPA)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPA |
+| **Coordinates** | S33°35'05" E26°52'48" ❓ |
+| **Elevation** | 285 ft AMSL ❓ |
+| **Frequencies** | ❓ |
+| **Access** | ✈️ Public ❓ |
+| **Night Ops** | 🚫 No ❓ |
+| **Fuel** | Not available ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 06/24 | 900 m ❓ | 18 m ❓ | Asphalt ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- Small coastal town airport
+- ~90 nm east of Port Elizabeth along the coast
+- ⚠️ Verify operational status and conditions before flight
+
+---
+
+### 75. EAST LONDON / KING PHALO AIRPORT (FAEL)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAEL |
+| **AIP Ref** | 520 |
+| **Coordinates** | S33°02'15" E27°49'33" |
+| **Location** | 6 NM W of East London city centre |
+| **Elevation** | 435 ft AMSL |
+| **Ref Temp** | 30°C |
+| **Mag Var** | 24°W |
+| **Frequencies** | **TWR 118.3 MHz**, APP 121.0 MHz, ATIS 124.3 MHz, GND 121.7 MHz |
+| **Access** | ✈️ Public — Regional airport |
+| **Night Ops** | 🌙 Yes — full lighting |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+| **Fire Cat** | Category 6 |
+
+**Contact:** East London ATC, Tel: +27 43 706 0306
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 10/28 | 1,800 m | 46 m | Asphalt | PCN 40 | ⬅️ Left |
+
+**Frequencies:**
+
+| Service | Frequency |
+|---------|-----------|
+| EL Tower | 118.3 MHz |
+| EL Approach | 121.0 MHz |
+| EL Ground | 121.7 MHz |
+| EL ATIS | 124.3 MHz |
+
+**Notes:**
+- ⚠️ Controlled airspace — Class C CTR from surface to 5500 ft
+- Renamed from Ben Schoeman Airport to King Phalo Airport
+- Regular scheduled airline services
+- ~530 nm east of Cape Town
+- VFR routes available — contact Approach for clearance
+- Sea breeze effects can cause rapid weather changes
+
+---
+
+### 76. QUEENSTOWN / KOMANI AIRPORT (FAQT)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAQT |
+| **AIP Ref** | 1241 |
+| **Coordinates** | S31°55'12" E26°53'09" |
+| **Elevation** | 3,637 ft AMSL |
+| **Frequencies** | **AFIS 118.1 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 04/22 | 2,100 m | 30 m | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- ~150 nm north of East London, inland
+- High elevation — density altitude considerations
+- Serves the Queenstown / Komani area
+- Mountain flying terrain in the vicinity
+
+---
+
+### 77. MTHATHA / UMTATA AIRPORT (FAUT)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAUT |
+| **AIP Ref** | 1063 |
+| **Coordinates** | S31°32'48" E28°40'18" |
+| **Elevation** | 2,400 ft AMSL ❓ |
+| **Frequencies** | **AFIS 118.1 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 10/28 | 2,040 m | 30 m | Asphalt ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- Serves Mthatha (formerly Umtata) in the Eastern Cape
+- Scheduled airline services (SA Express / Airlink ❓)
+- ~130 nm northeast of East London
+- ⚠️ Terrain and weather can be challenging — mountainous area
+- Wild Coast region nearby
+
+---
+
+## GROUP 11: KWAZULU-NATAL COAST
+
+Airfields along the KwaZulu-Natal coastline from Margate to Richards Bay.
+
+---
+
+### 78. MARGATE AIRPORT (FAMG)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAMG |
+| **AIP Ref** | 915 |
+| **Coordinates** | S30°51'24" E30°18'36" |
+| **Elevation** | 495 ft AMSL |
+| **Frequencies** | **AFIS 124.0 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 03/21 | 1,400 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Popular holiday destination on the South Coast
+- ~80 nm south of Durban
+- Within KZN lower south coast area
+- ⚠️ Sea fog can affect operations
+
+---
+
+### 79. PORT SHEPSTONE AIRFIELD
+| Field | Detail |
+|---|---|
+| **ICAO / Code** | ❓ |
+| **Coordinates** | S30°44'00" E30°24'00" ❓ |
+| **Elevation** | ❓ ~100 ft AMSL |
+| **Frequencies** | ❓ |
+| **Access** | ❓ |
+| **Night Ops** | 🚫 No ❓ |
+| **Fuel** | Not available ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| ❓ | ❓ | ❓ | ❓ | ❓ |
+
+**Notes:**
+- Small coastal strip near Port Shepstone
+- ⚠️ Verify existence and accessibility — limited information available
+- KZN south coast
+
+---
+
+### 80. KING SHAKA INTERNATIONAL AIRPORT (FALE)
+| Field | Detail |
+|---|---|
+| **ICAO** | FALE |
+| **AIP Ref** | 484 |
+| **Coordinates** | S29°36'52" E31°07'16" |
+| **Location** | 25 NM N of Durban city centre, La Mercy |
+| **Elevation** | 295 ft AMSL |
+| **Ref Temp** | 33°C |
+| **Mag Var** | 23°W |
+| **Frequencies** | **TWR 118.1 MHz**, APP 119.5 MHz, ATIS 128.6 MHz, GND 121.75 MHz |
+| **Access** | ✈️ Public — International airport |
+| **Night Ops** | 🌙 Yes — full lighting, CAT II ILS |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+| **Fire Cat** | Category 9 |
+
+**Contact:** King Shaka ATC, Tel: +27 32 436 6000
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 06/24 | 3,700 m | 60 m | Asphalt | PCN 80 | ⬅️ Left |
+
+**Frequencies:**
+
+| Service | Frequency |
+|---------|-----------|
+| Durban Tower | 118.1 MHz |
+| Durban Approach | 119.5 MHz |
+| Durban Ground | 121.75 MHz |
+| Durban ATIS | 128.6 MHz |
+| Durban Clearance | 121.75 MHz |
+
+**Notes:**
+- ⚠️ Controlled airspace — Class B TMA, Class C CTR
+- Major international airport — heavy jet traffic
+- Opened 2010, replacing old Durban International (FADN)
+- VFR traffic must contact Approach and follow published VFR routes
+- Sugar cane fires in vicinity can reduce visibility
+- ~600 nm northeast of Cape Town
+
+---
+
+### 81. VIRGINIA AIRPORT (FAVG)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAVG |
+| **AIP Ref** | 1437 |
+| **Coordinates** | S29°46'12" E31°02'54" |
+| **Elevation** | 20 ft AMSL |
+| **Frequencies** | **118.1 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🚫 No ❓ |
+| **Fuel** | ⛽ AVGAS 100LL ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 04/22 | 1,024 m | 18 m | Asphalt ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- Located on the Durban North Coast at Virginia Beach
+- Popular GA airport near Durban
+- ⚠️ Within King Shaka CTR/TMA — coordinate with Durban Approach
+- Close to sea level — minimal density altitude issues
+- ~15 nm south of King Shaka International
+
+---
+
+### 82. PIETERMARITZBURG / ORIBI AIRPORT (FAPM)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPM |
+| **AIP Ref** | 1215 |
+| **Coordinates** | S29°39'00" E30°23'48" |
+| **Elevation** | 2,425 ft AMSL |
+| **Frequencies** | **TWR 118.1 MHz**, AFIS when ATC not available ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 08/26 | 1,341 m | 30 m | Asphalt ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- Serves Pietermaritzburg, capital of KwaZulu-Natal
+- ~50 nm inland from Durban
+- Controlled when ATC is active; AFIS otherwise
+- Valley airfield — terrain considerations on approach/departure
+- 📅 Verify current ATC hours and status
+
+---
+
+### 83. RICHARDS BAY AIRPORT (FARB)
+| Field | Detail |
+|---|---|
+| **ICAO** | FARB |
+| **AIP Ref** | 1244 |
+| **Coordinates** | S28°44'26" E32°05'35" |
+| **Elevation** | 109 ft AMSL |
+| **Frequencies** | **TWR 118.5 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 12/30 | 1,400 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Serves the port city of Richards Bay on the KZN north coast
+- ~100 nm north of Durban
+- Industrial area — coal terminal and aluminium smelter nearby
+- Scheduled airline services (Airlink)
+
+---
+
+## GROUP 12: CONTROLLED AERODROMES — GAUTENG
+
+Major controlled airports in the Gauteng province (Johannesburg / Pretoria area).
+
+---
+
+### 84. OR TAMBO INTERNATIONAL AIRPORT (FAOR)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAOR |
+| **AIP Ref** | 810 |
+| **Coordinates** | S26°08'05" E28°14'41" |
+| **Location** | 12 NM E of Johannesburg CBD, Kempton Park |
+| **Elevation** | 5,558 ft AMSL |
+| **Ref Temp** | 29°C |
+| **Mag Var** | 20°W |
+| **Frequencies** | **TWR 118.1 MHz**, APP 124.5 MHz, ATIS 127.3 MHz, GND 121.9 MHz |
+| **Access** | ✈️ Public — Major international hub |
+| **Night Ops** | 🌙 Yes — full lighting, CAT III ILS |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+| **Fire Cat** | Category 10 |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 03L/21R | 4,418 m | 60 m | Asphalt | PCN 80 | N/A |
+| 03R/21L | 3,400 m | 60 m | Asphalt | PCN 80 | N/A |
+
+**Frequencies:**
+
+| Service | Frequency |
+|---------|-----------|
+| JNB Tower | 118.1 MHz |
+| JNB Tower (South) | 124.3 MHz |
+| JNB Approach (North) | 124.5 MHz |
+| JNB Approach (South) | 125.0 MHz |
+| JNB Ground (North) | 121.9 MHz |
+| JNB Ground (South) | 121.65 MHz |
+| JNB ATIS | 127.3 MHz |
+| JNB Clearance | 121.7 MHz |
+
+**Notes:**
+- ⚠️ Busiest airport in Africa — Class A airspace above FL245
+- Class B TMA from 6500 ft to FL245; Class C CTR surface to 8000 ft
+- VFR operations are very restricted — special VFR only when weather permits
+- High elevation (5,558 ft) — significant density altitude, especially in summer
+- Thunderstorms common in summer (Oct-Mar) — afternoon convective activity
+- Three TMA sectors: North, Central, South
+- ~750 nm northeast of Cape Town
+
+---
+
+### 85. LANSERIA INTERNATIONAL AIRPORT (FALA)
+| Field | Detail |
+|---|---|
+| **ICAO** | FALA |
+| **AIP Ref** | 843 |
+| **Coordinates** | S25°56'14" E27°55'38" |
+| **Location** | 25 NM NW of Johannesburg CBD |
+| **Elevation** | 4,517 ft AMSL |
+| **Ref Temp** | 28°C |
+| **Mag Var** | 20°W |
+| **Frequencies** | **TWR 118.35 MHz**, APP 120.3 MHz, ATIS 127.55 MHz, GND 121.7 MHz |
+| **Access** | ✈️ Public — Secondary Johannesburg airport |
+| **Night Ops** | 🌙 Yes — full lighting |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+| **Fire Cat** | Category 7 |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 06L/24R | 3,000 m | 45 m | Asphalt | PCN 50 | ⬅️ Left |
+| 06R/24L | 1,400 m | 15 m | Asphalt | PCN 17 | ⬅️ Left |
+
+**Frequencies:**
+
+| Service | Frequency |
+|---------|-----------|
+| Lanseria Tower | 118.35 MHz |
+| Lanseria Approach | 120.3 MHz |
+| Lanseria Ground | 121.7 MHz |
+| Lanseria ATIS | 127.55 MHz |
+
+**Notes:**
+- ⚠️ Controlled airspace — Class C CTR
+- Major GA and low-cost carrier hub (FlySafair, etc.)
+- Second runway (06R/24L) primarily for GA / light aircraft
+- High elevation — density altitude considerations in summer
+- Within Johannesburg TMA
+- ~12 nm from Pilanesberg game drive corridor
+
+---
+
+### 86. GRAND CENTRAL AIRPORT (FAGC)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAGC |
+| **AIP Ref** | 685 |
+| **Coordinates** | S25°59'09" E28°08'24" |
+| **Location** | Midrand, between Johannesburg and Pretoria |
+| **Elevation** | 5,325 ft AMSL |
+| **Ref Temp** | 28°C |
+| **Mag Var** | 20°W |
+| **Frequencies** | **TWR 118.4 MHz**, ATIS 124.0 MHz ❓ |
+| **Access** | ✈️ Public — GA airport |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+| **Fire Cat** | Category 4 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 17/35 | 1,280 m | 30 m | Asphalt | PCN 20 ❓ | ⬅️ Left ❓ |
+| 11/29 | 860 m | 15 m | Asphalt | ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- Major GA hub — largest GA airport in Africa by movements ❓
+- ⚠️ Controlled airspace — within Johannesburg TMA
+- Very busy with training, charter, and private flying
+- High elevation — density altitude in summer
+- Multiple flying schools and charter operators based here
+
+---
+
+### 87. WONDERBOOM AIRPORT (FAWB)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAWB |
+| **AIP Ref** | 1468 |
+| **Coordinates** | S25°39'12" E28°13'24" |
+| **Location** | 6 NM N of Pretoria CBD |
+| **Elevation** | 4,095 ft AMSL |
+| **Ref Temp** | 28°C |
+| **Mag Var** | 20°W |
+| **Frequencies** | **TWR 118.35 MHz**, APP 127.0 MHz ❓ |
+| **Access** | ✈️ Public — GA and charter |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 11/29 | 1,829 m | 30 m | Asphalt | PCN 30 ❓ | ⬅️ Left ❓ |
+| 06/24 | 914 m | 18 m | Asphalt | ❓ | ❓ |
+
+**Notes:**
+- ⚠️ Controlled airspace — Class C CTR within Pretoria Special Rules Area
+- Military co-use (SAAF) — military aircraft may be present
+- Pretoria's primary GA airport
+- Multiple flying schools and maintenance organisations
+
+---
+
+## GROUP 13: CONTROLLED AERODROMES — FREE STATE, NORTHERN CAPE & NORTH WEST
+
+---
+
+### 88. BRAM FISCHER INTERNATIONAL AIRPORT / BLOEMFONTEIN (FABM)
+| Field | Detail |
+|---|---|
+| **ICAO** | FABM |
+| **AIP Ref** | 174 |
+| **Coordinates** | S29°05'38" E26°18'09" |
+| **Location** | 8 NM NE of Bloemfontein CBD |
+| **Elevation** | 4,458 ft AMSL |
+| **Ref Temp** | 31°C |
+| **Mag Var** | 21°W |
+| **Frequencies** | **TWR 118.1 MHz**, APP 119.1 MHz, ATIS 126.4 MHz ❓ |
+| **Access** | ✈️ Public — Regional airport |
+| **Night Ops** | 🌙 Yes |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+| **Fire Cat** | Category 6 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 01/19 | 2,560 m | 46 m | Asphalt | PCN 48 ❓ | ⬅️ Left |
+| 08/26 | 2,116 m | 46 m | Asphalt | PCN 30 ❓ | ⬅️ Left |
+
+**Notes:**
+- Serves Bloemfontein, Free State capital, and SAAF Bloemspruit
+- ⚠️ Controlled airspace — Class C CTR
+- High elevation — density altitude considerations
+- SAAF co-use — military traffic possible
+- ~550 nm northeast of Cape Town
+
+---
+
+### 89. KIMBERLEY AIRPORT (FAKM)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAKM |
+| **AIP Ref** | 824 |
+| **Coordinates** | S28°48'02" E24°45'44" |
+| **Elevation** | 3,950 ft AMSL |
+| **Ref Temp** | 33°C |
+| **Mag Var** | 21°W |
+| **Frequencies** | **TWR 118.1 MHz**, APP 119.7 MHz ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 02/20 | 3,000 m | 46 m | Asphalt | PCN 40 ❓ | ⬅️ Left ❓ |
+| 09/27 | 1,524 m | 30 m | Asphalt | ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- Serves Kimberley, Northern Cape capital
+- ⚠️ Controlled airspace — Class C CTR
+- Regular scheduled services
+- High elevation and hot conditions in summer — density altitude
+- ~400 nm north of Cape Town
+
+---
+
+### 90. UPINGTON AIRPORT (FAUP)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAUP |
+| **AIP Ref** | 1425 |
+| **Coordinates** | S28°24'02" E21°15'37" |
+| **Elevation** | 2,782 ft AMSL |
+| **Ref Temp** | 37°C |
+| **Mag Var** | 20°W |
+| **Frequencies** | **TWR 118.1 MHz**, APP 119.1 MHz ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 17/35 | 4,900 m | 60 m | Asphalt | PCN 65 ❓ | ⬅️ Left ❓ |
+| 01/19 | 1,524 m | 30 m | Asphalt | ❓ | ❓ |
+
+**Notes:**
+- Extremely long main runway (4.9 km) — originally built as Space Shuttle emergency landing site
+- ⚠️ Controlled airspace — Class C CTR
+- Very hot in summer — extreme density altitude conditions (Ref Temp 37°C)
+- Located in the Kalahari region — dry, clear conditions common
+- ~400 nm north of Cape Town
+- Used for aircraft storage and testing due to dry climate
+
+---
+
+### 91. PILANESBERG INTERNATIONAL AIRPORT (FAPS)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPS |
+| **AIP Ref** | 1218 |
+| **Coordinates** | S25°20'07" E27°10'15" |
+| **Elevation** | 3,412 ft AMSL |
+| **Frequencies** | **TWR 118.1 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1 ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 01/19 | 2,300 m ❓ | 30 m ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Serves Sun City and Pilanesberg Game Reserve
+- North West Province
+- Charter and scheduled services
+- ⚠️ Game reserve nearby — bird and wildlife hazards
+- Within Pilanesberg volcanic crater area
+
+---
+
+## GROUP 14: CONTROLLED AERODROMES — LIMPOPO, MPUMALANGA & KZN (INLAND)
+
+---
+
+### 92. KRUGER MPUMALANGA INTERNATIONAL AIRPORT (FAKN)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAKN |
+| **AIP Ref** | 836 |
+| **Coordinates** | S25°23'10" E31°06'22" |
+| **Location** | Near Nelspruit / Mbombela |
+| **Elevation** | 2,829 ft AMSL |
+| **Ref Temp** | 30°C |
+| **Mag Var** | 19°W |
+| **Frequencies** | **TWR 118.1 MHz**, APP 119.3 MHz ❓ |
+| **Access** | ✈️ Public — Regional airport |
+| **Night Ops** | 🌙 Yes |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 05/23 | 3,100 m | 45 m | Asphalt | PCN 50 ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- Gateway to Kruger National Park
+- ⚠️ Controlled airspace — Class C CTR
+- Mountainous terrain in vicinity — careful flight planning required
+- Summer thunderstorms common
+- ~850 nm northeast of Cape Town
+
+---
+
+### 93. POLOKWANE GATEWAY AIRPORT (FAPP)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAPP |
+| **AIP Ref** | 1222 |
+| **Coordinates** | S23°50'33" E29°27'34" |
+| **Elevation** | 4,076 ft AMSL |
+| **Frequencies** | **TWR 118.1 MHz** ❓ |
+| **Access** | ✈️ Public |
+| **Night Ops** | 🌙 Yes ❓ |
+| **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Circuit |
+|-----|--------|-------|---------|---------|
+| 01/19 | 3,000 m ❓ | 45 m ❓ | Asphalt | ⬅️ Left ❓ |
+
+**Notes:**
+- Serves Polokwane (formerly Pietersburg), Limpopo capital
+- ⚠️ Controlled airspace — Class C CTR
+- New gateway airport (opened ~2017) replaced old Pietersburg airport (FAPI)
+- Scheduled services by Airlink and others
+- ~900 nm northeast of Cape Town
+
+---
+
+### 94. HOEDSPRUIT AIR FORCE BASE (FAHS)
+| Field | Detail |
+|---|---|
+| **ICAO** | FAHS |
+| **AIP Ref** | 777 |
+| **Coordinates** | S24°21'12" E31°02'48" |
+| **Elevation** | 1,743 ft AMSL |
+| **Frequencies** | **TWR 118.5 MHz** ❓ |
+| **Access** | 🪖 Military — SAAF base with civilian PPR ❓ |
+| **Night Ops** | 🌙 Yes |
+| **Fuel** | ⛽ JET A-1 (military) ❓ |
+
+**Runways:**
+
+| RWY | Length | Width | Surface | Strength | Circuit |
+|-----|--------|-------|---------|----------|---------|
+| 01/19 | 4,000 m ❓ | 46 m ❓ | Asphalt | PCN 60 ❓ | ⬅️ Left ❓ |
+
+**Notes:**
+- ⚠️ SAAF base — Prior Permission Required for civilian use
+- Eastgate Airport (civilian terminal) adjacent to the base
+- Major gateway for Kruger National Park (southern section)
+- Home to SAAF fighter squadrons
+- Civilian charter flights operate from Eastgate terminal
+- Low elevation in the Lowveld — can be very hot
+
+---
+
+---
+
 ## KEY RESOURCES
 
 | Resource | URL |
@@ -1610,8 +2413,43 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | Emergency | 121.500 |
 | Cape Town Information | 125.5 ❓ |
 
+## EASTERN CAPE & KZN COMMON FREQUENCIES
+
+| Service | Frequency |
+|---------|-----------|
+| Port Elizabeth TWR | 118.1 |
+| Port Elizabeth APP | 124.0 |
+| Port Elizabeth ATIS | 127.9 |
+| East London TWR | 118.3 |
+| East London APP | 121.0 |
+| East London ATIS | 124.3 |
+| Durban / King Shaka TWR | 118.1 |
+| Durban APP | 119.5 |
+| Durban ATIS | 128.6 |
+
+## GAUTENG & INLAND COMMON FREQUENCIES
+
+| Service | Frequency |
+|---------|-----------|
+| OR Tambo TWR | 118.1 |
+| OR Tambo APP (North) | 124.5 |
+| OR Tambo APP (South) | 125.0 |
+| OR Tambo ATIS | 127.3 |
+| Lanseria TWR | 118.35 |
+| Lanseria APP | 120.3 |
+| Lanseria ATIS | 127.55 |
+| Grand Central TWR | 118.4 |
+| Wonderboom TWR | 118.35 ❓ |
+| Bloemfontein TWR | 118.1 |
+| Kimberley TWR | 118.1 |
+| Upington TWR | 118.1 |
+| KMIA (Nelspruit) TWR | 118.1 |
+| Polokwane TWR | 118.1 |
+
 ---
 
 > **⚠️ IMPORTANT DISCLAIMER:** This directory is compiled from publicly available sources including SACAA AIP documents (Jan 2026 edition), OurAirports, OpenAIP, AirportGuide, AvCom forum posts, airfield operator websites, and the WC Government fire pre-attack plans. **It is NOT suitable as a sole source for flight planning.** Always cross-reference with the current SACAA AIP, active NOTAMs, and direct contact with airfield operators. Fields marked ❓ require verification. Two fields have been confirmed **permanently closed** (FAHM Hermanus, FAPU Paarl East) — do not plan operations to these. Information from forum posts is dated where possible but may no longer be current. For the most comprehensive offline reference, obtain the *Airfields Directory for Southern Africa* book from Aviation Direct. The compiler takes no responsibility for accuracy.
+>
+> **Coverage:** Western Cape airfields (Groups 1–8), Eastern Cape & Garden Route coast (Groups 9–10), KwaZulu-Natal coast (Group 11), and all major controlled aerodromes in South Africa (Groups 12–14). Data for airfields outside the Western Cape is largely sourced from SACAA AIP and may require additional verification.
 >
 > **Data Sources:** SACAA AIP Aerodromes (15 Jan 2026), individual SACAA AD2 PDFs, capewinelands.aero, stelfly.co.za, heritageaviation.co.za, facy.co.za, diemerskraal.co.za, aerosport.co.za, morningstarflyingclub.co.za, mosselbayaero.com, OurAirports, OpenAIP, AirportGuide, metar-taf.com, AvCom forum.

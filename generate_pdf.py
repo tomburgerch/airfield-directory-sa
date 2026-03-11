@@ -40,7 +40,7 @@ def draw_page_background(canvas_obj, doc):
     canvas_obj.setFillColor(HexColor('#a0aec0'))
     canvas_obj.drawCentredString(
         A5_WIDTH / 2, 5 * mm,
-        f"Western Cape VFR Airfield Directory — Page {doc.page}"
+        f"South African Airfield Directory — Page {doc.page}"
     )
     canvas_obj.restoreState()
 
@@ -291,7 +291,7 @@ def build_cover_page(styles, airfield_count=69):
         fontSize=16, leading=20, textColor=COLOR_HEADER_BG,
         fontName='Helvetica-Bold', alignment=TA_CENTER,
     )
-    elements.append(Paragraph("Western Cape", title_style))
+    elements.append(Paragraph("South African", title_style))
     elements.append(Paragraph("Airfield Directory", title_style))
     elements.append(Spacer(1, 5 * mm))
 
@@ -300,10 +300,10 @@ def build_cover_page(styles, airfield_count=69):
         fontSize=10, leading=14, textColor=HexColor('#4a5568'),
         fontName='Helvetica', alignment=TA_CENTER,
     )
-    elements.append(Paragraph("For VFR Pilots Flying from", subtitle_style))
-    elements.append(Paragraph("Morningstar (ZA-0120)",
+    elements.append(Paragraph("VFR Pilot Reference", subtitle_style))
+    elements.append(Paragraph("Western Cape, Southern Coast &amp; Controlled Fields",
         ParagraphStyle('CoverField', parent=subtitle_style,
-                      fontName='Helvetica-Bold', fontSize=12)))
+                      fontName='Helvetica-Bold', fontSize=10)))
     elements.append(Spacer(1, 10 * mm))
 
     info_style = ParagraphStyle(
@@ -311,7 +311,7 @@ def build_cover_page(styles, airfield_count=69):
         fontSize=7, leading=9, textColor=HexColor('#718096'),
         fontName='Helvetica', alignment=TA_CENTER,
     )
-    elements.append(Paragraph(f"{airfield_count} Airfields | 8 Geographic Groups", info_style))
+    elements.append(Paragraph(f"{airfield_count} Airfields | 14 Geographic Groups", info_style))
     elements.append(Paragraph("One page per airfield for quick reference", info_style))
     elements.append(Spacer(1, 15 * mm))
 
@@ -327,7 +327,7 @@ def build_cover_page(styles, airfield_count=69):
         "Data marked (?) could not be independently verified. Always contact airfield operators.",
         disc_style))
     elements.append(Spacer(1, 10 * mm))
-    elements.append(Paragraph("Last Updated: 2026-03-09", info_style))
+    elements.append(Paragraph("Last Updated: 2026-03-11", info_style))
     elements.append(Paragraph("Compiled from SACAA AIP, OpenAIP, AirportGuide, AvCom forums", info_style))
     elements.append(PageBreak())
     return elements

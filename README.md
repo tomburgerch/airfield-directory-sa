@@ -1,13 +1,14 @@
-# Western Cape Airfield Directory
+# South African Airfield Directory
 
-A printable A5 PDF reference guide for VFR pilots in the Western Cape, South Africa. Compiled for pilots flying from Morningstar Airfield (ZA-0120).
+A printable A5 PDF reference guide for VFR pilots in South Africa. Covers the Western Cape, southern coast (Garden Route through KwaZulu-Natal), and all major controlled aerodromes nationwide.
 
 ## Features
 
-- **70 airfields** across 8 geographic groups
+- **94 airfields** across 14 geographic groups
+- Western Cape airfields (Groups 1–8), Eastern Cape & Garden Route coast (Groups 9–10), KwaZulu-Natal (Group 11), and all major controlled aerodromes (Groups 12–14)
 - One-page-per-airfield format with key info, runway data, and aerodrome diagrams
 - Clickable table of contents with page numbers
-- Frequency quick-reference sheet for the Cape Town area
+- Frequency quick-reference sheets for Cape Town, Eastern Cape, KZN, and Gauteng areas
 - Compact A5 format suitable for kneeboard printing
 
 ## Quick Start
