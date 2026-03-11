@@ -552,8 +552,8 @@ document.addEventListener('DOMContentLoaded', function() {
         groups.forEach(function(g) {
             g.style.display = active ? 'none' : '';
         });
-        // Hide TOC when searching, show when browsing/filtering
-        if (tocSection) tocSection.style.display = q ? 'none' : '';
+        // Hide TOC when searching or filtering
+        if (tocSection) tocSection.style.display = active ? 'none' : '';
         if (active) {
             searchCount.textContent = visible + ' of ' + totalCount + ' airfields';
             filterCount.textContent = filtering ? visible + ' match' : '';
@@ -901,29 +901,37 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<span id="filter-count"></span>\n'
     html += '</div>\n'
 
+    # Build per-province airfield lists for TOC
+    province_order = []
+    province_airfields = {}
+    for af in airfields:
+        group = af.get('group', '')
+        if group not in province_airfields:
+            province_order.append(group)
+            province_airfields[group] = []
+        province_airfields[group].append(af)
+
     # TOC
     html += '<div class="toc">\n<h2>Airfield Index</h2>\n<div class="toc-grid">\n'
-    current_group = ''
-    for af in airfields:
-        group = af.get('group', '')
-        if group and group != current_group:
-            current_group = group
-            html += f'<div class="toc-group">{escape(clean_html(group))}</div>\n'
-        name = clean_html(af['name'])
-        code = af['fields'].get('ICAO', af['fields'].get('ICAO / Code', af['fields'].get('Code', '')))
-        code_clean = clean_html(code).split('(')[0].split(';')[0].strip()[:12]
-        html += f'<div class="toc-item"><a href="#af-{af["number"]}">{escape(name)}'
-        if code_clean:
-            html += f' <span class="code">{escape(code_clean)}</span>'
-        html += '</a></div>\n'
+    for province in province_order:
+        if province:
+            html += f'<div class="toc-group">{escape(clean_html(province))}</div>\n'
+        for af in province_airfields[province]:
+            name = clean_html(af['name'])
+            code = af['fields'].get('ICAO', af['fields'].get('ICAO / Code', af['fields'].get('Code', '')))
+            code_clean = clean_html(code).split('(')[0].split(';')[0].strip()[:12]
+            html += f'<div class="toc-item"><a href="#af-{af["number"]}">{escape(name)}'
+            if code_clean:
+                html += f' <span class="code">{escape(code_clean)}</span>'
+            html += '</a></div>\n'
     html += '</div>\n</div>\n'
 
-    # Airfield cards
-    current_group = ''
+    # Airfield cards (show province divider only on first occurrence)
+    seen_provinces = set()
     for af in airfields:
         group = af.get('group', '')
-        if group and group != current_group:
-            current_group = group
+        if group and group not in seen_provinces:
+            seen_provinces.add(group)
             html += f'<div class="group-divider">{escape(clean_html(group))}</div>\n'
         html += build_airfield_card(af, embed_diagrams=embed_diagrams)
 
