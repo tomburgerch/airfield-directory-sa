@@ -110,7 +110,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | **Website** | [capewinelands.aero](https://capewinelands.aero/airfield-info/) |
 | **Operator AIP** | [AIP FAWN PDF (Jul 2021)](https://capewinelands.aero/wp-content/uploads/aip-fawn-15-july-2021.pdf) |
 | **Coordinates** | S33°46'17" E18°44'24" |
-| **Elevation** | ~200 ft AMSL |
+| **Elevation** | 399 ft AMSL |
 | **Airspace** | Uncontrolled Class G, 5 NM radius |
 | **Frequencies** | **131.1 MHz** (callsign: "Winelands Traffic"). Monitor 124.8 MHz for inbound traffic |
 | **Joining Alt** | Max **2000 ft** AMSL (Cape Town TMA Sector A above) |
@@ -389,7 +389,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 |---|---|
 | **ICAO** | FALS |
 | **Coordinates** | S33°14'46" E18°28'47" |
-| **Elevation** | 260 ft AMSL |
+| **Elevation** | 196 ft AMSL |
 | **Frequencies** | VOR SVV 113.00 MHz (on-field) |
 | **Access** | 🪖 **MILITARY** — SANDF/SAAF satellite training field for AFB Langebaanweg |
 | **Night Ops** | 🚫 No (no lighting reported) |
@@ -399,7 +399,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 02/20 | 1,362 m (4,469 ft) | 55 m (180 ft) | Asphalt | ❓ |
+| 03/21 | 1,362 m (4,469 ft) | 55 m (180 ft) | Asphalt | ❓ |
 
 **Notes:**
 - ⚠️ **Active military facility** — civil pilots must obtain prior military authorisation
@@ -444,7 +444,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
 | 01/19 | 3,201 m | 60 m | Tar | N/A (IFR) |
-| 16/34 | ❓ | ❓ | Tar | N/A (IFR) |
+| 16/34 | 1,701 m | 46 m | Asphalt | N/A (IFR) |
 
 **Notes:**
 - **Flight plan REQUIRED** to enter TMA
@@ -461,7 +461,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 |---|---|
 | **ICAO** | FAYP |
 | **Coordinates** | S33°54'00" E18°29'53" |
-| **Elevation** | ❓ |
+| **Elevation** | 52 ft AMSL |
 | **Access** | 🪖 Military — NO civilian access |
 | **Night Ops** | ❓ |
 
@@ -516,10 +516,10 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | Field | Detail |
 |---|---|
 | **ICAO** | FALW |
-| **IATA** | LGE |
+| **IATA** | SDB |
 | **AIP Link** | Not in civil SACAA AIP (military AIP supplement) |
 | **Coordinates** | S32°58'08" E18°09'37" |
-| **Elevation** | ❓ |
+| **Elevation** | 108 ft AMSL |
 | **Access** | 🪖 **Military (SAAF)** — civilian use requires military authorisation |
 | **Night Ops** | ❓ |
 
