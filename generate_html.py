@@ -675,6 +675,30 @@ document.addEventListener('DOMContentLoaded', function() {
 """
 
 
+# Tower / airport phone numbers (publicly available ACSA + operator numbers)
+TOWER_PHONES = {
+    'FAOR': '+27 11 921 6262',     # OR Tambo International
+    'FACT': '+27 21 937 1200',     # Cape Town International
+    'FALE': '+27 32 436 6000',     # King Shaka International
+    'FALA': '+27 11 367 0300',     # Lanseria International
+    'FAGC': '+27 11 805 3166',     # Grand Central
+    'FAWB': '+27 12 567 1188',     # Wonderboom
+    'FAGM': '+27 11 827 8884',     # Rand Airport
+    'FABL': '+27 51 407 2200',     # Bram Fischer / Bloemfontein
+    'FAPE': '+27 41 507 7348',     # Chief Dawid Stuurman / PE
+    'FAEL': '+27 43 706 0306',     # King Phalo / East London
+    'FAGG': '+27 44 876 9310',     # George
+    'FAKM': '+27 53 830 7106',     # Kimberley
+    'FAUP': '+27 54 337 7900',     # Upington
+    'FAKN': '+27 13 753 7500',     # Kruger Mpumalanga International
+    'FAPP': '+27 15 288 0122',     # Polokwane Gateway
+    'FAPM': '+27 33 386 9577',     # Pietermaritzburg
+    'FARB': '+27 35 786 0836',     # Richards Bay
+    'FAHS': '+27 15 799 2311',     # Hoedspruit AFB
+    'FAMY': '+27 22 487 3571',     # Malmesbury
+}
+
+
 def build_airfield_card(airfield, embed_diagrams=False):
     """Build HTML for a single airfield card."""
     f = airfield['fields']
@@ -776,6 +800,13 @@ def build_airfield_card(airfield, embed_diagrams=False):
         if val:
             cls_attr = f' class="value {cls}"' if cls else ' class="value"'
             grid_items.append(f'    <div class="label">{escape(label)}</div><div{cls_attr}>{escape(val)}</div>\n')
+
+    # Tower phone for towered fields
+    icao_code = code_clean.split('(')[0].split(';')[0].split('/')[0].strip()[:4]
+    tower_phone = TOWER_PHONES.get(icao_code, '')
+    if tower_phone and has_tower:
+        phone_link = f'<a href="tel:{tower_phone}" style="color:var(--green);font-weight:700;text-decoration:none">{escape(tower_phone)}</a>'
+        grid_items.append(f'    <div class="label">Tower Tel</div><div class="value">{phone_link}</div>\n')
 
     if grid_items:
         html += '    <div class="info-grid">\n' + ''.join(grid_items) + '    </div>\n'
