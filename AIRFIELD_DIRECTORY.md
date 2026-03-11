@@ -2189,7 +2189,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | **AIP Ref** | 174 |
 | **Coordinates** | S29°05'38" E26°18'14" |
 | **Location** | 8 NM NE of Bloemfontein CBD |
-| **Elevation** | 4,457 ft AMSL |
+| **Elevation** | 4,458 ft AMSL |
 | **Ref Temp** | 31°C |
 | **Mag Var** | 21°W |
 | **Frequencies** | **TWR 120.8 MHz**, APP 119.4 / 124.3 MHz, ATIS 126.45 MHz |
@@ -2203,7 +2203,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
 | 01/19 | 2,560 m | 46 m | Asphalt | PCN 48 ❓ | ⬅️ Left |
-| 08/26 | 2,116 m | 46 m | Asphalt | PCN 30 ❓ | ⬅️ Left |
+| 12/30 | 2,195 m | 46 m | Asphalt | PCN 30 ❓ | ⬅️ Left |
 
 **Notes:**
 - Serves Bloemfontein, Free State capital, and SAAF Bloemspruit
@@ -2250,7 +2250,7 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | **ICAO** | FAUP |
 | **AIP Ref** | 1425 |
 | **Coordinates** | S28°24'02" E21°15'37" |
-| **Elevation** | 2,782 ft AMSL |
+| **Elevation** | 2,791 ft AMSL |
 | **Ref Temp** | 37°C |
 | **Mag Var** | 20°W |
 | **Frequencies** | **TWR 118.1 MHz**, APP 119.1 MHz ❓ |
@@ -2263,7 +2263,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
 | 17/35 | 4,900 m | 60 m | Asphalt | PCN 65 ❓ | ⬅️ Left ❓ |
-| 01/19 | 1,524 m | 30 m | Asphalt | ❓ | ❓ |
+| 01/19 | 2,438 m | 46 m | Asphalt | ❓ | ❓ |
+| 08/26 | 834 m | 30 m | Asphalt | ❓ | ❓ |
 
 **Notes:**
 - Extremely long main runway (4.9 km) — originally built as Space Shuttle emergency landing site
@@ -2370,9 +2371,9 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 |---|---|
 | **ICAO** | FAHS |
 | **AIP Ref** | 777 |
-| **Coordinates** | S24°21'12" E31°02'48" |
+| **Coordinates** | S24°22'07" E31°02'55" |
 | **Elevation** | 1,743 ft AMSL |
-| **Frequencies** | **TWR 118.5 MHz** ❓ |
+| **Frequencies** | **TWR 122.0 MHz** ❓ |
 | **Access** | 🪖 Military — SAAF base with civilian PPR ❓ |
 | **Night Ops** | 🌙 Yes |
 | **Fuel** | ⛽ JET A-1 (military) ❓ |
@@ -2381,7 +2382,8 @@ Major controlled airports in the Gauteng province (Johannesburg / Pretoria area)
 
 | RWY | Length | Width | Surface | Strength | Circuit |
 |-----|--------|-------|---------|----------|---------|
-| 01/19 | 4,000 m ❓ | 46 m ❓ | Asphalt | PCN 60 ❓ | ⬅️ Left ❓ |
+| 18/36 | 3,991 m | 46 m ❓ | Asphalt | PCN 60 ❓ | ⬅️ Left ❓ |
+| 09/27 | 1,755 m ❓ | ❓ | Asphalt ❓ | ❓ | ❓ |
 
 **Notes:**
 - ⚠️ SAAF base — Prior Permission Required for civilian use
