@@ -1,0 +1,48 @@
+name: Build and Release PDF
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run validation
+        run: python validate_data.py
+
+      - name: Run tests
+        run: pip install pytest && python -m pytest tests/ -v
+
+      - name: Generate PDF
+        run: python generate_pdf.py
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Airfield_Directory_A5
+          path: Airfield_Directory_A5.pdf
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Airfield_Directory_A5.pdf
+          body: |
+            ## Western Cape Airfield Directory
+
+            Download `Airfield_Directory_A5.pdf` below for the printable A5 reference guide.
+
+            **NOT FOR NAVIGATION** — Always verify against current SACAA AIP and NOTAMs.
