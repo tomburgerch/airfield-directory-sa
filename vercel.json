@@ -1,0 +1,5 @@
+{
+  "buildCommand": "python3 build.py",
+  "outputDirectory": "public",
+  "installCommand": "pip3 install -r requirements.txt"
+}

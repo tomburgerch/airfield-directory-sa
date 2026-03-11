@@ -83,6 +83,25 @@ body {
 #search-box::placeholder { color: rgba(255,255,255,0.6); }
 #search-box:focus { outline: none; background: rgba(255,255,255,0.25); }
 
+/* ── Download bar ── */
+.download-bar {
+    background: var(--blue);
+    padding: 6px 0;
+    text-align: center;
+}
+.download-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 4px;
+    margin: 0 6px;
+    background: rgba(255,255,255,0.15);
+    display: inline-block;
+}
+.download-bar a:hover { background: rgba(255,255,255,0.3); }
+
 /* ── Disclaimer ── */
 .disclaimer {
     background: var(--red);
@@ -420,8 +439,15 @@ def build_airfield_card(airfield, embed_diagrams=False):
     return html
 
 
-def generate_html(airfields, output_path, embed_diagrams=False):
-    """Generate a complete searchable HTML file."""
+def generate_html(airfields, output_path, embed_diagrams=False, download_links=None):
+    """Generate a complete searchable HTML file.
+
+    Args:
+        airfields: List of parsed airfield dicts.
+        output_path: Where to write the HTML file.
+        embed_diagrams: If True, base64-encode diagram images into the HTML.
+        download_links: Optional list of dicts with 'label', 'href' keys for download bar.
+    """
     html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
     html += '<meta charset="UTF-8">\n'
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
@@ -434,6 +460,15 @@ def generate_html(airfields, output_path, embed_diagrams=False):
     html += '<h1>SA Airfield Directory <span>VFR Reference</span></h1>\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies...">\n'
     html += '</div>\n</header>\n'
+
+    # Download bar
+    if download_links:
+        html += '<div class="download-bar">\n'
+        for link in download_links:
+            dl_attr = f' download="{escape(link["href"].split("/")[-1])}"' if link.get('download', True) else ''
+            html += f'  <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
+        html += '</div>\n'
+
     html += '<div class="container">\n'
 
     # Disclaimer
