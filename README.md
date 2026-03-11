@@ -37,15 +37,24 @@ This validates ICAO codes, coordinates, missing fields, and data freshness.
 
 ```
 ├── AIRFIELD_DIRECTORY.md    # Source data (markdown)
+├── generate_html.py         # Searchable HTML website generator
 ├── generate_pdf.py          # PDF generation script
+├── build.py                 # Vercel build script (HTML + downloads)
+├── parse_markdown.py        # Markdown → structured data parser
 ├── validate_data.py         # Data validation & freshness checks
+├── diagrams_util.py         # Aerodrome diagram lookup & embedding
 ├── diagrams/                # Aerodrome diagram images (PNG)
+├── favicon.svg              # Site favicon
 ├── tests/                   # Test suite
 ├── requirements.txt         # Python dependencies
 └── .github/workflows/       # CI/CD (PDF release automation)
 ```
 
-## Adding or Updating Airfields
+## Updating Airfield Information
+
+All airfield data lives in `AIRFIELD_DIRECTORY.md`. To update and republish:
+
+### 1. Edit the source data
 
 Each airfield entry in `AIRFIELD_DIRECTORY.md` follows this structure:
 
@@ -60,7 +69,38 @@ Each airfield entry in `AIRFIELD_DIRECTORY.md` follows this structure:
 ...
 ```
 
-After editing, run `python validate_data.py` to check for issues, then `python generate_pdf.py` to rebuild the PDF.
+### 2. Validate your changes
+
+```bash
+python validate_data.py
+```
+
+This checks ICAO codes, coordinates, missing fields, and data consistency.
+
+### 3. Run the tests
+
+```bash
+python -m pytest tests/ -v
+```
+
+### 4. Rebuild the outputs
+
+```bash
+# Regenerate the searchable HTML website (for local preview)
+python generate_html.py
+
+# Regenerate the printable A5 PDF
+python generate_pdf.py
+
+# Or build the full Vercel deployment bundle (HTML with embedded diagrams + downloads)
+python build.py
+```
+
+The website automatically shows the date it was last built ("Updated DD Mon YYYY") so users know how current the data is.
+
+### 5. Deploy
+
+Push to `main` and Vercel will automatically rebuild and deploy the site. The build runs `python build.py` which parses the markdown, embeds diagrams, and generates a self-contained `index.html`.
 
 ## Data Sources
 

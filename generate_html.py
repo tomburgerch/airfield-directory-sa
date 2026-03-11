@@ -15,6 +15,7 @@ from pdf_styles import EMOJI_MAP
 MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
 OUTPUT_HTML = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Airfield_Directory.html')
 DIAGRAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'diagrams')
+FAVICON_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'favicon.svg')
 
 
 def clean_html(text):
@@ -646,6 +647,14 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<meta charset="UTF-8">\n'
     html += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
     html += '<title>South African Airfield Directory</title>\n'
+
+    # Embed favicon as inline SVG data URI
+    favicon_link = ''
+    if os.path.exists(FAVICON_FILE):
+        with open(FAVICON_FILE, 'r', encoding='utf-8') as fav:
+            svg_data = fav.read().replace('\n', ' ').replace('"', "'")
+        favicon_link = f'<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,{svg_data}">\n'
+    html += favicon_link
     html += f'<style>{CSS}</style>\n'
     html += '</head>\n<body>\n'
 
