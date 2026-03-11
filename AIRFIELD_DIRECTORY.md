@@ -870,7 +870,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | **AIP Link** | Not in official SACAA AIP (private field) |
 | **Website** | [Heritage Aviation](https://www.heritageaviation.co.za/airfield-information-fasx/), [Swellengrebel Flying Club](http://www.fasx.co.za/) |
 | **Coordinates** | S34°02'53" E20°28'28" |
-| **Elevation** | ~400 ft AMSL |
+| **Elevation** | 407 ft AMSL |
 | **Frequencies** | **124.8 MHz** |
 | **Joining Alt** | **2400 ft** AMSL |
 | **Circuit Alt** | **1400 ft** AMSL |
@@ -882,8 +882,8 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 15/33 | 1,003 m | ❓ | Asphalt/grass | ❓ NE of runway |
-| 06/24 | ❓ | ❓ | ❓ | ❓ NE of runway |
+| 15/33 | 1,003 m | 12 m | Asphalt/grass | ❓ NE of runway |
+| 06/24 | 600 m | 45 m | Grass | ❓ NE of runway |
 
 **Notes:**
 - WWII-era emergency base for sea patrol aircraft
@@ -932,6 +932,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
 | 11/29 | 2,000 m | 45 m | Asphalt | N/A (controlled) |
+| 02/20 | 1,220 m | 30 m | Composite | N/A ❓ |
 
 **Notes:**
 - Full ATC services (ATNS) — the hub for Garden Route region
@@ -954,14 +955,14 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | **Elevation** | 526 ft AMSL |
 | **Frequencies** | **124.2 MHz** (unmanned — broadcast) |
 | **Access** | ✈️ Public (unmanned) |
-| **Night Ops** | 🌙 Auto-activated edge lights |
+| **Night Ops** | 🚫 No runway lights — night ops suspended |
 | **Fuel** | ⛽ AVGAS, Jet A1, MOGAS |
 
 **Runways:**
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 10/28 | 1,145 m | 16 m | Asphalt | ⬅️ South of RWY |
+| 10/28 | 1,143 m | 18 m | Asphalt | ⬅️ South of RWY |
 
 **Notes:**
 - ⚠️ Registered **parachute drop zone** (PJE sunrise–sunset)
@@ -983,7 +984,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | **Coordinates** | S33°36'25" E22°11'20" |
 | **Elevation** | 1,063 ft AMSL |
 | **Access** | ✈️ Public (AFIS) |
-| **Night Ops** | 🚫 No (no lighting) |
+| **Night Ops** | 🌙 Yes (lighted runway) |
 
 **Frequencies:**
 
@@ -1077,7 +1078,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | **IATA** | PBZ |
 | **AIP Link** | [SACAA AIP AD2](https://caasanwebsitestorage.blob.core.windows.net/aerodrone-and-helicompter-directory/FAPGAD2.pdf) |
 | **Coordinates** | S34°05'25" E23°19'40" |
-| **Elevation** | ❓ |
+| **Elevation** | 465 ft AMSL |
 | **Frequencies** | **124.8 MHz** (unmanned — broadcast) |
 | **Access** | ✈️ Public (unmanned) |
 | **Night Ops** | 🚫 No (no lighting) |
@@ -1088,7 +1089,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 12/30 | 1,240 m | 20 m | Asphalt | ❓ |
+| 12/30 | 1,220 m | 20 m | Asphalt | ❓ |
 
 **Notes:**
 - Must contact **George APP 128.2 MHz** before entering TMA
@@ -1109,7 +1110,7 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 | **ICAO** | FABW |
 | **AIP Link** | [SACAA AIP AD2](https://caasanwebsitestorage.blob.core.windows.net/aerodrone-and-helicompter-directory/FABWAD2.pdf) |
 | **Coordinates** | S32°17'59" E22°40'12" |
-| **Elevation** | ❓ |
+| **Elevation** | 2,929 ft AMSL |
 | **Access** | ✈️ Public (AFIS) |
 | **Night Ops** | 🌙 Yes — remote-activated lighting |
 | **Fuel** | ⛽ AVGAS, Jet A1 |
@@ -1125,16 +1126,13 @@ These airfields are within easy reach for local flights, touch-and-goes, and tra
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| Paved 1 | 1,485 m | ❓ | Asphalt | ❓ |
-| Paved 2 | 1,485 m | ❓ | Asphalt | ❓ |
-| Gravel 1 | 950 m | ❓ | Gravel | ❓ |
-| Gravel 2 | 950 m | ❓ | Gravel | ❓ |
+| 08/26 | 1,483 m | 30 m | Asphalt | ❓ |
+| 16/34 | 950 m | ❓ | Gravel | ❓ |
 
 **Notes:**
 - Great Karoo
 - AFIS service (Karoo Radio on 125.6 MHz)
 - Extensive flight training activity
-- Two paved and two gravel runways
 - Beyond 150 nm from Morningstar
 
 ---
