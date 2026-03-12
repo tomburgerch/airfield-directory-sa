@@ -620,6 +620,9 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     text-align: left;
     font-size: 11px;
 }
+.fir-tab-content table.freq-table th:last-child {
+    text-align: right;
+}
 .fir-tab-content table.freq-table td {
     padding: 4px 10px;
     border-bottom: 1px solid var(--border);
@@ -686,6 +689,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
     var filterCount = document.getElementById('filter-count');
     var tocSection = document.querySelector('.toc');
+    var firSectionEl = document.getElementById('fir-section');
     var filterBar = document.getElementById('filter-bar');
     var totalCount = cards.length;
     var activeFilters = {};
@@ -730,6 +734,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         // Hide TOC when searching, filtering, or sorted non-default
         if (tocSection) tocSection.style.display = hideGroups ? 'none' : '';
+        // Hide FIR section and nearby panel when searching/filtering
+        if (firSectionEl) firSectionEl.style.display = active ? 'none' : '';
+        if (nearbyPanel && active) nearbyPanel.style.display = 'none';
+        else if (nearbyPanel && !active && currentSort === 'nearest') nearbyPanel.style.display = 'block';
         // Hide sort index when searching or filtering
         if (sortIndex && active) sortIndex.style.display = 'none';
         else if (sortIndex && !active && currentSort !== 'province') sortIndex.style.display = '';
