@@ -731,7 +731,7 @@ TOWER_PHONES = {
     'FABL': '+27 51 433 1452',     # Bram Fischer — ATC tower (vfrPlanner)
     'FAPE': '+27 41 513 5851',     # Chief Dawid Stuurman — tower (AIP GEN 3.4)
     'FAEL': '+27 43 736 6161',     # King Phalo / East London — tower (vfrPlanner)
-    'FAGG': '+27 44 801 8808',     # George — ATC tower (vfrPlanner)
+    'FAGG': '+27 44 803 7732',     # George — ATC tower (verified)
     'FAKM': '+27 53 851 1012',     # Kimberley — tower (vfrPlanner)
     'FAUP': '+27 54 337 7900',     # Upington — airport (tower direct not public)
     'FAKN': '+27 13 753 7519',     # Kruger Mpumalanga — ATC tower (kmiairport.co.za)
