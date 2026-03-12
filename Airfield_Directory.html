@@ -346,6 +346,16 @@ body {
 .airfield-header.military { background: var(--dark-gray); }
 .airfield-header h3 { font-size: 15px; margin: 0; }
 .airfield-header .num { font-size: 12px; opacity: 0.8; }
+.airfield-header .pdf-dl {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+}
+.airfield-header .pdf-dl:hover { color: white; background: rgba(255,255,255,0.15); }
 .airfield-code {
     font-size: 12px; color: var(--text-muted);
     padding: 4px 14px;
@@ -595,6 +605,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     #nearby-panel { display: none !important; }
     #sort-index { display: none !important; }
     .fir-section { display: none !important; }
+    .pdf-dl { display: none !important; }
 }
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
@@ -647,19 +658,33 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 <div class="fir-body">
 <div id="fir-map" class="fir-map"></div>
 <div class="fir-tabs">
-<button class="fir-tab active" data-fir-tab="fir-general">FIR General</button>
+<button class="fir-tab active" data-fir-tab="fir-general">FIR Overview</button>
 <button class="fir-tab" data-fir-tab="fir-tab-0">FREE STATE</button>
 <button class="fir-tab" data-fir-tab="fir-tab-1">CAPE TOWN AREA</button>
 <button class="fir-tab" data-fir-tab="fir-tab-2">EASTERN CAPE &amp; KZN</button>
 <button class="fir-tab" data-fir-tab="fir-tab-3">GAUTENG &amp; INLAND</button>
 </div>
 <div class="fir-tab-content active" id="fir-general">
+<h4 style="margin:12px 0 6px">Cape Town FIR (FACA)</h4>
 <table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>
-<tr><td>Johannesburg FIR Info</td><td>126.7</td></tr>
-<tr><td>Cape Town FIR Info</td><td>125.5</td></tr>
-<tr><td>Emergency</td><td>121.5</td></tr>
-<tr><td>Uncontrolled (Default)</td><td>124.8</td></tr>
-<tr><td>SAR (Search &amp; Rescue)</td><td>123.1</td></tr>
+<tr><td>Cape Town Information (FIS)</td><td>131.125</td></tr>
+<tr><td>Cape Town ACC (CTA)</td><td>125.100</td></tr>
+<tr><td>Cape Town SRA West</td><td>125.800</td></tr>
+<tr><td>Cape Town SRA East / TIBA</td><td>124.800</td></tr>
+</table>
+<h4 style="margin:12px 0 6px">Johannesburg FIR (FAJA)</h4>
+<table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>
+<tr><td>Johannesburg ACC North</td><td>126.700</td></tr>
+<tr><td>Johannesburg ACC South</td><td>128.300</td></tr>
+<tr><td>Johannesburg ACC East</td><td>129.100</td></tr>
+<tr><td>Johannesburg ACC West</td><td>118.500</td></tr>
+<tr><td>Johannesburg ACC Central</td><td>120.300</td></tr>
+</table>
+<h4 style="margin:12px 0 6px">Common Frequencies</h4>
+<table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>
+<tr><td>Emergency (Guard)</td><td>121.500</td></tr>
+<tr><td>SAR (Search &amp; Rescue)</td><td>123.100</td></tr>
+<tr><td>Air-to-Air</td><td>130.350</td></tr>
 </table>
 </div>
 <div class="fir-tab-content" id="fir-tab-0">
@@ -711,18 +736,18 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 <tr><td>East London ATIS</td><td>126.65</td></tr>
 <tr><td>Durban / King Shaka TWR</td><td>118.45</td></tr>
 <tr><td>Durban ATIS</td><td>127.0</td></tr>
-<tr><td>Virginia</td><td>124.8 ❓</td></tr>
-<tr><td>Margate</td><td>124.8 ❓</td></tr>
-<tr><td>Richards Bay TWR</td><td>118.5 ❓</td></tr>
+<tr><td>Virginia TWR</td><td>120.6</td></tr>
+<tr><td>Margate AFIS</td><td>122.7</td></tr>
+<tr><td>Richards Bay TWR</td><td>118.9</td></tr>
 <tr><td>Pietermaritzburg TWR</td><td>122.0</td></tr>
 </table>
 </div>
 <div class="fir-tab-content" id="fir-tab-3">
 <table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>
 <tr><td>OR Tambo TWR</td><td>118.1</td></tr>
-<tr><td>OR Tambo APP (North)</td><td>124.5</td></tr>
-<tr><td>OR Tambo APP (South)</td><td>125.0</td></tr>
-<tr><td>OR Tambo ATIS</td><td>127.3</td></tr>
+<tr><td>OR Tambo APP (East)</td><td>124.5</td></tr>
+<tr><td>OR Tambo APP (West)</td><td>123.7</td></tr>
+<tr><td>OR Tambo ATIS</td><td>126.2</td></tr>
 <tr><td>Lanseria TWR</td><td>124.0</td></tr>
 <tr><td>Lanseria ATIS</td><td>127.65</td></tr>
 <tr><td>Grand Central TWR</td><td>120.8</td></tr>
@@ -730,11 +755,11 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 <tr><td>Wonderboom TWR</td><td>118.35</td></tr>
 <tr><td>Bloemfontein TWR</td><td>120.8 ❓</td></tr>
 <tr><td>Kimberley TWR</td><td>118.2</td></tr>
-<tr><td>Upington TWR</td><td>118.1 ❓</td></tr>
+<tr><td>Upington TWR</td><td>121.3</td></tr>
 <tr><td>KMIA (Nelspruit) TWR/APP</td><td>119.2</td></tr>
 <tr><td>Polokwane TWR</td><td>124.3</td></tr>
 <tr><td>Lowveld Info (Skukuza)</td><td>119.0</td></tr>
-<tr><td>Nelspruit (FANS)</td><td>125.2</td></tr>
+<tr><td>Nelspruit (FANS) TWR/APP</td><td>118.80</td></tr>
 <tr><td>Witbank (FAWI)</td><td>123.5</td></tr>
 <tr><td>Middelburg (FAMB)</td><td>127.95</td></tr>
 <tr><td>Hoedspruit Civil (FAHT)</td><td>126.4</td></tr>
@@ -1465,6 +1490,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="note">- GA FBOs: Signature Aviation, Execujet</div>
     <div class="note">- Squawk required, two-way radio mandatory</div>
     <div class="note">- ILS CAT IIIB on RWY 01, CAT II on RWY 19</div>
+    <div class="note">- Major upgrade program (R11.3B+) announced 2026: new realigned 3,500m Code F runway, terminal expansions, rapid exit taxiways. Construction beginning 2026, phased through 2029</div>
   </div>
 </div>
 <div class="airfield-card" id="af-15" data-search="ysterplaat air force base (fayp) fayp military — no civilian access" data-lat="-33.9" data-lon="18.498056" data-fuel="0" data-night="1" data-surface="unknown" data-access="military" data-towered="0" data-official="1">
@@ -2921,7 +2947,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="info-grid">
     <div class="label">Coordinates</div><div class="value">S30°51&#x27;26&quot; E30°20&#x27;35&quot;</div>
     <div class="label">Elevation</div><div class="value elev">498 ft AMSL</div>
-    <div class="label">Frequency</div><div class="value freq">124.8 MHz (?)</div>
+    <div class="label">Frequency</div><div class="value freq">AFIS 122.7 MHz</div>
     <div class="label">Night Ops</div><div class="value">Yes (?)</div>
     <div class="label">Fuel</div><div class="value">JET A-1, AVGAS 100LL (?)</div>
     </div>
@@ -3003,7 +3029,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="contact"><strong>Contact:</strong> King Shaka ATC, Tel: +27 32 436 6000</div>
   </div>
 </div>
-<div class="airfield-card" id="af-81" data-search="virginia airport (favg) favg public (atns-controlled)" data-lat="-29.770833" data-lon="31.060278" data-fuel="1" data-night="0" data-surface="paved" data-access="public" data-towered="0" data-official="1">
+<div class="airfield-card" id="af-81" data-search="virginia airport (favg) favg public (atns-controlled)" data-lat="-29.770833" data-lon="31.060278" data-fuel="1" data-night="0" data-surface="paved" data-access="public" data-towered="1" data-official="1">
   <div class="airfield-header ">
     <h3>VIRGINIA AIRPORT (FAVG)</h3>
     <span class="dist-badge"></span>
@@ -3014,7 +3040,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="info-grid">
     <div class="label">Coordinates</div><div class="value">S29°46&#x27;15&quot; E31°03&#x27;37&quot;</div>
     <div class="label">Elevation</div><div class="value elev">20 ft AMSL</div>
-    <div class="label">Frequency</div><div class="value freq">124.8 MHz (?)</div>
+    <div class="label">Frequency</div><div class="value freq">TWR 120.6 MHz, APP 119.1 MHz</div>
     <div class="label">Night Ops</div><div class="value">No (?)</div>
     <div class="label">Fuel</div><div class="value">AVGAS 100LL (?)</div>
     </div>
@@ -3029,6 +3055,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="note">- Controlled airspace — ATNS provides ATC services</div>
     <div class="note">- Close to sea level — minimal density altitude issues</div>
     <div class="note">- ~15 nm south of King Shaka International</div>
+    <div class="note">- eThekwini Municipality has long-standing plans to close and relocate to Scottburgh — not yet materialised as of 2026</div>
   </div>
 </div>
 <div class="airfield-card" id="af-82" data-search="pietermaritzburg / oribi airport (fapm) fapm public" data-lat="-29.648889" data-lon="30.398611" data-fuel="1" data-night="1" data-surface="paved" data-access="public" data-towered="1" data-official="1">
@@ -3071,7 +3098,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="info-grid">
     <div class="label">Coordinates</div><div class="value">S28°44&#x27;26&quot; E32°05&#x27;35&quot;</div>
     <div class="label">Elevation</div><div class="value elev">109 ft AMSL</div>
-    <div class="label">Frequency</div><div class="value freq">TWR 118.5 MHz (?)</div>
+    <div class="label">Frequency</div><div class="value freq">TWR 118.9 MHz</div>
     <div class="label">Night Ops</div><div class="value">Yes (?)</div>
     <div class="label">Fuel</div><div class="value">JET A-1, AVGAS 100LL (?)</div>
     <div class="label">Tower Tel</div><div class="value"><a href="tel:+27 35 786 0836" style="color:var(--green);font-weight:700;text-decoration:none">+27 35 786 0836</a></div>
@@ -3232,6 +3259,8 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="note">- Military co-use (SAAF) — military aircraft may be present</div>
     <div class="note">- Pretoria&#x27;s primary GA airport</div>
     <div class="note">- Multiple flying schools and maintenance organisations</div>
+    <div class="note">- Aerodrome licence upgraded from Category 2 to Category 5 (Aug 2023) — enables scheduled commercial operations</div>
+    <div class="note">- City of Tshwane plans to revive as cargo hub (Apr 2025)</div>
   </div>
 </div>
 <div class="airfield-card" id="af-88" data-search="rand airport (fagm) fagm public — ga airport" data-lat="-26.241944" data-lon="28.151389" data-fuel="1" data-night="1" data-surface="paved" data-access="public" data-towered="1" data-official="1">
@@ -3334,7 +3363,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="info-grid">
     <div class="label">Coordinates</div><div class="value">S28°24&#x27;02&quot; E21°15&#x27;37&quot;</div>
     <div class="label">Elevation</div><div class="value elev">2,791 ft AMSL</div>
-    <div class="label">Frequency</div><div class="value freq">TWR 118.1 MHz, APP 119.1 MHz (?)</div>
+    <div class="label">Frequency</div><div class="value freq">TWR 121.3 MHz, APP 121.3 MHz</div>
     <div class="label">Night Ops</div><div class="value">Yes</div>
     <div class="label">Fuel</div><div class="value">JET A-1, AVGAS 100LL</div>
     <div class="label">Tower Tel</div><div class="value"><a href="tel:+27 54 337 7900" style="color:var(--green);font-weight:700;text-decoration:none">+27 54 337 7900</a></div>
@@ -4799,6 +4828,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
       <tr><td>01/19</td><td>1,304 m</td><td>(?)</td><td>Asphalt</td><td>[L] Left (?)</td></tr>
       <tr><td>10/28</td><td>1,200 m</td><td>(?)</td><td>Asphalt</td><td>[L] Left (?)</td></tr>
     </table>
+    <div class="warning">[!] [!] Status uncertain — OurAirports marks as closed (verify before planning operations)</div>
     <div class="warning">[!] [!] Within Bloemfontein TMA — VFR flights not on a flight plan must remain below 6,500 ft ALT and clear of the Bloemfontein CTR</div>
     <div class="section-title">Notes</div>
     <div class="note">- Active skydiving centre (Bloemfontein Parachute Club / Skydive Central) — watch for parachute operations</div>
@@ -6113,11 +6143,11 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <table class="data-table"><tr><th>RWY</th><th>Length</th><th>Width</th><th>Surface</th><th>Circuit</th></tr>
       <tr><td>01/19</td><td>1,373 m (4,505 ft)</td><td>18 m</td><td>Asphalt</td><td>(?)</td></tr>
     </table>
+    <div class="warning">[!] [!] No scheduled commercial flights since June 2020 — Airlink ceased all services; charter/GA only</div>
     <div class="section-title">Notes</div>
     <div class="note">- Gateway to Kruger National Park (Phalaborwa Gate)</div>
     <div class="note">- Also known as Kruger Park Gateway Airport</div>
     <div class="note">- IFR/VFR permitted</div>
-    <div class="note">- Airlink scheduled services to OR Tambo</div>
     <div class="note">- Mining town (Palabora Mining — copper, phosphate)</div>
     <div class="note">- Magnetic variation 15°W</div>
     <div class="note">- Low Lowveld elevation — can be very hot in summer</div>
@@ -6544,7 +6574,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="note">- Located near Hoedspruit in the escarpment area</div>
   </div>
 </div>
-<div class="airfield-card" id="af-215" data-search="nelspruit airport (fans) fans public" data-lat="-25.5" data-lon="30.913889" data-fuel="0" data-night="0" data-surface="paved" data-access="public" data-towered="0" data-official="1">
+<div class="airfield-card" id="af-215" data-search="nelspruit airport (fans) fans public" data-lat="-25.5" data-lon="30.913889" data-fuel="0" data-night="0" data-surface="paved" data-access="public" data-towered="1" data-official="1">
   <div class="airfield-header ">
     <h3>NELSPRUIT AIRPORT (FANS)</h3>
     <span class="dist-badge"></span>
@@ -6555,7 +6585,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     <div class="info-grid">
     <div class="label">Coordinates</div><div class="value">S25°30&#x27;00&quot; E30°54&#x27;50&quot;</div>
     <div class="label">Elevation</div><div class="value elev">2,901 ft AMSL</div>
-    <div class="label">Frequency</div><div class="value freq">TFC 125.2 MHz</div>
+    <div class="label">Frequency</div><div class="value freq">TWR/APP 118.80 MHz</div>
     <div class="label">Night Ops</div><div class="value">No (?)</div>
     <div class="label">Fuel</div><div class="value">(?)</div>
     </div>

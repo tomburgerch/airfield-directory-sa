@@ -1326,13 +1326,24 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
 
     # FIR Frequencies section (map + tabbed frequency tables)
     if freq_tables:
-        # FIR-level frequencies to show as a special first tab
-        fir_freqs = [
-            ['Johannesburg FIR Info', '126.7'],
-            ['Cape Town FIR Info', '125.5'],
-            ['Emergency', '121.5'],
-            ['Uncontrolled (Default)', '124.8'],
-            ['SAR (Search & Rescue)', '123.1'],
+        # FIR-level frequencies organised by region
+        cape_town_fir = [
+            ['Cape Town Information (FIS)', '131.125'],
+            ['Cape Town ACC (CTA)', '125.100'],
+            ['Cape Town SRA West', '125.800'],
+            ['Cape Town SRA East / TIBA', '124.800'],
+        ]
+        johannesburg_fir = [
+            ['Johannesburg ACC North', '126.700'],
+            ['Johannesburg ACC South', '128.300'],
+            ['Johannesburg ACC East', '129.100'],
+            ['Johannesburg ACC West', '118.500'],
+            ['Johannesburg ACC Central', '120.300'],
+        ]
+        common_freqs = [
+            ['Emergency (Guard)', '121.500'],
+            ['SAR (Search &amp; Rescue)', '123.100'],
+            ['Air-to-Air', '130.350'],
         ]
 
         html += '<div class="fir-section" id="fir-section">\n'
@@ -1342,18 +1353,34 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
 
         # Tabs
         html += '<div class="fir-tabs">\n'
-        html += '<button class="fir-tab active" data-fir-tab="fir-general">FIR General</button>\n'
+        html += '<button class="fir-tab active" data-fir-tab="fir-general">FIR Overview</button>\n'
         for idx, ft in enumerate(freq_tables):
             tab_id = f'fir-tab-{idx}'
             html += f'<button class="fir-tab" data-fir-tab="{tab_id}">{escape(ft["name"])}</button>\n'
         html += '</div>\n'
 
-        # FIR General tab content
+        # FIR Overview tab content — grouped sub-tables
         html += '<div class="fir-tab-content active" id="fir-general">\n'
+
+        html += '<h4 style="margin:12px 0 6px">Cape Town FIR (FACA)</h4>\n'
         html += '<table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>\n'
-        for row in fir_freqs:
-            html += f'<tr><td>{escape(row[0])}</td><td>{escape(row[1])}</td></tr>\n'
-        html += '</table>\n</div>\n'
+        for row in cape_town_fir:
+            html += f'<tr><td>{row[0]}</td><td>{row[1]}</td></tr>\n'
+        html += '</table>\n'
+
+        html += '<h4 style="margin:12px 0 6px">Johannesburg FIR (FAJA)</h4>\n'
+        html += '<table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>\n'
+        for row in johannesburg_fir:
+            html += f'<tr><td>{row[0]}</td><td>{row[1]}</td></tr>\n'
+        html += '</table>\n'
+
+        html += '<h4 style="margin:12px 0 6px">Common Frequencies</h4>\n'
+        html += '<table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>\n'
+        for row in common_freqs:
+            html += f'<tr><td>{row[0]}</td><td>{row[1]}</td></tr>\n'
+        html += '</table>\n'
+
+        html += '</div>\n'
 
         # Regional tab contents
         for idx, ft in enumerate(freq_tables):

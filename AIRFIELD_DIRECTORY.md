@@ -140,6 +140,7 @@
 - Home to 4 Aviators flight training
 - Close to FAD 200 and FAD 69 training areas
 - 📅 Aerosport moved FROM here to Wintervogel when lease wasn't renewed (~2018)
+- 📅 R8B international airport development: Environmental Authorisation granted Oct 2025, WBHO selected as builder Dec 2025. Phase 1 plans: 3.5 km runway, terminal for 5.2M pax/year. Construction expected Q4 2026, commissioning early 2028. Six appeals pending as of Feb 2026
 
 ---
 
@@ -452,6 +453,7 @@
 - ⚠️ Notorious for wind (>20 kt common), fog, and terrain (Table Mountain 3,500 ft, 8 nm west)
 - Squawk required, two-way radio mandatory
 - ILS CAT IIIB on RWY 01, CAT II on RWY 19
+- 📅 Major upgrade program (R11.3B+) announced 2026: new realigned 3,500m Code F runway, terminal expansions, rapid exit taxiways. Construction beginning 2026, phased through 2029
 
 ---
 
@@ -1826,7 +1828,7 @@
 | **AIP Ref** | 915 |
 | **Coordinates** | S30°51'26" E30°20'35" |
 | **Elevation** | 498 ft AMSL |
-| **Frequencies** | **124.8 MHz** ❓ |
+| **Frequencies** | **AFIS 122.7 MHz** |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
@@ -1919,7 +1921,7 @@
 | **AIP Ref** | 1437 |
 | **Coordinates** | S29°46'15" E31°03'37" |
 | **Elevation** | 20 ft AMSL |
-| **Frequencies** | **124.8 MHz** ❓ |
+| **Frequencies** | **TWR 120.6 MHz**, APP 119.1 MHz |
 | **Access** | ✈️ Public (ATNS-controlled) |
 | **Night Ops** | 🚫 No ❓ |
 | **Fuel** | ⛽ AVGAS 100LL ❓ |
@@ -1937,6 +1939,7 @@
 - Controlled airspace — ATNS provides ATC services
 - Close to sea level — minimal density altitude issues
 - ~15 nm south of King Shaka International
+- eThekwini Municipality has long-standing plans to close and relocate to Scottburgh — not yet materialised as of 2026
 
 ---
 
@@ -1975,7 +1978,7 @@
 | **AIP Ref** | 1244 |
 | **Coordinates** | S28°44'26" E32°05'35" |
 | **Elevation** | 109 ft AMSL |
-| **Frequencies** | **TWR 118.5 MHz** ❓ |
+| **Frequencies** | **TWR 118.9 MHz** |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes ❓ |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL ❓ |
@@ -2143,6 +2146,8 @@
 - Military co-use (SAAF) — military aircraft may be present
 - Pretoria's primary GA airport
 - Multiple flying schools and maintenance organisations
+- 📅 Aerodrome licence upgraded from Category 2 to **Category 5** (Aug 2023) — enables scheduled commercial operations
+- City of Tshwane plans to revive as cargo hub (Apr 2025)
 
 ---
 
@@ -2251,7 +2256,7 @@
 | **Elevation** | 2,791 ft AMSL |
 | **Ref Temp** | 37°C |
 | **Mag Var** | 20°W |
-| **Frequencies** | **TWR 118.1 MHz**, APP 119.1 MHz ❓ |
+| **Frequencies** | **TWR 121.3 MHz**, APP 121.3 MHz |
 | **Access** | ✈️ Public |
 | **Night Ops** | 🌙 Yes |
 | **Fuel** | ⛽ JET A-1, AVGAS 100LL |
@@ -3717,6 +3722,7 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | 10/28 | 1,200 m | ❓ | Asphalt | ⬅️ Left ❓ |
 
 **Notes:**
+- ⚠️ **Status uncertain** — OurAirports marks as closed (verify before planning operations)
 - Active skydiving centre (Bloemfontein Parachute Club / Skydive Central) — watch for parachute operations
 - Glider strips and micro-light/gyrocopter strips alongside main runways
 - ⚠️ Within Bloemfontein TMA — VFR flights not on a flight plan must remain below 6,500 ft ALT and clear of the Bloemfontein CTR
@@ -5044,7 +5050,7 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 - Gateway to Kruger National Park (Phalaborwa Gate)
 - Also known as Kruger Park Gateway Airport
 - IFR/VFR permitted
-- Airlink scheduled services to OR Tambo
+- ⚠️ **No scheduled commercial flights since June 2020** — Airlink ceased all services; charter/GA only
 - Mining town (Palabora Mining — copper, phosphate)
 - Magnetic variation 15°W
 - Low Lowveld elevation — can be very hot in summer
@@ -5475,7 +5481,7 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | **IATA** | NLP |
 | **Coordinates** | S25°30'00" E30°54'50" |
 | **Elevation** | 2,901 ft AMSL |
-| **Frequencies** | TFC 125.2 MHz |
+| **Frequencies** | **TWR/APP 118.80 MHz** |
 | **Access** | ✈️ Public |
 | **Night Ops** | No ❓ |
 | **Fuel** | ❓ |
@@ -6721,9 +6727,9 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | East London ATIS | 126.65 |
 | Durban / King Shaka TWR | 118.45 |
 | Durban ATIS | 127.0 |
-| Virginia | 124.8 ❓ |
-| Margate | 124.8 ❓ |
-| Richards Bay TWR | 118.5 ❓ |
+| Virginia TWR | 120.6 |
+| Margate AFIS | 122.7 |
+| Richards Bay TWR | 118.9 |
 | Pietermaritzburg TWR | 122.0 |
 
 ## GAUTENG & INLAND COMMON FREQUENCIES
@@ -6731,9 +6737,9 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | Service | Frequency |
 |---------|-----------|
 | OR Tambo TWR | 118.1 |
-| OR Tambo APP (North) | 124.5 |
-| OR Tambo APP (South) | 125.0 |
-| OR Tambo ATIS | 127.3 |
+| OR Tambo APP (East) | 124.5 |
+| OR Tambo APP (West) | 123.7 |
+| OR Tambo ATIS | 126.2 |
 | Lanseria TWR | 124.0 |
 | Lanseria ATIS | 127.65 |
 | Grand Central TWR | 120.8 |
@@ -6741,11 +6747,11 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 | Wonderboom TWR | 118.35 |
 | Bloemfontein TWR | 120.8 ❓ |
 | Kimberley TWR | 118.2 |
-| Upington TWR | 118.1 ❓ |
+| Upington TWR | 121.3 |
 | KMIA (Nelspruit) TWR/APP | 119.2 |
 | Polokwane TWR | 124.3 |
 | Lowveld Info (Skukuza) | 119.0 |
-| Nelspruit (FANS) | 125.2 |
+| Nelspruit (FANS) TWR/APP | 118.80 |
 | Witbank (FAWI) | 123.5 |
 | Middelburg (FAMB) | 127.95 |
 | Hoedspruit Civil (FAHT) | 126.4 |
@@ -6759,7 +6765,7 @@ Known/historical airstrips not confirmed as operational with ICAO codes:
 
 ---
 
-> **⚠️ IMPORTANT DISCLAIMER:** This directory is compiled from publicly available sources including SACAA AIP documents (Jan 2026 edition), OurAirports, OpenAIP, AirportGuide, AvCom forum posts, airfield operator websites, and the WC Government fire pre-attack plans. **It is NOT suitable as a sole source for flight planning.** Always cross-reference with the current SACAA AIP, active NOTAMs, and direct contact with airfield operators. Fields marked ❓ require verification. Two fields have been confirmed **permanently closed** (FAHM Hermanus, FAPU Paarl East) — do not plan operations to these. Information from forum posts is dated where possible but may no longer be current. For the most comprehensive offline reference, obtain the *Airfields Directory for Southern Africa* book from Aviation Direct. The compiler takes no responsibility for accuracy.
+> **⚠️ IMPORTANT DISCLAIMER:** This directory is compiled from publicly available sources including SACAA AIP documents (Jan 2026 edition), OurAirports, OpenAIP, AirportGuide, AvCom forum posts, airfield operator websites, and the WC Government fire pre-attack plans. **It is NOT suitable as a sole source for flight planning.** Always cross-reference with the current SACAA AIP, active NOTAMs, and direct contact with airfield operators. Fields marked ❓ require verification. Two fields have been confirmed **permanently closed** (FAHM Hermanus, FAPU Paarl East) — do not plan operations to these. FATP (New Tempe) status uncertain — verify before use. Information from forum posts is dated where possible but may no longer be current. For the most comprehensive offline reference, obtain the *Airfields Directory for Southern Africa* book from Aviation Direct. The compiler takes no responsibility for accuracy.
 >
 > **Coverage:** Western Cape airfields (Groups 1–8), Eastern Cape & Garden Route coast (Groups 9–10), KwaZulu-Natal coast (Group 11), and all major controlled aerodromes in South Africa (Groups 12–14). Data for airfields outside the Western Cape is largely sourced from SACAA AIP and may require additional verification.
 >
