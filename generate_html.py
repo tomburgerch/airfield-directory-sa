@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var tocItems = document.querySelectorAll('.toc-item');
     var backBtn = document.querySelector('.back-to-top');
     var noResults = document.getElementById('no-results');
-    var filterBtns = document.querySelectorAll('.filter-btn');
+    var filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
     var filterCount = document.getElementById('filter-count');
     var tocSection = document.querySelector('.toc');
     var filterBar = document.getElementById('filter-bar');
@@ -597,11 +597,12 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.display = show ? '' : 'none';
             if (show) visible++;
         });
+        var hideGroups = active || currentSort !== 'province';
         groups.forEach(function(g) {
-            g.style.display = active ? 'none' : '';
+            g.style.display = hideGroups ? 'none' : '';
         });
-        // Hide TOC when searching or filtering
-        if (tocSection) tocSection.style.display = active ? 'none' : '';
+        // Hide TOC when searching, filtering, or sorted non-default
+        if (tocSection) tocSection.style.display = hideGroups ? 'none' : '';
         if (active) {
             searchCount.textContent = visible + ' of ' + totalCount + ' airfields';
             filterCount.textContent = filtering ? visible + ' match' : '';
@@ -651,35 +652,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // --- Geolocation: find nearest airfields ---
+    // --- Sorting ---
+    var sortBtns = document.querySelectorAll('.sort-btn');
     var nearbyBtn = document.getElementById('nearby-btn');
     var nearbyPanel = document.getElementById('nearby-panel');
     var nearbyStatus = document.getElementById('nearby-status');
     var nearbyList = document.getElementById('nearby-list');
+    var cardsContainer = cards[0] ? cards[0].parentNode : null;
+    var currentSort = 'province';
 
-    if (nearbyBtn && navigator.geolocation) {
-        nearbyBtn.style.display = '';
-        nearbyBtn.addEventListener('click', function() {
-            var isActive = nearbyBtn.classList.toggle('active');
-            if (isActive) {
-                nearbyPanel.style.display = 'block';
-                nearbyStatus.textContent = 'Getting your location...';
-                nearbyList.innerHTML = '';
-                navigator.geolocation.getCurrentPosition(function(pos) {
-                    var userLat = pos.coords.latitude;
-                    var userLon = pos.coords.longitude;
-                    showNearest(userLat, userLon);
-                }, function(err) {
-                    nearbyStatus.textContent = 'Location unavailable: ' + err.message;
-                }, {enableHighAccuracy: true, timeout: 10000});
-            } else {
-                nearbyPanel.style.display = 'none';
-            }
+    // Save original DOM order for province sort restore
+    var originalOrder = [];
+    if (cardsContainer) {
+        Array.prototype.forEach.call(cardsContainer.children, function(el) {
+            originalOrder.push(el);
         });
     }
 
+    // Show nearest button only if geolocation available
+    if (nearbyBtn && navigator.geolocation) {
+        nearbyBtn.style.display = '';
+    }
+
     function haversine(lat1, lon1, lat2, lon2) {
-        var R = 6371; // km
+        var R = 6371;
         var dLat = (lat2 - lat1) * Math.PI / 180;
         var dLon = (lon2 - lon1) * Math.PI / 180;
         var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
@@ -688,35 +684,95 @@ document.addEventListener('DOMContentLoaded', function() {
         return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     }
 
-    function showNearest(userLat, userLon) {
-        var airfieldsWithDist = [];
-        cards.forEach(function(card) {
-            var lat = parseFloat(card.dataset.lat);
-            var lon = parseFloat(card.dataset.lon);
-            if (!isNaN(lat) && !isNaN(lon)) {
-                var dist = haversine(userLat, userLon, lat, lon);
-                var nm = dist * 0.539957; // km to NM
-                var name = card.querySelector('h3').textContent;
-                var id = card.id;
-                airfieldsWithDist.push({name: name, dist: dist, nm: nm, id: id});
+    function applySort(mode, userLat, userLon) {
+        if (!cardsContainer) return;
+        currentSort = mode;
+        document.body.classList.remove('sort-nearest');
+
+        sortBtns.forEach(function(b) { b.classList.toggle('active', b.dataset.sort === mode); });
+
+        if (mode === 'province') {
+            originalOrder.forEach(function(el) { cardsContainer.appendChild(el); });
+            groups.forEach(function(g) { g.style.display = ''; });
+            nearbyPanel.style.display = 'none';
+            cards.forEach(function(c) {
+                var badge = c.querySelector('.dist-badge');
+                if (badge) badge.textContent = '';
+            });
+
+        } else if (mode === 'alpha') {
+            var sorted = Array.prototype.slice.call(cards);
+            sorted.sort(function(a, b) {
+                var na = (a.querySelector('h3') || {}).textContent || '';
+                var nb = (b.querySelector('h3') || {}).textContent || '';
+                return na.localeCompare(nb);
+            });
+            groups.forEach(function(g) { g.style.display = 'none'; });
+            nearbyPanel.style.display = 'none';
+            sorted.forEach(function(c) { cardsContainer.appendChild(c); });
+            cards.forEach(function(c) {
+                var badge = c.querySelector('.dist-badge');
+                if (badge) badge.textContent = '';
+            });
+
+        } else if (mode === 'nearest' && userLat !== undefined) {
+            document.body.classList.add('sort-nearest');
+            var withDist = [];
+            cards.forEach(function(card) {
+                var lat = parseFloat(card.dataset.lat);
+                var lon = parseFloat(card.dataset.lon);
+                var dist = (!isNaN(lat) && !isNaN(lon)) ? haversine(userLat, userLon, lat, lon) : Infinity;
+                var nm = dist * 0.539957;
+                withDist.push({card: card, dist: dist, nm: nm});
+                var badge = card.querySelector('.dist-badge');
+                if (badge) badge.textContent = dist === Infinity ? '' : nm.toFixed(0) + ' NM';
+            });
+            withDist.sort(function(a, b) { return a.dist - b.dist; });
+            groups.forEach(function(g) { g.style.display = 'none'; });
+            withDist.forEach(function(item) { cardsContainer.appendChild(item.card); });
+
+            // Populate top-10 panel
+            nearbyPanel.style.display = 'block';
+            nearbyStatus.textContent = '';
+            var top = withDist.filter(function(x) { return x.dist < Infinity; }).slice(0, 10);
+            if (top.length === 0) {
+                nearbyStatus.textContent = 'No airfields with coordinates found.';
+                nearbyList.innerHTML = '';
+            } else {
+                var panelHtml = '';
+                top.forEach(function(af) {
+                    var name = af.card.querySelector('h3').textContent;
+                    var id = af.card.id;
+                    panelHtml += '<li class="nearby-item">';
+                    panelHtml += '<a href="#' + id + '">' + name + '</a>';
+                    panelHtml += '<span class="nearby-dist">' + af.nm.toFixed(0) + ' NM (' + af.dist.toFixed(0) + ' km)</span>';
+                    panelHtml += '</li>';
+                });
+                nearbyList.innerHTML = panelHtml;
+            }
+        }
+        doSearch();
+    }
+
+    sortBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var mode = btn.dataset.sort;
+            if (mode === currentSort) return;
+            if (mode === 'nearest') {
+                nearbyStatus.textContent = 'Getting your location...';
+                nearbyPanel.style.display = 'block';
+                nearbyList.innerHTML = '';
+                sortBtns.forEach(function(b) { b.classList.toggle('active', b.dataset.sort === 'nearest'); });
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                    applySort('nearest', pos.coords.latitude, pos.coords.longitude);
+                }, function(err) {
+                    nearbyStatus.textContent = 'Location unavailable: ' + err.message;
+                }, {enableHighAccuracy: true, timeout: 10000});
+            } else {
+                applySort(mode);
             }
         });
-        airfieldsWithDist.sort(function(a, b) { return a.dist - b.dist; });
-        var top = airfieldsWithDist.slice(0, 10);
-        if (top.length === 0) {
-            nearbyStatus.textContent = 'No airfields with coordinates found.';
-            return;
-        }
-        nearbyStatus.textContent = '';
-        var html = '';
-        top.forEach(function(af) {
-            html += '<li class="nearby-item">';
-            html += '<a href="#' + af.id + '">' + af.name + '</a>';
-            html += '<span class="nearby-dist">' + af.nm.toFixed(0) + ' NM (' + af.dist.toFixed(0) + ' km)</span>';
-            html += '</li>';
-        });
-        nearbyList.innerHTML = html;
-    }
+    });
 });
 """
 
