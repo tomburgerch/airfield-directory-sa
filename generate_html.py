@@ -264,6 +264,34 @@ body {
     margin-left: auto;
 }
 
+/* ── Sort index (A-Z / Nearest) ── */
+#sort-index {
+    display: none;
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+#sort-index h2 { font-size: 16px; color: var(--navy); margin-bottom: 8px; cursor: pointer; user-select: none; }
+#sort-index .sort-index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 4px 16px;
+}
+#sort-index .si-letter { font-weight: 700; font-size: 12px; color: var(--blue); margin-top: 8px; grid-column: 1 / -1; }
+#sort-index .si-item a {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: background 0.15s;
+}
+#sort-index .si-item a:hover { background: var(--light-gray); }
+#sort-index .si-dist { color: var(--text-muted); font-size: 11px; margin-left: 4px; }
+
 /* ── Nearby panel ── */
 #nearby-panel {
     display: none;
@@ -531,6 +559,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     .site-header h1 { font-size: 14px; }
     .site-header h1 span { font-size: 10px; }
     .toc-grid { grid-template-columns: 1fr; }
+    #sort-index .sort-index-grid { grid-template-columns: 1fr; }
     .header-top { gap: 8px; }
     .header-actions { gap: 3px; }
     .header-bottom { gap: 4px; }
@@ -543,6 +572,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     #search-box, #clear-search, #search-count { display: none; }
     .header-actions, .header-bottom { display: none; }
     #nearby-panel { display: none !important; }
+    #sort-index { display: none !important; }
 }
 """
 
@@ -603,6 +633,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         // Hide TOC when searching, filtering, or sorted non-default
         if (tocSection) tocSection.style.display = hideGroups ? 'none' : '';
+        // Hide sort index when searching or filtering
+        if (sortIndex && active) sortIndex.style.display = 'none';
+        else if (sortIndex && !active && currentSort !== 'province') sortIndex.style.display = '';
         if (active) {
             searchCount.textContent = visible + ' of ' + totalCount + ' airfields';
             filterCount.textContent = filtering ? visible + ' match' : '';
@@ -658,6 +691,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var nearbyPanel = document.getElementById('nearby-panel');
     var nearbyStatus = document.getElementById('nearby-status');
     var nearbyList = document.getElementById('nearby-list');
+    var sortIndex = document.getElementById('sort-index');
+    var sortIndexGrid = sortIndex ? sortIndex.querySelector('.sort-index-grid') : null;
     var cardsContainer = cards[0] ? cards[0].parentNode : null;
     var currentSort = 'province';
 
@@ -684,10 +719,59 @@ document.addEventListener('DOMContentLoaded', function() {
         return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     }
 
+    function buildSortIndex(items, mode) {
+        if (!sortIndexGrid) return;
+        var html = '';
+        if (mode === 'alpha') {
+            var curLetter = '';
+            items.forEach(function(c) {
+                var name = (c.querySelector('h3') || {}).textContent || '';
+                var letter = name.charAt(0).toUpperCase();
+                if (letter !== curLetter) {
+                    curLetter = letter;
+                    html += '<div class="si-letter">' + letter + '</div>';
+                }
+                html += '<div class="si-item"><a href="#' + c.id + '">' + name + '</a></div>';
+            });
+        } else if (mode === 'nearest') {
+            var buckets = [
+                {label: 'Within 25 NM', max: 25},
+                {label: '25\u201350 NM', max: 50},
+                {label: '50\u2013100 NM', max: 100},
+                {label: '100\u2013200 NM', max: 200},
+                {label: '200+ NM', max: Infinity}
+            ];
+            items.forEach(function(item) {
+                var nm = item.nm;
+                if (nm === Infinity) return;
+                for (var i = 0; i < buckets.length; i++) {
+                    if (nm <= buckets[i].max) {
+                        if (!buckets[i].items) buckets[i].items = [];
+                        buckets[i].items.push(item);
+                        break;
+                    }
+                }
+            });
+            buckets.forEach(function(b) {
+                if (!b.items || b.items.length === 0) return;
+                html += '<div class="si-letter">' + b.label + ' (' + b.items.length + ')</div>';
+                b.items.forEach(function(item) {
+                    var name = item.card.querySelector('h3').textContent;
+                    html += '<div class="si-item"><a href="#' + item.card.id + '">' + name;
+                    html += ' <span class="si-dist">' + item.nm.toFixed(0) + ' NM</span>';
+                    html += '</a></div>';
+                });
+            });
+        }
+        sortIndexGrid.innerHTML = html;
+        sortIndex.style.display = html ? '' : 'none';
+    }
+
     function applySort(mode, userLat, userLon) {
         if (!cardsContainer) return;
         currentSort = mode;
         document.body.classList.remove('sort-nearest');
+        if (sortIndex) sortIndex.style.display = 'none';
 
         sortBtns.forEach(function(b) { b.classList.toggle('active', b.dataset.sort === mode); });
 
@@ -714,6 +798,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var badge = c.querySelector('.dist-badge');
                 if (badge) badge.textContent = '';
             });
+            buildSortIndex(sorted, 'alpha');
 
         } else if (mode === 'nearest' && userLat !== undefined) {
             document.body.classList.add('sort-nearest');
@@ -750,6 +835,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 nearbyList.innerHTML = panelHtml;
             }
+            buildSortIndex(withDist, 'nearest');
         }
         doSearch();
     }
@@ -1060,6 +1146,9 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '</header>\n'
 
     html += '<div class="container">\n'
+
+    # Sort index (A-Z / Nearest, populated by JS)
+    html += '<div id="sort-index"><h2>Airfield Index</h2><div class="sort-index-grid"></div></div>\n'
 
     # Nearby airfields panel (hidden until activated)
     html += '<div id="nearby-panel">\n'
