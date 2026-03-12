@@ -148,7 +148,7 @@ body {
     white-space: nowrap;
 }
 .header-actions a:hover, .header-actions button:hover { background: rgba(255,255,255,0.25); }
-.dl-dropdown { position: relative; }
+.dl-dropdown { position: relative; display: inline-block; }
 .dl-trigger {
     color: white; font-size: 11px; font-weight: 600;
     padding: 4px 10px; border-radius: 4px;
@@ -159,7 +159,9 @@ body {
 .dl-trigger:hover { background: rgba(255,255,255,0.25); }
 .dl-menu {
     display: none;
-    position: fixed;
+    position: absolute;
+    top: 100%;
+    left: 0;
     z-index: 9999;
     flex-direction: column;
     background: #333;
@@ -181,6 +183,8 @@ body {
 }
 .dl-menu a:hover { background: rgba(255,255,255,0.1) !important; }
 .contact-tip {
+    position: relative;
+    display: inline-block;
     color: white;
     font-size: 11px;
     font-weight: 600;
@@ -192,8 +196,12 @@ body {
 .contact-tip:hover { background: rgba(255,255,255,0.25); }
 .contact-tooltip {
     display: none;
-    position: fixed;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 9999;
+    padding-top: 4px;
 }
 .contact-tooltip-inner {
     background: #333;
@@ -276,6 +284,17 @@ body {
 #nearby-panel .nearby-item a { color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; }
 #nearby-panel .nearby-dist { color: var(--text-muted); font-size: 13px; white-space: nowrap; }
 #nearby-panel .nearby-status { font-size: 13px; color: var(--text-muted); padding: 8px; }
+
+/* ── Sort: distance badge on cards ── */
+.dist-badge {
+    display: none;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-left: auto;
+    white-space: nowrap;
+}
+.sort-nearest .dist-badge { display: inline; }
 
 /* ── Disclaimer ── */
 .disclaimer {
@@ -631,28 +650,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // --- Position download dropdown with fixed positioning ---
-    var dlDropdown = document.querySelector('.dl-dropdown');
-    var dlMenu = document.querySelector('.dl-menu');
-    if (dlDropdown && dlMenu) {
-        dlDropdown.addEventListener('mouseenter', function() {
-            var rect = dlDropdown.getBoundingClientRect();
-            dlMenu.style.top = (rect.bottom + 4) + 'px';
-            dlMenu.style.left = rect.left + 'px';
-        });
-    }
-
-    // --- Position contact tooltip with fixed positioning ---
-    var contactTip = document.querySelector('.contact-tip');
-    var contactTooltip = document.querySelector('.contact-tooltip');
-    if (contactTip && contactTooltip) {
-        contactTip.addEventListener('mouseenter', function() {
-            var rect = contactTip.getBoundingClientRect();
-            contactTooltip.style.top = (rect.bottom + 6) + 'px';
-            contactTooltip.style.left = (rect.left + rect.width / 2) + 'px';
-            contactTooltip.style.transform = 'translateX(-50%)';
-        });
-    }
 
     // --- Geolocation: find nearest airfields ---
     var nearbyBtn = document.getElementById('nearby-btn');
@@ -823,6 +820,7 @@ def build_airfield_card(airfield, embed_diagrams=False):
     html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}"{coord_attrs}{filter_attrs}>\n'
     html += f'  <div class="airfield-header {header_class}">\n'
     html += f'    <h3>{escape(name)}</h3>\n'
+    html += f'    <span class="dist-badge"></span>\n'
     html += f'    <span class="num">#{airfield["number"]}</span>\n'
     html += f'  </div>\n'
 
@@ -995,7 +993,10 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<span class="filter-sep"></span>\n'
     html += '<button class="filter-btn" data-filter="official">ICAO Listed</button>\n'
     html += '<span class="filter-sep"></span>\n'
-    html += '<button class="filter-btn" id="nearby-btn" style="display:none;">Nearest</button>\n'
+    html += '<span class="filter-label">Sort:</span>\n'
+    html += '<button class="filter-btn sort-btn active" data-sort="province">Province</button>\n'
+    html += '<button class="filter-btn sort-btn" data-sort="alpha">A\u2013Z</button>\n'
+    html += '<button class="filter-btn sort-btn" id="nearby-btn" style="display:none;" data-sort="nearest">Nearest</button>\n'
     html += '<span id="filter-count"></span>\n'
     html += '<span id="search-count"></span>\n'
     html += f'<span class="updated">Updated {build_date}</span>\n'
