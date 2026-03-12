@@ -136,9 +136,68 @@ def parse_single_airfield(num, name, section):
     return data
 
 
+def parse_frequency_tables(md_path=MD_FILE):
+    """Parse regional common frequency tables from the markdown file.
+
+    Returns a list of dicts: [{'name': 'Cape Town Area', 'rows': [['Service', 'Freq'], ...], 'note': '...'}, ...]
+    """
+    with open(md_path, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+
+    tables = []
+    heading_pattern = re.compile(r'^## (.+?COMMON FREQUENCIES)\s*$')
+
+    i = 0
+    while i < len(lines):
+        m = heading_pattern.match(lines[i].rstrip('\n'))
+        if not m:
+            i += 1
+            continue
+
+        name = m.group(1).replace('COMMON FREQUENCIES', '').strip()
+        i += 1
+
+        rows = []
+        note = ''
+        # Collect table rows and notes immediately following the heading
+        while i < len(lines):
+            line = lines[i].rstrip('\n')
+            # Skip table header and separator rows
+            if re.match(r'\|\s*Service\s*\|', line) or re.match(r'\|\s*-', line):
+                i += 1
+                continue
+            if line.startswith('|'):
+                cols = [c.strip() for c in line.split('|')[1:-1]]
+                if len(cols) >= 2 and cols[0]:
+                    rows.append(cols[:2])
+                i += 1
+                continue
+            if line.strip().startswith('>'):
+                note = line.strip().lstrip('> ').strip()
+                note = re.sub(r'\*\*(.+?)\*\*', r'\1', note)
+                i += 1
+                continue
+            # Blank lines are OK within the section
+            if not line.strip():
+                i += 1
+                continue
+            # Any other content means we've left the frequency section
+            break
+
+        if rows:
+            tables.append({'name': name, 'rows': rows, 'note': note})
+
+    return tables
+
+
 if __name__ == '__main__':
     airfields = parse_airfields()
     print(f"Parsed {len(airfields)} airfields")
     for af in airfields:
         code = af['fields'].get('ICAO', af['fields'].get('ICAO / Code', af['fields'].get('Code', '?')))
         print(f"  #{af['number']:2d}  {af['name'][:40]:<40s}  {code[:12]}")
+
+    freq_tables = parse_frequency_tables()
+    print(f"\nParsed {len(freq_tables)} frequency tables:")
+    for ft in freq_tables:
+        print(f"  {ft['name']}: {len(ft['rows'])} entries")

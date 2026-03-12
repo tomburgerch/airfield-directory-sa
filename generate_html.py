@@ -9,7 +9,7 @@ import base64
 from datetime import datetime, timezone
 from html import escape
 
-from parse_markdown import parse_airfields
+from parse_markdown import parse_airfields, parse_frequency_tables
 from pdf_styles import EMOJI_MAP
 
 MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
@@ -410,6 +410,16 @@ body {
 .airfield-header.military { background: var(--dark-gray); }
 .airfield-header h3 { font-size: 15px; margin: 0; }
 .airfield-header .num { font-size: 12px; opacity: 0.8; }
+.airfield-header .pdf-dl {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+}
+.airfield-header .pdf-dl:hover { color: white; background: rgba(255,255,255,0.15); }
 .airfield-code {
     font-size: 12px; color: var(--text-muted);
     padding: 4px 14px;
@@ -544,6 +554,89 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 
 /* (filters are in the unified header) */
 
+/* ── FIR Frequencies Section ── */
+.fir-section {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.fir-section h2 {
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.fir-section .fir-body { }
+.fir-section.collapsed .fir-body { display: none; }
+.fir-map {
+    width: 100%;
+    height: 350px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+}
+.fir-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 4px;
+}
+.fir-tab {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    background: var(--light-gray);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.fir-tab:hover { color: var(--text); background: #eee; }
+.fir-tab.active {
+    background: white;
+    color: var(--navy);
+    border-color: var(--blue);
+    border-bottom: 2px solid white;
+    margin-bottom: -6px;
+}
+.fir-tab-content { display: none; }
+.fir-tab-content.active { display: block; }
+.fir-tab-content table.freq-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+.fir-tab-content table.freq-table th {
+    background: var(--blue);
+    color: white;
+    padding: 5px 10px;
+    text-align: left;
+    font-size: 11px;
+}
+.fir-tab-content table.freq-table td {
+    padding: 4px 10px;
+    border-bottom: 1px solid var(--border);
+}
+.fir-tab-content table.freq-table td:last-child {
+    color: var(--blue);
+    font-weight: 700;
+    text-align: right;
+}
+.fir-tab-content table.freq-table tr:nth-child(even) { background: var(--light-gray); }
+.fir-tab-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-style: italic;
+}
+
 /* ── No results ── */
 #no-results {
     display: none;
@@ -564,6 +657,8 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     .header-actions { gap: 3px; }
     .header-bottom { gap: 4px; }
     .header-bottom .updated { display: none; }
+    .fir-map { height: 250px; }
+    .fir-tab { font-size: 11px; padding: 4px 8px; }
 }
 @media print {
     .site-header { position: static; }
@@ -573,6 +668,8 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     .header-actions, .header-bottom { display: none; }
     #nearby-panel { display: none !important; }
     #sort-index { display: none !important; }
+    .fir-section { display: none !important; }
+    .pdf-dl { display: none !important; }
 }
 """
 
@@ -859,6 +956,70 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // --- FIR Tabs ---
+    var firTabs = document.querySelectorAll('.fir-tab');
+    firTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            firTabs.forEach(function(t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+            document.querySelectorAll('.fir-tab-content').forEach(function(c) { c.classList.remove('active'); });
+            var target = document.getElementById(tab.dataset.firTab);
+            if (target) target.classList.add('active');
+        });
+    });
+
+    // --- FIR Map ---
+    var firMapEl = document.getElementById('fir-map');
+    if (firMapEl && typeof L !== 'undefined') {
+        var firMap = L.map('fir-map', {scrollWheelZoom: false}).setView([-29, 25], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+            maxZoom: 12
+        }).addTo(firMap);
+
+        // FIR boundary (approximate Cape Town / Johannesburg split)
+        var firBoundary = [
+            [-28.5, 16.5], [-28.8, 17.5], [-29.0, 18.5], [-29.2, 19.5],
+            [-29.3, 20.5], [-29.5, 21.5], [-29.7, 22.5], [-29.8, 23.5],
+            [-29.8, 24.5], [-29.7, 25.5], [-29.5, 26.5], [-29.3, 27.5],
+            [-29.2, 28.5], [-29.3, 29.5], [-29.5, 30.0]
+        ];
+        L.polyline(firBoundary, {color: '#b8860b', weight: 3, dashArray: '8,6', opacity: 0.8}).addTo(firMap);
+
+        // FIR labels
+        var ctLabel = L.divIcon({className: '', html: '<div style="background:rgba(255,255,255,0.85);padding:2px 6px;border-radius:3px;font-size:11px;font-weight:700;color:#1a1a1a;white-space:nowrap;border:1px solid #b8860b;">FACA — Cape Town FIR</div>'});
+        var jnbLabel = L.divIcon({className: '', html: '<div style="background:rgba(255,255,255,0.85);padding:2px 6px;border-radius:3px;font-size:11px;font-weight:700;color:#1a1a1a;white-space:nowrap;border:1px solid #b8860b;">FAJA — Johannesburg FIR</div>'});
+        L.marker([-33, 20], {icon: ctLabel, interactive: false}).addTo(firMap);
+        L.marker([-26, 28], {icon: jnbLabel, interactive: false}).addTo(firMap);
+
+        // Airfield markers
+        var smallDot = function(color) {
+            return L.divIcon({className: '', html: '<div style="width:8px;height:8px;background:'+color+';border-radius:50%;border:1px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>', iconSize: [8,8], iconAnchor: [4,4]});
+        };
+        cards.forEach(function(card) {
+            var lat = parseFloat(card.dataset.lat);
+            var lon = parseFloat(card.dataset.lon);
+            if (isNaN(lat) || isNaN(lon)) return;
+            var name = (card.querySelector('h3') || {}).textContent || '';
+            var color = lat < -29.5 ? '#276749' : '#b8860b';
+            var marker = L.marker([lat, lon], {icon: smallDot(color)}).addTo(firMap);
+            marker.bindTooltip(name, {direction: 'top', offset: [0, -6]});
+            marker.on('click', function() {
+                card.scrollIntoView({behavior: 'smooth', block: 'center'});
+                card.style.boxShadow = '0 0 0 3px var(--blue), 0 2px 8px rgba(0,0,0,0.12)';
+                setTimeout(function() { card.style.boxShadow = ''; }, 2000);
+            });
+        });
+
+        // Fix map tiles when section becomes visible
+        setTimeout(function() { firMap.invalidateSize(); }, 100);
+        var firSection = document.getElementById('fir-section');
+        if (firSection) {
+            var obs = new MutationObserver(function() { firMap.invalidateSize(); });
+            obs.observe(firSection, {attributes: true, attributeFilter: ['class']});
+        }
+    }
 });
 """
 
@@ -889,7 +1050,7 @@ TOWER_PHONES = {
 }
 
 
-def build_airfield_card(airfield, embed_diagrams=False):
+def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
     """Build HTML for a single airfield card."""
     f = airfield['fields']
     name = clean_html(airfield['name'])
@@ -963,6 +1124,8 @@ def build_airfield_card(airfield, embed_diagrams=False):
     html += f'  <div class="airfield-header {header_class}">\n'
     html += f'    <h3>{escape(name)}</h3>\n'
     html += f'    <span class="dist-badge"></span>\n'
+    if pdf_filename:
+        html += f'    <a class="pdf-dl" href="airfield-pdfs/{pdf_filename}" download title="Download PDF info sheet">&#8681;</a>\n'
     html += f'    <span class="num">#{airfield["number"]}</span>\n'
     html += f'  </div>\n'
 
@@ -1075,7 +1238,7 @@ def build_airfield_card(airfield, embed_diagrams=False):
     return html
 
 
-def generate_html(airfields, output_path, embed_diagrams=False, download_links=None):
+def generate_html(airfields, output_path, embed_diagrams=False, download_links=None, freq_tables=None, pdf_mapping=None):
     """Generate a complete searchable HTML file.
 
     Args:
@@ -1083,6 +1246,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
         output_path: Where to write the HTML file.
         embed_diagrams: If True, base64-encode diagram images into the HTML.
         download_links: Optional list of dicts with 'label', 'href' keys for download bar.
+        freq_tables: Optional list of regional frequency table dicts from parse_frequency_tables().
     """
     build_date = datetime.now(timezone.utc).strftime('%d %b %Y')
 
@@ -1096,6 +1260,9 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<link rel="icon" type="image/x-icon" href="favicon.ico">\n'
     html += '<link rel="apple-touch-icon" href="apple-touch-icon.png">\n'
     html += f'<style>{CSS}</style>\n'
+    if freq_tables:
+        html += '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>\n'
+        html += '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>\n'
     html += '</head>\n<body>\n'
 
     # Unified header: logo + search + actions + filters
@@ -1157,6 +1324,51 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     html += '<ul id="nearby-list" class="nearby-list"></ul>\n'
     html += '</div>\n'
 
+    # FIR Frequencies section (map + tabbed frequency tables)
+    if freq_tables:
+        # FIR-level frequencies to show as a special first tab
+        fir_freqs = [
+            ['Johannesburg FIR Info', '126.7'],
+            ['Cape Town FIR Info', '125.5'],
+            ['Emergency', '121.5'],
+            ['Uncontrolled (Default)', '124.8'],
+            ['SAR (Search & Rescue)', '123.1'],
+        ]
+
+        html += '<div class="fir-section" id="fir-section">\n'
+        html += '<h2 onclick="this.parentElement.classList.toggle(\'collapsed\')">FIR Frequencies &amp; Map &#9662;</h2>\n'
+        html += '<div class="fir-body">\n'
+        html += '<div id="fir-map" class="fir-map"></div>\n'
+
+        # Tabs
+        html += '<div class="fir-tabs">\n'
+        html += '<button class="fir-tab active" data-fir-tab="fir-general">FIR General</button>\n'
+        for idx, ft in enumerate(freq_tables):
+            tab_id = f'fir-tab-{idx}'
+            html += f'<button class="fir-tab" data-fir-tab="{tab_id}">{escape(ft["name"])}</button>\n'
+        html += '</div>\n'
+
+        # FIR General tab content
+        html += '<div class="fir-tab-content active" id="fir-general">\n'
+        html += '<table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>\n'
+        for row in fir_freqs:
+            html += f'<tr><td>{escape(row[0])}</td><td>{escape(row[1])}</td></tr>\n'
+        html += '</table>\n</div>\n'
+
+        # Regional tab contents
+        for idx, ft in enumerate(freq_tables):
+            tab_id = f'fir-tab-{idx}'
+            html += f'<div class="fir-tab-content" id="{tab_id}">\n'
+            html += '<table class="freq-table"><tr><th>Service</th><th>Frequency (MHz)</th></tr>\n'
+            for row in ft['rows']:
+                html += f'<tr><td>{escape(row[0])}</td><td>{escape(row[1])}</td></tr>\n'
+            html += '</table>\n'
+            if ft.get('note'):
+                html += f'<div class="fir-tab-note">{escape(ft["note"])}</div>\n'
+            html += '</div>\n'
+
+        html += '</div>\n</div>\n'  # fir-body, fir-section
+
     # Build per-province airfield lists for TOC
     province_order = []
     province_airfields = {}
@@ -1189,7 +1401,8 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
         if group and group not in seen_provinces:
             seen_provinces.add(group)
             html += f'<div class="group-divider">{escape(clean_html(group))}</div>\n'
-        html += build_airfield_card(af, embed_diagrams=embed_diagrams)
+        af_pdf = (pdf_mapping or {}).get(af['number'])
+        html += build_airfield_card(af, embed_diagrams=embed_diagrams, pdf_filename=af_pdf)
 
     html += '<div id="no-results">No airfields match your search.</div>\n'
     html += '</div>\n'  # container
@@ -1228,8 +1441,11 @@ if __name__ == '__main__':
     airfields = parse_airfields(MD_FILE)
     print(f"  Found {len(airfields)} airfields")
 
+    freq_tables = parse_frequency_tables(MD_FILE)
+    print(f"  Found {len(freq_tables)} frequency tables")
+
     print("\nGenerating HTML (with linked diagrams)...")
-    generate_html(airfields, OUTPUT_HTML, embed_diagrams=False)
+    generate_html(airfields, OUTPUT_HTML, embed_diagrams=False, freq_tables=freq_tables)
 
     file_size = os.path.getsize(OUTPUT_HTML)
     print(f"File size: {file_size / 1024:.1f} KB")
