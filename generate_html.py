@@ -411,15 +411,18 @@ body {
 .airfield-header h3 { font-size: 15px; margin: 0; }
 .airfield-header .num { font-size: 12px; opacity: 0.8; }
 .airfield-header .pdf-dl {
-    color: rgba(255,255,255,0.7);
+    color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 11px;
+    font-weight: 600;
     line-height: 1;
-    padding: 2px 4px;
+    padding: 4px 8px;
     border-radius: 4px;
+    background: rgba(255,255,255,0.15);
     transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
 }
-.airfield-header .pdf-dl:hover { color: white; background: rgba(255,255,255,0.15); }
+.airfield-header .pdf-dl:hover { background: rgba(255,255,255,0.3); }
 .airfield-code {
     font-size: 12px; color: var(--text-muted);
     padding: 4px 14px;
@@ -1133,7 +1136,7 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
     html += f'    <h3>{escape(name)}</h3>\n'
     html += f'    <span class="dist-badge"></span>\n'
     if pdf_filename:
-        html += f'    <a class="pdf-dl" href="airfield-pdfs/{pdf_filename}" download title="Download PDF info sheet">&#8681;</a>\n'
+        html += f'    <a class="pdf-dl" href="airfield-pdfs/{pdf_filename}" download title="Download PDF info sheet">&#8681; PDF</a>\n'
     html += f'    <span class="num">#{airfield["number"]}</span>\n'
     html += f'  </div>\n'
 
