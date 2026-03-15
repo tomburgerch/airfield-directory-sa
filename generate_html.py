@@ -79,7 +79,7 @@ body {
     padding: 10px 0 8px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .header-top {
@@ -560,6 +560,8 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-radius: 6px;
     border: 1px solid var(--border);
     margin-bottom: 12px;
+    z-index: 1;
+    position: relative;
 }
 .fir-tabs {
     display: flex;
