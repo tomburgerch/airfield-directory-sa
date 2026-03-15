@@ -6,13 +6,12 @@ Aerodrome diagram lookup and management utilities.
 import os
 import re
 
-DIAGRAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'diagrams')
+from shared import DIAGRAMS_DIR, get_icao
 
 
 def find_diagram(airfield):
     """Find a diagram file for this airfield. Returns path or None."""
-    f = airfield['fields']
-    icao = f.get('ICAO', f.get('ICAO / Code', f.get('Code', '')))
+    icao = get_icao(airfield)
 
     candidates = []
 

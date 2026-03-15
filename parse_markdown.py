@@ -6,7 +6,7 @@ Parse AIRFIELD_DIRECTORY.md and extract structured airfield data.
 import re
 import os
 
-MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
+from shared import MD_FILE, get_icao
 
 
 def parse_airfields(md_path=MD_FILE):
@@ -140,5 +140,5 @@ if __name__ == '__main__':
     airfields = parse_airfields()
     print(f"Parsed {len(airfields)} airfields")
     for af in airfields:
-        code = af['fields'].get('ICAO', af['fields'].get('ICAO / Code', af['fields'].get('Code', '?')))
+        code = get_icao(af) or '?'
         print(f"  #{af['number']:2d}  {af['name'][:40]:<40s}  {code[:12]}")
