@@ -11,10 +11,11 @@ Generates a self-contained static site in public/ with:
 import os
 import shutil
 
-from parse_markdown import parse_airfields
+from parse_markdown import parse_airfields, parse_frequency_tables
 from generate_html import generate_html
 from generate_pdf import generate_pdf
 from shared import BASE_DIR, MD_FILE
+from generate_airfield_pdfs import generate_airfield_pdfs
 
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
 
@@ -53,6 +54,9 @@ def build():
     airfields = parse_airfields(MD_FILE)
     print(f"  Found {len(airfields)} airfields")
 
+    freq_tables = parse_frequency_tables(MD_FILE)
+    print(f"  Found {len(freq_tables)} frequency tables")
+
     # Generate compact PDF
     pdf_path = os.path.join(PUBLIC_DIR, 'Airfield_Directory.pdf')
     print("\nGenerating compact PDF...")
@@ -64,6 +68,11 @@ def build():
         'href': 'Airfield_Directory.pdf',
     })
 
+    # Generate individual airfield PDFs
+    airfield_pdf_dir = os.path.join(PUBLIC_DIR, 'airfield-pdfs')
+    print("\nGenerating individual airfield PDFs...")
+    pdf_mapping = generate_airfield_pdfs(airfields, airfield_pdf_dir)
+
     # Generate HTML with embedded diagrams
     output_html = os.path.join(PUBLIC_DIR, 'index.html')
     print("\nGenerating HTML with embedded diagrams...")
@@ -72,6 +81,8 @@ def build():
         output_html,
         embed_diagrams=True,
         download_links=download_links,
+        freq_tables=freq_tables,
+        pdf_mapping=pdf_mapping,
     )
 
     file_size = os.path.getsize(output_html) / 1024 / 1024
@@ -79,10 +90,14 @@ def build():
 
     # Summary
     print(f"\nBuild complete! Output: {PUBLIC_DIR}/")
-    files = os.listdir(PUBLIC_DIR)
-    for f in sorted(files):
-        size = os.path.getsize(os.path.join(PUBLIC_DIR, f))
-        print(f"  {f} ({size / 1024:.0f} KB)")
+    for f in sorted(os.listdir(PUBLIC_DIR)):
+        full = os.path.join(PUBLIC_DIR, f)
+        if os.path.isdir(full):
+            count = len(os.listdir(full))
+            total = sum(os.path.getsize(os.path.join(full, x)) for x in os.listdir(full))
+            print(f"  {f}/ ({count} files, {total / 1024:.0f} KB)")
+        else:
+            print(f"  {f} ({os.path.getsize(full) / 1024:.0f} KB)")
 
 
 if __name__ == '__main__':
