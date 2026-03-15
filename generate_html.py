@@ -1245,6 +1245,9 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     if freq_tables:
         html += '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>\n'
         html += '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>\n'
+    # Google Analytics
+    html += '<script async src="https://www.googletagmanager.com/gtag/js?id=G-73Y7S1Z8KY"></script>\n'
+    html += '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-73Y7S1Z8KY");</script>\n'
     html += '</head>\n<body>\n'
 
     # Unified header: logo + search + actions + filters
