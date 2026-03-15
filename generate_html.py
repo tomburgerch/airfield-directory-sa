@@ -79,7 +79,7 @@ body {
     padding: 10px 0 8px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .header-top {
@@ -563,6 +563,8 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-radius: 6px;
     border: 1px solid var(--border);
     margin-bottom: 12px;
+    z-index: 1;
+    position: relative;
 }
 .fir-tabs {
     display: flex;
@@ -1247,6 +1249,9 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     if freq_tables:
         html += '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>\n'
         html += '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>\n'
+    # Google Analytics
+    html += '<script async src="https://www.googletagmanager.com/gtag/js?id=G-73Y7S1Z8KY"></script>\n'
+    html += '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-73Y7S1Z8KY");</script>\n'
     html += '</head>\n<body>\n'
 
     # Unified header: logo + search + actions + filters
