@@ -974,21 +974,6 @@ document.addEventListener('DOMContentLoaded', function() {
             maxZoom: 12
         }).addTo(firMap);
 
-        // FIR boundary (approximate Cape Town / Johannesburg split)
-        var firBoundary = [
-            [-28.5, 16.5], [-28.8, 17.5], [-29.0, 18.5], [-29.2, 19.5],
-            [-29.3, 20.5], [-29.5, 21.5], [-29.7, 22.5], [-29.8, 23.5],
-            [-29.8, 24.5], [-29.7, 25.5], [-29.5, 26.5], [-29.3, 27.5],
-            [-29.2, 28.5], [-29.3, 29.5], [-29.5, 30.0]
-        ];
-        L.polyline(firBoundary, {color: '#b8860b', weight: 3, dashArray: '8,6', opacity: 0.8}).addTo(firMap);
-
-        // FIR labels
-        var ctLabel = L.divIcon({className: '', html: '<div style="background:rgba(255,255,255,0.85);padding:2px 6px;border-radius:3px;font-size:11px;font-weight:700;color:#1a1a1a;white-space:nowrap;border:1px solid #b8860b;">FACA — Cape Town FIR</div>'});
-        var jnbLabel = L.divIcon({className: '', html: '<div style="background:rgba(255,255,255,0.85);padding:2px 6px;border-radius:3px;font-size:11px;font-weight:700;color:#1a1a1a;white-space:nowrap;border:1px solid #b8860b;">FAJA — Johannesburg FIR</div>'});
-        L.marker([-33, 20], {icon: ctLabel, interactive: false}).addTo(firMap);
-        L.marker([-26, 28], {icon: jnbLabel, interactive: false}).addTo(firMap);
-
         // Airfield markers
         var smallDot = function(color) {
             return L.divIcon({className: '', html: '<div style="width:8px;height:8px;background:'+color+';border-radius:50%;border:1px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>', iconSize: [8,8], iconAnchor: [4,4]});
@@ -998,7 +983,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var lon = parseFloat(card.dataset.lon);
             if (isNaN(lat) || isNaN(lon)) return;
             var name = (card.querySelector('h3') || {}).textContent || '';
-            var color = lat < -29.5 ? '#276749' : '#b8860b';
+            var color = '#276749';
             var marker = L.marker([lat, lon], {icon: smallDot(color)}).addTo(firMap);
             marker.bindTooltip(name, {direction: 'top', offset: [0, -6]});
             marker.on('click', function() {
