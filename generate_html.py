@@ -388,16 +388,19 @@ body {
 .airfield-header .pdf-dl {
     color: white;
     text-decoration: none;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     line-height: 1;
-    padding: 4px 8px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.15);
-    transition: color 0.15s, background 0.15s;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.6);
+    background: transparent;
+    transition: border-color 0.15s, background 0.15s;
     white-space: nowrap;
+    margin-left: 8px;
+    vertical-align: middle;
 }
-.airfield-header .pdf-dl:hover { background: rgba(255,255,255,0.3); }
+.airfield-header .pdf-dl:hover { background: rgba(255,255,255,0.15); border-color: white; }
 .airfield-code {
     font-size: 12px; color: var(--text-muted);
     padding: 4px 14px;
@@ -1087,10 +1090,11 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
 
     html = f'<div class="airfield-card" id="af-{airfield["number"]}" data-search="{escape(search_text)}"{coord_attrs}{filter_attrs}>\n'
     html += f'  <div class="airfield-header {header_class}">\n'
-    html += f'    <h3>{escape(name)}</h3>\n'
-    html += f'    <span class="dist-badge"></span>\n'
+    html += f'    <h3>{escape(name)}'
     if pdf_filename:
-        html += f'    <a class="pdf-dl" href="airfield-pdfs/{pdf_filename}" download title="Download PDF info sheet">&#8681; PDF</a>\n'
+        html += f' <a class="pdf-dl" href="airfield-pdfs/{pdf_filename}" download title="Download PDF info sheet">&#8681; PDF</a>'
+    html += '</h3>\n'
+    html += f'    <span class="dist-badge"></span>\n'
     html += f'    <span class="num">#{airfield["number"]}</span>\n'
     html += f'  </div>\n'
 
