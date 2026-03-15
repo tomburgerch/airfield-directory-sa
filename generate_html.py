@@ -476,6 +476,11 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     font-size: 13px;
     margin: 3px 0;
 }
+.circuit-right {
+    color: var(--red);
+    font-weight: 700;
+    text-transform: uppercase;
+}
 .note {
     font-size: 13px;
     color: var(--text);
@@ -1166,8 +1171,23 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
             cleaned = [clean_html(c) for c in row]
             while len(cleaned) < max_cols:
                 cleaned.append('')
-            html += '      <tr>' + ''.join(f'<td>{escape(c)}</td>' for c in cleaned[:max_cols]) + '</tr>\n'
+            cells = []
+            for ci, c in enumerate(cleaned[:max_cols]):
+                if ci == max_cols - 1 and headers[-1] == 'Circuit' and c.strip().lower() == 'right':
+                    cells.append(f'<td class="circuit-right">{escape(c)}</td>')
+                else:
+                    cells.append(f'<td>{escape(c)}</td>')
+            html += '      <tr>' + ''.join(cells) + '</tr>\n'
         html += '    </table>\n'
+
+        # Add explicit warning for non-standard right-hand circuits
+        for row in airfield['runways']:
+            cleaned = [clean_html(c) for c in row]
+            while len(cleaned) < max_cols:
+                cleaned.append('')
+            if max_cols >= 4 and headers[-1] == 'Circuit' and cleaned[max_cols - 1].strip().lower() == 'right':
+                rwy_id = cleaned[0].strip()
+                html += f'    <div class="warning">[!] RWY {escape(rwy_id)}: RIGHT-HAND CIRCUIT</div>\n'
 
     # Warnings
     for w in airfield['warnings'][:5]:
