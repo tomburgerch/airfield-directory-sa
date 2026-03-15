@@ -42,11 +42,13 @@
 
 | RWY | Length | Width | Surface | Circuit |
 |-----|--------|-------|---------|---------|
-| 02/20 | 645 m | 12 m | Tar | ⬅️ Left |
+| 02 | 645 m | 12 m | Tar | ➡️ Right |
+| 20 | 645 m | 12 m | Tar | ⬅️ Left |
 
 **Fuel Bay Hours:** Mon–Fri 08:00–17:00, Sat 08:00–15:00, Sun 08:00–13:00. After-hours: R200 call-out fee.
 
 **Notes:**
+- RWY 02: **Right-hand circuit**; RWY 20: Left-hand circuit
 - All circuits to the **east** of the N7
 - Noise abatement: avoid flying over houses, smallholdings, restaurants and stables. No fine pitch except on final. Maintain runway heading climbing to 1000' before turning
 - Within Cape Town SRA North (Special Rules Area)

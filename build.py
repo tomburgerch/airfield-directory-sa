@@ -14,11 +14,10 @@ import shutil
 from parse_markdown import parse_airfields, parse_frequency_tables
 from generate_html import generate_html
 from generate_pdf import generate_pdf
+from shared import BASE_DIR, MD_FILE
 from generate_airfield_pdfs import generate_airfield_pdfs
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
-MD_FILE = os.path.join(BASE_DIR, 'AIRFIELD_DIRECTORY.md')
 
 
 def build():

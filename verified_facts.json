@@ -1,0 +1,19 @@
+{
+    "_description": "Verified facts that MUST NOT be overwritten by automated parsing or bulk data imports. Each entry is keyed by airfield number and contains fields that override parsed data.",
+    "_last_updated": "2026-03-15",
+
+    "1": {
+        "name": "MORNINGSTAR AIRFIELD",
+        "icao_code": "ZA-0120",
+        "verified_notes": [
+            "RWY 02: RIGHT-HAND circuit",
+            "RWY 20: Left-hand circuit"
+        ],
+        "runways_override": [
+            ["02", "645 m", "12 m", "Tar", "Right"],
+            ["20", "645 m", "12 m", "Tar", "Left"]
+        ],
+        "source": "Local pilot / airfield operator confirmation",
+        "verified_date": "2026-03-15"
+    }
+}

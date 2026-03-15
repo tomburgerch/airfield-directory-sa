@@ -11,11 +11,8 @@ from html import escape
 
 from parse_markdown import parse_airfields, parse_frequency_tables
 from pdf_styles import EMOJI_MAP
-
-MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
-OUTPUT_HTML = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Airfield_Directory.html')
-DIAGRAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'diagrams')
-FAVICON_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'favicon.svg')
+from shared import MD_FILE, OUTPUT_HTML, DIAGRAMS_DIR, FAVICON_FILE, parse_dms_coord, get_icao
+from tower_data import TOWER_PHONES
 
 
 def clean_html(text):
@@ -47,28 +44,6 @@ def extract_links(raw_value):
     if not raw_value:
         return []
     return re.findall(r'\[([^\]]+)\]\(([^)]+)\)', raw_value)
-
-
-def parse_dms_coord(coord_str):
-    """Parse DMS coordinate string like 'S33°45'44" E18°32'55"' to (lat, lon) decimal."""
-    if not coord_str:
-        return None, None
-    # Remove approximate markers and notes
-    coord_str = coord_str.replace('~', '').split('(')[0].strip()
-    # Match hemisphere + degrees + optional minutes + optional seconds
-    pattern = r'([NS])\s*(\d+)[°]\s*(\d+)?[\'′]?\s*(\d+(?:\.\d+)?)?[\"″]?\s*([EW])\s*(\d+)[°]\s*(\d+)?[\'′]?\s*(\d+(?:\.\d+)?)?[\"″]?'
-    m = re.search(pattern, coord_str)
-    if not m:
-        return None, None
-    lat_h, lat_d, lat_m, lat_s = m.group(1), float(m.group(2)), float(m.group(3) or 0), float(m.group(4) or 0)
-    lon_h, lon_d, lon_m, lon_s = m.group(5), float(m.group(6)), float(m.group(7) or 0), float(m.group(8) or 0)
-    lat = lat_d + lat_m / 60 + lat_s / 3600
-    lon = lon_d + lon_m / 60 + lon_s / 3600
-    if lat_h == 'S':
-        lat = -lat
-    if lon_h == 'W':
-        lon = -lon
-    return round(lat, 6), round(lon, 6)
 
 
 CSS = """
@@ -500,6 +475,11 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     font-weight: 700;
     font-size: 13px;
     margin: 3px 0;
+}
+.circuit-right {
+    color: var(--red);
+    font-weight: 700;
+    text-transform: uppercase;
 }
 .note {
     font-size: 13px;
@@ -1035,31 +1015,6 @@ document.addEventListener('DOMContentLoaded', function() {
 """
 
 
-# Tower / ATC phone numbers (from SA AIP, vfrPlanner, ATNS sources)
-TOWER_PHONES = {
-    'FAOR': '+27 11 921 6262',     # OR Tambo — airport helpdesk (tower direct not public)
-    'FACT': '+27 21 937 1122',     # Cape Town — ATC tower (AIP GEN 3.4)
-    'FALE': '+27 32 436 5001',     # King Shaka — ATC tower (vfrPlanner)
-    'FALA': '+27 11 701 3278',     # Lanseria — ATC tower (vfrPlanner)
-    'FAGC': '+27 11 805 3166',     # Grand Central — ATS (vfrPlanner)
-    'FAWB': '+27 12 543 1402',     # Wonderboom — tower (pilot forum)
-    'FAGM': '+27 11 827 8884',     # Rand Airport
-    'FABL': '+27 51 433 1452',     # Bram Fischer — ATC tower (vfrPlanner)
-    'FAPE': '+27 41 513 5851',     # Chief Dawid Stuurman — tower (AIP GEN 3.4)
-    'FAEL': '+27 43 736 6161',     # King Phalo / East London — tower (vfrPlanner)
-    'FAGG': '+27 44 803 7732',     # George — ATC tower (verified)
-    'FAKM': '+27 53 851 1012',     # Kimberley — tower (vfrPlanner)
-    'FAUP': '+27 54 337 7900',     # Upington — airport (tower direct not public)
-    'FAKN': '+27 13 753 7519',     # Kruger Mpumalanga — ATC tower (kmiairport.co.za)
-    'FAPP': '+27 15 288 0343',     # Polokwane Gateway — tower (AcuKwik)
-    'FAPM': '+27 33 392 3110',     # Pietermaritzburg — tower (SA AIP AD 2)
-    'FARB': '+27 35 786 0836',     # Richards Bay
-    'FAHS': '+27 15 799 2251',     # Hoedspruit AFB — approach (SA AIP AD 2)
-    'FAMY': '+27 22 487 3571',     # Malmesbury
-    'FASK': '+27 12 671 2001',     # Swartkop AFB (military)
-    'FAWK': '+27 12 672 3100',     # Waterkloof AFB (military)
-}
-
 
 def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
     """Build HTML for a single airfield card."""
@@ -1068,7 +1023,7 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
     is_closed = '[X]' in name or 'CLOSED' in name.upper()
     is_military = 'Military' in f.get('Access', '') or 'MIL' in clean_html(f.get('Access', '')).upper()
 
-    code = f.get('ICAO', f.get('ICAO / Code', f.get('Code', '')))
+    code = get_icao(airfield)
     code_clean = clean_html(code)
     access = clean_html(f.get('Access', ''))
 
@@ -1125,8 +1080,7 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
     towered_attr = '1' if has_tower else '0'
 
     # Official: has a proper FA?? ICAO code (not ZA-xxxx or blank)
-    import re as _re
-    has_icao = bool(_re.search(r'\bFA[A-Z]{2}\b', code_clean))
+    has_icao = bool(re.search(r'\bFA[A-Z]{2}\b', code_clean))
     official_attr = '1' if has_icao else '0'
 
     filter_attrs = f' data-fuel="{has_fuel}" data-night="{has_night}" data-surface="{surface_attr}" data-access="{access_type}" data-towered="{towered_attr}" data-official="{official_attr}"'
@@ -1217,8 +1171,23 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
             cleaned = [clean_html(c) for c in row]
             while len(cleaned) < max_cols:
                 cleaned.append('')
-            html += '      <tr>' + ''.join(f'<td>{escape(c)}</td>' for c in cleaned[:max_cols]) + '</tr>\n'
+            cells = []
+            for ci, c in enumerate(cleaned[:max_cols]):
+                if ci == max_cols - 1 and headers[-1] == 'Circuit' and c.strip().lower() == 'right':
+                    cells.append(f'<td class="circuit-right">{escape(c)}</td>')
+                else:
+                    cells.append(f'<td>{escape(c)}</td>')
+            html += '      <tr>' + ''.join(cells) + '</tr>\n'
         html += '    </table>\n'
+
+        # Add explicit warning for non-standard right-hand circuits
+        for row in airfield['runways']:
+            cleaned = [clean_html(c) for c in row]
+            while len(cleaned) < max_cols:
+                cleaned.append('')
+            if max_cols >= 4 and headers[-1] == 'Circuit' and cleaned[max_cols - 1].strip().lower() == 'right':
+                rwy_id = cleaned[0].strip()
+                html += f'    <div class="warning">[!] RWY {escape(rwy_id)}: RIGHT-HAND CIRCUIT</div>\n'
 
     # Warnings
     for w in airfield['warnings'][:5]:
@@ -1424,7 +1393,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
             html += f'<div class="toc-group">{escape(clean_html(province))}</div>\n'
         for af in province_airfields[province]:
             name = clean_html(af['name'])
-            code = af['fields'].get('ICAO', af['fields'].get('ICAO / Code', af['fields'].get('Code', '')))
+            code = get_icao(af)
             code_clean = clean_html(code).split('(')[0].split(';')[0].strip()[:12]
             html += f'<div class="toc-item"><a href="#af-{af["number"]}">{escape(name)}'
             if code_clean:

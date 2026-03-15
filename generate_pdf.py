@@ -18,9 +18,9 @@ from reportlab.platypus import (
 )
 
 from parse_markdown import parse_airfields
+from shared import MD_FILE, BASE_DIR, get_icao
 
-MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
-OUTPUT_PDF = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Airfield_Directory_A5.pdf')
+OUTPUT_PDF = os.path.join(BASE_DIR, 'Airfield_Directory_A5.pdf')
 
 # ── Page dimensions ──
 A5_WIDTH, A5_HEIGHT = A5
@@ -94,7 +94,7 @@ def build_airfield_block(airfield, styles):
     name = clean(airfield['name'])
     if len(name) > 50:
         name = name[:47] + '...'
-    code = clean(f.get('ICAO', f.get('ICAO / Code', f.get('Code', ''))))
+    code = clean(get_icao(airfield))
 
     bg = DARK_RED if is_closed else (DARK_GRAY if is_military else NAVY)
     header = Table(

@@ -9,8 +9,8 @@ import sys
 import os
 from datetime import datetime, timedelta
 
-MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
-DIAGRAMS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'diagrams')
+from parse_markdown import parse_airfields
+from shared import MD_FILE, DIAGRAMS_DIR, parse_dms_coord, get_icao
 
 # South Africa bounding box (generous)
 WC_LAT_MIN, WC_LAT_MAX = -35.0, -22.0  # S35 to S22
@@ -22,23 +22,21 @@ IMPORTANT_FIELDS = ['Frequencies', 'Access']
 STALENESS_DAYS = 365  # Flag data older than this
 
 
-def parse_coordinate(coord_str):
-    """Parse DMS coordinate string like S33°45'44\" E18°32'55\" to decimal."""
-    pattern = r'([NS])(\d+)[°](\d+)[\'′](\d+(?:\.\d+)?)[\"″]?\s*([EW])(\d+)[°](\d+)[\'′](\d+(?:\.\d+)?)[\"″]?'
-    m = re.search(pattern, coord_str)
-    if not m:
-        return None, None
-    lat = int(m.group(2)) + int(m.group(3)) / 60 + float(m.group(4)) / 3600
-    if m.group(1) == 'S':
-        lat = -lat
-    lon = int(m.group(6)) + int(m.group(7)) / 60 + float(m.group(8)) / 3600
-    if m.group(5) == 'W':
-        lon = -lon
-    return lat, lon
+
+# Keep parse_coordinate as an alias for backwards compatibility with tests
+parse_coordinate = parse_dms_coord
 
 
 def parse_airfields_for_validation(md_path):
-    """Parse markdown and return list of airfield dicts for validation."""
+    """Parse markdown for validation, extending the shared parser with extra fields.
+
+    Adds 'section' (raw markdown text), 'unverified_count', 'dates_mentioned',
+    and 'raw_name' on top of the base parse_airfields() output.
+    """
+    # Get base airfield data from shared parser
+    base_airfields = parse_airfields(md_path)
+
+    # Re-read markdown to extract raw sections for validation-specific fields
     with open(md_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
@@ -46,34 +44,23 @@ def parse_airfields_for_validation(md_path):
     sections = re.split(r'^### \d+\.', content, flags=re.MULTILINE)
     headers = re.findall(airfield_pattern, content, re.MULTILINE)
 
-    airfields = []
+    # Build section lookup by number
+    section_map = {}
     for i, (num, name) in enumerate(headers):
         section = sections[i + 1] if i + 1 < len(sections) else ""
-        first_line = section.split('\n')[0].strip().lstrip('. ').strip()
+        section_map[int(num)] = (name.strip(), section)
 
-        fields = {}
-        field_pattern = r'\|\s*\*\*(.+?)\*\*\s*\|\s*(.+?)\s*\|'
-        for line in section.split('\n'):
-            m = re.match(field_pattern, line)
-            if m:
-                fields[m.group(1).strip()] = m.group(2).strip()
-
-        # Count unverified markers
-        unverified_count = section.count('❓')
-
-        # Find dates mentioned
+    # Enrich base airfields with validation-specific fields
+    airfields = []
+    for af in base_airfields:
+        raw_name, section = section_map.get(af['number'], ('', ''))
+        af['raw_name'] = raw_name
+        af['section'] = section
+        af['unverified_count'] = section.count('❓')
         date_matches = re.findall(r'(\d{4})-(\d{2})-(\d{2})', section)
         date_matches += re.findall(r'\((\d{4})\)', section)
-
-        airfields.append({
-            'number': int(num),
-            'name': first_line,
-            'raw_name': name.strip(),
-            'fields': fields,
-            'section': section,
-            'unverified_count': unverified_count,
-            'dates_mentioned': date_matches,
-        })
+        af['dates_mentioned'] = date_matches
+        airfields.append(af)
 
     return airfields
 
@@ -81,7 +68,7 @@ def parse_airfields_for_validation(md_path):
 def validate_icao(airfield):
     """Check ICAO code format."""
     issues = []
-    icao = airfield['fields'].get('ICAO', airfield['fields'].get('ICAO / Code', airfield['fields'].get('Code', '')))
+    icao = get_icao(airfield)
     if not icao:
         issues.append(('warning', 'No ICAO code specified'))
         return issues
@@ -108,7 +95,7 @@ def validate_coordinates(airfield):
         issues.append(('error', 'Missing coordinates'))
         return issues
 
-    lat, lon = parse_coordinate(coords)
+    lat, lon = parse_dms_coord(coords)
     if lat is None:
         issues.append(('error', f'Could not parse coordinates: {coords[:50]}'))
         return issues
@@ -161,7 +148,7 @@ def validate_elevation(airfield):
 def validate_diagram(airfield):
     """Check if an aerodrome diagram exists."""
     issues = []
-    icao = airfield['fields'].get('ICAO', airfield['fields'].get('ICAO / Code', airfield['fields'].get('Code', '')))
+    icao = get_icao(airfield)
     if not icao:
         return issues
 
@@ -222,7 +209,7 @@ def check_duplicates(airfields):
     issues = []
     seen_codes = {}
     for af in airfields:
-        icao = af['fields'].get('ICAO', af['fields'].get('ICAO / Code', af['fields'].get('Code', '')))
+        icao = get_icao(af)
         fa_codes = re.findall(r'\b(FA[A-Z]{2,4})\b', icao.upper()) if icao else []
         for code in fa_codes:
             if code in seen_codes:
