@@ -6,7 +6,7 @@ Parse AIRFIELD_DIRECTORY.md and extract structured airfield data.
 import re
 import os
 
-from shared import MD_FILE, get_icao
+from shared import MD_FILE, get_icao, apply_verified_facts
 
 
 def parse_airfields(md_path=MD_FILE):
@@ -40,6 +40,9 @@ def parse_airfields(md_path=MD_FILE):
                 break
 
         airfields.append(airfield)
+
+    # Apply verified facts (manually confirmed data that must not be overwritten)
+    airfields = apply_verified_facts(airfields)
 
     return airfields
 

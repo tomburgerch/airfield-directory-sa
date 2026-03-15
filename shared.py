@@ -3,12 +3,14 @@
 Shared constants and utilities used across the airfield directory codebase.
 """
 
+import json
 import os
 import re
 
 # ── Paths ──
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MD_FILE = os.path.join(BASE_DIR, 'AIRFIELD_DIRECTORY.md')
+VERIFIED_FACTS_FILE = os.path.join(BASE_DIR, 'verified_facts.json')
 DIAGRAMS_DIR = os.path.join(BASE_DIR, 'diagrams')
 OUTPUT_HTML = os.path.join(BASE_DIR, 'Airfield_Directory.html')
 FAVICON_FILE = os.path.join(BASE_DIR, 'favicon.svg')
@@ -47,3 +49,42 @@ def get_icao(airfield):
     """
     fields = airfield.get('fields', airfield)
     return fields.get('ICAO', fields.get('ICAO / Code', fields.get('Code', '')))
+
+
+def load_verified_facts():
+    """Load verified_facts.json. Returns dict keyed by airfield number (int)."""
+    if not os.path.exists(VERIFIED_FACTS_FILE):
+        return {}
+    with open(VERIFIED_FACTS_FILE, 'r', encoding='utf-8') as f:
+        raw = json.load(f)
+    # Convert string keys to int, skip metadata keys starting with '_'
+    return {int(k): v for k, v in raw.items() if not k.startswith('_')}
+
+
+def apply_verified_facts(airfields):
+    """Apply verified facts as overrides to parsed airfield data.
+
+    Overrides runways and prepends verified notes. This ensures manually
+    confirmed data is never lost when re-parsing the markdown source.
+    """
+    facts = load_verified_facts()
+    if not facts:
+        return airfields
+
+    for af in airfields:
+        fact = facts.get(af['number'])
+        if not fact:
+            continue
+
+        # Override runways if specified
+        if 'runways_override' in fact:
+            af['runways'] = fact['runways_override']
+
+        # Prepend verified notes (avoid duplicates)
+        if 'verified_notes' in fact:
+            existing = set(af.get('notes', []))
+            for note in reversed(fact['verified_notes']):
+                if note not in existing:
+                    af.setdefault('notes', []).insert(0, note)
+
+    return airfields
