@@ -1237,6 +1237,11 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
     # Google Analytics
     html += '<script async src="https://www.googletagmanager.com/gtag/js?id=G-73Y7S1Z8KY"></script>\n'
     html += '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-73Y7S1Z8KY");</script>\n'
+    # Vercel Web Analytics
+    html += '<script>\n'
+    html += '  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };\n'
+    html += '</script>\n'
+    html += '<script defer src="/_vercel/insights/script.js"></script>\n'
     html += '</head>\n<body>\n'
 
     # Unified header: logo + search + actions + filters
