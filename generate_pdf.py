@@ -227,6 +227,13 @@ def build_airfield_block(airfield, styles, meta=None):
         w_text = w.get('text', w) if isinstance(w, dict) else w
         elements.append(Paragraph(f"[!] {clean(w_text)[:120]}", styles['AFWarning']))
 
+    # ── NOTAMs (count only for A5) ──
+    notam_items = airfield.get('notams', {}).get('items', []) if isinstance(airfield.get('notams'), dict) else []
+    if notam_items:
+        elements.append(Paragraph(
+            f"[NOTAM] {len(notam_items)} active — see online version",
+            styles['AFWarning']))
+
     # ── Key notes (max 3, short) ──
     for note in airfield.get('notes', [])[:3]:
         n_text = note.get('text', note) if isinstance(note, dict) else note

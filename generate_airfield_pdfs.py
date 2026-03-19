@@ -338,6 +338,20 @@ def build_airfield_pdf(airfield, output_path, styles, temp_dir=None, meta=None):
             w_text = w.get('text', w) if isinstance(w, dict) else w
             story.append(Paragraph(f'[!] {clean(w_text)[:200]}', styles['AFWarning']))
 
+    # ── NOTAMs (up to 2 with text for A4) ──
+    notam_items = airfield.get('notams', {}).get('items', []) if isinstance(airfield.get('notams'), dict) else []
+    if notam_items:
+        story.append(Spacer(1, 2 * mm))
+        story.append(Paragraph('NOTAMs', styles['AFSection']))
+        for notam in notam_items[:2]:
+            expiry = f' (until {notam["expiry"]})' if notam.get('expiry') else ''
+            story.append(Paragraph(f'[NOTAM] {clean(notam["text"])[:180]}{expiry}', styles['AFWarning']))
+        fetched = airfield.get('notams', {}).get('fetched', '')
+        if fetched:
+            story.append(Paragraph(
+                f'NOTAMs as of {fetched[:10]} — see online version for current NOTAMs',
+                ParagraphStyle('NotamDate', parent=styles['AFNote'], fontSize=6, textColor=TEXT_MUTED)))
+
     # ── Notes ──
     notes = airfield.get('notes', [])
     if notes:

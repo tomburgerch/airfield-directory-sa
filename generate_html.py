@@ -674,6 +674,14 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 .sources-footer a:hover { background: var(--light-gray); }
 .copy-coords { cursor: pointer; position: relative; }
 .copy-coords:hover { text-decoration: underline; }
+/* ── NOTAMs (amber) ── */
+.notams-section { padding: 8px 14px; background: #fffbeb; border-bottom: 1px solid var(--border); }
+.notam-title { color: #92400e; }
+.notam-item { font-size: 12px; color: #92400e; font-weight: 500; margin-bottom: 4px; }
+.notam-expiry { font-weight: 400; color: var(--text-muted); font-size: 10px; }
+.notam-all-link { display: block; font-size: 10px; color: #1a6bc4; margin-top: 4px; text-decoration: none; }
+.notam-fetched { font-size: 9px; color: var(--text-muted); margin-top: 2px; }
+
 .copy-toast { position: absolute; top: -24px; left: 50%; transform: translateX(-50%); background: var(--navy); color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; pointer-events: none; animation: fadeOut 1.5s ease-in forwards; z-index: 10; white-space: nowrap; }
 @keyframes fadeOut { 0%{opacity:1} 70%{opacity:1} 100%{opacity:0} }
 """
@@ -1337,6 +1345,25 @@ def build_airfield_card(airfield, meta=None, embed_diagrams=False, pdf_filename=
                 elif source_name:
                     source_indicator = f' <span class="source-link" title="Source: {escape(source_name)}">&#8599;</span>'
             html += f'    <div class="note">- {escape(clean_html(n_text))}{source_indicator}</div>\n'
+
+    # NOTAMs (amber section)
+    notams = airfield.get('notams', {})
+    notam_items = notams.get('items', []) if isinstance(notams, dict) else []
+    if notam_items:
+        html += '    <div class="notams-section">\n'
+        html += '    <div class="section-title notam-title">NOTAMs</div>\n'
+        for notam in notam_items[:3]:
+            html += f'    <div class="notam-item">{escape(notam["text"])}'
+            if notam.get("expiry"):
+                html += f' <span class="notam-expiry">(until {escape(notam["expiry"])})</span>'
+            html += '</div>\n'
+        all_url = notams.get('all_notams_url', '')
+        if all_url:
+            html += f'    <a class="notam-all-link" href="{escape(all_url)}" target="_blank">See all NOTAMs &#8599;</a>\n'
+        fetched = notams.get('fetched', '')
+        if fetched:
+            html += f'    <div class="notam-fetched">NOTAMs as of {escape(fetched[:10])}</div>\n'
+        html += '    </div>\n'
 
     # Diagram
     diagram_info = airfield.get('diagram', {})
