@@ -188,9 +188,14 @@ body {
 .contact-tooltip-inner a { color: #FFD700; text-decoration: underline; }
 .contact-tip:hover .contact-tooltip { display: block; }
 .header-bottom {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    display: flex; align-items: center; gap: 4px 5px;
     max-width: 900px; margin: 0 auto;
     padding: 6px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 600px) {
+    .header-bottom { flex-wrap: wrap; overflow-x: visible; }
 }
 .header-bottom .filter-label {
     font-size: 10px;
@@ -200,7 +205,7 @@ body {
 }
 .header-bottom .filter-btn {
     font-size: 11px;
-    padding: 3px 10px;
+    padding: 2px 8px;
     border-radius: 14px;
     border: 1px solid #d4cfc5;
     background: white;
@@ -233,6 +238,9 @@ body {
     font-size: 10px; color: #a09890;
     margin-left: auto;
     white-space: nowrap;
+}
+@media (max-width: 900px) {
+    .header-bottom .updated { display: none; }
 }
 
 /* ── Sort index (A-Z / Nearest) ── */
@@ -1456,16 +1464,13 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
     # Second row: filters + counts + date
     html += '<div class="header-bottom" id="filter-bar">\n'
     html += '<button class="filter-btn" data-filter="fuel">Fuel</button>\n'
-    html += '<button class="filter-btn" data-filter="night">Night Ops</button>\n'
-    html += '<button class="filter-btn" data-filter="towered">Towered</button>\n'
-    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" data-filter="night">Night</button>\n'
+    html += '<button class="filter-btn" data-filter="towered">Tower</button>\n'
     html += '<button class="filter-btn" data-filter="surface-paved">Paved</button>\n'
     html += '<button class="filter-btn" data-filter="surface-grass">Grass</button>\n'
-    html += '<span class="filter-sep"></span>\n'
     html += '<button class="filter-btn" data-filter="access-public">Public</button>\n'
     html += '<button class="filter-btn" data-filter="access-ppr">PPR</button>\n'
-    html += '<span class="filter-sep"></span>\n'
-    html += '<button class="filter-btn" data-filter="official">ICAO Listed</button>\n'
+    html += '<button class="filter-btn" data-filter="official">ICAO</button>\n'
     html += '<span class="filter-sep"></span>\n'
     html += '<span class="filter-label">Sort:</span>\n'
     html += '<button class="filter-btn sort-btn active" data-sort="province">Province</button>\n'
