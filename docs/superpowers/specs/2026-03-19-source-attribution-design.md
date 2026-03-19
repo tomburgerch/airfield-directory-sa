@@ -347,11 +347,17 @@ These sources should be re-scanned on every data refresh:
 9. Update `generate_airfield_pdfs.py` (A4) — add per-section source text and sources summary
 10. Run existing PDF tests + verify output
 
-### Phase 4: Markdown Generator & Pipeline
-11. Write `generate_markdown.py` to produce markdown from JSON (for Notion import)
-12. Update `build.py` to orchestrate: JSON → HTML + A5 PDF + A4 PDFs + Markdown
-13. Update `validate_data.py` to validate `airfields.json` schema
-14. Keep `parse_markdown.py` functional during transition (can be removed once JSON is stable)
+### Phase 4: NOTAM Integration
+11. Research and select NOTAM API source for South African airfields
+12. Write `fetch_notams.py` — fetches NOTAMs per ICAO code, filters by relevance, caps at 2-3 per airfield
+13. Integrate into `airfields.json` pipeline — NOTAMs fetched fresh on each build
+14. Add NOTAM rendering to HTML (amber section), A5 PDF (count only), A4 PDF (summary text)
+
+### Phase 5: Markdown Generator & Pipeline
+15. Write `generate_markdown.py` to produce markdown from JSON (for Notion import)
+16. Update `build.py` to orchestrate: fetch NOTAMs → JSON → HTML + A5 PDF + A4 PDFs + Markdown
+17. Update `validate_data.py` to validate `airfields.json` schema
+18. Keep `parse_markdown.py` functional during transition (can be removed once JSON is stable)
 
 ## Testing
 
@@ -362,12 +368,68 @@ These sources should be re-scanned on every data refresh:
 - Source link generation for FA-series vs ZA-series airfields
 - Hover/tap behavior for source indicators (desktop and mobile)
 - Data collection dates appear (not generation dates)
+- NOTAM filtering: verify routine/recurring NOTAMs are excluded, priority NOTAMs surface
+- NOTAM staleness: expired NOTAMs excluded, fetch timestamp displayed
 - Cross-check against existing test suite (`test_html.py`, `test_pdf_styles.py`, `test_parse.py`)
 
 ## Branch Strategy
 
 All work on a feature branch (`feature/source-attribution`) to isolate from main. The migration touches the core data pipeline, so clean rollback is important. The phased approach means each renderer can be validated independently before moving to the next.
 
-## NOTAMs
+## NOTAMs — Build-Time Integration
 
-The `notams` field is a **placeholder for future work**. NOTAMs are inherently temporal (they expire) and require automated fetching on a regular cadence. The current scope adds the field to the schema but does not populate it. A separate design pass should address NOTAM integration, including data source, update frequency, and stale-NOTAM handling.
+NOTAMs are fetched at build time and included as a point-in-time snapshot. They are NOT live-updating.
+
+### Data Source
+
+Fetch from an available NOTAM API (ICAO API, AirportGuide, or OurAirports — to be determined during implementation based on API availability for South African airfields). Fall back to SACAA/ATNS if no API is suitable.
+
+### Relevance Filtering
+
+Raw NOTAMs are filtered and ranked before display. The goal is to show only NOTAMs a pilot would actually care about when planning a flight to that airfield.
+
+**Prioritize (show):**
+- Runway closures or restrictions
+- Airspace restrictions or temporary danger areas
+- Frequency changes
+- Operating hours changes
+- Temporary hazards (obstacles, wildlife, construction affecting operations)
+
+**Deprioritize (hide):**
+- Recurring/routine items (lights unserviceable, cranes, long-running construction)
+- NOTAMs that have been reissued identically multiple times
+- NOTAMs that are clearly irrelevant to VFR GA traffic (e.g., ILS out of service at a VFR-only field)
+
+**Display rules:**
+- Maximum 2-3 NOTAMs per airfield card
+- Each NOTAM shows: summary text, effective/expiry dates
+- "See all NOTAMs →" link to the official SACAA/ATNS NOTAM page for that airfield
+- Clear "as of" timestamp showing when NOTAMs were fetched
+
+### Schema
+
+```json
+"notams": {
+  "fetched": "2026-03-19T08:30:00Z",
+  "items": [
+    {
+      "id": "A1234/26",
+      "text": "RWY 01/19 CLSD FOR MAINTENANCE",
+      "effective": "2026-03-18",
+      "expiry": "2026-03-25",
+      "priority": "high"
+    }
+  ],
+  "all_notams_url": "https://www.caa.co.za/..."
+}
+```
+
+### Rendering
+
+**HTML:** NOTAMs section appears between Warnings and Contact. Amber/yellow styling to distinguish from permanent warnings (red). "See all NOTAMs →" link at the end.
+
+**A5 PDF:** Show count only ("2 active NOTAMs — see online version"). Too small for full text.
+
+**A4 PDF:** Show up to 2 NOTAMs with text. Include "NOTAMs as of YYYY-MM-DD" and "See online version for current NOTAMs."
+
+**Staleness:** Expired NOTAMs are automatically excluded at build time. The `fetched` timestamp is always shown so pilots know the currency.
