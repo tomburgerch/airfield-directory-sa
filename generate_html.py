@@ -347,6 +347,8 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 .toc h2 { font-size: 16px; color: var(--navy); margin-bottom: 8px; cursor: pointer; user-select: none; }
+.toc.collapsed .toc-grid { display: none; }
+.toc.collapsed { padding: 12px 16px; }
 .toc-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1516,7 +1518,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
             ['Air-to-Air', '130.350'],
         ]
 
-        html += '<div class="fir-section" id="fir-section">\n'
+        html += '<div class="fir-section collapsed" id="fir-section">\n'
         html += '<h2 onclick="this.parentElement.classList.toggle(\'collapsed\')">FIR Frequencies &amp; Map &#9662;</h2>\n'
         html += '<div class="fir-body">\n'
         html += '<div id="fir-map" class="fir-map"></div>\n'
@@ -1577,7 +1579,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
         province_airfields[group].append(af)
 
     # TOC
-    html += '<div class="toc">\n<h2>Airfield Index</h2>\n<div class="toc-grid">\n'
+    html += '<div class="toc collapsed">\n<h2 onclick="this.parentElement.classList.toggle(\'collapsed\')">Airfield Index &#9662;</h2>\n<div class="toc-grid">\n'
     for province in province_order:
         if province:
             html += f'<div class="toc-group">{escape(clean_html(province))}</div>\n'
