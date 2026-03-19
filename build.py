@@ -14,8 +14,10 @@ import shutil
 
 from generate_html import generate_html, load_airfields_json
 from generate_pdf import generate_pdf
+from generate_markdown import generate_markdown
 from shared import BASE_DIR, MD_FILE, AIRFIELDS_JSON
 from generate_airfield_pdfs import generate_airfield_pdfs
+from fetch_notams import fetch_all_notams
 
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
 
@@ -41,13 +43,10 @@ def build():
     # Copy downloadable files
     download_links = []
 
-    if os.path.exists(MD_FILE):
-        shutil.copy2(MD_FILE, os.path.join(PUBLIC_DIR, 'AIRFIELD_DIRECTORY.md'))
-        download_links.append({
-            'label': 'Download Markdown',
-            'href': 'AIRFIELD_DIRECTORY.md',
-        })
-        print(f"  Copied Markdown ({os.path.getsize(MD_FILE) / 1024:.0f} KB)")
+    download_links.append({
+        'label': 'Download Markdown',
+        'href': 'AIRFIELD_DIRECTORY.md',
+    })
 
     # Load airfield data from JSON
     print("\nLoading airfield data from JSON...")
@@ -56,6 +55,20 @@ def build():
 
     freq_tables = meta.get('frequency_tables', [])
     print(f"  Found {len(freq_tables)} frequency tables")
+
+    # Fetch NOTAMs (graceful on failure)
+    try:
+        notams = fetch_all_notams(airfields)
+        if notams:
+            for af in airfields:
+                icao = af.get('icao', '')
+                if icao in notams:
+                    af['notams'] = notams[icao]
+            print(f"  Fetched NOTAMs for {len(notams)} airfield(s)")
+        else:
+            print("  No NOTAMs available (API not configured)")
+    except Exception as e:
+        print(f"  NOTAM fetch failed (non-fatal): {e}")
 
     # Generate compact PDF
     pdf_path = os.path.join(PUBLIC_DIR, 'Airfield_Directory.pdf')
@@ -88,6 +101,14 @@ def build():
 
     file_size = os.path.getsize(output_html) / 1024 / 1024
     print(f"  index.html: {file_size:.1f} MB")
+
+    # Generate markdown from JSON
+    print("\nGenerating markdown from JSON...")
+    md_output = generate_markdown(airfields, meta)
+    md_path = os.path.join(PUBLIC_DIR, 'AIRFIELD_DIRECTORY.md')
+    with open(md_path, 'w', encoding='utf-8') as f:
+        f.write(md_output)
+    print(f"  Markdown: {os.path.getsize(md_path) / 1024:.0f} KB")
 
     # Summary
     print(f"\nBuild complete! Output: {PUBLIC_DIR}/")

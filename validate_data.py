@@ -321,7 +321,67 @@ def print_report(results):
         return 0
 
 
+def validate_json_schema(json_path=None, schema_path=None):
+    """Validate airfields.json against airfields.schema.json.
+
+    Returns dict with 'valid' (bool) and 'errors' (list of error messages).
+    """
+    import json as _json
+    from shared import AIRFIELDS_JSON, BASE_DIR as _BASE_DIR
+
+    json_path = json_path or AIRFIELDS_JSON
+    schema_path = schema_path or os.path.join(_BASE_DIR, 'airfields.schema.json')
+
+    result = {'valid': True, 'errors': []}
+
+    if not os.path.exists(json_path):
+        result['valid'] = False
+        result['errors'].append(f'File not found: {json_path}')
+        return result
+
+    if not os.path.exists(schema_path):
+        result['valid'] = False
+        result['errors'].append(f'Schema not found: {schema_path}')
+        return result
+
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = _json.load(f)
+    with open(schema_path, 'r', encoding='utf-8') as f:
+        schema = _json.load(f)
+
+    try:
+        import jsonschema
+        jsonschema.validate(data, schema)
+    except ImportError:
+        result['errors'].append('jsonschema package not installed — skipping schema validation')
+        return result
+    except jsonschema.ValidationError as e:
+        result['valid'] = False
+        result['errors'].append(f'Schema validation failed: {e.message}')
+        if e.path:
+            result['errors'].append(f'  at path: {"/".join(str(p) for p in e.path)}')
+
+    # Basic structure checks
+    airfields = data.get('airfields', [])
+    if len(airfields) == 0:
+        result['valid'] = False
+        result['errors'].append('No airfields in JSON')
+    elif len(airfields) < 100:
+        result['errors'].append(f'Only {len(airfields)} airfields — expected ~276')
+
+    return result
+
+
 if __name__ == '__main__':
+    # Run JSON validation first if available
+    json_result = validate_json_schema()
+    if json_result['errors']:
+        print("JSON Schema Validation:")
+        for err in json_result['errors']:
+            print(f"  {err}")
+        print()
+
+    # Run legacy markdown validation
     results = run_validation()
     exit_code = print_report(results)
     sys.exit(exit_code)
