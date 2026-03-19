@@ -213,11 +213,14 @@ def extract_websites_from_raw(fields_raw):
 
 def build_meta(freq_tables):
     """Build the meta object with source registry and frequency tables."""
-    return {
-        "version": "1.0.0",
+    meta = {
+        "version": "2.0",
         "last_full_scan": MIGRATION_DATE,
         "source_registry": SOURCE_REGISTRY,
     }
+    if freq_tables:
+        meta["frequency_tables"] = freq_tables
+    return meta
 
 
 def _convert_runways(raw_runways, source):

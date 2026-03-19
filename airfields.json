@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "1.0.0",
+    "version": "2.0",
     "last_full_scan": "2026-03-19",
     "source_registry": {
       "sacaa_aip": {
@@ -30,7 +30,305 @@
         "url_base": "https://www.avcom.co.za/phpBB3/",
         "authority": "community"
       }
-    }
+    },
+    "frequency_tables": [
+      {
+        "name": "FREE STATE",
+        "rows": [
+          [
+            "Bloemfontein TWR",
+            "120.8"
+          ],
+          [
+            "Bloemfontein APP",
+            "119.4 / 124.3"
+          ],
+          [
+            "Bloemfontein ATIS",
+            "126.45"
+          ],
+          [
+            "New Tempe (FATP)",
+            "131.3"
+          ],
+          [
+            "Welkom (FAWM)",
+            "118.0 ❓"
+          ],
+          [
+            "Parys (FAPY)",
+            "123.5 ❓"
+          ],
+          [
+            "Emergency",
+            "121.5"
+          ]
+        ],
+        "note": "Note: Many uncontrolled Free State airfields do not have assigned frequencies. Pilots typically use the area frequency or 124.8 MHz. Always verify against the current SACAA AIP ENR 4.1 before flight."
+      },
+      {
+        "name": "CAPE TOWN AREA",
+        "rows": [
+          [
+            "Cape Town ATIS",
+            "127.000"
+          ],
+          [
+            "Cape Town Tower",
+            "118.100"
+          ],
+          [
+            "Cape Town Approach",
+            "119.700"
+          ],
+          [
+            "Cape Town Director/Radar",
+            "124.350"
+          ],
+          [
+            "Cape Town Ground",
+            "121.900"
+          ],
+          [
+            "Cape Town Apron",
+            "122.650"
+          ],
+          [
+            "Cape Town Clearance",
+            "122.100"
+          ],
+          [
+            "Morningstar",
+            "126.800"
+          ],
+          [
+            "Stellenbosch (FASH)",
+            "119.300"
+          ],
+          [
+            "Cape Winelands (FAWN)",
+            "131.100"
+          ],
+          [
+            "Worcester (FAWC)",
+            "124.800"
+          ],
+          [
+            "Delta 200 (FADX)",
+            "124.400"
+          ],
+          [
+            "Malmesbury (FAMY) TWR",
+            "131.500"
+          ],
+          [
+            "Saldanha (FASD)",
+            "122.700"
+          ],
+          [
+            "Langebaan MIL APP",
+            "122.500"
+          ],
+          [
+            "Langebaan MIL TWR",
+            "120.800 / 128.800"
+          ],
+          [
+            "George TWR",
+            "118.900"
+          ],
+          [
+            "George APP",
+            "128.200"
+          ],
+          [
+            "George ATIS",
+            "126.225"
+          ],
+          [
+            "Oudtshoorn AFIS",
+            "131.100"
+          ],
+          [
+            "Beaufort West AFIS (Karoo Radio)",
+            "125.600"
+          ],
+          [
+            "Emergency",
+            "121.500"
+          ],
+          [
+            "Cape Town Information",
+            "125.5 ❓"
+          ]
+        ],
+        "note": ""
+      },
+      {
+        "name": "EASTERN CAPE & KZN",
+        "rows": [
+          [
+            "Port Elizabeth TWR",
+            "118.1"
+          ],
+          [
+            "Port Elizabeth APP",
+            "120.4"
+          ],
+          [
+            "Port Elizabeth ATIS",
+            "112.9"
+          ],
+          [
+            "East London TWR",
+            "118.3"
+          ],
+          [
+            "East London APP",
+            "120.1"
+          ],
+          [
+            "East London ATIS",
+            "126.65"
+          ],
+          [
+            "Durban / King Shaka TWR",
+            "118.45"
+          ],
+          [
+            "Durban ATIS",
+            "127.0"
+          ],
+          [
+            "Virginia TWR",
+            "120.6"
+          ],
+          [
+            "Margate AFIS",
+            "122.7"
+          ],
+          [
+            "Richards Bay TWR",
+            "118.9"
+          ],
+          [
+            "Pietermaritzburg TWR",
+            "122.0"
+          ]
+        ],
+        "note": ""
+      },
+      {
+        "name": "GAUTENG & INLAND",
+        "rows": [
+          [
+            "OR Tambo TWR",
+            "118.1"
+          ],
+          [
+            "OR Tambo APP (East)",
+            "124.5"
+          ],
+          [
+            "OR Tambo APP (West)",
+            "123.7"
+          ],
+          [
+            "OR Tambo ATIS",
+            "126.2"
+          ],
+          [
+            "Lanseria TWR",
+            "124.0"
+          ],
+          [
+            "Lanseria ATIS",
+            "127.65"
+          ],
+          [
+            "Grand Central TWR",
+            "120.8"
+          ],
+          [
+            "Rand TWR",
+            "118.7"
+          ],
+          [
+            "Wonderboom TWR",
+            "118.35"
+          ],
+          [
+            "Bloemfontein TWR",
+            "120.8 ❓"
+          ],
+          [
+            "Kimberley TWR",
+            "118.2"
+          ],
+          [
+            "Upington TWR",
+            "121.3"
+          ],
+          [
+            "KMIA (Nelspruit) TWR/APP",
+            "119.2"
+          ],
+          [
+            "Polokwane TWR",
+            "124.3"
+          ],
+          [
+            "Lowveld Info (Skukuza)",
+            "119.0"
+          ],
+          [
+            "Nelspruit (FANS) TWR/APP",
+            "118.80"
+          ],
+          [
+            "Witbank (FAWI)",
+            "123.5"
+          ],
+          [
+            "Middelburg (FAMB)",
+            "127.95"
+          ],
+          [
+            "Hoedspruit Civil (FAHT)",
+            "126.4"
+          ],
+          [
+            "Louis Trichardt (FALO) APP",
+            "121.2"
+          ],
+          [
+            "Thabazimbi (FATI)",
+            "124.8"
+          ],
+          [
+            "Tzaneen (FATZ)",
+            "124.8"
+          ],
+          [
+            "Ermelo (FAEO)",
+            "124.8"
+          ],
+          [
+            "Piet Retief (FAPF)",
+            "124.8"
+          ],
+          [
+            "Volksrust (FAVU)",
+            "124.8"
+          ],
+          [
+            "Uncontrolled default (below FL045)",
+            "124.8"
+          ]
+        ],
+        "note": ""
+      }
+    ]
   },
   "airfields": [
     {
