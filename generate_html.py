@@ -39,13 +39,6 @@ def embed_image(path, max_width=500):
     return f'<img src="data:{mime};base64,{data}" style="max-width:{max_width}px; height:auto;" alt="Aerodrome diagram">'
 
 
-def extract_links(raw_value):
-    """Extract markdown links from a raw field value, return list of (label, url)."""
-    if not raw_value:
-        return []
-    return re.findall(r'\[([^\]]+)\]\(([^)]+)\)', raw_value)
-
-
 CSS = """
 :root {
     --navy: #1a1a1a;
@@ -74,20 +67,23 @@ body {
 
 /* ── Unified Header ── */
 .site-header {
-    background: var(--navy);
-    color: white;
-    padding: 10px 0 8px;
     position: sticky;
     top: 0;
     z-index: 1100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background: #f5f3ee;
+    border-bottom: 1px solid #e5e0d5;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 .header-top {
+    background: var(--navy);
+    color: white;
+    padding: 8px 0;
+}
+.header-top-inner {
     display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
     max-width: 900px; margin: 0 auto; padding: 0 16px;
 }
 .site-header h1 { font-size: 16px; flex-shrink: 0; color: #FFD700; line-height: 1.2; }
-.site-header h1 span { font-weight: 400; font-size: 11px; color: rgba(255,255,255,0.6); display: block; }
 .search-wrapper {
     flex: 1; min-width: 180px; position: relative;
 }
@@ -192,51 +188,59 @@ body {
 .contact-tooltip-inner a { color: #FFD700; text-decoration: underline; }
 .contact-tip:hover .contact-tooltip { display: block; }
 .header-bottom {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
-    max-width: 900px; margin: 6px auto 0; padding: 0 16px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 7px;
+    display: flex; align-items: center; gap: 4px 5px;
+    max-width: 900px; margin: 0 auto;
+    padding: 6px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 600px) {
+    .header-bottom { flex-wrap: wrap; overflow-x: visible; }
 }
 .header-bottom .filter-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    font-weight: 600;
+    color: #8a8480;
     margin-right: 2px;
 }
 .header-bottom .filter-btn {
     font-size: 11px;
-    padding: 3px 9px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: transparent;
-    color: rgba(255,255,255,0.75);
+    padding: 2px 8px;
+    border-radius: 14px;
+    border: 1px solid #d4cfc5;
+    background: white;
+    color: #6b6560;
     cursor: pointer;
     transition: all 0.15s;
     font-weight: 500;
 }
-.header-bottom .filter-btn:hover { border-color: #FFD700; color: #FFD700; }
+.header-bottom .filter-btn:hover { border-color: #1a1a1a; color: #1a1a1a; }
 .header-bottom .filter-btn.active {
-    background: #FFD700;
-    color: var(--navy);
-    border-color: #FFD700;
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
     font-weight: 700;
 }
 .header-bottom .filter-sep {
     width: 1px;
-    height: 16px;
-    background: rgba(255,255,255,0.15);
+    height: 14px;
+    background: #d4cfc5;
 }
 #search-count {
-    font-size: 10px; color: rgba(255,255,255,0.6);
+    font-size: 10px; color: #8a8480;
     margin-left: auto;
 }
 #filter-count {
     font-size: 10px;
-    color: rgba(255,255,255,0.6);
+    color: #8a8480;
 }
 .header-bottom .updated {
-    font-size: 10px; color: rgba(255,255,255,0.45);
+    font-size: 10px; color: #a09890;
     margin-left: auto;
+    white-space: nowrap;
+}
+@media (max-width: 900px) {
+    .header-bottom .updated { display: none; }
 }
 
 /* ── Sort index (A-Z / Nearest) ── */
@@ -343,6 +347,8 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 .toc h2 { font-size: 16px; color: var(--navy); margin-bottom: 8px; cursor: pointer; user-select: none; }
+.toc.collapsed .toc-grid { display: none; }
+.toc.collapsed { padding: 12px 16px; }
 .toc-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -369,6 +375,7 @@ body {
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     overflow: hidden;
     transition: box-shadow 0.2s;
+    scroll-margin-top: 100px;
 }
 .airfield-card:target {
     box-shadow: 0 0 0 3px var(--blue), 0 2px 8px rgba(0,0,0,0.12);
@@ -419,15 +426,16 @@ body {
 /* ── Info grid ── */
 .info-grid {
     display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 3px 10px;
-    font-size: 13px;
+    grid-template-columns: 90px 1fr;
+    gap: 1px 8px;
+    font-size: 12.5px;
     margin-bottom: 10px;
 }
-.info-grid .label { font-weight: 600; color: var(--text-muted); }
-.info-grid .value { }
+.info-grid .label { font-size: 11px; font-weight: 500; color: #8a8480; }
+.info-grid .value { color: #1a1a1a; }
 .info-grid .value.freq { color: var(--blue); font-weight: 700; }
 .info-grid .value.elev { font-weight: 700; }
+.detail { font-size: 11px; color: #8a8480; }
 
 /* ── Tables ── */
 .section-title {
@@ -497,18 +505,6 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-top: 1px solid var(--border);
     padding-top: 6px;
 }
-.web-links {
-    font-size: 12px;
-    margin-bottom: 8px;
-    display: flex; flex-wrap: wrap; gap: 4px 14px;
-}
-.web-links a {
-    color: var(--blue);
-    text-decoration: none;
-    font-weight: 600;
-}
-.web-links a:hover { text-decoration: underline; }
-
 /* ── Back to top ── */
 .back-to-top {
     position: fixed;
@@ -639,15 +635,13 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
-    .info-grid { grid-template-columns: 100px 1fr; font-size: 12px; }
+    .info-grid { grid-template-columns: 80px 1fr; font-size: 12px; }
     .site-header h1 { font-size: 14px; }
-    .site-header h1 span { font-size: 10px; }
     .toc-grid { grid-template-columns: 1fr; }
     #sort-index .sort-index-grid { grid-template-columns: 1fr; }
-    .header-top { gap: 8px; }
+    .header-top-inner { gap: 8px; }
     .header-actions { gap: 3px; }
     .header-bottom { gap: 4px; }
-    .header-bottom .updated { display: none; }
     .fir-map { height: 250px; }
     .fir-tab { font-size: 11px; padding: 4px 8px; }
 }
@@ -1108,6 +1102,11 @@ def _build_sources_footer(airfield, icao, registry):
     return html
 
 
+def _style_parens(value):
+    """Wrap parenthetical text in a <span class="detail"> for muted styling."""
+    return re.sub(r'\(([^)]+)\)', r'<span class="detail">(\1)</span>', value)
+
+
 def build_airfield_card(airfield, meta=None, embed_diagrams=False, pdf_filename=None):
     """Build HTML for a single airfield card from JSON-schema data."""
     registry = (meta or {}).get('source_registry', {})
@@ -1212,51 +1211,41 @@ def build_airfield_card(airfield, meta=None, embed_diagrams=False, pdf_filename=
     if coord_dms:
         coord_decimal = f"{lat}, {lon}" if lat is not None else ""
         if coord_decimal:
-            grid_items.append(f'    <div class="label">Coordinates</div><div class="value"><span class="copy-coords" data-copy-coords="{escape(coord_decimal)}" title="Click to copy decimal coordinates">{escape(clean_html(coord_dms))}</span></div>\n')
+            grid_items.append(f'    <div class="label">Coords</div><div class="value"><span class="copy-coords" data-copy-coords="{escape(coord_decimal)}" title="Click to copy decimal coordinates">{escape(clean_html(coord_dms))}</span></div>\n')
         else:
-            grid_items.append(f'    <div class="label">Coordinates</div><div class="value">{escape(clean_html(coord_dms))}</div>\n')
+            grid_items.append(f'    <div class="label">Coords</div><div class="value">{escape(clean_html(coord_dms))}</div>\n')
 
     if basic.get('elevation'):
         grid_items.append(f'    <div class="label">Elevation</div><div class="value elev">{escape(clean_html(basic["elevation"]))}</div>\n')
 
     if comms.get('primary_freq'):
-        grid_items.append(f'    <div class="label">Frequency</div><div class="value freq">{escape(clean_html(comms["primary_freq"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Freq</div><div class="value freq">{escape(clean_html(comms["primary_freq"]))}</div>\n')
 
     if ops.get('joining_alt'):
-        grid_items.append(f'    <div class="label">Joining Alt</div><div class="value">{escape(clean_html(ops["joining_alt"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Joining</div><div class="value">{_style_parens(escape(clean_html(ops["joining_alt"])))}</div>\n')
 
     if ops.get('circuit_alt'):
-        grid_items.append(f'    <div class="label">Circuit Alt</div><div class="value">{escape(clean_html(ops["circuit_alt"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Circuit</div><div class="value">{_style_parens(escape(clean_html(ops["circuit_alt"])))}</div>\n')
 
     night_val = ops.get('night_ops')
     if night_val is not None and night_val is not False:
         night_str = str(night_val) if night_val is not True else 'Yes'
-        grid_items.append(f'    <div class="label">Night Ops</div><div class="value">{escape(clean_html(night_str))}</div>\n')
+        grid_items.append(f'    <div class="label">Night</div><div class="value">{escape(clean_html(night_str))}</div>\n')
 
     if ops.get('fuel'):
-        grid_items.append(f'    <div class="label">Fuel</div><div class="value">{escape(clean_html(ops["fuel"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Fuel</div><div class="value">{_style_parens(escape(clean_html(ops["fuel"])))}</div>\n')
 
     if ops.get('hours'):
-        grid_items.append(f'    <div class="label">Hours</div><div class="value">{escape(clean_html(ops["hours"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Hours</div><div class="value">{_style_parens(escape(clean_html(ops["hours"])))}</div>\n')
 
     # Tower phone from JSON
     tower_phone = comms.get('tower_phone')
     if tower_phone and has_tower:
         phone_link = f'<a href="tel:{tower_phone}" style="color:var(--green);font-weight:700;text-decoration:none">{escape(tower_phone)}</a>'
-        grid_items.append(f'    <div class="label">Tower Tel</div><div class="value">{phone_link}</div>\n')
+        grid_items.append(f'    <div class="label">Tower</div><div class="value">{phone_link}</div>\n')
 
     if grid_items:
         html += '    <div class="info-grid">\n' + ''.join(grid_items) + '    </div>\n'
-
-    # Website links from JSON
-    websites = airfield.get('links', {}).get('websites', [])
-    if websites:
-        html += '    <div class="web-links">\n'
-        for site in websites:
-            label = site.get('label', site.get('url', ''))
-            url = site.get('url', '')
-            html += f'      <a href="{escape(url)}" target="_blank" rel="noopener">{escape(clean_html(label))}</a>\n'
-        html += '    </div>\n'
 
     # Frequencies table
     freq_table = comms.get('frequencies_table', [])
@@ -1453,7 +1442,8 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
     # Unified header: logo + search + actions + filters
     html += '<header class="site-header">\n'
     html += '<div class="header-top">\n'
-    html += '<h1><a href="https://wagyuwings.com" style="color:#FFD700;text-decoration:none">Wagyu Wings</a> <span>SA Airfield Directory</span></h1>\n'
+    html += '<div class="header-top-inner">\n'
+    html += '<h1><a href="https://wagyuwings.com" style="color:#FFD700;text-decoration:none">Wagyu Wings</a></h1>\n'
     html += '<div class="search-wrapper">\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
     html += '<button id="clear-search" title="Clear search">&times;</button>\n'
@@ -1468,24 +1458,21 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
             html += f'      <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
         html += '    </span>\n'
         html += '  </span>\n'
-    html += '  <span class="contact-tip">Contact<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
+    html += '  <span class="contact-tip" title="Contact">?<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
     html += '</div>\n'
-    html += '</div>\n'
+    html += '</div>\n'  # header-top-inner
+    html += '</div>\n'  # header-top
 
     # Second row: filters + counts + date
     html += '<div class="header-bottom" id="filter-bar">\n'
-    html += '<span class="filter-label">Filter:</span>\n'
     html += '<button class="filter-btn" data-filter="fuel">Fuel</button>\n'
-    html += '<button class="filter-btn" data-filter="night">Night Ops</button>\n'
-    html += '<button class="filter-btn" data-filter="towered">Towered</button>\n'
-    html += '<span class="filter-sep"></span>\n'
+    html += '<button class="filter-btn" data-filter="night">Night</button>\n'
+    html += '<button class="filter-btn" data-filter="towered">Tower</button>\n'
     html += '<button class="filter-btn" data-filter="surface-paved">Paved</button>\n'
     html += '<button class="filter-btn" data-filter="surface-grass">Grass</button>\n'
-    html += '<span class="filter-sep"></span>\n'
     html += '<button class="filter-btn" data-filter="access-public">Public</button>\n'
     html += '<button class="filter-btn" data-filter="access-ppr">PPR</button>\n'
-    html += '<span class="filter-sep"></span>\n'
-    html += '<button class="filter-btn" data-filter="official">ICAO Listed</button>\n'
+    html += '<button class="filter-btn" data-filter="official">ICAO</button>\n'
     html += '<span class="filter-sep"></span>\n'
     html += '<span class="filter-label">Sort:</span>\n'
     html += '<button class="filter-btn sort-btn active" data-sort="province">Province</button>\n'
@@ -1493,7 +1480,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
     html += '<button class="filter-btn sort-btn" id="nearby-btn" style="display:none;" data-sort="nearest">Nearest</button>\n'
     html += '<span id="filter-count"></span>\n'
     html += '<span id="search-count"></span>\n'
-    html += f'<span class="updated">Updated {build_date}</span>\n'
+    html += f'<span class="updated">{len(airfields)} airfields &middot; {build_date}</span>\n'
     html += '</div>\n'
     html += '</header>\n'
 
@@ -1531,7 +1518,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
             ['Air-to-Air', '130.350'],
         ]
 
-        html += '<div class="fir-section" id="fir-section">\n'
+        html += '<div class="fir-section collapsed" id="fir-section">\n'
         html += '<h2 onclick="this.parentElement.classList.toggle(\'collapsed\')">FIR Frequencies &amp; Map &#9662;</h2>\n'
         html += '<div class="fir-body">\n'
         html += '<div id="fir-map" class="fir-map"></div>\n'
@@ -1592,7 +1579,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
         province_airfields[group].append(af)
 
     # TOC
-    html += '<div class="toc">\n<h2>Airfield Index</h2>\n<div class="toc-grid">\n'
+    html += '<div class="toc collapsed">\n<h2 onclick="this.parentElement.classList.toggle(\'collapsed\')">Airfield Index &#9662;</h2>\n<div class="toc-grid">\n'
     for province in province_order:
         if province:
             html += f'<div class="toc-group">{escape(clean_html(province))}</div>\n'
