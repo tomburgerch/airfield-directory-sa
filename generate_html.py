@@ -1452,7 +1452,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
     # Unified header: logo + search + actions + filters
     html += '<header class="site-header">\n'
     html += '<div class="header-top">\n'
-    html += '<h1><a href="https://wagyuwings.com" style="color:#FFD700;text-decoration:none">Wagyu Wings</a> <span>SA Airfield Directory</span></h1>\n'
+    html += '<h1><a href="https://wagyuwings.com" style="color:#FFD700;text-decoration:none">Wagyu Wings</a></h1>\n'
     html += '<div class="search-wrapper">\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
     html += '<button id="clear-search" title="Clear search">&times;</button>\n'
@@ -1467,13 +1467,12 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
             html += f'      <a href="{escape(link["href"])}"{dl_attr}>{escape(link["label"])}</a>\n'
         html += '    </span>\n'
         html += '  </span>\n'
-    html += '  <span class="contact-tip">Contact<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
+    html += '  <span class="contact-tip" title="Contact">?<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
     html += '</div>\n'
     html += '</div>\n'
 
     # Second row: filters + counts + date
     html += '<div class="header-bottom" id="filter-bar">\n'
-    html += '<span class="filter-label">Filter:</span>\n'
     html += '<button class="filter-btn" data-filter="fuel">Fuel</button>\n'
     html += '<button class="filter-btn" data-filter="night">Night Ops</button>\n'
     html += '<button class="filter-btn" data-filter="towered">Towered</button>\n'
@@ -1492,7 +1491,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
     html += '<button class="filter-btn sort-btn" id="nearby-btn" style="display:none;" data-sort="nearest">Nearest</button>\n'
     html += '<span id="filter-count"></span>\n'
     html += '<span id="search-count"></span>\n'
-    html += f'<span class="updated">Updated {build_date}</span>\n'
+    html += f'<span class="updated">{len(airfields)} airfields &middot; {build_date}</span>\n'
     html += '</div>\n'
     html += '</header>\n'
 
