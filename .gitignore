@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 public/
+test_output.pdf
+test_pdfs/
+.superpowers/

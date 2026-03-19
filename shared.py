@@ -11,6 +11,7 @@ import re
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MD_FILE = os.path.join(BASE_DIR, 'AIRFIELD_DIRECTORY.md')
 VERIFIED_FACTS_FILE = os.path.join(BASE_DIR, 'verified_facts.json')
+AIRFIELDS_JSON = os.path.join(BASE_DIR, 'airfields.json')
 DIAGRAMS_DIR = os.path.join(BASE_DIR, 'diagrams')
 OUTPUT_HTML = os.path.join(BASE_DIR, 'Airfield_Directory.html')
 FAVICON_FILE = os.path.join(BASE_DIR, 'favicon.svg')

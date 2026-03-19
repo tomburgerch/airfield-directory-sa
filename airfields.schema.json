@@ -1,0 +1,567 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/tomburgerch/airfield-directory-sa/airfields.schema.json",
+  "title": "South African VFR Airfield Directory",
+  "description": "Schema for airfields.json — the single source of truth for the SA airfield directory.",
+  "type": "object",
+  "required": ["meta", "airfields"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["version", "last_full_scan", "source_registry"],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Schema version of this file."
+        },
+        "last_full_scan": {
+          "type": "string",
+          "format": "date",
+          "description": "ISO date when data was last fully reviewed."
+        },
+        "source_registry": {
+          "type": "object",
+          "description": "Maps short source IDs to full metadata. Keys are source IDs referenced by source objects across the file.",
+          "additionalProperties": {
+            "$ref": "#/definitions/source_registry_entry"
+          }
+        }
+      }
+    },
+    "airfields": {
+      "type": "array",
+      "description": "All airfield entries.",
+      "items": {
+        "$ref": "#/definitions/airfield"
+      }
+    }
+  },
+  "definitions": {
+    "source_registry_entry": {
+      "type": "object",
+      "description": "A registered source in the source registry.",
+      "required": ["name", "authority"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable display name of the source."
+        },
+        "authority": {
+          "type": "string",
+          "enum": ["official", "community"],
+          "description": "Authority level. 'official' = government/regulatory; 'community' = crowd-sourced."
+        },
+        "url_template": {
+          "type": "string",
+          "description": "URL template with {icao} placeholder for auto-generating per-airfield links."
+        },
+        "url_base": {
+          "type": "string",
+          "description": "Base URL for sources without a per-airfield template (e.g. forum sites)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional long-form description of the source."
+        },
+        "license": {
+          "type": "string",
+          "description": "License under which the source data is available (e.g. 'CC BY-SA 4.0')."
+        }
+      }
+    },
+    "source_object": {
+      "type": "object",
+      "description": "Attribution object co-located with the data it describes. Must have exactly one of 'id' or 'url'. If 'url' is present, 'name' is required.",
+      "required": ["collected"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Key into source_registry. Use for well-known sources."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Direct URL to the source. Use for one-off sources (e.g. flying club websites)."
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name for the source. Required when 'url' is present (registry cannot supply it)."
+        },
+        "collected": {
+          "type": "string",
+          "format": "date",
+          "description": "ISO date (YYYY-MM-DD) when this data was gathered. NOT the file generation date."
+        },
+        "verified": {
+          "type": "boolean",
+          "description": "Whether the data has been independently verified. Defaults to true for official sources, false otherwise."
+        }
+      },
+      "oneOf": [
+        {
+          "required": ["id"],
+          "not": { "required": ["url"] },
+          "properties": {
+            "id": { "type": "string" },
+            "name": {},
+            "collected": {},
+            "verified": {}
+          }
+        },
+        {
+          "required": ["url", "name"],
+          "not": { "required": ["id"] },
+          "properties": {
+            "url": { "type": "string", "format": "uri" },
+            "name": { "type": "string" },
+            "collected": {},
+            "verified": {}
+          }
+        }
+      ]
+    },
+    "coordinates": {
+      "type": "object",
+      "description": "Location coordinates. Decimal is canonical; DMS is for display only.",
+      "required": ["lat", "lon"],
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "description": "Decimal latitude. Negative = South."
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "description": "Decimal longitude. Negative = West."
+        },
+        "dms": {
+          "type": "string",
+          "description": "DMS representation for display (e.g. 'S33°58\\'50\" E18°49\\'22\"'). If it disagrees with decimal, decimal takes precedence."
+        }
+      }
+    },
+    "frequency_entry": {
+      "type": "object",
+      "description": "A single radio frequency entry in the communications table.",
+      "required": ["service", "freq"],
+      "additionalProperties": false,
+      "properties": {
+        "service": {
+          "type": "string",
+          "description": "Service name (e.g. 'Aerodrome Traffic', 'Ground')."
+        },
+        "freq": {
+          "type": "string",
+          "description": "Frequency string including unit (e.g. '119.3 MHz')."
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Optional remarks about this frequency."
+        }
+      }
+    },
+    "runway_entry": {
+      "type": "object",
+      "description": "A single runway entry.",
+      "required": ["rwy"],
+      "additionalProperties": false,
+      "properties": {
+        "rwy": {
+          "type": "string",
+          "description": "Runway designator (e.g. '01', '19', '09L')."
+        },
+        "length": {
+          "type": "string",
+          "description": "Runway length with unit (e.g. '760 m')."
+        },
+        "width": {
+          "type": "string",
+          "description": "Runway width with unit (e.g. '16 m')."
+        },
+        "surface": {
+          "type": "string",
+          "description": "Surface type (e.g. 'Asphalt', 'Grass', 'Gravel')."
+        },
+        "strength": {
+          "type": "string",
+          "description": "Load-bearing strength (e.g. 'LCN 20', 'PCN 10')."
+        },
+        "circuit": {
+          "type": "string",
+          "enum": ["Left", "Right", "left", "right"],
+          "description": "Circuit direction. Right-hand circuits are highlighted in red."
+        },
+        "slope": {
+          "type": "string",
+          "description": "Runway slope, if known."
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Optional remarks for this runway."
+        }
+      }
+    },
+    "note_entry": {
+      "type": "object",
+      "description": "An individual note with its own source attribution.",
+      "required": ["text", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The note text."
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "warning_entry": {
+      "type": "object",
+      "description": "An individual warning with its own source attribution. Rendered with red background.",
+      "required": ["text", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The warning text."
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "link_entry": {
+      "type": "object",
+      "description": "A curated external link for an airfield.",
+      "required": ["label", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Human-readable link label."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL."
+        }
+      }
+    },
+    "notam_entry": {
+      "type": "object",
+      "description": "A single NOTAM item fetched at build time.",
+      "required": ["id", "text", "effective"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "NOTAM identifier (e.g. 'A1234/26')."
+        },
+        "text": {
+          "type": "string",
+          "description": "NOTAM summary text."
+        },
+        "effective": {
+          "type": "string",
+          "format": "date",
+          "description": "Date the NOTAM becomes effective."
+        },
+        "expiry": {
+          "type": "string",
+          "format": "date",
+          "description": "Date the NOTAM expires. Omit if permanent."
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "Relevance priority for display filtering."
+        }
+      }
+    },
+    "basic_info": {
+      "type": "object",
+      "description": "Core airfield data: location, elevation, magnetic variation.",
+      "required": ["source"],
+      "additionalProperties": false,
+      "properties": {
+        "coordinates": {
+          "$ref": "#/definitions/coordinates"
+        },
+        "elevation": {
+          "type": "string",
+          "description": "Airfield elevation with unit (e.g. '321 ft AMSL')."
+        },
+        "mag_var": {
+          "type": "string",
+          "description": "Magnetic variation (e.g. '23°W')."
+        },
+        "ref_temp": {
+          "type": "string",
+          "description": "Reference temperature (e.g. '15°C')."
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "operations": {
+      "type": "object",
+      "description": "Operational details: access, hours, fuel, circuit info.",
+      "required": ["source"],
+      "additionalProperties": false,
+      "properties": {
+        "access": {
+          "type": "string",
+          "description": "Access type / restrictions (e.g. 'Private — Club members and training only')."
+        },
+        "hours": {
+          "type": ["string", "null"],
+          "description": "Operating hours (e.g. 'MON–FRI 0700–1500'). Null if unknown."
+        },
+        "fuel": {
+          "type": ["string", "null"],
+          "description": "Available fuel types (e.g. 'AVGAS 100LL, Aeroshell Oil ASO W100')."
+        },
+        "fuel_hours": {
+          "type": ["string", "null"],
+          "description": "Fuel service hours if different from operating hours."
+        },
+        "night_ops": {
+          "type": ["boolean", "null"],
+          "description": "Whether night operations are permitted."
+        },
+        "fire_cat": {
+          "type": ["string", "null"],
+          "description": "ICAO fire category (e.g. 'Category 2')."
+        },
+        "joining_alt": {
+          "type": ["string", "null"],
+          "description": "Overhead joining altitude (e.g. '1800 ft AMSL')."
+        },
+        "circuit_alt": {
+          "type": ["string", "null"],
+          "description": "Circuit altitude (e.g. '1300 ft AMSL')."
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "communications": {
+      "type": "object",
+      "description": "Radio frequencies and contact numbers.",
+      "required": ["source"],
+      "additionalProperties": false,
+      "properties": {
+        "primary_freq": {
+          "type": ["string", "null"],
+          "description": "Primary aerodrome frequency (e.g. '119.3 MHz')."
+        },
+        "frequencies_table": {
+          "type": "array",
+          "description": "Full frequencies table, used when multiple services exist.",
+          "items": {
+            "$ref": "#/definitions/frequency_entry"
+          }
+        },
+        "tower_phone": {
+          "type": ["string", "null"],
+          "description": "Tower / operations phone number."
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "runways": {
+      "type": "object",
+      "description": "Runway data.",
+      "required": ["data", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "array",
+          "description": "List of runway entries.",
+          "items": {
+            "$ref": "#/definitions/runway_entry"
+          }
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "description": "Contact details for the airfield operator or flying club.",
+      "required": ["source"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": ["string", "null"],
+          "description": "Organisation or contact name."
+        },
+        "phone": {
+          "type": ["string", "null"],
+          "description": "Phone number."
+        },
+        "email": {
+          "type": ["string", "null"],
+          "description": "Email address."
+        },
+        "address": {
+          "type": ["string", "null"],
+          "description": "Postal or street address."
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "diagram": {
+      "type": "object",
+      "description": "Aerodrome diagram image.",
+      "required": ["file", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Relative path to the diagram image file (e.g. 'diagrams/FASH.png')."
+        },
+        "source": {
+          "$ref": "#/definitions/source_object"
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "description": "Curated external links. Auto-generated links (AIP, OurAirports, SkyVector) are computed at build time from the source registry and are NOT stored here.",
+      "additionalProperties": false,
+      "properties": {
+        "websites": {
+          "type": "array",
+          "description": "Manually curated per-airfield websites (flying clubs, operator pages).",
+          "items": {
+            "$ref": "#/definitions/link_entry"
+          }
+        },
+        "aip": {
+          "type": "string",
+          "format": "uri",
+          "description": "Direct AIP link when the URL does not follow the standard template."
+        }
+      }
+    },
+    "notams": {
+      "oneOf": [
+        {
+          "type": "array",
+          "description": "Empty array when no NOTAMs have been fetched yet.",
+          "maxItems": 0
+        },
+        {
+          "type": "object",
+          "description": "NOTAM data fetched at build time.",
+          "required": ["fetched", "items"],
+          "additionalProperties": false,
+          "properties": {
+            "fetched": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 timestamp when NOTAMs were fetched."
+            },
+            "items": {
+              "type": "array",
+              "description": "Filtered, prioritised NOTAM items. Maximum 2–3 per airfield.",
+              "items": {
+                "$ref": "#/definitions/notam_entry"
+              }
+            },
+            "all_notams_url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Link to the official SACAA/ATNS NOTAM page for this airfield."
+            }
+          }
+        }
+      ]
+    },
+    "airfield": {
+      "type": "object",
+      "description": "A single airfield entry.",
+      "required": ["number", "name", "group", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Internal sequential number. Not displayed publicly."
+        },
+        "name": {
+          "type": "string",
+          "description": "Full airfield name in uppercase (e.g. 'STELLENBOSCH AIRFIELD')."
+        },
+        "icao": {
+          "type": "string",
+          "description": "ICAO or local code (e.g. 'FASH', 'ZA-0042'). FA-series = licensed; ZA-series = unlicensed."
+        },
+        "group": {
+          "type": "string",
+          "description": "Geographic group / province (e.g. 'Western Cape')."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "closed", "military", "decommissioned"],
+          "description": "Operational status."
+        },
+        "basic_info": {
+          "$ref": "#/definitions/basic_info"
+        },
+        "operations": {
+          "$ref": "#/definitions/operations"
+        },
+        "communications": {
+          "$ref": "#/definitions/communications"
+        },
+        "runways": {
+          "$ref": "#/definitions/runways"
+        },
+        "notes": {
+          "type": "array",
+          "description": "Per-item annotated notes. Each note carries its own source.",
+          "items": {
+            "$ref": "#/definitions/note_entry"
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "description": "Per-item annotated warnings. Rendered with red background.",
+          "items": {
+            "$ref": "#/definitions/warning_entry"
+          }
+        },
+        "contact": {
+          "$ref": "#/definitions/contact"
+        },
+        "diagram": {
+          "$ref": "#/definitions/diagram"
+        },
+        "links": {
+          "$ref": "#/definitions/links"
+        },
+        "notams": {
+          "$ref": "#/definitions/notams"
+        }
+      }
+    }
+  }
+}
