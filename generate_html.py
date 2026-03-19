@@ -39,13 +39,6 @@ def embed_image(path, max_width=500):
     return f'<img src="data:{mime};base64,{data}" style="max-width:{max_width}px; height:auto;" alt="Aerodrome diagram">'
 
 
-def extract_links(raw_value):
-    """Extract markdown links from a raw field value, return list of (label, url)."""
-    if not raw_value:
-        return []
-    return re.findall(r'\[([^\]]+)\]\(([^)]+)\)', raw_value)
-
-
 CSS = """
 :root {
     --navy: #1a1a1a;
@@ -498,18 +491,6 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     border-top: 1px solid var(--border);
     padding-top: 6px;
 }
-.web-links {
-    font-size: 12px;
-    margin-bottom: 8px;
-    display: flex; flex-wrap: wrap; gap: 4px 14px;
-}
-.web-links a {
-    color: var(--blue);
-    text-decoration: none;
-    font-weight: 600;
-}
-.web-links a:hover { text-decoration: underline; }
-
 /* ── Back to top ── */
 .back-to-top {
     position: fixed;
@@ -1246,16 +1227,6 @@ def build_airfield_card(airfield, meta=None, embed_diagrams=False, pdf_filename=
 
     if grid_items:
         html += '    <div class="info-grid">\n' + ''.join(grid_items) + '    </div>\n'
-
-    # Website links from JSON
-    websites = airfield.get('links', {}).get('websites', [])
-    if websites:
-        html += '    <div class="web-links">\n'
-        for site in websites:
-            label = site.get('label', site.get('url', ''))
-            url = site.get('url', '')
-            html += f'      <a href="{escape(url)}" target="_blank" rel="noopener">{escape(clean_html(label))}</a>\n'
-        html += '    </div>\n'
 
     # Frequencies table
     freq_table = comms.get('frequencies_table', [])
