@@ -67,15 +67,19 @@ body {
 
 /* ── Unified Header ── */
 .site-header {
-    background: var(--navy);
-    color: white;
-    padding: 10px 0 0;
     position: sticky;
     top: 0;
     z-index: 1100;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background: #f5f3ee;
+    border-bottom: 1px solid #e5e0d5;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 .header-top {
+    background: var(--navy);
+    color: white;
+    padding: 8px 0;
+}
+.header-top-inner {
     display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
     max-width: 900px; margin: 0 auto; padding: 0 16px;
 }
@@ -185,9 +189,8 @@ body {
 .contact-tip:hover .contact-tooltip { display: block; }
 .header-bottom {
     display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
-    max-width: 900px; margin: 0 auto; padding: 8px 16px;
-    background: #f5f3ee;
-    border-bottom: 1px solid #e5e0d5;
+    max-width: 900px; margin: 0 auto;
+    padding: 6px 16px;
 }
 .header-bottom .filter-label {
     font-size: 10px;
@@ -229,6 +232,7 @@ body {
 .header-bottom .updated {
     font-size: 10px; color: #a09890;
     margin-left: auto;
+    white-space: nowrap;
 }
 
 /* ── Sort index (A-Z / Nearest) ── */
@@ -625,7 +629,7 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     .site-header h1 { font-size: 14px; }
     .toc-grid { grid-template-columns: 1fr; }
     #sort-index .sort-index-grid { grid-template-columns: 1fr; }
-    .header-top { gap: 8px; }
+    .header-top-inner { gap: 8px; }
     .header-actions { gap: 3px; }
     .header-bottom { gap: 4px; }
     .fir-map { height: 250px; }
@@ -1428,6 +1432,7 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
     # Unified header: logo + search + actions + filters
     html += '<header class="site-header">\n'
     html += '<div class="header-top">\n'
+    html += '<div class="header-top-inner">\n'
     html += '<h1><a href="https://wagyuwings.com" style="color:#FFD700;text-decoration:none">Wagyu Wings</a></h1>\n'
     html += '<div class="search-wrapper">\n'
     html += '<input type="text" id="search-box" placeholder="Search airfields, codes, frequencies... (press /)">\n'
@@ -1445,7 +1450,8 @@ def generate_html(airfields, output_path, meta=None, embed_diagrams=False, downl
         html += '  </span>\n'
     html += '  <span class="contact-tip" title="Contact">?<span class="contact-tooltip"><span class="contact-tooltip-inner">Bug report or feedback?<br><a href="mailto:info@cedricwaldburger.com">info@cedricwaldburger.com</a></span></span></span>\n'
     html += '</div>\n'
-    html += '</div>\n'
+    html += '</div>\n'  # header-top-inner
+    html += '</div>\n'  # header-top
 
     # Second row: filters + counts + date
     html += '<div class="header-bottom" id="filter-bar">\n'
