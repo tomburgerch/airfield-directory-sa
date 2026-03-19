@@ -352,7 +352,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS 100LL & 95ULP (MSFA: +27 21 569 3726)",
+        "fuel": "AVGAS 100LL & 95ULP (MSFA: +27 21 569 3726)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -363,7 +363,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Club members & visitors (contact MSFA)"
+        "access": "Club members & visitors (contact MSFA)"
       },
       "communications": {
         "primary_freq": "126.8 MHz",
@@ -448,7 +448,7 @@
           }
         },
         {
-          "text": "📅 Forum reports (2020): Frequency change to 126.8 caused initial confusion as 126.8 is also PE ATIS. AvCom thread",
+          "text": "Forum reports (2020): Frequency change to 126.8 caused initial confusion as 126.8 is also PE ATIS. AvCom thread",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -502,7 +502,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS 100LL, Aeroshell Oil ASO W100 (Shell / SFC: +27 21 880 1907) — capacity 20,000 L",
+        "fuel": "AVGAS 100LL, Aeroshell Oil ASO W100 (Shell / SFC: +27 21 880 1907) — capacity 20,000 L",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": "Category 2 (fire tender 2,200L medium pumper)",
@@ -512,7 +512,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — Club members and training only"
+        "access": "Private — Club members and training only"
       },
       "communications": {
         "primary_freq": "119.3 MHz",
@@ -607,14 +607,14 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Poles 4 m high erected 150 m from final approach of RWY 01",
+          "text": "[!] Poles 4 m high erected 150 m from final approach of RWY 01",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
           }
         },
         {
-          "text": "⚠️ Increased bird activity on and around AD",
+          "text": "[!] Increased bird activity on and around AD",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -664,7 +664,7 @@
       },
       "operations": {
         "hours": "Mon–Fri 06:00–15:00Z; Sat–Sun 06:00–10:00Z",
-        "fuel": "⛽ AVGAS 100LL, W100 oil",
+        "fuel": "AVGAS 100LL, W100 oil",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -675,7 +675,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — in private ownership since 1993"
+        "access": "Private — in private ownership since 1993"
       },
       "communications": {
         "primary_freq": "131.1 MHz",
@@ -786,7 +786,7 @@
           }
         },
         {
-          "text": "📅 Aerosport moved FROM here to Wintervogel when lease wasn't renewed (~2018)",
+          "text": "Aerosport moved FROM here to Wintervogel when lease wasn't renewed (~2018)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -794,7 +794,7 @@
           }
         },
         {
-          "text": "📅 R8B international airport development: Environmental Authorisation granted Oct 2025, WBHO selected as builder Dec 2025. Phase 1 plans: 3.5 km runway, terminal for 5.2M pax/year. Construction expected Q4 2026, commissioning early 2028. Six appeals pending as of Feb 2026",
+          "text": "R8B international airport development: Environmental Authorisation granted Oct 2025, WBHO selected as builder Dec 2025. Phase 1 plans: 3.5 km runway, terminal for 5.2M pax/year. Construction expected Q4 2026, commissioning early 2028. Six appeals pending as of Feb 2026",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -804,7 +804,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ AIAA (Area of Intense Aerial Activity) — banner tow, crop spraying, intensive flight training with multiple aircraft and multiple active runways",
+          "text": "[!] AIAA (Area of Intense Aerial Activity) — banner tow, crop spraying, intensive flight training with multiple aircraft and multiple active runways",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -856,7 +856,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ 100LL AVGAS (per AirportGuide — verify locally)",
+        "fuel": "100LL AVGAS (per AirportGuide — verify locally)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -867,7 +867,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private"
+        "access": "Private"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -968,7 +968,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private airstrip"
+        "access": "Private airstrip"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -1082,7 +1082,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (skydiving operations)"
+        "access": "Private (skydiving operations)"
       },
       "communications": {
         "primary_freq": "124.4 MHz",
@@ -1138,7 +1138,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Active parachute drop zone",
+          "text": "[!] Active parachute drop zone",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1192,7 +1192,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private airstrip on privately-owned farm"
+        "access": "Private airstrip on privately-owned farm"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -1270,7 +1270,7 @@
           }
         },
         {
-          "text": "📅 Forum post (AvCom ~2018): Owner improving runways, grass being cut",
+          "text": "Forum post (AvCom ~2018): Owner improving runways, grass being cut",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1327,7 +1327,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS & Jet A1",
+        "fuel": "AVGAS & Jet A1",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -1338,7 +1338,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Authorised landings only — contact Daan Morkel before arriving"
+        "access": "Authorised landings only — contact Daan Morkel before arriving"
       },
       "communications": {
         "primary_freq": "124.2 MHz",
@@ -1410,7 +1410,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Skydiving operations — be alert for parachute activity",
+          "text": "[!] Skydiving operations — be alert for parachute activity",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1469,7 +1469,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (skydiving operations)"
+        "access": "Private (skydiving operations)"
       },
       "communications": {
         "primary_freq": null,
@@ -1531,7 +1531,7 @@
           }
         },
         {
-          "text": "📅 Windguru weather station active",
+          "text": "Windguru weather station active",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1541,7 +1541,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Active parachute drop zone",
+          "text": "[!] Active parachute drop zone",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1595,7 +1595,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "⛔ CLOSED"
+        "access": "[X] CLOSED"
       },
       "communications": {
         "primary_freq": null,
@@ -1630,7 +1630,7 @@
           }
         },
         {
-          "text": "📅 Forum reports: trees halfway down runway, mountain downdrafts, significant slope, people on runway",
+          "text": "Forum reports: trees halfway down runway, mountain downdrafts, significant slope, people on runway",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1656,7 +1656,7 @@
       ],
       "warnings": [
         {
-          "text": "⛔ DO NOT plan operations to FAPU",
+          "text": "[X] DO NOT plan operations to FAPU",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1699,7 +1699,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ 100LL AVGAS (per AirportGuide — verify availability)",
+        "fuel": "100LL AVGAS (per AirportGuide — verify availability)",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -1710,7 +1710,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓ — possibly disused"
+        "access": "(?) — possibly disused"
       },
       "communications": {
         "primary_freq": "131.5 MHz",
@@ -1750,7 +1750,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ 📅 Forum report (2014): \"Two soccer fields and a fence means this runway is no longer active\"",
+          "text": "[!] Forum report (2014): \"Two soccer fields and a fence means this runway is no longer active\"",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1758,7 +1758,7 @@
           }
         },
         {
-          "text": "⛔ Likely CLOSED — verify status before planning any operations",
+          "text": "[X] Likely CLOSED — verify status before planning any operations",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1811,7 +1811,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓ Possibly disused/historical"
+        "access": "(?) Possibly disused/historical"
       },
       "communications": {
         "primary_freq": null,
@@ -1849,7 +1849,7 @@
           }
         },
         {
-          "text": "❓ May no longer exist — verify before planning",
+          "text": "(?) May no longer exist — verify before planning",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1859,7 +1859,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ ICAO code conflict: metar-taf.com assigns FADR to Dunnottar Airfield in Gauteng. FAA's SA list shows FADR as \"Darling\"",
+          "text": "[!] ICAO code conflict: metar-taf.com assigns FADR to Dunnottar Airfield in Gauteng. FAA's SA list shows FADR as \"Darling\"",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -1913,7 +1913,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 MILITARY — SANDF/SAAF satellite training field for AFB Langebaanweg"
+        "access": "MILITARY — SANDF/SAAF satellite training field for AFB Langebaanweg"
       },
       "communications": {
         "primary_freq": "113.00 MHz",
@@ -1977,7 +1977,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Active military facility — civil pilots must obtain prior military authorisation",
+          "text": "[!] Active military facility — civil pilots must obtain prior military authorisation",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -2019,7 +2019,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ Jet A1, AVGAS",
+        "fuel": "Jet A1, AVGAS",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -2029,7 +2029,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (landing fees apply)"
+        "access": "Public (landing fees apply)"
       },
       "communications": {
         "primary_freq": null,
@@ -2128,7 +2128,7 @@
           }
         },
         {
-          "text": "📅 Major upgrade program (R11.3B+) announced 2026: new realigned 3,500m Code F runway, terminal expansions, rapid exit taxiways. Construction beginning 2026, phased through 2029",
+          "text": "Major upgrade program (R11.3B+) announced 2026: new realigned 3,500m Code F runway, terminal expansions, rapid exit taxiways. Construction beginning 2026, phased through 2029",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -2137,7 +2137,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Notorious for wind (>20 kt common), fog, and terrain (Table Mountain 3,500 ft, 8 nm west)",
+          "text": "[!] Notorious for wind (>20 kt common), fog, and terrain (Table Mountain 3,500 ft, 8 nm west)",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -2194,7 +2194,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military — NO civilian access"
+        "access": "Military — NO civilian access"
       },
       "communications": {
         "primary_freq": null,
@@ -2275,7 +2275,7 @@
       },
       "operations": {
         "hours": "HJ (sunrise to sunset)",
-        "fuel": "❌ None available",
+        "fuel": "None available",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -2285,7 +2285,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (municipal)"
+        "access": "Public (municipal)"
       },
       "communications": {
         "primary_freq": "122.7 MHz",
@@ -2322,14 +2322,14 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Must obtain clearance from Langebaan MIL APP on 122.5 MHz or TWR 120.8 / 128.8 MHz before operating",
+          "text": "[!] Must obtain clearance from Langebaan MIL APP on 122.5 MHz or TWR 120.8 / 128.8 MHz before operating",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
           }
         },
         {
-          "text": "⚠️ Radio mast ELEV 725 ft, 2.4 NM ENE of airfield",
+          "text": "[!] Radio mast ELEV 725 ft, 2.4 NM ENE of airfield",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -2381,7 +2381,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military (SAAF) — civilian use requires military authorisation"
+        "access": "Military (SAAF) — civilian use requires military authorisation"
       },
       "communications": {
         "primary_freq": null,
@@ -2445,7 +2445,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Civilian PPR status — contact SAAF well in advance",
+          "text": "[!] Civilian PPR status — contact SAAF well in advance",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -2484,7 +2484,7 @@
           "lon": 18.544722,
           "dms": "S31°38'27\" E18°32'41\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
@@ -2499,7 +2499,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -2573,18 +2573,18 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ 100LL AVGAS ❓ (verify locally)",
+        "fuel": "100LL AVGAS (?) (verify locally)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
         "joining_alt": null,
-        "circuit_alt": "~1532 ft AMSL (1000 ft AGL) ❓",
+        "circuit_alt": "~1532 ft AMSL (1000 ft AGL) (?)",
         "source": {
           "url": "https://www.avcom.co.za/phpBB3/",
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓ (small farmers airstrip)"
+        "access": "(?) (small farmers airstrip)"
       },
       "communications": {
         "primary_freq": null,
@@ -2674,18 +2674,18 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❌ Not reported",
+        "fuel": "Not reported",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
         "joining_alt": null,
-        "circuit_alt": "~1416 ft AMSL (1000 ft AGL) ❓",
+        "circuit_alt": "~1416 ft AMSL (1000 ft AGL) (?)",
         "source": {
           "url": "https://www.avcom.co.za/phpBB3/",
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -2785,7 +2785,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -2815,7 +2815,7 @@
           }
         },
         {
-          "text": "❓ Limited information",
+          "text": "(?) Limited information",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -2859,7 +2859,7 @@
       },
       "operations": {
         "hours": "AD: H24. Fuel: MON–SUN 0600–1100 & 1200–1600",
-        "fuel": "⛽ AVGAS, Aeroshell W100 (Shell / Worcester Flying Club)",
+        "fuel": "AVGAS, Aeroshell W100 (Shell / Worcester Flying Club)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -2869,7 +2869,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (Municipality)"
+        "access": "Private (Municipality)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -2945,21 +2945,21 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Glider operations — launching by aero tow and winching",
+          "text": "[!] Glider operations — launching by aero tow and winching",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
           }
         },
         {
-          "text": "⚠️ Caution on RWY 15/33 when vacating after rain in winter",
+          "text": "[!] Caution on RWY 15/33 when vacating after rain in winter",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
           }
         },
         {
-          "text": "⚠️ Caution on RWY 12/30 due to soft patches after rain in winter",
+          "text": "[!] Caution on RWY 12/30 due to soft patches after rain in winter",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -3011,7 +3011,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — PPR required, contact stephan@mooigezicht.co.za"
+        "access": "Private — PPR required, contact stephan@mooigezicht.co.za"
       },
       "communications": {
         "primary_freq": null,
@@ -3057,7 +3057,7 @@
           }
         },
         {
-          "text": "📅 Forum: New operator asks pilots to contact beforehand",
+          "text": "Forum: New operator asks pilots to contact beforehand",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -3113,22 +3113,22 @@
           "lon": 19.4275,
           "dms": "S33°19'00\" E19°25'39\" ❓"
         },
-        "elevation": "1,519 ft AMSL ❓ (some sources report 1,932 ft — discrepancy)"
+        "elevation": "1,519 ft AMSL (?) (some sources report 1,932 ft — discrepancy)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❌ None available",
+        "fuel": "None available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
         "joining_alt": null,
-        "circuit_alt": "~2519 ft AMSL (1000 ft AGL) ❓",
+        "circuit_alt": "~2519 ft AMSL (1000 ft AGL) (?)",
         "source": {
           "url": "https://www.avcom.co.za/phpBB3/",
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Not PPR, not private (per OpenAIP)"
+        "access": "Not PPR, not private (per OpenAIP)"
       },
       "communications": {
         "primary_freq": null,
@@ -3184,7 +3184,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Coordinate discrepancy between sources — verify on current charts",
+          "text": "[!] Coordinate discrepancy between sources — verify on current charts",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -3236,7 +3236,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (unmanned municipal airport)"
+        "access": "Public (unmanned municipal airport)"
       },
       "communications": {
         "primary_freq": "124.80 MHz",
@@ -3345,7 +3345,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓ (small airport, no scheduled service)"
+        "access": "(?) (small airport, no scheduled service)"
       },
       "communications": {
         "primary_freq": null,
@@ -3435,18 +3435,18 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS available",
+        "fuel": "AVGAS available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
         "joining_alt": null,
-        "circuit_alt": "~1936 ft AMSL (1000 ft AGL) ❓",
+        "circuit_alt": "~1936 ft AMSL (1000 ft AGL) (?)",
         "source": {
           "url": "https://www.avcom.co.za/phpBB3/",
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Open (Caledon Flight Club, NPO)"
+        "access": "Open (Caledon Flight Club, NPO)"
       },
       "communications": {
         "primary_freq": null,
@@ -3517,7 +3517,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Wind shear reported on approach to RWY 31 in NW wind conditions",
+          "text": "[!] Wind shear reported on approach to RWY 31 in NW wind conditions",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -3571,7 +3571,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "⛔ PERMANENTLY CLOSED"
+        "access": "[X] PERMANENTLY CLOSED"
       },
       "communications": {
         "primary_freq": null,
@@ -3601,7 +3601,7 @@
           }
         },
         {
-          "text": "Nearest alternatives: Caledon (FACG), Pearly Beach (ZA-0192) ❓, or Gansbaai area ❓",
+          "text": "Nearest alternatives: Caledon (FACG), Pearly Beach (ZA-0192) (?), or Gansbaai area (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -3611,7 +3611,7 @@
       ],
       "warnings": [
         {
-          "text": "⛔ DO NOT plan operations to FAHM",
+          "text": "[X] DO NOT plan operations to FAHM",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -3649,7 +3649,7 @@
           "lon": 20.250556,
           "dms": "S34°33'17\" E20°15'02\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
@@ -3663,7 +3663,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military / Test range — verify access"
+        "access": "Military / Test range — verify access"
       },
       "communications": {
         "primary_freq": null,
@@ -3721,7 +3721,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ May have restricted airspace — check NOTAMs",
+          "text": "[!] May have restricted airspace — check NOTAMs",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -3772,7 +3772,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -3848,7 +3848,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓ Private"
+        "access": "(?) Private"
       },
       "communications": {
         "primary_freq": null,
@@ -3905,7 +3905,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ Available by arrangement",
+        "fuel": "Available by arrangement",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -3916,7 +3916,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private AD — contact: Marius Heyneman +27 82 556 8184 / Jannie du Toit +27 76 555 1777"
+        "access": "Private AD — contact: Marius Heyneman +27 82 556 8184 / Jannie du Toit +27 76 555 1777"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -4011,7 +4011,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Avoid town and Bontebok National Park on departure/arrival",
+          "text": "[!] Avoid town and Bontebok National Park on departure/arrival",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -4062,7 +4062,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS, Jet A1",
+        "fuel": "AVGAS, Jet A1",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -4072,7 +4072,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (ATC, landing fees)"
+        "access": "Public (ATC, landing fees)"
       },
       "communications": {
         "primary_freq": null,
@@ -4208,7 +4208,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS, Jet A1, MOGAS",
+        "fuel": "AVGAS, Jet A1, MOGAS",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -4218,7 +4218,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (unmanned)"
+        "access": "Public (unmanned)"
       },
       "communications": {
         "primary_freq": "124.2 MHz",
@@ -4290,7 +4290,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Registered parachute drop zone (PJE sunrise–sunset)",
+          "text": "[!] Registered parachute drop zone (PJE sunrise–sunset)",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -4345,7 +4345,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (AFIS)"
+        "access": "Public (AFIS)"
       },
       "communications": {
         "primary_freq": null,
@@ -4426,7 +4426,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ FAR 47 boundary nearby",
+          "text": "[!] FAR 47 boundary nearby",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -4467,7 +4467,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ 100LL AVGAS ❓ (verify availability)",
+        "fuel": "100LL AVGAS (?) (verify availability)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -4478,7 +4478,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓ Unlicensed — may have threshold Xs (verify status)"
+        "access": "(?) Unlicensed — may have threshold Xs (verify status)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -4516,7 +4516,7 @@
           }
         },
         {
-          "text": "📅 AvCom: described as \"perfectly useable\", popular for breakfast runs (restaurant/farm stall on N2 nearby)",
+          "text": "AvCom: described as \"perfectly useable\", popular for breakfast runs (restaurant/farm stall on N2 nearby)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -4542,7 +4542,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Threshold Xs reported — verify status before planning",
+          "text": "[!] Threshold Xs reported — verify status before planning",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -4585,7 +4585,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS available periodically — phone first",
+        "fuel": "AVGAS available periodically — phone first",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -4596,7 +4596,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Civil airfield, VFR, not PPR"
+        "access": "Civil airfield, VFR, not PPR"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -4684,7 +4684,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Steep uphill first 150 m on threshold 09 — loose stones",
+          "text": "[!] Steep uphill first 150 m on threshold 09 — loose stones",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -4692,7 +4692,7 @@
           }
         },
         {
-          "text": "⚠️ Radio-controlled aircraft activities near threshold 09",
+          "text": "[!] Radio-controlled aircraft activities near threshold 09",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -4739,7 +4739,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❌ None available",
+        "fuel": "None available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -4749,7 +4749,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (unmanned)"
+        "access": "Public (unmanned)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -4807,7 +4807,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Runway deterioration noted",
+          "text": "[!] Runway deterioration noted",
           "source": {
             "id": "sacaa_aip",
             "collected": "2026-03-19"
@@ -4847,7 +4847,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS, Jet A1",
+        "fuel": "AVGAS, Jet A1",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -4857,7 +4857,7 @@
           "id": "sacaa_aip",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (AFIS)"
+        "access": "Public (AFIS)"
       },
       "communications": {
         "primary_freq": null,
@@ -4974,7 +4974,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -5031,7 +5031,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❌ None available",
+        "fuel": "None available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -5042,7 +5042,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Unmanned — unmanned procedures apply (not PPR, not private)"
+        "access": "Unmanned — unmanned procedures apply (not PPR, not private)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -5129,7 +5129,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ MUST fly over the strip before landing to ensure runway is clear of wildlife",
+          "text": "[!] MUST fly over the strip before landing to ensure runway is clear of wildlife",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -5253,7 +5253,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Nature reserve — contact CapeNature"
+        "access": "Nature reserve — contact CapeNature"
       },
       "communications": {
         "primary_freq": null,
@@ -5358,7 +5358,7 @@
     {
       "number": 45,
       "name": "STANFORD HILLS / WELTEVREDE STRIP",
-      "icao": "❓",
+      "icao": "ZA-0045",
       "group": "WESTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -5381,7 +5381,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (Stanford Hills Wine Estate, on Weltevrede farm)"
+        "access": "Private (Stanford Hills Wine Estate, on Weltevrede farm)"
       },
       "communications": {
         "primary_freq": null,
@@ -5411,7 +5411,7 @@
           }
         },
         {
-          "text": "📅 AvCom forum mention: airfield at Stanford thread",
+          "text": "AvCom forum mention: airfield at Stanford thread",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -5664,7 +5664,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Uncontrolled to 1500 ft AGL"
+        "access": "Uncontrolled to 1500 ft AGL"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -5728,7 +5728,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Trees on approach",
+          "text": "[!] Trees on approach",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -5781,7 +5781,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game lodge)"
+        "access": "Private (game lodge)"
       },
       "communications": {
         "primary_freq": null,
@@ -5914,7 +5914,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private ❓"
+        "access": "Private (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -6306,7 +6306,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private game reserve"
+        "access": "Private game reserve"
       },
       "communications": {
         "primary_freq": null,
@@ -6336,7 +6336,7 @@
           }
         },
         {
-          "text": "❓ Contact reserve for PPR and runway details",
+          "text": "(?) Contact reserve for PPR and runway details",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -6376,7 +6376,7 @@
           "lon": 20.615278,
           "dms": "S33°43'24\" E20°36'55\""
         },
-        "elevation": "❓ (~500 m / ~1,640 ft estimated from terrain)"
+        "elevation": "(?) (~500 m / ~1,640 ft estimated from terrain)"
       },
       "operations": {
         "hours": null,
@@ -6391,7 +6391,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private game reserve — charter flights arranged through reserve"
+        "access": "Private game reserve — charter flights arranged through reserve"
       },
       "communications": {
         "primary_freq": null,
@@ -6494,7 +6494,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private"
+        "access": "Private"
       },
       "communications": {
         "primary_freq": null,
@@ -6556,7 +6556,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -6618,7 +6618,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -6680,7 +6680,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -6719,7 +6719,7 @@
     {
       "number": 64,
       "name": "PORTERVILLE AIRFIELD",
-      "icao": "None",
+      "icao": "ZA-0064",
       "group": "WESTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -6748,7 +6748,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — but within FAR45 restricted airspace"
+        "access": "Public — but within FAR45 restricted airspace"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -6820,7 +6820,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Within FAR45 restricted area — military clearance required for entry",
+          "text": "[!] Within FAR45 restricted area — military clearance required for entry",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -6845,7 +6845,7 @@
     {
       "number": 65,
       "name": "GROENBERG AIRFIELD (near Wellington)",
-      "icao": "None",
+      "icao": "ZA-0065",
       "group": "WESTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -6859,7 +6859,7 @@
           "lon": 19.062778,
           "dms": "S33°33'07\" E19°03'46\" ❓"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
@@ -6874,7 +6874,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — contact owner for PPR"
+        "access": "Private — contact owner for PPR"
       },
       "communications": {
         "primary_freq": null,
@@ -6964,7 +6964,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -6975,7 +6975,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private / PPR"
+        "access": "Private / PPR"
       },
       "communications": {
         "primary_freq": null,
@@ -7063,7 +7063,7 @@
     {
       "number": 67,
       "name": "KERSEFONTEIN AIRFIELD (near Velddrif)",
-      "icao": "None",
+      "icao": "ZA-0067",
       "group": "WESTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -7077,7 +7077,7 @@
           "lon": 18.35,
           "dms": "S32°53' E18°21' ❓"
         },
-        "elevation": "❓ (low-lying, near Berg River floodplain)"
+        "elevation": "(?) (low-lying, near Berg River floodplain)"
       },
       "operations": {
         "hours": null,
@@ -7092,7 +7092,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private / PPR"
+        "access": "Private / PPR"
       },
       "communications": {
         "primary_freq": null,
@@ -7172,7 +7172,7 @@
     {
       "number": 68,
       "name": "GROOTBOS AIRFIELD (near Gansbaai)",
-      "icao": "None",
+      "icao": "ZA-0068",
       "group": "WESTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -7186,7 +7186,7 @@
           "lon": 19.413611,
           "dms": "S34°32'13\" E19°24'49\" ❓"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
@@ -7201,7 +7201,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — lodge guests only, PPR essential"
+        "access": "Private — lodge guests only, PPR essential"
       },
       "communications": {
         "primary_freq": null,
@@ -7326,7 +7326,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -7390,7 +7390,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Technically in Northern Cape province, but Tankwa Karoo straddles the provincial boundary",
+          "text": "[!] Technically in Northern Cape province, but Tankwa Karoo straddles the provincial boundary",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -7415,7 +7415,7 @@
     {
       "number": 70,
       "name": "STORMS RIVER MOUTH AIRFIELD",
-      "icao": "❓",
+      "icao": "ZA-0070",
       "group": "EASTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -7429,7 +7429,7 @@
           "lon": 23.9,
           "dms": "S33°58'30\" E23°54'00\" ❓"
         },
-        "elevation": "❓ ~100 ft AMSL"
+        "elevation": "(?) ~100 ft AMSL"
       },
       "operations": {
         "hours": null,
@@ -7444,7 +7444,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — SANParks / PPR"
+        "access": "Private — SANParks / PPR"
       },
       "communications": {
         "primary_freq": null,
@@ -7492,7 +7492,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Status uncertain — may no longer be operational",
+          "text": "[!] Status uncertain — may no longer be operational",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -7517,7 +7517,7 @@
     {
       "number": 71,
       "name": "JEFFREYS BAY / PARADISE BEACH AIRFIELD",
-      "icao": "❓",
+      "icao": "ZA-0071",
       "group": "EASTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -7531,11 +7531,11 @@
           "lon": 24.933333,
           "dms": "S33°57'00\" E24°56'00\" ❓"
         },
-        "elevation": "❓ ~50 ft AMSL"
+        "elevation": "(?) ~50 ft AMSL"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -7546,7 +7546,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private / PPR ❓"
+        "access": "Private / PPR (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -7638,7 +7638,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": "Category 7",
@@ -7649,7 +7649,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — International airport"
+        "access": "Public — International airport"
       },
       "communications": {
         "primary_freq": "118.1 MHz",
@@ -7783,7 +7783,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — contact Approach before entering CTR",
+          "text": "[!] Controlled airspace — contact Approach before entering CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -7826,7 +7826,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -7837,7 +7837,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "123.5 MHz",
@@ -7905,7 +7905,7 @@
           }
         },
         {
-          "text": "📅 AIP data may be outdated — verify before flight",
+          "text": "AIP data may be outdated — verify before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -7945,11 +7945,11 @@
           "lon": 26.88,
           "dms": "S33°35'05\" E26°52'48\" ❓"
         },
-        "elevation": "285 ft AMSL ❓"
+        "elevation": "285 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -7960,7 +7960,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -8008,7 +8008,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Verify operational status and conditions before flight",
+          "text": "[!] Verify operational status and conditions before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8053,7 +8053,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": "Category 6",
@@ -8064,7 +8064,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — Regional airport"
+        "access": "Public — Regional airport"
       },
       "communications": {
         "primary_freq": "118.3 MHz",
@@ -8182,7 +8182,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR from surface to 5500 ft",
+          "text": "[!] Controlled airspace — Class C CTR from surface to 5500 ft",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8225,7 +8225,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL ❓",
+        "fuel": "JET A-1, AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -8236,7 +8236,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "118.1 MHz",
@@ -8334,7 +8334,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1 ❓",
+        "fuel": "JET A-1 (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -8345,7 +8345,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -8399,7 +8399,7 @@
           }
         },
         {
-          "text": "Scheduled airline services (Airlink ❓)",
+          "text": "Scheduled airline services (Airlink (?))",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8425,7 +8425,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Terrain and weather can be challenging — mountainous area",
+          "text": "[!] Terrain and weather can be challenging — mountainous area",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8468,7 +8468,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL ❓",
+        "fuel": "JET A-1, AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -8479,7 +8479,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "122.7 MHz",
@@ -8535,7 +8535,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Sea fog can affect operations",
+          "text": "[!] Sea fog can affect operations",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8560,7 +8560,7 @@
     {
       "number": 79,
       "name": "PORT SHEPSTONE AIRFIELD",
-      "icao": "❓",
+      "icao": "ZA-0079",
       "group": "KWAZULU-NATAL",
       "status": "active",
       "basic_info": {
@@ -8574,11 +8574,11 @@
           "lon": 30.4,
           "dms": "S30°44'00\" E30°24'00\" ❓"
         },
-        "elevation": "❓ ~100 ft AMSL"
+        "elevation": "(?) ~100 ft AMSL"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -8589,7 +8589,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "❓"
+        "access": "(?)"
       },
       "communications": {
         "primary_freq": null,
@@ -8637,7 +8637,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Verify existence and accessibility — limited information available",
+          "text": "[!] Verify existence and accessibility — limited information available",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8682,7 +8682,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": "Category 9",
@@ -8693,7 +8693,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — International airport"
+        "access": "Public — International airport"
       },
       "communications": {
         "primary_freq": "118.45 MHz",
@@ -8803,7 +8803,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class B TMA, Class C CTR",
+          "text": "[!] Controlled airspace — Class B TMA, Class C CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8846,7 +8846,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS 100LL ❓",
+        "fuel": "AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -8857,7 +8857,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (ATNS-controlled)"
+        "access": "Public (ATNS-controlled)"
       },
       "communications": {
         "primary_freq": "120.6 MHz",
@@ -8937,7 +8937,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Within King Shaka CTR/TMA — coordinate with Durban Approach",
+          "text": "[!] Within King Shaka CTR/TMA — coordinate with Durban Approach",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -8980,7 +8980,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL ❓",
+        "fuel": "JET A-1, AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -8991,7 +8991,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "122.0 MHz",
@@ -9061,7 +9061,7 @@
           }
         },
         {
-          "text": "📅 Verify current ATC hours and status",
+          "text": "Verify current ATC hours and status",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9105,7 +9105,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL ❓",
+        "fuel": "JET A-1, AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -9116,7 +9116,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "118.9 MHz",
@@ -9216,7 +9216,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": "Category 10",
@@ -9227,7 +9227,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — Major international hub"
+        "access": "Public — Major international hub"
       },
       "communications": {
         "primary_freq": "118.1 MHz",
@@ -9383,7 +9383,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Busiest airport in Africa — Class A airspace above FL245",
+          "text": "[!] Busiest airport in Africa — Class A airspace above FL245",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9428,7 +9428,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": "Category 7",
@@ -9439,7 +9439,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — Secondary Johannesburg airport"
+        "access": "Public — Secondary Johannesburg airport"
       },
       "communications": {
         "primary_freq": "124.0 MHz",
@@ -9533,7 +9533,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR",
+          "text": "[!] Controlled airspace — Class C CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9578,10 +9578,10 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
-        "fire_cat": "Category 4 ❓",
+        "fire_cat": "Category 4 (?)",
         "joining_alt": null,
         "circuit_alt": null,
         "source": {
@@ -9589,7 +9589,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — GA airport"
+        "access": "Public — GA airport"
       },
       "communications": {
         "primary_freq": "120.8 MHz",
@@ -9620,7 +9620,7 @@
       },
       "notes": [
         {
-          "text": "Major GA hub — largest GA airport in Africa by movements ❓",
+          "text": "Major GA hub — largest GA airport in Africa by movements (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9654,7 +9654,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — within Johannesburg TMA",
+          "text": "[!] Controlled airspace — within Johannesburg TMA",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9699,7 +9699,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -9710,7 +9710,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — GA and charter"
+        "access": "Public — GA and charter"
       },
       "communications": {
         "primary_freq": "118.35 MHz",
@@ -9772,7 +9772,7 @@
           }
         },
         {
-          "text": "📅 Aerodrome licence upgraded from Category 2 to Category 5 (Aug 2023) — enables scheduled commercial operations",
+          "text": "Aerodrome licence upgraded from Category 2 to Category 5 (Aug 2023) — enables scheduled commercial operations",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9790,7 +9790,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR within Pretoria Special Rules Area",
+          "text": "[!] Controlled airspace — Class C CTR within Pretoria Special Rules Area",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9833,7 +9833,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS 100LL, JET A-1 ❓",
+        "fuel": "AVGAS 100LL, JET A-1 (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -9844,7 +9844,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — GA airport"
+        "access": "Public — GA airport"
       },
       "communications": {
         "primary_freq": "118.7 MHz",
@@ -9915,7 +9915,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — within Johannesburg TMA",
+          "text": "[!] Controlled airspace — within Johannesburg TMA",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -9960,10 +9960,10 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
-        "fire_cat": "Category 6 ❓",
+        "fire_cat": "Category 6 (?)",
         "joining_alt": null,
         "circuit_alt": null,
         "source": {
@@ -9971,7 +9971,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — Regional airport"
+        "access": "Public — Regional airport"
       },
       "communications": {
         "primary_freq": "120.8 MHz",
@@ -10044,7 +10044,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR",
+          "text": "[!] Controlled airspace — Class C CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10089,7 +10089,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -10100,7 +10100,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "118.2 MHz",
@@ -10173,7 +10173,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR",
+          "text": "[!] Controlled airspace — Class C CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10218,7 +10218,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL",
+        "fuel": "JET A-1, AVGAS 100LL",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -10229,7 +10229,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "121.3 MHz",
@@ -10316,7 +10316,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR",
+          "text": "[!] Controlled airspace — Class C CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10359,7 +10359,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1 ❓",
+        "fuel": "JET A-1 (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -10370,7 +10370,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "118.4 MHz",
@@ -10426,7 +10426,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Terminal building destroyed by fire (Aug 2023) — verify current operational status",
+          "text": "[!] Terminal building destroyed by fire (Aug 2023) — verify current operational status",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10434,7 +10434,7 @@
           }
         },
         {
-          "text": "⚠️ Game reserve nearby — bird and wildlife hazards",
+          "text": "[!] Game reserve nearby — bird and wildlife hazards",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10479,7 +10479,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL ❓",
+        "fuel": "JET A-1, AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -10490,7 +10490,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — Regional airport"
+        "access": "Public — Regional airport"
       },
       "communications": {
         "primary_freq": "119.2 MHz",
@@ -10563,7 +10563,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR",
+          "text": "[!] Controlled airspace — Class C CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10606,7 +10606,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1, AVGAS 100LL ❓",
+        "fuel": "JET A-1, AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -10617,7 +10617,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.3 MHz",
@@ -10688,7 +10688,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Controlled airspace — Class C CTR",
+          "text": "[!] Controlled airspace — Class C CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10731,7 +10731,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1 (military) ❓",
+        "fuel": "JET A-1 (military) (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -10742,7 +10742,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military — SAAF base with civilian PPR ❓"
+        "access": "Military — SAAF base with civilian PPR (?)"
       },
       "communications": {
         "primary_freq": "122.0 MHz",
@@ -10822,7 +10822,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ SAAF base — Prior Permission Required for civilian use",
+          "text": "[!] SAAF base — Prior Permission Required for civilian use",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10865,7 +10865,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -10876,7 +10876,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -10922,7 +10922,7 @@
           }
         },
         {
-          "text": "Recent R20M upgrade (2023 ❓)",
+          "text": "Recent R20M upgrade (2023 (?))",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -10974,7 +10974,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ JET A-1 ❓",
+        "fuel": "JET A-1 (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -10985,7 +10985,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -11083,7 +11083,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS 100LL ❓",
+        "fuel": "AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11094,7 +11094,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "118.8 MHz",
@@ -11200,7 +11200,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS 100LL ❓",
+        "fuel": "AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11211,7 +11211,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "120.2 MHz",
@@ -11305,11 +11305,11 @@
           "lon": 27.887778,
           "dms": "S26°21'36\" E27°53'16\" ❓"
         },
-        "elevation": "5,400 ft AMSL ❓"
+        "elevation": "5,400 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11320,7 +11320,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "119.6 MHz",
@@ -11414,11 +11414,11 @@
           "lon": 27.996389,
           "dms": "S26°21'16\" E27°59'47\" ❓"
         },
-        "elevation": "5,400 ft AMSL ❓"
+        "elevation": "5,400 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS 100LL ❓",
+        "fuel": "AVGAS 100LL (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11429,7 +11429,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "119.0 MHz",
@@ -11531,11 +11531,11 @@
           "lon": 28.080556,
           "dms": "S25°51'09\" E28°04'50\" ❓"
         },
-        "elevation": "4,900 ft AMSL ❓"
+        "elevation": "4,900 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11546,7 +11546,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public / Semi-private"
+        "access": "Public / Semi-private"
       },
       "communications": {
         "primary_freq": "118.6 MHz",
@@ -11644,7 +11644,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11655,7 +11655,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -11709,7 +11709,7 @@
           }
         },
         {
-          "text": "📅 Not an Airport of Entry (AOE)",
+          "text": "Not an Airport of Entry (AOE)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -11719,7 +11719,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ ICAO correction: The correct ICAO code is FACD, not FACR. FACR is Carltonville Airport (Gauteng).",
+          "text": "[!] ICAO correction: The correct ICAO code is FACD, not FACR. FACR is Carltonville Airport (Gauteng).",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -11727,7 +11727,7 @@
           }
         },
         {
-          "text": "⚠️ Runway condition reports (AvCom forums) suggest runway may be in poor condition — verify before flight",
+          "text": "[!] Runway condition reports (AvCom forums) suggest runway may be in poor condition — verify before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -11771,7 +11771,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11782,7 +11782,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -11895,7 +11895,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -11906,7 +11906,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -11984,7 +11984,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ May be closed or require prior permission — verify before flight",
+          "text": "[!] May be closed or require prior permission — verify before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -12027,7 +12027,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12038,7 +12038,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12102,7 +12102,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Verify operational status and runway conditions before flight",
+          "text": "[!] Verify operational status and runway conditions before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -12145,7 +12145,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12156,7 +12156,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12225,7 +12225,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ May be closed or require prior permission — verify before flight",
+          "text": "[!] May be closed or require prior permission — verify before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -12264,11 +12264,11 @@
           "lon": 24.792222,
           "dms": "S31°52'09\" E24°47'32\" ❓"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12279,7 +12279,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12327,7 +12327,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Pilot reports suggest airfield may no longer be serviceable — verify before flight",
+          "text": "[!] Pilot reports suggest airfield may no longer be serviceable — verify before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -12366,11 +12366,11 @@
           "lon": 24.670833,
           "dms": "S32°56'21\" E24°40'15\" ❓"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12381,7 +12381,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12459,11 +12459,11 @@
           "lon": 24.320278,
           "dms": "S33°20'14\" E24°19'13\" ❓"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12474,7 +12474,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12556,7 +12556,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12567,7 +12567,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12663,7 +12663,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12674,7 +12674,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12750,7 +12750,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12761,7 +12761,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private / Licensed aerodrome ❓"
+        "access": "Private / Licensed aerodrome (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12850,7 +12850,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12861,7 +12861,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -12916,7 +12916,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ May require prior permission",
+          "text": "[!] May require prior permission",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -12959,7 +12959,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -12970,7 +12970,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13044,7 +13044,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13055,7 +13055,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13156,7 +13156,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — CAA licensed"
+        "access": "Private — CAA licensed"
       },
       "communications": {
         "primary_freq": "130.35 MHz",
@@ -13234,11 +13234,11 @@
           "lon": 23.491389,
           "dms": "S33°15'48\" E23°29'29\" ❓"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13249,7 +13249,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13337,7 +13337,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13348,7 +13348,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13395,7 +13395,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Not Middelburg, Mpumalanga (FAMB)",
+          "text": "[!] Not Middelburg, Mpumalanga (FAMB)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -13403,7 +13403,7 @@
           }
         },
         {
-          "text": "⚠️ Reports suggest runway may not be in use — verify before flight",
+          "text": "[!] Reports suggest runway may not be in use — verify before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -13446,7 +13446,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13457,7 +13457,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13546,7 +13546,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13557,7 +13557,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13639,7 +13639,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13650,7 +13650,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13690,7 +13690,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Very high elevation (5,030 ft) — density altitude",
+          "text": "[!] Very high elevation (5,030 ft) — density altitude",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -13733,7 +13733,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13744,7 +13744,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13784,7 +13784,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Very high elevation (5,883 ft) — significant density altitude",
+          "text": "[!] Very high elevation (5,883 ft) — significant density altitude",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -13823,11 +13823,11 @@
           "lon": 28.466667,
           "dms": "S31°05'00\" E28°28'00\" ❓"
         },
-        "elevation": "4,400 ft AMSL ❓"
+        "elevation": "4,400 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13838,7 +13838,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -13916,11 +13916,11 @@
           "lon": 28.209167,
           "dms": "S31°13'16\" E28°12'33\" ❓"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -13931,7 +13931,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14005,7 +14005,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14016,7 +14016,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14098,7 +14098,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14109,7 +14109,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14179,11 +14179,11 @@
           "lon": 27.033333,
           "dms": "S31°23'00\" E27°02'00\" ❓"
         },
-        "elevation": "5,440 ft AMSL ❓ (1,658 m)"
+        "elevation": "5,440 ft AMSL (?) (1,658 m)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14194,7 +14194,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14234,7 +14234,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Very high elevation (~5,440 ft)",
+          "text": "[!] Very high elevation (~5,440 ft)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -14277,7 +14277,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14288,7 +14288,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14358,11 +14358,11 @@
           "lon": 29.583333,
           "dms": "S31°22'00\" E29°35'00\" ❓"
         },
-        "elevation": "1,831 ft AMSL ❓"
+        "elevation": "1,831 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14373,7 +14373,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14450,7 +14450,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14461,7 +14461,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14539,7 +14539,7 @@
           "lon": 27.208333,
           "dms": "S30°42'24\" E27°12'30\" ❓"
         },
-        "elevation": "~5,600 ft AMSL ❓"
+        "elevation": "~5,600 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -14554,7 +14554,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private ❓"
+        "access": "Private (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -14602,7 +14602,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Very high elevation (~5,600 ft)",
+          "text": "[!] Very high elevation (~5,600 ft)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -14627,7 +14627,7 @@
     {
       "number": 133,
       "name": "SHAMWARI GAME RESERVE AIRSTRIP",
-      "icao": "❓",
+      "icao": "ZA-0133",
       "group": "EASTERN CAPE",
       "status": "active",
       "basic_info": {
@@ -14645,7 +14645,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14656,7 +14656,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — PPR (contact Shamwari)"
+        "access": "Private — PPR (contact Shamwari)"
       },
       "communications": {
         "primary_freq": null,
@@ -14704,7 +14704,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Wild animals on and near the airstrip",
+          "text": "[!] Wild animals on and near the airstrip",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -14738,11 +14738,11 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14753,7 +14753,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — PPR"
+        "access": "Private — PPR"
       },
       "communications": {
         "primary_freq": null,
@@ -14827,7 +14827,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14838,7 +14838,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -14936,7 +14936,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -14947,7 +14947,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (not an AOE)"
+        "access": "Public (not an AOE)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -15045,7 +15045,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -15056,7 +15056,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -15153,7 +15153,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -15164,7 +15164,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -15220,7 +15220,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ OurAirports notes ICAO \"no longer recognised for ATC flight planning\" — verify status",
+          "text": "[!] OurAirports notes ICAO \"no longer recognised for ATC flight planning\" — verify status",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -15263,7 +15263,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ Available (fuel depot)",
+        "fuel": "Available (fuel depot)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -15274,7 +15274,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — scheduled Airlink service to JNB/DUR"
+        "access": "Public — scheduled Airlink service to JNB/DUR"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -15368,11 +15368,11 @@
           "lon": 30.585,
           "dms": "S30°34'12\" E30°35'06\" ❓"
         },
-        "elevation": "200 ft AMSL ❓"
+        "elevation": "200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -15383,7 +15383,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -15484,7 +15484,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -15585,7 +15585,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -15678,7 +15678,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — PPR required"
+        "access": "Private — PPR required"
       },
       "communications": {
         "primary_freq": null,
@@ -15779,7 +15779,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -15819,7 +15819,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Short runway (698 m) — light aircraft only",
+          "text": "[!] Short runway (698 m) — light aircraft only",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -15873,7 +15873,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -15973,7 +15973,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -16066,7 +16066,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -16160,11 +16160,11 @@
           "dms": "S29°01'59\" E26°09'27\""
         },
         "elevation": "4,547 ft AMSL",
-        "mag_var": "21°W ❓"
+        "mag_var": "21°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -16175,7 +16175,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "131.3 MHz",
@@ -16270,7 +16270,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Status uncertain — OurAirports marks as closed (verify before planning operations)",
+          "text": "[!] Status uncertain — OurAirports marks as closed (verify before planning operations)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -16278,7 +16278,7 @@
           }
         },
         {
-          "text": "⚠️ Within Bloemfontein TMA — VFR flights not on a flight plan must remain below 6,500 ft ALT and clear of the Bloemfontein CTR",
+          "text": "[!] Within Bloemfontein TMA — VFR flights not on a flight plan must remain below 6,500 ft ALT and clear of the Bloemfontein CTR",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -16318,11 +16318,11 @@
           "dms": "S28°14'55\" E28°20'10\""
         },
         "elevation": "5,561 ft AMSL",
-        "mag_var": "20°W ❓"
+        "mag_var": "20°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -16333,7 +16333,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -16412,7 +16412,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Very high elevation (5,561 ft) — density altitude critical in summer",
+          "text": "[!] Very high elevation (5,561 ft) — density altitude critical in summer",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -16452,11 +16452,11 @@
           "dms": "S27°59'53\" E26°40'12\""
         },
         "elevation": "4,399 ft AMSL",
-        "mag_var": "19°W ❓"
+        "mag_var": "19°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -16467,7 +16467,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "118.0 MHz",
@@ -16547,7 +16547,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Paragliding operations within 5 NM — exercise caution, monitor 118.0 MHz",
+          "text": "[!] Paragliding operations within 5 NM — exercise caution, monitor 118.0 MHz",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -16587,11 +16587,11 @@
           "dms": "S27°39'38\" E27°18'57\""
         },
         "elevation": "4,700 ft AMSL",
-        "mag_var": "19°W ❓"
+        "mag_var": "19°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -16602,7 +16602,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -16719,11 +16719,11 @@
           "dms": "S28°14'00\" E29°06'00\""
         },
         "elevation": "5,585 ft AMSL",
-        "mag_var": "20°W ❓"
+        "mag_var": "20°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -16734,7 +16734,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -16798,7 +16798,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Very high elevation (5,585 ft) — density altitude critical in summer",
+          "text": "[!] Very high elevation (5,585 ft) — density altitude critical in summer",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -16838,11 +16838,11 @@
           "dms": "S26°53'21\" E27°30'12\""
         },
         "elevation": "4,740 ft AMSL",
-        "mag_var": "18°W ❓"
+        "mag_var": "18°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -16853,7 +16853,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "123.5 MHz",
@@ -16963,11 +16963,11 @@
           "dms": "S28°49'23\" E27°54'32\""
         },
         "elevation": "5,315 ft AMSL",
-        "mag_var": "21°W ❓"
+        "mag_var": "21°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -16978,7 +16978,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private ❓"
+        "access": "Private (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17096,12 +17096,12 @@
           "lon": 26.822222,
           "dms": "S29°19'03\" E26°49'20\""
         },
-        "elevation": "4,940 ft AMSL ❓",
-        "mag_var": "21°W ❓"
+        "elevation": "4,940 ft AMSL (?)",
+        "mag_var": "21°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17112,7 +17112,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓ — landing permit may be required"
+        "access": "Public (?) — landing permit may be required"
       },
       "communications": {
         "primary_freq": null,
@@ -17150,7 +17150,7 @@
           }
         },
         {
-          "text": "Landing permit reported as required ❓ — verify before flight",
+          "text": "Landing permit reported as required (?) — verify before flight",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -17215,11 +17215,11 @@
           "dms": "S30°33'43\" E25°31'41\""
         },
         "elevation": "4,176 ft AMSL",
-        "mag_var": "22°W ❓"
+        "mag_var": "22°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17230,7 +17230,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17331,12 +17331,12 @@
           "lon": 28.515278,
           "dms": "S27°17'07\" E28°30'55\""
         },
-        "elevation": "~5,020 ft AMSL ❓",
-        "mag_var": "19°W ❓"
+        "elevation": "~5,020 ft AMSL (?)",
+        "mag_var": "19°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17347,7 +17347,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17384,7 +17384,7 @@
       },
       "notes": [
         {
-          "text": "Two runways — believed to be grass surface ❓",
+          "text": "Two runways — believed to be grass surface (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -17441,11 +17441,11 @@
           "dms": "S27°22'00\" E26°37'45\""
         },
         "elevation": "4,236 ft AMSL",
-        "mag_var": "18°W ❓"
+        "mag_var": "18°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17456,7 +17456,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17559,11 +17559,11 @@
           "dms": "S27°16'42\" E27°59'44\""
         },
         "elevation": "5,200 ft AMSL",
-        "mag_var": "19°W ❓"
+        "mag_var": "19°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17574,7 +17574,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17664,7 +17664,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17675,7 +17675,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17723,7 +17723,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ High elevation (5,499 ft) — density altitude significant",
+          "text": "[!] High elevation (5,499 ft) — density altitude significant",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -17762,11 +17762,11 @@
           "lon": 28.428611,
           "dms": "S27°47'03\" E28°25'43\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17777,7 +17777,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17863,11 +17863,11 @@
           "lon": 26.133333,
           "dms": "S28°17'00\" E26°08'00\" ❓"
         },
-        "elevation": "4,376 ft AMSL ❓"
+        "elevation": "4,376 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17878,7 +17878,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -17965,11 +17965,11 @@
           "dms": "S27°49'19\" E25°55'01\""
         },
         "elevation": "4,131 ft AMSL",
-        "mag_var": "21°W ❓"
+        "mag_var": "21°W (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "🚫 No fuel available",
+        "fuel": "No fuel available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -17980,7 +17980,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18078,7 +18078,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18089,7 +18089,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18175,11 +18175,11 @@
           "lon": 26.693333,
           "dms": "S27°52'15\" E26°41'36\""
         },
-        "elevation": "~4,350 ft AMSL ❓"
+        "elevation": "~4,350 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18190,7 +18190,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18280,7 +18280,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18291,7 +18291,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18381,7 +18381,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18392,7 +18392,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18489,7 +18489,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18500,7 +18500,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18578,11 +18578,11 @@
           "lon": 25.433056,
           "dms": "S29°45'45\" E25°25'59\""
         },
-        "elevation": "4,714 ft AMSL ❓"
+        "elevation": "4,714 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18593,7 +18593,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18679,11 +18679,11 @@
           "lon": 27.0,
           "dms": "S29°46'00\" E27°00'00\" ❓"
         },
-        "elevation": "~4,685 ft AMSL ❓"
+        "elevation": "~4,685 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18694,7 +18694,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18788,11 +18788,11 @@
           "lon": 27.116944,
           "dms": "S30°18'00\" E27°07'01\""
         },
-        "elevation": "4,265 ft AMSL ❓ (Mapcarta lists 1,632 m / 5,354 ft ❓ — verify)"
+        "elevation": "4,265 ft AMSL (?) (Mapcarta lists 1,632 m / 5,354 ft (?) — verify)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18803,7 +18803,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18892,11 +18892,11 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "elevation": "~4,239 ft AMSL ❓ (town at 1,292 m)"
+        "elevation": "~4,239 ft AMSL (?) (town at 1,292 m)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -18907,7 +18907,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -18997,7 +18997,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS available",
+        "fuel": "AVGAS available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -19008,7 +19008,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -19114,7 +19114,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -19125,7 +19125,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (restricted access historically — diamond mining)"
+        "access": "Public (restricted access historically — diamond mining)"
       },
       "communications": {
         "primary_freq": "118.7 MHz",
@@ -19248,7 +19248,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -19354,7 +19354,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -19365,7 +19365,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -19484,7 +19484,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS available",
+        "fuel": "AVGAS available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -19495,7 +19495,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -19585,7 +19585,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -19596,7 +19596,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -19697,7 +19697,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (primarily mining use)"
+        "access": "Public (primarily mining use)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -19798,7 +19798,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -19906,7 +19906,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20014,7 +20014,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20122,7 +20122,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20192,7 +20192,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Radio frequency restrictions may apply in the area",
+          "text": "[!] Radio frequency restrictions may apply in the area",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -20246,7 +20246,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20361,7 +20361,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20462,7 +20462,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20570,7 +20570,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (De Beers diamond mining — historically restricted)"
+        "access": "Private (De Beers diamond mining — historically restricted)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20656,7 +20656,7 @@
           "lon": 23.066667,
           "dms": "S28°20'00\" E23°04'00\" ❓"
         },
-        "elevation": "4,300 ft AMSL ❓"
+        "elevation": "4,300 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -20671,7 +20671,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -20753,7 +20753,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS available",
+        "fuel": "AVGAS available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -20764,7 +20764,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (no PPR required)"
+        "access": "Public (no PPR required)"
       },
       "communications": {
         "primary_freq": "122.4 MHz",
@@ -20820,7 +20820,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Parachute activity expected",
+          "text": "[!] Parachute activity expected",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -20863,7 +20863,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS (UL91) available",
+        "fuel": "AVGAS (UL91) available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -20874,7 +20874,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (not an AOE)"
+        "access": "Public (not an AOE)"
       },
       "communications": {
         "primary_freq": "123.5 MHz",
@@ -20944,7 +20944,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Slot coordinated — slots must be applied for prior to arrival",
+          "text": "[!] Slot coordinated — slots must be applied for prior to arrival",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -20987,7 +20987,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -20998,7 +20998,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (not an AOE)"
+        "access": "Public (not an AOE)"
       },
       "communications": {
         "primary_freq": null,
@@ -21061,7 +21061,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ ICAO is FAPS (not FAPC)",
+          "text": "[!] ICAO is FAPS (not FAPC)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -21069,7 +21069,7 @@
           }
         },
         {
-          "text": "⚠️ Expect significant glider activity",
+          "text": "[!] Expect significant glider activity",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -21112,7 +21112,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -21123,7 +21123,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -21213,7 +21213,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -21224,7 +21224,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (not an AOE)"
+        "access": "Public (not an AOE)"
       },
       "communications": {
         "primary_freq": null,
@@ -21321,7 +21321,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -21332,7 +21332,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -21388,7 +21388,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Danger Area FAD 129 (Brits Flying Training Area) in vicinity",
+          "text": "[!] Danger Area FAD 129 (Brits Flying Training Area) in vicinity",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -21396,7 +21396,7 @@
           }
         },
         {
-          "text": "⚠️ Close to Wonderboom (FAWB) controlled airspace",
+          "text": "[!] Close to Wonderboom (FAWB) controlled airspace",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -21450,7 +21450,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public (not an AOE)"
+        "access": "Public (not an AOE)"
       },
       "communications": {
         "primary_freq": null,
@@ -21536,7 +21536,7 @@
           "lon": 27.886111,
           "dms": "S25°44'57\" E27°53'10\" ❓"
         },
-        "elevation": "3,900 ft AMSL ❓"
+        "elevation": "3,900 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -21551,7 +21551,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private / PPR ❓"
+        "access": "Private / PPR (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -21599,7 +21599,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Limited data available — verify via AIP or Airfields Directory",
+          "text": "[!] Limited data available — verify via AIP or Airfields Directory",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -21653,7 +21653,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -21735,7 +21735,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -21746,7 +21746,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — PPR 72 hours in advance (written request)"
+        "access": "Public — PPR 72 hours in advance (written request)"
       },
       "communications": {
         "primary_freq": null,
@@ -21826,7 +21826,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ No scheduled commercial flights since June 2020 — Airlink ceased all services; charter/GA only",
+          "text": "[!] No scheduled commercial flights since June 2020 — Airlink ceased all services; charter/GA only",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -21869,7 +21869,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -21880,7 +21880,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -22002,7 +22002,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -22013,7 +22013,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -22119,7 +22119,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -22130,7 +22130,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -22244,7 +22244,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "No fuel services available ❓",
+        "fuel": "No fuel services available (?)",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -22255,7 +22255,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "121.2 MHz",
@@ -22335,7 +22335,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Mountain terrain awareness required",
+          "text": "[!] Mountain terrain awareness required",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -22378,7 +22378,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -22389,7 +22389,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -22487,7 +22487,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -22498,7 +22498,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -22604,7 +22604,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -22615,7 +22615,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -22713,7 +22713,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ Military",
+        "fuel": "Military",
         "fuel_hours": null,
         "night_ops": true,
         "fire_cat": null,
@@ -22724,7 +22724,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military — SAAF base, PPR for civilian use"
+        "access": "Military — SAAF base, PPR for civilian use"
       },
       "communications": {
         "primary_freq": null,
@@ -22796,7 +22796,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Military airspace — do NOT enter without clearance",
+          "text": "[!] Military airspace — do NOT enter without clearance",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -22839,7 +22839,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -22850,7 +22850,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — De Beers mining operation"
+        "access": "Private — De Beers mining operation"
       },
       "communications": {
         "primary_freq": null,
@@ -22948,7 +22948,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -22959,7 +22959,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -23037,11 +23037,11 @@
           "lon": 30.949444,
           "dms": "S24°21'06\" E30°56'58\""
         },
-        "elevation": "~1,700 ft AMSL ❓"
+        "elevation": "~1,700 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -23052,7 +23052,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "126.4 MHz",
@@ -23116,7 +23116,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Occasional wildlife on runway, especially at dawn/dusk",
+          "text": "[!] Occasional wildlife on runway, especially at dawn/dusk",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -23155,11 +23155,11 @@
           "lon": 28.985556,
           "dms": "S24°13'58\" E28°59'08\""
         },
-        "elevation": "3,500 ft AMSL ❓"
+        "elevation": "3,500 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -23170,7 +23170,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -23263,7 +23263,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -23353,7 +23353,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -23364,7 +23364,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -23454,7 +23454,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS available",
+        "fuel": "AVGAS available",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -23465,7 +23465,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -23551,11 +23551,11 @@
           "lon": 30.866667,
           "dms": "S24°33'00\" E30°52'00\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": null,
         "fire_cat": null,
@@ -23566,7 +23566,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military — SAAF radar station"
+        "access": "Military — SAAF radar station"
       },
       "communications": {
         "primary_freq": null,
@@ -23614,7 +23614,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Military facility — do NOT approach without clearance",
+          "text": "[!] Military facility — do NOT approach without clearance",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -23657,7 +23657,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -23668,7 +23668,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "118.80 MHz",
@@ -23774,7 +23774,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -23785,7 +23785,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "127.95 MHz",
@@ -23890,7 +23890,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -23901,7 +23901,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "123.5 MHz",
@@ -24021,7 +24021,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "Not available ❓",
+        "fuel": "Not available (?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24032,7 +24032,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -24134,11 +24134,11 @@
           "lon": 30.970833,
           "dms": "S25°19'11\" E30°58'15\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24149,7 +24149,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private — Mercy Air (humanitarian non-profit), PPR"
+        "access": "Private — Mercy Air (humanitarian non-profit), PPR"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -24213,7 +24213,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Occasional wildlife on runway, especially at dawn/dusk",
+          "text": "[!] Occasional wildlife on runway, especially at dawn/dusk",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -24256,7 +24256,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "⛽ AVGAS",
+        "fuel": "AVGAS",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24267,7 +24267,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -24357,7 +24357,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24368,7 +24368,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -24458,7 +24458,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24469,7 +24469,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -24559,7 +24559,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24570,7 +24570,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public — PPR, slot booking required"
+        "access": "Public — PPR, slot booking required"
       },
       "communications": {
         "primary_freq": "119.0 MHz",
@@ -24650,7 +24650,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Wildlife on and near runway — extreme caution required",
+          "text": "[!] Wildlife on and near runway — extreme caution required",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -24693,7 +24693,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24704,7 +24704,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -24801,7 +24801,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24812,7 +24812,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": null,
@@ -24902,7 +24902,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -24913,7 +24913,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": null,
@@ -25003,7 +25003,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -25014,7 +25014,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -25104,7 +25104,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -25115,7 +25115,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -25208,11 +25208,11 @@
           "lon": 30.041389,
           "dms": "S25°39'32\" E30°02'29\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -25223,7 +25223,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -25312,7 +25312,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -25323,7 +25323,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -25405,7 +25405,7 @@
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -25416,7 +25416,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public"
+        "access": "Public"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -25517,7 +25517,7 @@
           "lon": 29.21,
           "dms": "S26°55'37\" E29°12'36\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
@@ -25532,7 +25532,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "⛔ Closed — no longer exists"
+        "access": "[X] Closed — no longer exists"
       },
       "communications": {
         "primary_freq": null,
@@ -25610,11 +25610,11 @@
           "lon": 29.618611,
           "dms": "S25°58'38\" E29°37'07\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -25625,7 +25625,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -25703,11 +25703,11 @@
           "lon": 29.194722,
           "dms": "S26°15'04\" E29°11'41\""
         },
-        "elevation": "❓"
+        "elevation": "(?)"
       },
       "operations": {
         "hours": null,
-        "fuel": "❓",
+        "fuel": "(?)",
         "fuel_hours": null,
         "night_ops": false,
         "fire_cat": null,
@@ -25718,7 +25718,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "✈️ Public ❓"
+        "access": "Public (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -25849,7 +25849,7 @@
           }
         },
         {
-          "text": "Data sourced from aviation databases ❓",
+          "text": "Data sourced from aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26082,7 +26082,7 @@
           "lon": 28.416667,
           "dms": "S26°15'00\" E28°25'00\""
         },
-        "elevation": "5300 ft AMSL ❓"
+        "elevation": "5300 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26127,7 +26127,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26167,7 +26167,7 @@
           "lon": 27.383333,
           "dms": "S26°21'00\" E27°23'00\""
         },
-        "elevation": "5200 ft AMSL ❓"
+        "elevation": "5200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26212,7 +26212,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26267,7 +26267,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military"
+        "access": "Military"
       },
       "communications": {
         "primary_freq": "123.2 MHz",
@@ -26314,7 +26314,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Military airfield — civilian access restricted",
+          "text": "[!] Military airfield — civilian access restricted",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26368,7 +26368,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military"
+        "access": "Military"
       },
       "communications": {
         "primary_freq": "134.4 MHz",
@@ -26415,7 +26415,7 @@
       ],
       "warnings": [
         {
-          "text": "⚠️ Military airfield — civilian access restricted, VIP flights",
+          "text": "[!] Military airfield — civilian access restricted, VIP flights",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26454,7 +26454,7 @@
           "lon": 32.316667,
           "dms": "S27°51'00\" E32°19'00\""
         },
-        "elevation": "200 ft AMSL ❓"
+        "elevation": "200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26469,7 +26469,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": null,
@@ -26499,7 +26499,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26539,7 +26539,7 @@
           "lon": 32.166667,
           "dms": "S28°25'00\" E32°10'00\""
         },
-        "elevation": "200 ft AMSL ❓"
+        "elevation": "200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26554,7 +26554,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -26584,7 +26584,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26624,7 +26624,7 @@
           "lon": 29.233333,
           "dms": "S29°44'00\" E29°14'00\""
         },
-        "elevation": "5500 ft AMSL ❓"
+        "elevation": "5500 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26639,7 +26639,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -26669,7 +26669,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26709,7 +26709,7 @@
           "lon": 29.866667,
           "dms": "S29°01'00\" E29°52'00\""
         },
-        "elevation": "3800 ft AMSL ❓"
+        "elevation": "3800 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26724,7 +26724,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -26754,7 +26754,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26794,7 +26794,7 @@
           "lon": 31.883333,
           "dms": "S28°44'00\" E31°53'00\""
         },
-        "elevation": "300 ft AMSL ❓"
+        "elevation": "300 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26809,7 +26809,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -26839,7 +26839,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26879,7 +26879,7 @@
           "lon": 29.55,
           "dms": "S29°04'00\" E29°33'00\""
         },
-        "elevation": "4500 ft AMSL ❓"
+        "elevation": "4500 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26924,7 +26924,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -26964,7 +26964,7 @@
           "lon": 24.833333,
           "dms": "S34°12'00\" E24°50'00\""
         },
-        "elevation": "100 ft AMSL ❓"
+        "elevation": "100 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -26979,7 +26979,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27009,7 +27009,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27049,7 +27049,7 @@
           "lon": 25.7,
           "dms": "S32°32'00\" E25°42'00\""
         },
-        "elevation": "1600 ft AMSL ❓"
+        "elevation": "1600 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27064,7 +27064,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27094,7 +27094,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27134,7 +27134,7 @@
           "lon": 25.351944,
           "dms": "S34°00'04\" E25°21'07\""
         },
-        "elevation": "200 ft AMSL ❓"
+        "elevation": "200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27149,7 +27149,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27179,7 +27179,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27219,7 +27219,7 @@
           "lon": 28.316667,
           "dms": "S32°05'00\" E28°19'00\""
         },
-        "elevation": "2300 ft AMSL ❓"
+        "elevation": "2300 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27234,7 +27234,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27264,7 +27264,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27304,7 +27304,7 @@
           "lon": 25.371944,
           "dms": "S33°55'30\" E25°22'19\""
         },
-        "elevation": "200 ft AMSL ❓"
+        "elevation": "200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27319,7 +27319,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27349,7 +27349,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27389,7 +27389,7 @@
           "lon": 28.533333,
           "dms": "S32°35'00\" E28°32'00\""
         },
-        "elevation": "200 ft AMSL ❓"
+        "elevation": "200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27404,7 +27404,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27434,7 +27434,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27474,7 +27474,7 @@
           "lon": 27.633333,
           "dms": "S28°19'00\" E27°38'00\""
         },
-        "elevation": "5200 ft AMSL ❓"
+        "elevation": "5200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27489,7 +27489,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27519,7 +27519,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27559,7 +27559,7 @@
           "lon": 20.766667,
           "dms": "S28°34'00\" E20°46'00\""
         },
-        "elevation": "2800 ft AMSL ❓"
+        "elevation": "2800 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27574,7 +27574,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27604,7 +27604,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27644,7 +27644,7 @@
           "lon": 23.733333,
           "dms": "S28°35'00\" E23°44'00\""
         },
-        "elevation": "3800 ft AMSL ❓"
+        "elevation": "3800 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27659,7 +27659,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🪖 Military"
+        "access": "Military"
       },
       "communications": {
         "primary_freq": null,
@@ -27689,7 +27689,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27729,7 +27729,7 @@
           "lon": 24.0,
           "dms": "S28°45'00\" E24°00'00\""
         },
-        "elevation": "3500 ft AMSL ❓"
+        "elevation": "3500 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27744,7 +27744,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27774,7 +27774,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27814,7 +27814,7 @@
           "lon": 21.5,
           "dms": "S31°55'00\" E21°30'00\""
         },
-        "elevation": "4800 ft AMSL ❓"
+        "elevation": "4800 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27829,7 +27829,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27859,7 +27859,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27899,7 +27899,7 @@
           "lon": 23.433333,
           "dms": "S28°23'00\" E23°26'00\""
         },
-        "elevation": "5200 ft AMSL ❓"
+        "elevation": "5200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27914,7 +27914,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (mine)"
+        "access": "Private (mine)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -27944,7 +27944,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -27984,7 +27984,7 @@
           "lon": 19.45,
           "dms": "S30°57'00\" E19°27'00\""
         },
-        "elevation": "3400 ft AMSL ❓"
+        "elevation": "3400 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -27999,7 +27999,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -28029,7 +28029,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28069,7 +28069,7 @@
           "lon": 22.481111,
           "dms": "S27°12'11\" E22°28'52\""
         },
-        "elevation": "3500 ft AMSL ❓"
+        "elevation": "3500 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28084,7 +28084,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -28114,7 +28114,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28154,7 +28154,7 @@
           "lon": 24.416667,
           "dms": "S29°49'00\" E24°25'00\""
         },
-        "elevation": "3700 ft AMSL ❓"
+        "elevation": "3700 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28169,7 +28169,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -28199,7 +28199,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28239,7 +28239,7 @@
           "lon": 26.483333,
           "dms": "S24°47'00\" E26°29'00\""
         },
-        "elevation": "3200 ft AMSL ❓"
+        "elevation": "3200 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28254,7 +28254,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -28284,7 +28284,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28324,7 +28324,7 @@
           "lon": 25.466667,
           "dms": "S26°41'00\" E25°28'00\""
         },
-        "elevation": "4700 ft AMSL ❓"
+        "elevation": "4700 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28339,7 +28339,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -28369,7 +28369,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28409,7 +28409,7 @@
           "lon": 26.813056,
           "dms": "S26°18'04\" E26°48'47\""
         },
-        "elevation": "4700 ft AMSL ❓"
+        "elevation": "4700 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28424,7 +28424,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -28454,7 +28454,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28494,7 +28494,7 @@
           "lon": 25.966667,
           "dms": "S27°12'00\" E25°58'00\""
         },
-        "elevation": "4800 ft AMSL ❓"
+        "elevation": "4800 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28509,7 +28509,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -28539,7 +28539,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28594,7 +28594,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": null,
@@ -28679,7 +28679,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": null,
@@ -28749,7 +28749,7 @@
           "lon": 31.366667,
           "dms": "S24°23'00\" E31°22'00\""
         },
-        "elevation": "1100 ft AMSL ❓"
+        "elevation": "1100 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28764,7 +28764,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": null,
@@ -28794,7 +28794,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28834,7 +28834,7 @@
           "lon": 31.421944,
           "dms": "S24°48'07\" E31°25'19\""
         },
-        "elevation": "1100 ft AMSL ❓"
+        "elevation": "1100 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -28849,7 +28849,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": null,
@@ -28879,7 +28879,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -28934,7 +28934,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": null,
@@ -29004,7 +29004,7 @@
           "lon": 28.735,
           "dms": "S24°11'35\" E28°44'06\""
         },
-        "elevation": "3500 ft AMSL ❓"
+        "elevation": "3500 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -29019,7 +29019,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (game reserve)"
+        "access": "Private (game reserve)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -29049,7 +29049,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -29089,7 +29089,7 @@
           "lon": 26.8,
           "dms": "S24°40'00\" E26°48'00\""
         },
-        "elevation": "3600 ft AMSL ❓"
+        "elevation": "3600 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -29104,7 +29104,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -29134,7 +29134,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -29174,7 +29174,7 @@
           "lon": 31.288889,
           "dms": "S24°18'00\" E31°17'20\""
         },
-        "elevation": "1400 ft AMSL ❓"
+        "elevation": "1400 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -29189,7 +29189,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private"
+        "access": "Private"
       },
       "communications": {
         "primary_freq": null,
@@ -29219,7 +29219,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -29259,7 +29259,7 @@
           "lon": 29.333333,
           "dms": "S23°24'00\" E29°20'00\""
         },
-        "elevation": "3800 ft AMSL ❓"
+        "elevation": "3800 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -29274,7 +29274,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "PPR ❓"
+        "access": "PPR (?)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -29304,7 +29304,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
@@ -29344,7 +29344,7 @@
           "lon": 29.733333,
           "dms": "S25°58'00\" E29°44'00\""
         },
-        "elevation": "5500 ft AMSL ❓"
+        "elevation": "5500 ft AMSL (?)"
       },
       "operations": {
         "hours": null,
@@ -29359,7 +29359,7 @@
           "name": "Community sources",
           "collected": "2026-03-19"
         },
-        "access": "🔒 Private (Eskom)"
+        "access": "Private (Eskom)"
       },
       "communications": {
         "primary_freq": "124.8 MHz",
@@ -29389,7 +29389,7 @@
           }
         },
         {
-          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases ❓",
+          "text": "Data sourced from OurAirports, Wikipedia, and aviation databases (?)",
           "source": {
             "url": "https://www.avcom.co.za/phpBB3/",
             "name": "Community sources",
