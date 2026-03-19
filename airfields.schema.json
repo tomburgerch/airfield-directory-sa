@@ -498,7 +498,7 @@
     "airfield": {
       "type": "object",
       "description": "A single airfield entry.",
-      "required": ["number", "name", "group", "status"],
+      "required": ["number", "name", "icao", "group", "status", "basic_info", "operations", "communications", "runways", "notes", "warnings"],
       "additionalProperties": false,
       "properties": {
         "number": {
