@@ -20,6 +20,7 @@ from reportlab.platypus import (
 )
 
 from pdf_styles import EMOJI_MAP, clean_text
+from source_utils import resolve_source, is_official_source, get_source_url
 
 # ── Page dimensions ──
 A4_WIDTH, A4_HEIGHT = A4
@@ -36,19 +37,7 @@ BORDER = HexColor('#e2e8f0')
 DARK_RED = HexColor('#9b2c2c')
 DARK_GRAY = HexColor('#2d3748')
 GREEN = HexColor('#276749')
-
-# ── Tower phone lookup ──
-TOWER_PHONES = {
-    'FAOR': '+27 11 921 6262', 'FACT': '+27 21 937 1122',
-    'FALE': '+27 32 436 5001', 'FALA': '+27 11 701 3278',
-    'FAGC': '+27 11 805 3166', 'FAWB': '+27 12 543 1402',
-    'FAGM': '+27 11 827 8884', 'FABL': '+27 51 433 1452',
-    'FAPE': '+27 41 513 5851', 'FAEL': '+27 43 736 6161',
-    'FAGG': '+27 44 803 7732', 'FAKM': '+27 53 851 1012',
-    'FAUP': '+27 54 337 7900', 'FAKN': '+27 13 753 7519',
-    'FAPP': '+27 15 288 0343', 'FAPM': '+27 33 392 3110',
-    'FARB': '+27 35 786 0836', 'FAHS': '+27 15 799 2251',
-}
+TEXT_MUTED = HexColor('#a0aec0')
 
 
 def clean(text):
@@ -86,15 +75,8 @@ def get_styles():
 
 
 def get_icao_code(airfield):
-    """Extract primary ICAO code from airfield fields."""
-    f = airfield['fields']
-    raw = f.get('ICAO', f.get('ICAO / Code', f.get('Code', '')))
-    if raw:
-        codes = re.findall(r'\b(FA[A-Z]{2,4})\b', raw.upper())
-        if codes:
-            return codes[0]
-        return re.sub(r'[^A-Z0-9]', '', raw.upper().split()[0])[:8]
-    return ''
+    """Extract primary ICAO code from airfield dict (JSON schema)."""
+    return airfield.get('icao', '')
 
 
 def pdf_filename(airfield):
@@ -109,15 +91,32 @@ def pdf_filename(airfield):
 
 def find_diagram_image(airfield, temp_dir=None):
     """Find diagram for this airfield, converting PDF to PNG if needed."""
-    from diagrams_util import find_diagram as _find, DIAGRAMS_DIR
+    from diagrams_util import DIAGRAMS_DIR
 
-    # First try the standard lookup (PNG/JPG)
-    path = _find(airfield)
-    if path and os.path.exists(path) and path.lower().endswith(('.png', '.jpg', '.jpeg')):
-        return path
-
-    # Try PDF diagram — search with same suffixes as find_diagram but for .pdf
     icao = get_icao_code(airfield)
+
+    # Check diagram field in JSON
+    diagram_info = airfield.get('diagram', {})
+    if diagram_info and diagram_info.get('file'):
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), diagram_info['file'])
+        if os.path.exists(path) and path.lower().endswith(('.png', '.jpg', '.jpeg')):
+            return path
+
+    # Try standard PNG/JPG lookup by ICAO
+    if icao:
+        for ext in ['.png', '.jpg']:
+            path = os.path.join(DIAGRAMS_DIR, f'{icao}{ext}')
+            if os.path.exists(path):
+                return path
+        # Also search by name codes
+        name_codes = re.findall(r'\b(FA[A-Z]{2,4})\b', airfield['name'].upper())
+        for code in name_codes:
+            for ext in ['.png', '.jpg']:
+                path = os.path.join(DIAGRAMS_DIR, f'{code}{ext}')
+                if os.path.exists(path):
+                    return path
+
+    # Try PDF diagram and convert
     if not icao:
         return None
 
@@ -138,8 +137,8 @@ def find_diagram_image(airfield, temp_dir=None):
     try:
         import fitz
         doc = fitz.open(pdf_path)
-        page = doc[-1]  # last page is usually the diagram
-        mat = fitz.Matrix(3.0, 3.0)  # ~216 DPI
+        page = doc[-1]
+        mat = fitz.Matrix(3.0, 3.0)
         pix = page.get_pixmap(matrix=mat)
         if temp_dir:
             png_path = os.path.join(temp_dir, f'{icao}_diagram.png')
@@ -154,26 +153,32 @@ def find_diagram_image(airfield, temp_dir=None):
         return None
 
 
-def build_airfield_pdf(airfield, output_path, styles, temp_dir=None):
-    """Generate a single-page A4 PDF for one airfield."""
-    f = airfield['fields']
+def build_airfield_pdf(airfield, output_path, styles, temp_dir=None, meta=None):
+    """Generate a single-page A4 PDF for one airfield. Reads JSON-schema data."""
+    registry = (meta or {}).get('source_registry', {})
 
-    is_closed = 'CLOSED' in airfield['name'].upper() or '[X]' in clean(airfield['name'])
-    is_military = 'MILITARY' in f.get('Access', '').upper()
+    name = clean(airfield['name'])
+    icao = get_icao_code(airfield)
+    status = airfield.get('status', 'active')
+    is_closed = status == 'closed'
+    is_military = status == 'military'
+
+    basic = airfield.get('basic_info', {})
+    ops = airfield.get('operations', {})
+    comms = airfield.get('communications', {})
+    rwy_data = airfield.get('runways', {})
 
     doc = SimpleDocTemplate(
         output_path, pagesize=A4,
         leftMargin=MARGIN, rightMargin=MARGIN,
         topMargin=MARGIN, bottomMargin=10 * mm,
-        title=clean(airfield['name']),
+        title=name,
     )
 
     story = []
 
     # ── Header bar ──
-    name = clean(airfield['name'])
-    icao = get_icao_code(airfield)
-    access = clean(f.get('Access', ''))
+    access = clean(ops.get('access', '') or '')
     code_line = icao
     if access:
         code_line = f'{icao}  |  {access}' if icao else access
@@ -208,20 +213,22 @@ def build_airfield_pdf(airfield, output_path, styles, temp_dir=None):
     story.append(Spacer(1, 2 * mm))
 
     # ── Info grid ──
-    coords = clean(f.get('Coordinates', ''))
-    elev = clean(f.get('Elevation', ''))
-    freq = clean(f.get('Frequencies', f.get('Frequency', '')))
-    joining = clean(f.get('Joining Alt', ''))
-    circuit = clean(f.get('Circuit Alt', f.get('Circuit', f.get('Pattern Alt', ''))))
-    night = clean(f.get('Night Ops', ''))
-    fuel = clean(f.get('Fuel', ''))
-    hours = clean(f.get('Hours', ''))
+    coords = basic.get('coordinates', {})
+    coord_dms = clean(coords.get('dms', ''))
+    elev = clean(basic.get('elevation', '') or '')
+    freq = clean(comms.get('primary_freq', '') or '')
+    joining = clean(ops.get('joining_alt', '') or '')
+    circuit = clean(ops.get('circuit_alt', '') or '')
+    fuel = clean(ops.get('fuel', '') or '')
+    hours = clean(ops.get('hours', '') or '')
+    night_val = ops.get('night_ops')
+    night = '' if night_val is None or night_val is False else (clean(str(night_val)) if night_val is not True else 'Yes')
 
-    # Tower phone
-    tower_phone = TOWER_PHONES.get(icao, '')
+    # Tower phone from JSON
+    tower_phone = comms.get('tower_phone', '')
 
     rows = []
-    for label, val in [('Coordinates', coords), ('Elevation', elev),
+    for label, val in [('Coordinates', coord_dms), ('Elevation', elev),
                         ('Frequency', freq), ('Joining Alt', joining),
                         ('Circuit Alt', circuit), ('Access', access),
                         ('Fuel', fuel), ('Night Ops', night), ('Hours', hours)]:
@@ -249,14 +256,21 @@ def build_airfield_pdf(airfield, output_path, styles, temp_dir=None):
         story.append(info)
 
     # ── Frequencies table ──
-    if airfield['frequencies_table']:
+    freq_table = comms.get('frequencies_table', [])
+    if freq_table:
         story.append(Spacer(1, 2 * mm))
         story.append(Paragraph('Frequencies', styles['AFSection']))
         freq_rows = []
-        for row in airfield['frequencies_table'][:8]:
+        for row in freq_table[:8]:
+            if isinstance(row, dict):
+                service = clean(row.get('service', ''))
+                freq_val = clean(row.get('freq', ''))
+            else:
+                service = clean(row[0]) if len(row) > 0 else ''
+                freq_val = clean(row[1]) if len(row) > 1 else ''
             freq_rows.append([
-                Paragraph(clean(row[0]), styles['AFValue']),
-                Paragraph(f'<b>{clean(row[1])}</b>', styles['AFFreq']),
+                Paragraph(service, styles['AFValue']),
+                Paragraph(f'<b>{freq_val}</b>', styles['AFFreq']),
             ])
         if freq_rows:
             ft = Table(freq_rows, colWidths=[CONTENT_WIDTH * 0.5, CONTENT_WIDTH * 0.5])
@@ -269,31 +283,42 @@ def build_airfield_pdf(airfield, output_path, styles, temp_dir=None):
             ]))
             story.append(ft)
 
-    # ── Runways ──
-    if airfield['runways']:
+    # ── Runways (list of dicts) ──
+    runways = rwy_data.get('data', [])
+    if runways:
         story.append(Spacer(1, 2 * mm))
         story.append(Paragraph('Runways', styles['AFSection']))
-        max_cols = max(len(r) for r in airfield['runways'])
-        if max_cols >= 5:
-            heads = ['RWY', 'Length', 'Width', 'Surface', 'Strength', 'Circuit']
-            widths = [0.10, 0.18, 0.12, 0.25, 0.15, 0.20]
-        elif max_cols >= 3:
-            heads = ['RWY', 'Length', 'Surface']
-            widths = [0.2, 0.3, 0.5]
-        else:
-            heads = ['RWY', 'Surface']
-            widths = [0.3, 0.7]
-        heads = heads[:max_cols]
-        widths = [CONTENT_WIDTH * w for w in widths[:max_cols]]
 
-        rwy_data = [[Paragraph(h, styles['AFRwyHead']) for h in heads]]
-        for row in airfield['runways']:
-            cells = [clean(c) for c in row]
-            while len(cells) < max_cols:
-                cells.append('')
-            rwy_data.append([Paragraph(c[:25], styles['AFRwyCell']) for c in cells[:max_cols]])
+        has_width = any(r.get('width') for r in runways)
+        has_strength = any(r.get('strength') for r in runways)
+        has_circuit = any(r.get('circuit') for r in runways)
 
-        rt = Table(rwy_data, colWidths=widths)
+        heads = ['RWY', 'Length']
+        keys = ['rwy', 'length']
+        widths_pct = [0.10, 0.18]
+        if has_width:
+            heads.append('Width')
+            keys.append('width')
+            widths_pct.append(0.12)
+        heads.append('Surface')
+        keys.append('surface')
+        widths_pct.append(0.25)
+        if has_strength:
+            heads.append('Strength')
+            keys.append('strength')
+            widths_pct.append(0.15)
+        if has_circuit:
+            heads.append('Circuit')
+            keys.append('circuit')
+            widths_pct.append(0.20)
+        widths = [CONTENT_WIDTH * w for w in widths_pct]
+
+        rwy_rows = [[Paragraph(h, styles['AFRwyHead']) for h in heads]]
+        for rwy in runways:
+            cells = [clean(rwy.get(k, '') or '')[:25] for k in keys]
+            rwy_rows.append([Paragraph(c, styles['AFRwyCell']) for c in cells])
+
+        rt = Table(rwy_rows, colWidths=widths)
         rt.setStyle(TableStyle([
             ('BACKGROUND', (0, 0), (-1, 0), BLUE),
             ('TEXTCOLOR', (0, 0), (-1, 0), white),
@@ -306,22 +331,32 @@ def build_airfield_pdf(airfield, output_path, styles, temp_dir=None):
         story.append(rt)
 
     # ── Warnings ──
-    if airfield['warnings']:
+    warnings = airfield.get('warnings', [])
+    if warnings:
         story.append(Spacer(1, 2 * mm))
-        for w in airfield['warnings'][:5]:
-            story.append(Paragraph(f'[!] {clean(w)[:200]}', styles['AFWarning']))
+        for w in warnings[:5]:
+            w_text = w.get('text', w) if isinstance(w, dict) else w
+            story.append(Paragraph(f'[!] {clean(w_text)[:200]}', styles['AFWarning']))
 
     # ── Notes ──
-    if airfield['notes']:
+    notes = airfield.get('notes', [])
+    if notes:
         story.append(Spacer(1, 2 * mm))
-        for note in airfield['notes'][:5]:
-            story.append(Paragraph(f'- {clean(note)[:200]}', styles['AFNote']))
+        for note in notes[:5]:
+            n_text = note.get('text', note) if isinstance(note, dict) else note
+            story.append(Paragraph(f'- {clean(n_text)[:200]}', styles['AFNote']))
 
     # ── Contact ──
-    if airfield['contact']:
+    contact = airfield.get('contact', {})
+    if isinstance(contact, dict):
+        contact_parts = [v for v in [contact.get('name'), contact.get('phone'), contact.get('address')] if v]
+        contact_str = ', '.join(contact_parts)
+    else:
+        contact_str = str(contact) if contact else ''
+    if contact_str:
         story.append(Spacer(1, 2 * mm))
         story.append(Paragraph(
-            f"<b>Contact:</b> {clean(airfield['contact'])[:150]}", styles['AFNote']))
+            f"<b>Contact:</b> {clean(contact_str)[:150]}", styles['AFNote']))
 
     # ── Diagram ──
     diagram_path = find_diagram_image(airfield, temp_dir=temp_dir)
@@ -332,7 +367,7 @@ def build_airfield_pdf(airfield, output_path, styles, temp_dir=None):
             img = Image(diagram_path)
             iw, ih = img.drawWidth, img.drawHeight
             max_w = CONTENT_WIDTH
-            max_h = 180 * mm  # leave room for footer
+            max_h = 180 * mm
             scale = min(max_w / iw, max_h / ih, 1.0)
             img.drawWidth = iw * scale
             img.drawHeight = ih * scale
@@ -343,6 +378,28 @@ def build_airfield_pdf(airfield, output_path, styles, temp_dir=None):
                                alignment=TA_CENTER, fontSize=6)))
         except Exception:
             pass
+
+    # ── Sources summary ──
+    story.append(Spacer(1, 3 * mm))
+    source_style = ParagraphStyle('SourceNote', parent=styles['AFNote'],
+                                  fontSize=6, textColor=TEXT_MUTED)
+    collected_dates = []
+    source_names_seen = set()
+    for section in ['basic_info', 'operations', 'communications', 'runways']:
+        src = airfield.get(section, {}).get('source', {})
+        if src.get('collected'):
+            collected_dates.append(src['collected'])
+        resolved = resolve_source(src, registry)
+        sname = resolved.get('name', '')
+        if sname:
+            source_names_seen.add(sname)
+
+    is_fa = bool(re.search(r'\bFA[A-Z]{2}\b', icao))
+    if is_fa and collected_dates:
+        earliest = min(collected_dates)
+        story.append(Paragraph(f'Data source: SACAA AIP (collected {earliest})', source_style))
+    elif source_names_seen:
+        story.append(Paragraph(f'Sources: {", ".join(sorted(source_names_seen))}', source_style))
 
     # ── Disclaimer footer ──
     story.append(Spacer(1, 4 * mm))
@@ -361,7 +418,7 @@ def _add_disclaimer(story, styles):
         styles['Disclaimer']))
 
 
-def generate_airfield_pdfs(airfields, output_dir):
+def generate_airfield_pdfs(airfields, output_dir, meta=None):
     """Generate individual PDFs for all airfields. Returns {number: filename} mapping."""
     import tempfile
     import shutil
@@ -376,7 +433,7 @@ def generate_airfield_pdfs(airfields, output_dir):
             fname = pdf_filename(airfield)
             path = os.path.join(output_dir, fname)
             try:
-                build_airfield_pdf(airfield, path, styles, temp_dir=temp_dir)
+                build_airfield_pdf(airfield, path, styles, temp_dir=temp_dir, meta=meta)
                 mapping[airfield['number']] = fname
             except Exception as e:
                 print(f"  Warning: Failed to generate PDF for {airfield['name']}: {e}")
@@ -388,12 +445,16 @@ def generate_airfield_pdfs(airfields, output_dir):
 
 
 if __name__ == '__main__':
-    from parse_markdown import parse_airfields
+    import json
+    from shared import AIRFIELDS_JSON
 
-    MD_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'AIRFIELD_DIRECTORY.md')
     OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public', 'airfield-pdfs')
 
-    print("Generating individual airfield PDFs...")
-    airfields = parse_airfields(MD_FILE)
-    mapping = generate_airfield_pdfs(airfields, OUT_DIR)
+    print("Loading airfield data from JSON...")
+    with open(AIRFIELDS_JSON, 'r', encoding='utf-8') as _f:
+        _data = json.load(_f)
+    meta, airfields = _data['meta'], _data['airfields']
+
+    print(f"Generating individual airfield PDFs for {len(airfields)} airfields...")
+    mapping = generate_airfield_pdfs(airfields, OUT_DIR, meta=meta)
     print(f"Done! {len(mapping)} PDFs in {OUT_DIR}")

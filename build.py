@@ -60,7 +60,7 @@ def build():
     # Generate compact PDF
     pdf_path = os.path.join(PUBLIC_DIR, 'Airfield_Directory.pdf')
     print("\nGenerating compact PDF...")
-    generate_pdf(airfields, pdf_path)
+    generate_pdf(airfields, pdf_path, meta=meta)
     pdf_size = os.path.getsize(pdf_path) / 1024
     print(f"  PDF: {pdf_size:.0f} KB")
     download_links.insert(0, {
@@ -71,7 +71,7 @@ def build():
     # Generate individual airfield PDFs
     airfield_pdf_dir = os.path.join(PUBLIC_DIR, 'airfield-pdfs')
     print("\nGenerating individual airfield PDFs...")
-    pdf_mapping = generate_airfield_pdfs(airfields, airfield_pdf_dir)
+    pdf_mapping = generate_airfield_pdfs(airfields, airfield_pdf_dir, meta=meta)
 
     # Generate HTML with embedded diagrams
     output_html = os.path.join(PUBLIC_DIR, 'index.html')
