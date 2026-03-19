@@ -8,13 +8,13 @@ Generates a self-contained static site in public/ with:
   - AIRFIELD_DIRECTORY.md: Markdown source for download
 """
 
+import json
 import os
 import shutil
 
-from parse_markdown import parse_airfields, parse_frequency_tables
-from generate_html import generate_html
+from generate_html import generate_html, load_airfields_json
 from generate_pdf import generate_pdf
-from shared import BASE_DIR, MD_FILE
+from shared import BASE_DIR, MD_FILE, AIRFIELDS_JSON
 from generate_airfield_pdfs import generate_airfield_pdfs
 
 PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
@@ -49,12 +49,12 @@ def build():
         })
         print(f"  Copied Markdown ({os.path.getsize(MD_FILE) / 1024:.0f} KB)")
 
-    # Parse airfield data
-    print("\nParsing airfield data...")
-    airfields = parse_airfields(MD_FILE)
+    # Load airfield data from JSON
+    print("\nLoading airfield data from JSON...")
+    meta, airfields = load_airfields_json()
     print(f"  Found {len(airfields)} airfields")
 
-    freq_tables = parse_frequency_tables(MD_FILE)
+    freq_tables = meta.get('frequency_tables', [])
     print(f"  Found {len(freq_tables)} frequency tables")
 
     # Generate compact PDF
@@ -79,6 +79,7 @@ def build():
     generate_html(
         airfields,
         output_html,
+        meta=meta,
         embed_diagrams=True,
         download_links=download_links,
         freq_tables=freq_tables,

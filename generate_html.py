@@ -3,16 +3,16 @@
 Generate a searchable HTML version of the South African Airfield Directory.
 """
 
+import json
 import os
 import re
 import base64
 from datetime import datetime, timezone
 from html import escape
 
-from parse_markdown import parse_airfields, parse_frequency_tables
 from pdf_styles import EMOJI_MAP
-from shared import MD_FILE, OUTPUT_HTML, DIAGRAMS_DIR, FAVICON_FILE, parse_dms_coord, get_icao
-from tower_data import TOWER_PHONES
+from source_utils import resolve_source, generate_verification_links, is_official_source, get_source_url
+from shared import MD_FILE, OUTPUT_HTML, DIAGRAMS_DIR, FAVICON_FILE, AIRFIELDS_JSON, parse_dms_coord, get_icao
 
 
 def clean_html(text):
@@ -662,6 +662,20 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
     .fir-section { display: none !important; }
     .pdf-dl { display: none !important; }
 }
+
+/* ── Source attribution ── */
+.source-link { color: var(--text-muted); font-size: 11px; text-decoration: none; opacity: 0; transition: opacity 0.2s; vertical-align: super; }
+.source-group:hover .source-link { opacity: 0.7; }
+.note .source-link, .warning .source-link { opacity: 0.6; }
+@media (hover: none) { .source-link { opacity: 0.6; } }
+.sources-footer { padding: 10px 14px; background: #f0ebe3; font-size: 10px; color: var(--text-muted); border-top: 1px solid var(--border); }
+.source-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.sources-footer a { color: #1a6bc4; text-decoration: none; padding: 2px 8px; background: white; border-radius: 3px; border: 1px solid var(--border); font-size: 10px; }
+.sources-footer a:hover { background: var(--light-gray); }
+.copy-coords { cursor: pointer; position: relative; }
+.copy-coords:hover { text-decoration: underline; }
+.copy-toast { position: absolute; top: -24px; left: 50%; transform: translateX(-50%); background: var(--navy); color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; pointer-events: none; animation: fadeOut 1.5s ease-in forwards; z-index: 10; white-space: nowrap; }
+@keyframes fadeOut { 0%{opacity:1} 70%{opacity:1} 100%{opacity:0} }
 """
 
 JAVASCRIPT = """
@@ -953,6 +967,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // --- Click-to-copy coordinates ---
+    document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-copy-coords]');
+        if (!el) return;
+        var coords = el.getAttribute('data-copy-coords');
+        navigator.clipboard.writeText(coords).then(function() {
+            var toast = document.createElement('div');
+            toast.className = 'copy-toast';
+            toast.textContent = 'Copied!';
+            el.style.position = 'relative';
+            el.appendChild(toast);
+            setTimeout(function() { toast.remove(); }, 1500);
+        });
+    });
+
     // --- FIR Tabs ---
     var firTabs = document.querySelectorAll('.fir-tab');
     firTabs.forEach(function(tab) {
@@ -1006,43 +1035,115 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
-    """Build HTML for a single airfield card."""
-    f = airfield['fields']
-    name = clean_html(airfield['name'])
-    is_closed = '[X]' in name or 'CLOSED' in name.upper()
-    is_military = 'Military' in f.get('Access', '') or 'MIL' in clean_html(f.get('Access', '')).upper()
+def load_airfields_json(json_path=None):
+    """Load airfields from JSON file."""
+    path = json_path or AIRFIELDS_JSON
+    with open(path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data['meta'], data['airfields']
 
-    code = get_icao(airfield)
-    code_clean = clean_html(code)
-    access = clean_html(f.get('Access', ''))
+
+def _find_diagram_for_icao(icao, name):
+    """Find diagram for airfield by ICAO code or name."""
+    if not DIAGRAMS_DIR or not os.path.exists(DIAGRAMS_DIR):
+        return None
+    candidates = []
+    if icao:
+        fa_codes = re.findall(r'\b(FA[A-Z]{2,4})\b', icao.upper())
+        for code in fa_codes:
+            candidates.extend([f'{code}.png', f'{code}.jpg'])
+    name_codes = re.findall(r'\b(FA[A-Z]{2,4})\b', name.upper())
+    for code in name_codes:
+        if f'{code}.png' not in candidates:
+            candidates.extend([f'{code}.png', f'{code}.jpg'])
+    for c in candidates:
+        path = os.path.join(DIAGRAMS_DIR, c)
+        if os.path.exists(path):
+            return path
+    return None
+
+
+def _build_sources_footer(airfield, icao, registry):
+    """Build the sources footer HTML for an airfield card."""
+    is_fa = bool(re.search(r'\bFA[A-Z]{2}\b', icao))
+
+    # Collect earliest source collection date
+    collected_dates = []
+    for section in ['basic_info', 'operations', 'communications', 'runways']:
+        source = airfield.get(section, {}).get('source', {})
+        if source.get('collected'):
+            collected_dates.append(source['collected'])
+    earliest = min(collected_dates) if collected_dates else ''
+
+    html = '  <div class="sources-footer">\n'
+    if is_fa:
+        html += '    Unless otherwise indicated, data sourced from <strong>SACAA AIP</strong>'
+        if earliest:
+            html += f' (collected {escape(earliest)})'
+        html += '\n'
+    else:
+        html += '    No official SACAA AIP entry. Data compiled from community sources.\n'
+
+    # Verification links from registry templates + curated websites
+    links = generate_verification_links(icao, registry)
+    for site in airfield.get('links', {}).get('websites', []):
+        links.append({'name': site.get('label', ''), 'url': site.get('url', '')})
+
+    if links:
+        html += '    <div class="source-pills">\n'
+        for link in links:
+            if link.get('url'):
+                html += f'      <a href="{escape(link["url"])}" target="_blank" rel="noopener">{escape(link.get("name", "Link"))}</a>\n'
+        html += '    </div>\n'
+
+    html += '  </div>\n'
+    return html
+
+
+def build_airfield_card(airfield, meta=None, embed_diagrams=False, pdf_filename=None):
+    """Build HTML for a single airfield card from JSON-schema data."""
+    registry = (meta or {}).get('source_registry', {})
+
+    name = clean_html(airfield['name'])
+    icao = airfield.get('icao', '')
+    status = airfield.get('status', 'active')
+    is_closed = status == 'closed'
+    is_military = status == 'military'
+
+    basic = airfield.get('basic_info', {})
+    ops = airfield.get('operations', {})
+    comms = airfield.get('communications', {})
+    rwy_data = airfield.get('runways', {})
+
+    access = clean_html(ops.get('access', '') or '')
 
     header_class = 'closed' if is_closed else ('military' if is_military else '')
-    search_text = f"{name} {code_clean} {access}".lower()
+    search_text = f"{name} {icao} {access}".lower()
 
-    # Parse coordinates for geolocation
-    coord_str = f.get('Coordinates', '')
-    lat, lon = parse_dms_coord(coord_str)
+    # Coordinates from JSON (already decimal)
+    coords = basic.get('coordinates', {})
+    lat = coords.get('lat')
+    lon = coords.get('lon')
+    coord_dms = coords.get('dms', '')
     coord_attrs = f' data-lat="{lat}" data-lon="{lon}"' if lat is not None else ''
 
     # Filter data attributes
-    fuel_raw = clean_html(f.get('Fuel', '')).upper()
+    fuel_raw = clean_html(ops.get('fuel', '') or '').upper()
     has_fuel = '1' if fuel_raw and 'NO' not in fuel_raw.split()[0:1] and 'NONE' not in fuel_raw and fuel_raw not in ('', '-', 'N/A', '?', '(?)') else '0'
 
-    night_raw = clean_html(f.get('Night Ops', '')).upper()
-    has_night = '1' if night_raw and 'NO' not in night_raw.split()[0:2] and night_raw not in ('', '-', 'N/A', 'NONE') else '0'
+    night_raw = str(ops.get('night_ops', '') or '').upper()
+    has_night = '1' if night_raw and night_raw not in ('FALSE', '', '-', 'N/A', 'NONE', 'NO', '0') else '0'
 
-    # Surface: extract from runways
+    # Surface from runway data (list of dicts)
     surfaces = set()
-    for rwy in airfield.get('runways', []):
-        if len(rwy) >= 4:
-            s = clean_html(rwy[3]).upper()
-            if 'ASPHALT' in s or 'TAR' in s or 'PAVED' in s or 'TARMAC' in s or 'CONCRETE' in s:
-                surfaces.add('paved')
-            elif 'GRASS' in s or 'TURF' in s:
-                surfaces.add('grass')
-            else:
-                surfaces.add('other')
+    for rwy in rwy_data.get('data', []):
+        s = clean_html(rwy.get('surface', '')).upper()
+        if 'ASPHALT' in s or 'TAR' in s or 'PAVED' in s or 'TARMAC' in s or 'CONCRETE' in s:
+            surfaces.add('paved')
+        elif 'GRASS' in s or 'TURF' in s:
+            surfaces.add('grass')
+        elif s:
+            surfaces.add('other')
     surface_attr = ','.join(sorted(surfaces)) if surfaces else 'unknown'
 
     # Access type
@@ -1059,18 +1160,21 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
         access_type = 'other'
 
     # Towered: check for TWR or Tower in frequencies
-    freq_val = clean_html(f.get('Frequencies', f.get('Frequency', ''))).upper()
+    freq_val = clean_html(comms.get('primary_freq', '') or '').upper()
     has_tower = 'TWR' in freq_val or 'TOWER' in freq_val
     if not has_tower:
-        for frow in airfield.get('frequencies_table', []):
-            row_text = ' '.join(clean_html(c) for c in frow).upper()
+        for frow in comms.get('frequencies_table', []):
+            if isinstance(frow, dict):
+                row_text = f"{frow.get('service', '')} {frow.get('freq', '')}".upper()
+            else:
+                row_text = ' '.join(str(c) for c in frow).upper()
             if 'TWR' in row_text or 'TOWER' in row_text:
                 has_tower = True
                 break
     towered_attr = '1' if has_tower else '0'
 
-    # Official: has a proper FA?? ICAO code (not ZA-xxxx or blank)
-    has_icao = bool(re.search(r'\bFA[A-Z]{2}\b', code_clean))
+    # Official: has a proper FA?? ICAO code
+    has_icao = bool(re.search(r'\bFA[A-Z]{2}\b', icao))
     official_attr = '1' if has_icao else '0'
 
     filter_attrs = f' data-fuel="{has_fuel}" data-night="{has_night}" data-surface="{surface_attr}" data-access="{access_type}" data-towered="{towered_attr}" data-official="{official_attr}"'
@@ -1082,11 +1186,10 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
         html += f' <a class="pdf-dl" href="airfield-pdfs/{pdf_filename}" download title="Download PDF info sheet">&#8681; PDF</a>'
     html += '</h3>\n'
     html += f'    <span class="dist-badge"></span>\n'
-    html += f'    <span class="num">#{airfield["number"]}</span>\n'
     html += f'  </div>\n'
 
-    if code_clean or access:
-        parts = [p for p in [code_clean, access] if p]
+    if icao or access:
+        parts = [p for p in [icao, access] if p]
         html += f'  <div class="airfield-code">{escape(" | ".join(parts))}</div>\n'
 
     if is_closed:
@@ -1095,30 +1198,41 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
     html += '  <div class="airfield-body">\n'
 
     # Info grid
-    info_fields = [
-        ('Coordinates', 'Coordinates', ''),
-        ('Elevation', 'Elevation', 'elev'),
-        ('Frequency', 'Frequencies', 'freq'),
-        ('Joining Alt', 'Joining Alt', ''),
-        ('Circuit Alt', 'Circuit Alt', ''),
-        ('Night Ops', 'Night Ops', ''),
-        ('Fuel', 'Fuel', ''),
-        ('Hours', 'Hours', ''),
-    ]
     grid_items = []
-    for label, key, cls in info_fields:
-        val = clean_html(f.get(key, f.get(label, '')))
-        if not val and key == 'Frequencies':
-            val = clean_html(f.get('Frequency', ''))
-        if not val and key == 'Circuit Alt':
-            val = clean_html(f.get('Circuit', f.get('Pattern Alt', '')))
-        if val:
-            cls_attr = f' class="value {cls}"' if cls else ' class="value"'
-            grid_items.append(f'    <div class="label">{escape(label)}</div><div{cls_attr}>{escape(val)}</div>\n')
 
-    # Tower phone for towered fields
-    icao_code = code_clean.split('(')[0].split(';')[0].split('/')[0].strip()[:4]
-    tower_phone = TOWER_PHONES.get(icao_code, '')
+    # Coordinates with click-to-copy
+    if coord_dms:
+        coord_decimal = f"{lat}, {lon}" if lat is not None else ""
+        if coord_decimal:
+            grid_items.append(f'    <div class="label">Coordinates</div><div class="value"><span class="copy-coords" data-copy-coords="{escape(coord_decimal)}" title="Click to copy decimal coordinates">{escape(clean_html(coord_dms))}</span></div>\n')
+        else:
+            grid_items.append(f'    <div class="label">Coordinates</div><div class="value">{escape(clean_html(coord_dms))}</div>\n')
+
+    if basic.get('elevation'):
+        grid_items.append(f'    <div class="label">Elevation</div><div class="value elev">{escape(clean_html(basic["elevation"]))}</div>\n')
+
+    if comms.get('primary_freq'):
+        grid_items.append(f'    <div class="label">Frequency</div><div class="value freq">{escape(clean_html(comms["primary_freq"]))}</div>\n')
+
+    if ops.get('joining_alt'):
+        grid_items.append(f'    <div class="label">Joining Alt</div><div class="value">{escape(clean_html(ops["joining_alt"]))}</div>\n')
+
+    if ops.get('circuit_alt'):
+        grid_items.append(f'    <div class="label">Circuit Alt</div><div class="value">{escape(clean_html(ops["circuit_alt"]))}</div>\n')
+
+    night_val = ops.get('night_ops')
+    if night_val is not None and night_val is not False:
+        night_str = str(night_val) if night_val is not True else 'Yes'
+        grid_items.append(f'    <div class="label">Night Ops</div><div class="value">{escape(clean_html(night_str))}</div>\n')
+
+    if ops.get('fuel'):
+        grid_items.append(f'    <div class="label">Fuel</div><div class="value">{escape(clean_html(ops["fuel"]))}</div>\n')
+
+    if ops.get('hours'):
+        grid_items.append(f'    <div class="label">Hours</div><div class="value">{escape(clean_html(ops["hours"]))}</div>\n')
+
+    # Tower phone from JSON
+    tower_phone = comms.get('tower_phone')
     if tower_phone and has_tower:
         phone_link = f'<a href="tel:{tower_phone}" style="color:var(--green);font-weight:700;text-decoration:none">{escape(tower_phone)}</a>'
         grid_items.append(f'    <div class="label">Tower Tel</div><div class="value">{phone_link}</div>\n')
@@ -1126,72 +1240,116 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
     if grid_items:
         html += '    <div class="info-grid">\n' + ''.join(grid_items) + '    </div>\n'
 
-    # Website / flying club links
-    raw = airfield.get('fields_raw', {})
-    web_links = []
-    for key in ('Website', 'Websites', 'AIP Link', 'Operator AIP'):
-        web_links.extend(extract_links(raw.get(key, '')))
-    if web_links:
+    # Website links from JSON
+    websites = airfield.get('links', {}).get('websites', [])
+    if websites:
         html += '    <div class="web-links">\n'
-        for label, url in web_links:
+        for site in websites:
+            label = site.get('label', site.get('url', ''))
+            url = site.get('url', '')
             html += f'      <a href="{escape(url)}" target="_blank" rel="noopener">{escape(clean_html(label))}</a>\n'
         html += '    </div>\n'
 
     # Frequencies table
-    if airfield['frequencies_table']:
+    freq_table = comms.get('frequencies_table', [])
+    if freq_table:
         html += '    <div class="section-title">Frequencies</div>\n'
         html += '    <table class="data-table freq-table"><tr><th>Service</th><th>Frequency</th></tr>\n'
-        for row in airfield['frequencies_table'][:8]:
-            html += f'      <tr><td>{escape(clean_html(row[0]))}</td><td>{escape(clean_html(row[1]))}</td></tr>\n'
+        for row in freq_table[:8]:
+            if isinstance(row, dict):
+                service = clean_html(row.get('service', ''))
+                freq = clean_html(row.get('freq', ''))
+            else:
+                service = clean_html(row[0]) if len(row) > 0 else ''
+                freq = clean_html(row[1]) if len(row) > 1 else ''
+            html += f'      <tr><td>{escape(service)}</td><td>{escape(freq)}</td></tr>\n'
         html += '    </table>\n'
 
-    # Runways table
-    if airfield['runways']:
-        max_cols = max(len(r) for r in airfield['runways'])
-        if max_cols >= 6:
-            headers = ['RWY', 'Length', 'Width', 'Surface', 'Str', 'Circuit']
-        elif max_cols >= 5:
-            headers = ['RWY', 'Length', 'Width', 'Surface', 'Circuit']
-        else:
-            headers = ['RWY', 'Surface']
-        headers = headers[:max_cols]
+    # Runways table (list of dicts)
+    runways = rwy_data.get('data', [])
+    if runways:
+        has_width = any(r.get('width') for r in runways)
+        has_strength = any(r.get('strength') for r in runways)
+        has_circuit = any(r.get('circuit') for r in runways)
+
+        headers = ['RWY', 'Length']
+        keys = ['rwy', 'length']
+        if has_width:
+            headers.append('Width')
+            keys.append('width')
+        headers.append('Surface')
+        keys.append('surface')
+        if has_strength:
+            headers.append('Str')
+            keys.append('strength')
+        if has_circuit:
+            headers.append('Circuit')
+            keys.append('circuit')
 
         html += '    <div class="section-title">Runways</div>\n'
         html += '    <table class="data-table"><tr>' + ''.join(f'<th>{h}</th>' for h in headers) + '</tr>\n'
-        for row in airfield['runways']:
-            cleaned = [clean_html(c) for c in row]
-            while len(cleaned) < max_cols:
-                cleaned.append('')
+        for rwy in runways:
             cells = []
-            for ci, c in enumerate(cleaned[:max_cols]):
-                if ci == max_cols - 1 and headers[-1] == 'Circuit' and c.strip().lower() == 'right':
-                    cells.append(f'<td class="circuit-right">{escape(c)}</td>')
+            for key in keys:
+                val = clean_html(rwy.get(key, '') or '')
+                if key == 'circuit' and val.strip().lower() == 'right':
+                    cells.append(f'<td class="circuit-right">{escape(val)}</td>')
                 else:
-                    cells.append(f'<td>{escape(c)}</td>')
+                    cells.append(f'<td>{escape(val)}</td>')
             html += '      <tr>' + ''.join(cells) + '</tr>\n'
         html += '    </table>\n'
 
-        # Add explicit warning for non-standard right-hand circuits
-        for row in airfield['runways']:
-            cleaned = [clean_html(c) for c in row]
-            while len(cleaned) < max_cols:
-                cleaned.append('')
-            if max_cols >= 4 and headers[-1] == 'Circuit' and cleaned[max_cols - 1].strip().lower() == 'right':
-                rwy_id = cleaned[0].strip()
+        # Right-hand circuit warnings
+        for rwy in runways:
+            if (rwy.get('circuit') or '').strip().lower() == 'right':
+                rwy_id = (rwy.get('rwy') or '').strip()
                 html += f'    <div class="warning">[!] RWY {escape(rwy_id)}: RIGHT-HAND CIRCUIT</div>\n'
 
-    # Warnings
-    for w in airfield['warnings'][:5]:
-        html += f'    <div class="warning">[!] {escape(clean_html(w))}</div>\n'
+    # Warnings (with source indicators for non-AIP)
+    for w in airfield.get('warnings', [])[:5]:
+        w_text = w.get('text', w) if isinstance(w, dict) else w
+        w_source = w.get('source', {}) if isinstance(w, dict) else {}
+        source_indicator = ''
+        if w_source and not is_official_source(w_source, registry):
+            source_url = get_source_url(w_source, registry, icao)
+            resolved = resolve_source(w_source, registry)
+            source_name = resolved.get('name', '')
+            if source_url:
+                source_indicator = f' <a class="source-link" href="{escape(source_url)}" target="_blank" title="Source: {escape(source_name)}">&#8599;</a>'
+            elif source_name:
+                source_indicator = f' <span class="source-link" title="Source: {escape(source_name)}">&#8599;</span>'
+        html += f'    <div class="warning">[!] {escape(clean_html(w_text))}{source_indicator}</div>\n'
 
-    # Notes
-    if airfield['notes']:
+    # Notes (with source indicators for non-AIP)
+    notes = airfield.get('notes', [])
+    if notes:
         html += '    <div class="section-title">Notes</div>\n'
-        for note in airfield['notes'][:8]:
-            html += f'    <div class="note">- {escape(clean_html(note))}</div>\n'
+        for note in notes[:8]:
+            n_text = note.get('text', note) if isinstance(note, dict) else note
+            n_source = note.get('source', {}) if isinstance(note, dict) else {}
+            source_indicator = ''
+            if n_source and not is_official_source(n_source, registry):
+                source_url = get_source_url(n_source, registry, icao)
+                resolved = resolve_source(n_source, registry)
+                source_name = resolved.get('name', '')
+                if source_url:
+                    source_indicator = f' <a class="source-link" href="{escape(source_url)}" target="_blank" title="Source: {escape(source_name)}">&#8599;</a>'
+                elif source_name:
+                    source_indicator = f' <span class="source-link" title="Source: {escape(source_name)}">&#8599;</span>'
+            html += f'    <div class="note">- {escape(clean_html(n_text))}{source_indicator}</div>\n'
 
     # Diagram
-    diagram_path = find_diagram_path(airfield)
+    diagram_info = airfield.get('diagram', {})
+    diagram_path = diagram_info.get('file') if diagram_info else None
+    if diagram_path:
+        full_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), diagram_path)
+        if not os.path.exists(full_path):
+            diagram_path = None
+        else:
+            diagram_path = full_path
+    if not diagram_path:
+        diagram_path = _find_diagram_for_icao(icao, airfield['name'])
+
     if diagram_path and os.path.exists(diagram_path):
         if embed_diagrams:
             img_tag = embed_image(diagram_path, max_width=600)
@@ -1202,23 +1360,44 @@ def build_airfield_card(airfield, embed_diagrams=False, pdf_filename=None):
             html += f'    <div class="diagram-container">{img_tag}<div class="diagram-caption">Aerodrome diagram — verify currency against official AIP</div></div>\n'
 
     # Contact
-    if airfield['contact']:
-        html += f'    <div class="contact"><strong>Contact:</strong> {escape(clean_html(airfield["contact"]))}</div>\n'
+    contact = airfield.get('contact', {})
+    if isinstance(contact, dict):
+        contact_parts = []
+        if contact.get('name'):
+            contact_parts.append(contact['name'])
+        if contact.get('phone'):
+            contact_parts.append(contact['phone'])
+        if contact.get('address'):
+            contact_parts.append(contact['address'])
+        contact_str = ', '.join(contact_parts)
+    else:
+        contact_str = str(contact) if contact else ''
+    if contact_str:
+        html += f'    <div class="contact"><strong>Contact:</strong> {escape(clean_html(contact_str))}</div>\n'
 
-    html += '  </div>\n</div>\n'
+    html += '  </div>\n'
+
+    # Sources footer
+    html += _build_sources_footer(airfield, icao, registry)
+
+    html += '</div>\n'
     return html
 
 
-def generate_html(airfields, output_path, embed_diagrams=False, download_links=None, freq_tables=None, pdf_mapping=None):
-    """Generate a complete searchable HTML file.
+def generate_html(airfields, output_path, meta=None, embed_diagrams=False, download_links=None, freq_tables=None, pdf_mapping=None):
+    """Generate a complete searchable HTML file from JSON-schema airfield data.
 
     Args:
-        airfields: List of parsed airfield dicts.
+        airfields: List of JSON-schema airfield dicts.
         output_path: Where to write the HTML file.
+        meta: Optional meta dict with source_registry, frequency_tables, etc.
         embed_diagrams: If True, base64-encode diagram images into the HTML.
         download_links: Optional list of dicts with 'label', 'href' keys for download bar.
-        freq_tables: Optional list of regional frequency table dicts from parse_frequency_tables().
+        freq_tables: Optional list of regional frequency table dicts. If None, uses meta.frequency_tables.
+        pdf_mapping: Optional dict mapping airfield number to PDF filename.
     """
+    if freq_tables is None and meta:
+        freq_tables = meta.get('frequency_tables')
     build_date = datetime.now(timezone.utc).strftime('%d %b %Y')
 
     html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
@@ -1392,8 +1571,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
             html += f'<div class="toc-group">{escape(clean_html(province))}</div>\n'
         for af in province_airfields[province]:
             name = clean_html(af['name'])
-            code = get_icao(af)
-            code_clean = clean_html(code).split('(')[0].split(';')[0].strip()[:12]
+            code_clean = af.get('icao', '')
             html += f'<div class="toc-item"><a href="#af-{af["number"]}">{escape(name)}'
             if code_clean:
                 html += f' <span class="code">{escape(code_clean)}</span>'
@@ -1408,7 +1586,7 @@ def generate_html(airfields, output_path, embed_diagrams=False, download_links=N
             seen_provinces.add(group)
             html += f'<div class="group-divider">{escape(clean_html(group))}</div>\n'
         af_pdf = (pdf_mapping or {}).get(af['number'])
-        html += build_airfield_card(af, embed_diagrams=embed_diagrams, pdf_filename=af_pdf)
+        html += build_airfield_card(af, meta=meta, embed_diagrams=embed_diagrams, pdf_filename=af_pdf)
 
     html += '<div id="no-results">No airfields match your search.</div>\n'
     html += '</div>\n'  # container
@@ -1443,15 +1621,15 @@ if __name__ == '__main__':
     print("SA Airfield Directory - HTML Generator")
     print("=" * 50)
 
-    print("\nParsing airfield directory...")
-    airfields = parse_airfields(MD_FILE)
+    print("\nLoading airfield data from JSON...")
+    meta, airfields = load_airfields_json()
     print(f"  Found {len(airfields)} airfields")
 
-    freq_tables = parse_frequency_tables(MD_FILE)
+    freq_tables = meta.get('frequency_tables', [])
     print(f"  Found {len(freq_tables)} frequency tables")
 
     print("\nGenerating HTML (with linked diagrams)...")
-    generate_html(airfields, OUTPUT_HTML, embed_diagrams=False, freq_tables=freq_tables)
+    generate_html(airfields, OUTPUT_HTML, meta=meta, embed_diagrams=False)
 
     file_size = os.path.getsize(OUTPUT_HTML)
     print(f"File size: {file_size / 1024:.1f} KB")
