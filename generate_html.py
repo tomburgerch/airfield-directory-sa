@@ -76,7 +76,7 @@ body {
 .site-header {
     background: var(--navy);
     color: white;
-    padding: 10px 0 8px;
+    padding: 10px 0 0;
     position: sticky;
     top: 0;
     z-index: 1100;
@@ -87,7 +87,6 @@ body {
     max-width: 900px; margin: 0 auto; padding: 0 16px;
 }
 .site-header h1 { font-size: 16px; flex-shrink: 0; color: #FFD700; line-height: 1.2; }
-.site-header h1 span { font-weight: 400; font-size: 11px; color: rgba(255,255,255,0.6); display: block; }
 .search-wrapper {
     flex: 1; min-width: 180px; position: relative;
 }
@@ -193,49 +192,49 @@ body {
 .contact-tip:hover .contact-tooltip { display: block; }
 .header-bottom {
     display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
-    max-width: 900px; margin: 6px auto 0; padding: 0 16px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 7px;
+    max-width: 900px; margin: 0 auto; padding: 8px 16px;
+    background: #f5f3ee;
+    border-bottom: 1px solid #e5e0d5;
 }
 .header-bottom .filter-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    font-weight: 600;
+    color: #8a8480;
     margin-right: 2px;
 }
 .header-bottom .filter-btn {
     font-size: 11px;
-    padding: 3px 9px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: transparent;
-    color: rgba(255,255,255,0.75);
+    padding: 3px 10px;
+    border-radius: 14px;
+    border: 1px solid #d4cfc5;
+    background: white;
+    color: #6b6560;
     cursor: pointer;
     transition: all 0.15s;
     font-weight: 500;
 }
-.header-bottom .filter-btn:hover { border-color: #FFD700; color: #FFD700; }
+.header-bottom .filter-btn:hover { border-color: #1a1a1a; color: #1a1a1a; }
 .header-bottom .filter-btn.active {
-    background: #FFD700;
-    color: var(--navy);
-    border-color: #FFD700;
+    background: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
     font-weight: 700;
 }
 .header-bottom .filter-sep {
     width: 1px;
-    height: 16px;
-    background: rgba(255,255,255,0.15);
+    height: 14px;
+    background: #d4cfc5;
 }
 #search-count {
-    font-size: 10px; color: rgba(255,255,255,0.6);
+    font-size: 10px; color: #8a8480;
     margin-left: auto;
 }
 #filter-count {
     font-size: 10px;
-    color: rgba(255,255,255,0.6);
+    color: #8a8480;
 }
 .header-bottom .updated {
-    font-size: 10px; color: rgba(255,255,255,0.45);
+    font-size: 10px; color: #a09890;
     margin-left: auto;
 }
 
@@ -369,6 +368,7 @@ body {
     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     overflow: hidden;
     transition: box-shadow 0.2s;
+    scroll-margin-top: 100px;
 }
 .airfield-card:target {
     box-shadow: 0 0 0 3px var(--blue), 0 2px 8px rgba(0,0,0,0.12);
@@ -419,15 +419,16 @@ body {
 /* ── Info grid ── */
 .info-grid {
     display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 3px 10px;
-    font-size: 13px;
+    grid-template-columns: 90px 1fr;
+    gap: 1px 8px;
+    font-size: 12.5px;
     margin-bottom: 10px;
 }
-.info-grid .label { font-weight: 600; color: var(--text-muted); }
-.info-grid .value { }
+.info-grid .label { font-size: 11px; font-weight: 500; color: #8a8480; }
+.info-grid .value { color: #1a1a1a; }
 .info-grid .value.freq { color: var(--blue); font-weight: 700; }
 .info-grid .value.elev { font-weight: 700; }
+.detail { font-size: 11px; color: #8a8480; }
 
 /* ── Tables ── */
 .section-title {
@@ -639,15 +640,13 @@ table.freq-table td:last-child { color: var(--blue); font-weight: 700; }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {
-    .info-grid { grid-template-columns: 100px 1fr; font-size: 12px; }
+    .info-grid { grid-template-columns: 80px 1fr; font-size: 12px; }
     .site-header h1 { font-size: 14px; }
-    .site-header h1 span { font-size: 10px; }
     .toc-grid { grid-template-columns: 1fr; }
     #sort-index .sort-index-grid { grid-template-columns: 1fr; }
     .header-top { gap: 8px; }
     .header-actions { gap: 3px; }
     .header-bottom { gap: 4px; }
-    .header-bottom .updated { display: none; }
     .fir-map { height: 250px; }
     .fir-tab { font-size: 11px; padding: 4px 8px; }
 }
