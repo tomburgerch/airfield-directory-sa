@@ -5,3 +5,4 @@ public/
 test_output.pdf
 test_pdfs/
 .superpowers/
+.claude/
