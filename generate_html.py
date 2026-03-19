@@ -1088,6 +1088,11 @@ def _build_sources_footer(airfield, icao, registry):
     return html
 
 
+def _style_parens(value):
+    """Wrap parenthetical text in a <span class="detail"> for muted styling."""
+    return re.sub(r'\(([^)]+)\)', r'<span class="detail">(\1)</span>', value)
+
+
 def build_airfield_card(airfield, meta=None, embed_diagrams=False, pdf_filename=None):
     """Build HTML for a single airfield card from JSON-schema data."""
     registry = (meta or {}).get('source_registry', {})
@@ -1192,38 +1197,38 @@ def build_airfield_card(airfield, meta=None, embed_diagrams=False, pdf_filename=
     if coord_dms:
         coord_decimal = f"{lat}, {lon}" if lat is not None else ""
         if coord_decimal:
-            grid_items.append(f'    <div class="label">Coordinates</div><div class="value"><span class="copy-coords" data-copy-coords="{escape(coord_decimal)}" title="Click to copy decimal coordinates">{escape(clean_html(coord_dms))}</span></div>\n')
+            grid_items.append(f'    <div class="label">Coords</div><div class="value"><span class="copy-coords" data-copy-coords="{escape(coord_decimal)}" title="Click to copy decimal coordinates">{escape(clean_html(coord_dms))}</span></div>\n')
         else:
-            grid_items.append(f'    <div class="label">Coordinates</div><div class="value">{escape(clean_html(coord_dms))}</div>\n')
+            grid_items.append(f'    <div class="label">Coords</div><div class="value">{escape(clean_html(coord_dms))}</div>\n')
 
     if basic.get('elevation'):
         grid_items.append(f'    <div class="label">Elevation</div><div class="value elev">{escape(clean_html(basic["elevation"]))}</div>\n')
 
     if comms.get('primary_freq'):
-        grid_items.append(f'    <div class="label">Frequency</div><div class="value freq">{escape(clean_html(comms["primary_freq"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Freq</div><div class="value freq">{escape(clean_html(comms["primary_freq"]))}</div>\n')
 
     if ops.get('joining_alt'):
-        grid_items.append(f'    <div class="label">Joining Alt</div><div class="value">{escape(clean_html(ops["joining_alt"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Joining</div><div class="value">{_style_parens(escape(clean_html(ops["joining_alt"])))}</div>\n')
 
     if ops.get('circuit_alt'):
-        grid_items.append(f'    <div class="label">Circuit Alt</div><div class="value">{escape(clean_html(ops["circuit_alt"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Circuit</div><div class="value">{_style_parens(escape(clean_html(ops["circuit_alt"])))}</div>\n')
 
     night_val = ops.get('night_ops')
     if night_val is not None and night_val is not False:
         night_str = str(night_val) if night_val is not True else 'Yes'
-        grid_items.append(f'    <div class="label">Night Ops</div><div class="value">{escape(clean_html(night_str))}</div>\n')
+        grid_items.append(f'    <div class="label">Night</div><div class="value">{escape(clean_html(night_str))}</div>\n')
 
     if ops.get('fuel'):
-        grid_items.append(f'    <div class="label">Fuel</div><div class="value">{escape(clean_html(ops["fuel"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Fuel</div><div class="value">{_style_parens(escape(clean_html(ops["fuel"])))}</div>\n')
 
     if ops.get('hours'):
-        grid_items.append(f'    <div class="label">Hours</div><div class="value">{escape(clean_html(ops["hours"]))}</div>\n')
+        grid_items.append(f'    <div class="label">Hours</div><div class="value">{_style_parens(escape(clean_html(ops["hours"])))}</div>\n')
 
     # Tower phone from JSON
     tower_phone = comms.get('tower_phone')
     if tower_phone and has_tower:
         phone_link = f'<a href="tel:{tower_phone}" style="color:var(--green);font-weight:700;text-decoration:none">{escape(tower_phone)}</a>'
-        grid_items.append(f'    <div class="label">Tower Tel</div><div class="value">{phone_link}</div>\n')
+        grid_items.append(f'    <div class="label">Tower</div><div class="value">{phone_link}</div>\n')
 
     if grid_items:
         html += '    <div class="info-grid">\n' + ''.join(grid_items) + '    </div>\n'
