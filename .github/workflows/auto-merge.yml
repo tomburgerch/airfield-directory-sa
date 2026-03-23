@@ -1,0 +1,19 @@
+name: Auto-merge PRs from tommyhawk-dev
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  auto-merge:
+    if: github.event.pull_request.user.login == 'tommyhawk-dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge PR
+        env:
+          GH_TOKEN: ${{ secrets.TOMBURGERCH_PAT }}
+        run: |
+          sleep 10
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --merge \
+            --delete-branch
