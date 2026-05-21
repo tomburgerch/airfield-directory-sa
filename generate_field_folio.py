@@ -56,10 +56,11 @@ PAGE_MARGIN_TOP = 6 * mm
 PAGE_MARGIN_BOTTOM = 6 * mm
 
 # Row layout (within an A5 page) ----------------------------------------
-ROW_HEIGHT = 4.6 * mm
-ROW_FONT = 7.2
+ROW_HEIGHT = 3.8 * mm
+ROW_FONT = 6.9
 HEADER_FONT = 9
 SECTION_FONT = 11
+MAX_ROWS_PER_PAGE = 48
 
 # Column x-offsets relative to A5 left margin (mm).
 # Total content width = 148.5 - 2*5 = 138.5 mm.
@@ -282,16 +283,32 @@ def flags(af) -> str:
 
 # ── Filtering / sorting ───────────────────────────────────────────────
 
+def is_closed(af) -> bool:
+    name = af.get('name', '') or ''
+    return bool(re.search(r'CLOSED|PERMANENTLY\s+CLOSED|⛔', name, re.I))
+
+
 def useful(af) -> bool:
-    """Keep airfields that contribute at least one piece of decision-relevant data
-    beyond just an elevation guess."""
+    """Keep airfields a pilot might reasonably need to know about: real data,
+    OR a real ICAO code (even with sparse data — military bases, sleepy strips).
+    Skip explicitly closed fields and entries flagged as status-uncertain."""
+    if is_closed(af):
+        return False
+    name = af.get('name', '') or ''
+    if re.search(r'STATUS\s+UNCERTAIN', name, re.I):
+        return False
     rwys = (af.get('runways') or {}).get('data') or []
     has_freq = bool(strip((af.get('communications') or {}).get('primary_freq') or ''))
     has_real_rwy = any(
         length_m(r.get('length') or '') or surface_code(r.get('surface') or '') in ('T', 'G', 'V', 'C', 'D')
         for r in rwys
     )
-    return has_freq or has_real_rwy
+    if has_freq or has_real_rwy:
+        return True
+    # Real FA-series ICAO → keep even without runway/freq data (the existence
+    # alone is useful: military bases, controlled aerodromes with no public
+    # numbers, currently-dormant strips with assigned codes).
+    return bool(icao_short(af))
 
 def priority(af) -> tuple:
     """Sort: ICAO airfields first (more likely to be real/active),
@@ -449,7 +466,8 @@ def render_cover(c, x, y_top, spec):
         ('243.000',  'Military emergency'),
         ('123.450',  'Air-to-air'),
         ('124.800',  'GAP common (uncontrolled SA)'),
-        ('126.900',  'Cape Town information / FIS'),
+        ('125.500',  'Cape Town Information (FIS)'),
+        ('126.300',  'Johannesburg Information (FIS)'),
         ('082 911',  'ER24'),
         ('10177',    'Ambulance (mobile)'),
         ('0800 11 12 13', 'AMD SAR'),
@@ -517,27 +535,107 @@ def render_cover(c, x, y_top, spec):
         yy = _draw_home_block(c, x, y_top, yy, label, af)
         yy += 2
 
+_ICAO_IN_LABEL_RE = re.compile(r'\(([A-Z]{4})\)')
+_SERVICE_TYPE_RE = re.compile(
+    r'\b(TWR|TOWER|APP|APPROACH|GND|GROUND|ATIS|ATIR|CLR|CLEARANCE|'
+    r'AFIS|FIS|INFORMATION|RADAR|DIRECTOR|APRON|MIL)\b',
+    re.I,
+)
+
+
+def _service_flag(label: str) -> str:
+    """Return a 1–3 char service tag for the FLG column: TWR/APP/ATI/etc."""
+    m = _SERVICE_TYPE_RE.search(label or '')
+    if not m:
+        return ''
+    raw = m.group(1).upper()
+    return {
+        'TWR': 'T', 'TOWER': 'T',
+        'APP': 'A', 'APPROACH': 'A',
+        'GND': 'G', 'GROUND': 'G',
+        'ATIS': 'I', 'ATIR': 'I',
+        'CLR': 'C', 'CLEARANCE': 'C',
+        'AFIS': 'F', 'FIS': 'F', 'INFORMATION': 'F',
+        'RADAR': 'R', 'DIRECTOR': 'R',
+        'APRON': 'P',
+        'MIL': 'M',
+    }.get(raw, '')
+
+
 def render_freqs(c, x, y_top, spec):
+    """Render a frequency table in the SAME field-table layout as render_fields
+    so the booklet has one visual rhythm across all pages."""
     title = spec['title']
     rows = spec['rows']
     subtitle = spec.get('subtitle', '')
 
-    draw_text(c, x(0), y_top(8), title, font=SERIF_BOLD, size=13, color=NAVY)
-    if subtitle:
-        draw_text(c, x(0), y_top(13.5), subtitle, font=SERIF, size=8, color=MUTED)
+    draw_text(c, x(0), y_top(8), title, font=SERIF_BOLD, size=12, color=NAVY)
+    draw_text(c, x(138.5), y_top(8), subtitle,
+              font=SERIF, size=8, color=MUTED, align='r')
+    c.setStrokeColor(NAVY); c.setLineWidth(0.4)
+    c.line(x(0) * mm, y_top(11) * mm, (x(0) + 138.5) * mm, y_top(11) * mm)
 
-    c.setStrokeColor(NAVY); c.setLineWidth(0.5)
-    c.line(x(0) * mm, y_top(16) * mm, (x(0) + 138.5) * mm, y_top(16) * mm)
+    # Column headers — same column origins as render_fields. ICAO column shows
+    # the parent airport code (if any); NAME shows the service label; FREQ is
+    # the freq; ELEV/RWYS reused for type & notes; FLG for service tag.
+    yh = 15
+    draw_text(c, x(CX_ICAO),   y_top(yh), 'ICAO',  font=MONO_BOLD, size=6.8, color=MUTED)
+    draw_text(c, x(CX_NAME),   y_top(yh), 'SERVICE', font=MONO_BOLD, size=6.8, color=MUTED)
+    draw_text(c, x(CX_FREQ),   y_top(yh), 'FREQ',  font=MONO_BOLD, size=6.8, color=MUTED)
+    draw_text(c, x(CX_RWY),    y_top(yh), 'NOTES', font=MONO_BOLD, size=6.8, color=MUTED)
+    draw_text(c, x(CX_FLG_R),  y_top(yh), 'TYP',   font=MONO_BOLD, size=6.8, color=MUTED, align='r')
+    c.setStrokeColor(RULE); c.setLineWidth(0.25)
+    c.line(x(0) * mm, y_top(yh + 1.5) * mm, (x(0) + 138.5) * mm, y_top(yh + 1.5) * mm)
 
-    yy = 20
-    for label, freq_val in rows:
-        if yy > (A5_H / mm) - 12:
+    yy = 19
+    band = False
+    for raw_label, raw_freq in rows:
+        if yy > (A5_H / mm) - 8:
             break
-        label = strip(label)
-        freq_val = strip(freq_val)
-        draw_text(c, x(0), y_top(yy), label, font=SERIF, size=8.2, color=INK)
-        draw_text(c, x(138.5), y_top(yy), freq_val, font=MONO_BOLD, size=8.5, color=ACCENT, align='r')
-        yy += 4.6
+        label = strip(raw_label or '')
+        freq_val = strip(raw_freq or '')
+
+        # Highlight FIS rows with the home tint so they pop.
+        is_fis = bool(re.search(r'\bFIS|INFORMATION\b', label, re.I))
+        if is_fis:
+            c.setFillColor(HOME_TINT)
+            c.rect(x(-1) * mm, (y_top(yy) - 0.8) * mm, 140.5 * mm, ROW_HEIGHT, fill=1, stroke=0)
+        elif band:
+            c.setFillColor(BAND)
+            c.rect(x(-1) * mm, (y_top(yy) - 0.8) * mm, 140.5 * mm, ROW_HEIGHT, fill=1, stroke=0)
+        band = not band
+
+        # Pull ICAO out of "Stellenbosch (FASH)" if present.
+        icao = ''
+        m = _ICAO_IN_LABEL_RE.search(label)
+        if m:
+            icao = m.group(1)
+            label = _ICAO_IN_LABEL_RE.sub('', label).strip()
+
+        # Drop the service-type word at end of label so NAME is clean.
+        notes = ''
+        sm = _SERVICE_TYPE_RE.search(label)
+        if sm:
+            # Keep service in label for clarity but suppress from NOTES.
+            notes = ''
+
+        if len(label) > 28:
+            label = label[:27] + '…'
+
+        label_color = ACCENT if is_fis else INK
+        label_font = SERIF_BOLD if is_fis else SERIF
+
+        draw_text(c, x(CX_ICAO),   y_top(yy), icao or '—',
+                  font=MONO_BOLD, size=ROW_FONT, color=NAVY)
+        draw_text(c, x(CX_NAME),   y_top(yy), label,
+                  font=label_font, size=ROW_FONT + 0.3, color=label_color)
+        draw_text(c, x(CX_FREQ),   y_top(yy), freq_val,
+                  font=MONO_BOLD, size=ROW_FONT, color=ACCENT)
+        draw_text(c, x(CX_RWY),    y_top(yy), notes,
+                  font=MONO, size=ROW_FONT, color=MUTED)
+        draw_text(c, x(CX_FLG_R),  y_top(yy), _service_flag(raw_label),
+                  font=MONO_BOLD, size=ROW_FONT, color=NAVY, align='r')
+        yy += ROW_HEIGHT / mm
 
 
 def render_fields(c, x, y_top, spec):
@@ -647,11 +745,36 @@ def build_pages(data):
     wc = by_group.get('WESTERN CAPE', [])
     ec = by_group.get('EASTERN CAPE', [])
     kzn = by_group.get('KWAZULU-NATAL', [])
+    fs = by_group.get('FREE STATE', [])
+    nc = by_group.get('NORTHERN CAPE', [])
+    gp = by_group.get('GAUTENG', [])
     home_now = _pin_home(wc, 'MORNINGSTAR')
     home_next = _pin_home(kzn, 'VIRGINIA', icao_match='FAVG')
 
-    # Frequency tables from meta
-    freq_tables = {t['name']: t for t in data['meta']['frequency_tables']}
+    # Frequency tables from meta — patch in national FIS rows up top so they
+    # appear in every region.
+    freq_tables = {t['name']: dict(t) for t in data['meta']['frequency_tables']}
+
+    NATIONAL_FIS = [
+        ['Cape Town FIS',               '125.500'],
+        ['Joburg FIS',                  '126.300'],
+        ['Emergency / Guard',           '121.500'],
+        ['GAP common (uncontrolled)',   '124.800'],
+        ['Air-to-air',                  '123.450'],
+    ]
+    def _fkey(v):
+        try:
+            return f'{float(strip(v) or 0):.3f}'
+        except (ValueError, TypeError):
+            return strip(v or '')
+
+    for tname, t in freq_tables.items():
+        # Dedupe by canonical frequency value, then prepend missing FIS rows.
+        # Also drop existing rows whose freq matches one we're prepending —
+        # the FIS labels take priority over generic "Information" entries.
+        prepend_keys = {_fkey(r[1]) for r in NATIONAL_FIS}
+        kept = [r for r in t.get('rows', []) if _fkey(r[1]) not in prepend_keys]
+        t['rows'] = list(NATIONAL_FIS) + kept
 
     pages = []
 
@@ -659,29 +782,28 @@ def build_pages(data):
     pages.append({'kind': 'cover', 'data': data,
                   'home_now': home_now, 'home_next': home_next})
 
-    # Page 2: Cape Town freqs
-    ct = freq_tables.get('CAPE TOWN AREA', {'rows': []})
-    pages.append({
-        'kind': 'freqs',
-        'title': 'CAPE TOWN AREA',
-        'subtitle': 'Tower, approach, ATIS, surrounding stations',
-        'rows': ct['rows'],
-    })
+    def freq_page(table_key, title, subtitle='Tower, approach, ATIS, FIS, surrounding stations'):
+        return {
+            'kind': 'freqs',
+            'title': title,
+            'subtitle': subtitle,
+            'rows': freq_tables.get(table_key, {'rows': []}).get('rows', []),
+        }
 
-    # Each region gets one page (per_page large enough for all useful entries).
-    pages.extend(paginate_fields(wc, 'WESTERN CAPE', 40))
+    pages.append(freq_page('CAPE TOWN AREA', 'CAPE TOWN AREA'))
+    pages.extend(paginate_fields(wc, 'WESTERN CAPE', MAX_ROWS_PER_PAGE))
 
-    # Eastern Cape & KZN freqs
-    eckzn = freq_tables.get('EASTERN CAPE & KZN', {'rows': []})
-    pages.append({
-        'kind': 'freqs',
-        'title': 'EASTERN CAPE / KZN AREA',
-        'subtitle': 'Tower, approach, ATIS, surrounding stations',
-        'rows': eckzn['rows'],
-    })
+    pages.append(freq_page('EASTERN CAPE & KZN', 'EASTERN CAPE / KZN AREA'))
+    pages.extend(paginate_fields(ec, 'EASTERN CAPE', MAX_ROWS_PER_PAGE))
+    pages.extend(paginate_fields(kzn, 'KWAZULU-NATAL', MAX_ROWS_PER_PAGE))
 
-    pages.extend(paginate_fields(ec, 'EASTERN CAPE', 40))
-    pages.extend(paginate_fields(kzn, 'KWAZULU-NATAL', 40))
+    # Inland coverage — useful for cross-country / ferry runs.
+    pages.append(freq_page('FREE STATE', 'FREE STATE AREA'))
+    pages.extend(paginate_fields(fs, 'FREE STATE', MAX_ROWS_PER_PAGE))
+    pages.extend(paginate_fields(nc, 'NORTHERN CAPE', MAX_ROWS_PER_PAGE))
+
+    pages.append(freq_page('GAUTENG & INLAND', 'GAUTENG / INLAND AREA'))
+    pages.extend(paginate_fields(gp, 'GAUTENG', MAX_ROWS_PER_PAGE))
 
     # Pad to multiple of 4 for booklet imposition
     while len(pages) % 4 != 0:
