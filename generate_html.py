@@ -1049,15 +1049,25 @@ def _find_diagram_for_icao(icao, name):
     """Find diagram for airfield by ICAO code or name."""
     if not DIAGRAMS_DIR or not os.path.exists(DIAGRAMS_DIR):
         return None
+    # Mirror the candidate patterns in diagrams_util.find_diagram: the
+    # extracted chart PNGs carry the source-PDF suffix (FACT_AD02.png,
+    # FABL_chart.png, …), not a bare ICAO, so try those variants too.
+    def _variants(code):
+        return [
+            f'{code}.png', f'{code}.jpg',
+            f'{code}_AD01.png', f'{code}_AD02.png',
+            f'{code}_chart.png',
+        ]
+
     candidates = []
+    codes = []
     if icao:
-        fa_codes = re.findall(r'\b(FA[A-Z]{2,4})\b', icao.upper())
-        for code in fa_codes:
-            candidates.extend([f'{code}.png', f'{code}.jpg'])
-    name_codes = re.findall(r'\b(FA[A-Z]{2,4})\b', name.upper())
-    for code in name_codes:
-        if f'{code}.png' not in candidates:
-            candidates.extend([f'{code}.png', f'{code}.jpg'])
+        codes.extend(re.findall(r'\b(FA[A-Z]{2,4})\b', icao.upper()))
+    codes.extend(re.findall(r'\b(FA[A-Z]{2,4})\b', name.upper()))
+    for code in codes:
+        for c in _variants(code):
+            if c not in candidates:
+                candidates.append(c)
     for c in candidates:
         path = os.path.join(DIAGRAMS_DIR, c)
         if os.path.exists(path):

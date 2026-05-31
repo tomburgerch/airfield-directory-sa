@@ -6,3 +6,6 @@ test_output.pdf
 test_pdfs/
 .superpowers/
 .claude/
+
+# Derived diagram renders (generated from committed *.pdf via pymupdf)
+diagrams/*.png
