@@ -349,19 +349,23 @@ def validate_json_schema(json_path=None, schema_path=None):
     with open(schema_path, 'r', encoding='utf-8') as f:
         schema = _json.load(f)
 
+    # Schema validation is best-effort: if jsonschema is unavailable we record a
+    # warning but still fall through to the structural sanity checks below, rather
+    # than returning early and silently skipping ALL validation of the build source.
     try:
         import jsonschema
-        jsonschema.validate(data, schema)
     except ImportError:
         result['errors'].append('jsonschema package not installed — skipping schema validation')
-        return result
-    except jsonschema.ValidationError as e:
-        result['valid'] = False
-        result['errors'].append(f'Schema validation failed: {e.message}')
-        if e.path:
-            result['errors'].append(f'  at path: {"/".join(str(p) for p in e.path)}')
+    else:
+        try:
+            jsonschema.validate(data, schema)
+        except jsonschema.ValidationError as e:
+            result['valid'] = False
+            result['errors'].append(f'Schema validation failed: {e.message}')
+            if e.path:
+                result['errors'].append(f'  at path: {"/".join(str(p) for p in e.path)}')
 
-    # Basic structure checks
+    # Basic structure checks (always run, even if jsonschema is missing)
     airfields = data.get('airfields', [])
     if len(airfields) == 0:
         result['valid'] = False
