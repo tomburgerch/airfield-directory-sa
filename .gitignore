@@ -9,3 +9,11 @@ test_pdfs/
 
 # Derived diagram renders (generated from committed *.pdf via pymupdf)
 diagrams/*.png
+
+# secrets: never commit real env files (templates stay tracked via negations)
+.env
+.env.*
+!.env.example
+!.env.tpl
+!.env.sample
+!.env.test.example
