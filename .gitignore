@@ -6,6 +6,9 @@ test_output.pdf
 test_pdfs/
 .superpowers/
 .claude/
+# bare spelling also ignores a symlinked node_modules (worktree shortcut);
+# the trailing-slash form matches directories only
+node_modules
 
 # Derived diagram renders (generated from committed *.pdf via pymupdf)
 diagrams/*.png
